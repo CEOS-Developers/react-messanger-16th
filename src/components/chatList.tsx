@@ -7,10 +7,11 @@ const Container = styled.div`
   flex-direction : column;
   width: 25rem;
   height: 25rem;
+  background-color: #8BC097;
   border : 1px solid #E8E8E8 ;
 `
 
-const ChatList = ()=>{
+const ChatList = () =>{
   return(
     <Container>
 
