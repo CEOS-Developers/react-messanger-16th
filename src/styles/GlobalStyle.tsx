@@ -24,6 +24,8 @@ body {
 header {
   display: flex;
   padding: 1rem;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 `;
 
