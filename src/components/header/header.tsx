@@ -12,23 +12,15 @@ const Header = (userId: any) => {
 
   return (
     <Container>
-      <ProfileBox>
-        <ProfileImg onClick={() => {}} src={kurby1} />
-        <Name> {'나는커비'} </Name>
-      </ProfileBox>
-
-      <ProfileBox style={{ opacity: 0.5 }}>
-        <ProfileImg onClick={() => {}} src={kurby2} />
-        <Name> {'별의커비'} </Name>
-      </ProfileBox>
-
-      {/* <Profile profileImg={'flyKurby'} name={'flyKurby'} active={true} />
-      <Profile name={'flyKurby'} active={true} />
-
       {userInfo.map((user) => (
-        // <Profile profileImg={user.name} name={user.name} active={user.active} />
-        <Profile name={user.name} active={user.active} />
-      ))} */}
+        <Profile
+          key={userId}
+          userId={userId}
+          userImage={user.userImage}
+          userName={user.userName}
+          userActive={user.userActive}
+        />
+      ))}
     </Container>
   );
 };

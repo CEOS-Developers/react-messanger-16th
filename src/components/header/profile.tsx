@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { User } from '../../interface/user';
 
 const Container = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ const ProfileImg = styled.img`
   height: 3.5rem;
   width: 3.5rem;
   border-radius: 1rem;
+  cursor: pointer;
 `;
 
 const Name = styled.div`
@@ -20,19 +22,21 @@ const Name = styled.div`
   font-size: 0.8rem;
 `;
 
-// const Profile = (profileImg?: any, name?: String, active?: boolean) => {
-const Profile = (name?: string, active?: boolean) => {
+const Profile = ({ userId, userName, userImage, userActive }: User) => {
   return (
     <Container>
-      {active ? (
+      {userActive ? (
         <>
-          {/* <ProfileImg src={`../img/${profileImg}.jpeg`} /> */}
-          <Name> {name} </Name>
+          <ProfileImg src={`../../img/${userImage}.jpeg`} />
+          <Name> {userName} </Name>
         </>
       ) : (
         <>
-          {/* <ProfileImg src={profileImg} /> */}
-          <Name> {name} </Name>
+          <ProfileImg
+            src={`../../img/${userImage}.jpeg`}
+            style={{ opacity: 0.5 }}
+          />
+          <Name> {userName} </Name>
         </>
       )}
     </Container>
