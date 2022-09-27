@@ -27,15 +27,12 @@ const Profile = ({ userId, userName, userImage, userActive }: User) => {
     <Container>
       {userActive ? (
         <>
-          <ProfileImg src={`../../img/${userImage}.jpeg`} />
+          <ProfileImg src={`img/${userImage}.jpeg`} />
           <Name> {userName} </Name>
         </>
       ) : (
         <>
-          <ProfileImg
-            src={`../../img/${userImage}.jpeg`}
-            style={{ opacity: 0.5 }}
-          />
+          <ProfileImg src={`img/${userImage}.jpeg`} style={{ opacity: 0.5 }} />
           <Name> {userName} </Name>
         </>
       )}
