@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
 }
 
-
 body {
   height: 100vh;
   display: flex;
@@ -20,6 +19,11 @@ body {
   justify-content: center;
   font-family: "Pretendard-Regular";
   margin: 0;
+}
+
+header {
+  display: flex;
+  padding: 1rem;
 }
 `;
 
