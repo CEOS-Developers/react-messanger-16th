@@ -1,39 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import { chatting } from '../../interface/chatting';
+import { useRecoilValue } from 'recoil';
+import { activeId } from '../../recoil/store';
 
-const ChatBubble = (chat: any) => {
-  const userId = 1;
+const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
+  const active = useRecoilValue(activeId);
   return (
-    <>
-      {userId == chat.talkerId ? (
+    <BubbleBox>
+      {active == talkerId ? (
         <>
-          <BubbleBox>
-            <BubbleRight>
-              <Text> {chat.text} </Text>
-            </BubbleRight>
-          </BubbleBox>
+          <BubbleRight>
+            <Text> {text} </Text>
+          </BubbleRight>
         </>
       ) : (
-        <BubbleBox>
-          <BubbleLeft>
-            <Text> {chat.text} </Text>
-          </BubbleLeft>
-        </BubbleBox>
+        <BubbleLeft>
+          <Text> {text} </Text>
+        </BubbleLeft>
       )}
-    </>
+    </BubbleBox>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 25rem;
-  height: 1rem;
-  top-margin: 0.2rem;
-  background-color: #8bc097;
-`;
 
 const BubbleBox = styled.div`
   display: flex;

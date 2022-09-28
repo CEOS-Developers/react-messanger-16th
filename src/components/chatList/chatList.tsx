@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import { activeId, chatList } from '../../recoil/store';
+import ChatBubble from './chatBubble';
 
 const ChatList = (userId: any) => {
   const active = useRecoilValue(activeId);
@@ -8,23 +9,15 @@ const ChatList = (userId: any) => {
 
   return (
     <Container>
-      {chatting.map((chat: { talkerId: any; text: any }) => (
+      {chatting.map((chat) => (
         <>
-          {active == chat.talkerId ? (
-            <BubbleBox>
-              <BubbleRight>
-                <Text>{chat.text}</Text>
-              </BubbleRight>
-            </BubbleBox>
-          ) : (
-            <BubbleBox>
-              <BubbleLeft>
-                <Text>{chat.text}</Text>
-              </BubbleLeft>
-            </BubbleBox>
-          )}
-
-          {/* <ChatBubble key={chat.chatId} chat={chat} /> */}
+          <ChatBubble
+            key={chat.chatId}
+            chatId={chat.chatId}
+            talkerId={chat.talkerId}
+            listenerId={chat.listenerId}
+            text={chat.text}
+          />
         </>
       ))}
     </Container>
