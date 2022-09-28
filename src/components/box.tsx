@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
+import Header from './header';
+import Content from './content';
+import Input from './input';
 
 const ChatBox = styled.main`
   position: absolute;
@@ -15,14 +18,19 @@ const ChatBox = styled.main`
   height: 600px;
   border: 10px black;
   border-radius: 7%;
-  background-color: white;
-  box-shadow: 1px 1px 3px 1px #dadce0;
+  background-color: powderblue;
   line-height: 1;
   margin: auto;
 `;
 
-const Box = () => {
-  return <ChatBox />;
+const Box = (props: any) => {
+  return (
+    <ChatBox>
+      <Header />
+      <Content />
+      <Input />
+    </ChatBox>
+  );
 };
 
 export default Box;

@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     body{
-    background-color: powderblue;
+    background-color: grey;
     font-family: 'SEBANG_Gothic_Bold';
     }
     @font-face {
