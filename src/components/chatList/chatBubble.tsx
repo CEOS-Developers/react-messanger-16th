@@ -7,36 +7,36 @@ import { activeId } from '../../recoil/store';
 const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
   const active = useRecoilValue(activeId);
   return (
-    <BubbleBox>
+    <>
       {active == talkerId ? (
-        <>
-          <BubbleRight>
-            <Text> {text} </Text>
-          </BubbleRight>
-        </>
+        // 오른쪽 정렬
+        <BubbleBox style={{ justifyContent: 'flex-end' }}>
+          <Bubble style={{ marginRight: '1rem' }}>
+            <ChatText> {text} </ChatText>
+          </Bubble>
+        </BubbleBox>
       ) : (
-        <BubbleLeft>
-          <Text> {text} </Text>
-        </BubbleLeft>
+        // 왼쪽 정렬
+        <BubbleBox>
+          <Bubble style={{ marginLeft: '1rem' }}>
+            <ChatText> {text} </ChatText>
+          </Bubble>
+        </BubbleBox>
       )}
-    </BubbleBox>
+    </>
   );
 };
 
 const BubbleBox = styled.div`
   display: flex;
-  position: relative;
   width: 25rem;
-  height: 3rem;
+  height: 2rem;
+  margin-top: 1rem;
   background-color: #8bc097;
 `;
 
-const BubbleLeft = styled.div`
+const Bubble = styled.div`
   display: flex;
-  position: absolute;
-  left: 1rem;
-  top: 0.5rem;
-
   width: auto;
   height: 2rem;
   text-size: 0.8rem;
@@ -44,22 +44,15 @@ const BubbleLeft = styled.div`
   border-radius: 0.5rem;
 `;
 
-const BubbleRight = styled.div`
-  display: flex;
-  position: absolute;
-  right: 1rem;
-  top: 0.5rem;
-
-  width: auto;
-  height: 2rem;
-  text-size: 0.8rem;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-`;
-
-const Text = styled.text`
+const ChatText = styled.text`
   padding: 0.5rem;
   text-size: 1rem;
+`;
+
+const DayText = styled.text`
+  text-size: 0.5rem;
+  left: 1rem;
+  top: 0.5rem;
 `;
 
 export default ChatBubble;
