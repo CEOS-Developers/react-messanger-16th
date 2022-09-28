@@ -1,5 +1,8 @@
+import styled from 'style-components';
+import { GlobalStyle } from './styles/global-style';
+
 function App() {
-  return <div>화이팅!!</div>;
+  return <GlobalStyle />;
 }
 
 export default App;
