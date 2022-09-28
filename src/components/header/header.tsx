@@ -11,7 +11,6 @@ const Header = () => {
           userId={user.userId}
           userImage={user.userImage}
           userName={user.userName}
-          userActive={user.userActive}
         />
       ))}
     </Container>

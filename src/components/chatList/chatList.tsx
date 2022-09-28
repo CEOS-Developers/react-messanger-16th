@@ -1,11 +1,6 @@
 import styled from 'styled-components';
-import ChatBubble from './chatBubble';
-import chatRoom from '../../assets/chatRoom';
 import { useRecoilValue } from 'recoil';
 import { activeId, chatList } from '../../recoil/store';
-
-import { chatting } from '../../interface/chatting';
-import { ReactElement, JSXElementConstructor, ReactFragment } from 'react';
 
 const ChatList = (userId: any) => {
   const active = useRecoilValue(activeId);

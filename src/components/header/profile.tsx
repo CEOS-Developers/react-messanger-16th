@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { activeId } from '../../recoil/store';
 import { User } from '../../interface/user';
 
-const Profile = ({ userId, userName, userImage, userActive }: User) => {
+const Profile = ({ userId, userName, userImage }: User) => {
   const [active, setActive] = useRecoilState(activeId);
   return (
     <Container>
