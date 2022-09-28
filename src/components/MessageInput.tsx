@@ -11,6 +11,7 @@ const MessageInput = () => {
 
 const InputForm = styled.form`
   display: flex;
+  position: absoulte;
   padding-top: 1rem;
   padding-bottom: 1rem;
   height: 2rem;

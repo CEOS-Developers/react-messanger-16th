@@ -1,16 +1,34 @@
 {
-  "ChatRooms": [
+  "chatrooms": [
     {
-      "roomId": 1,
+      "roomid": 1,
       "users": 1,
-      "chat": [
+      "chats": [
         {
-          "userId": 1,
+          "userid": 1,
+          "chatid": "a",
           "chat": "내가 만든 쿠키 🍪"
         },
         {
-          "userId": 0,
-          "chat": "너를 위해 구웠지"
+          "userid": 0,
+          "chatid": "b",
+          "chat": " 너를 위해 구웠지"
+        }
+      ]
+    },
+    {
+      "roomid": 2,
+      "users": 2,
+      "chats": [
+        {
+          "userid": 2,
+          "chatid": "c",
+          "chat": "느린 한마디보다 조용함이 더 좋아"
+        },
+        {
+          "userid": 0,
+          "chatid": "d",
+          "chat": "기다리고 있지만 매일 이런 건 아냐"
         }
       ]
     }

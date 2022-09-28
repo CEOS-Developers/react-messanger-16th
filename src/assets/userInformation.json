@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "userId": 0,
+      "userid": 0,
       "name": "강나연"
     },
     {
-      "userId": 1,
+      "userid": 1,
       "name": "NewJeans"
     }
   ]
