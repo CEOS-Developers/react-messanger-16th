@@ -1,4 +1,10 @@
-import React, { createContext } from 'react';
+import React, {
+  useState,
+  useRef,
+  useReducer,
+  useMemo,
+  useCallback,
+} from 'react';
 import styled from 'styled-components';
 import Header from './components/header/header';
 import ChatList from './components/chatList/chatList';
@@ -7,13 +13,14 @@ import ChatInput from './components/chatInput';
 import userInfo from './assets/userInfo';
 
 function App() {
-  let userId: number = 2;
+  const userId = 1;
+
   return (
     <Background>
       <Container>
-        <Header userId={userId} />
+        <Header />
         <ChatList />
-        <ChatInput userId={userId} />
+        <ChatInput />
       </Container>
     </Background>
   );

@@ -3,19 +3,12 @@ import styled from 'styled-components';
 import Profile from './profile';
 import userInfo from '../../assets/userInfo';
 
-import kurby1 from '../../img/flyKurby.jpeg';
-import kurby2 from '../../img/starKurby.jpeg';
-
-const Header = (userId: any) => {
-  const [user, setUser] = useState(1); // 나의 유저 아이디
-  const [other, setOther] = useState(2); // 상대방 유저 아이디
-
+const Header = () => {
   return (
     <Container>
       {userInfo.map((user) => (
         <Profile
-          key={userId}
-          userId={userId}
+          userId={user.userId}
           userImage={user.userImage}
           userName={user.userName}
           userActive={user.userActive}

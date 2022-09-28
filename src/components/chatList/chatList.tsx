@@ -1,29 +1,33 @@
 import styled from 'styled-components';
 import ChatBubble from './chatBubble';
 import chatRoom from '../../assets/chatRoom';
+import { useRecoilValue } from 'recoil';
+import { activeId } from '../../index';
 
-const ChatList = () => {
-  const userId = 2;
+import { chatting } from '../../interface/chatting';
+
+const ChatList = (userId: any) => {
+  const active = useRecoilValue(activeId);
 
   return (
     <Container>
-      {chatRoom.map((list) => (
+      {chatRoom.chatRoom12.map((chat) => (
         <>
-          {userId == list.talkerId ? (
+          {active == chat.talkerId ? (
             <BubbleBox>
               <BubbleRight>
-                <Text>{list.text}</Text>
+                <Text>{chat.text}</Text>
               </BubbleRight>
             </BubbleBox>
           ) : (
             <BubbleBox>
               <BubbleLeft>
-                <Text>{list.text}</Text>
+                <Text>{chat.text}</Text>
               </BubbleLeft>
             </BubbleBox>
           )}
 
-          {/* <ChatBubble userId={1} speakerId={list.talkerId} text={list.text} /> */}
+          <ChatBubble key={chat.chatId} chat={chat} />
         </>
       ))}
     </Container>

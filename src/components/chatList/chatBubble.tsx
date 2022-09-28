@@ -1,27 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import { chatting } from '../../interface/chatting';
 
-const ChatBubble = (userId: any, speakerId: any, text: any) => {
+const ChatBubble = (chat: any) => {
+  const userId = 1;
   return (
-    // <Container>
     <>
-      {userId === speakerId ? (
+      {userId == chat.talkerId ? (
         <>
           <BubbleBox>
             <BubbleRight>
-              <Text> {text} </Text>
+              <Text> {chat.text} </Text>
             </BubbleRight>
           </BubbleBox>
         </>
       ) : (
         <BubbleBox>
           <BubbleLeft>
-            <Text> {text} </Text>
+            <Text> {chat.text} </Text>
           </BubbleLeft>
         </BubbleBox>
       )}
-
-      {/* </Container> */}
     </>
   );
 };

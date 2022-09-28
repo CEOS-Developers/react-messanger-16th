@@ -1,5 +1,6 @@
 export interface chatting {
-  talkerId: any;
-  listenerId: any;
+  chatId: number;
+  talkerId: number;
+  listenerId: number;
   text: string;
 }
