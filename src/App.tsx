@@ -1,20 +1,9 @@
-import React, {
-  useState,
-  useRef,
-  useReducer,
-  useMemo,
-  useCallback,
-} from 'react';
 import styled from 'styled-components';
 import Header from './components/header/header';
 import ChatList from './components/chatList/chatList';
 import ChatInput from './components/chatInput';
 
-import userInfo from './assets/userInfo';
-
 function App() {
-  const userId = 1;
-
   return (
     <Background>
       <Container>

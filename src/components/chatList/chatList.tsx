@@ -2,16 +2,18 @@ import styled from 'styled-components';
 import ChatBubble from './chatBubble';
 import chatRoom from '../../assets/chatRoom';
 import { useRecoilValue } from 'recoil';
-import { activeId } from '../../recoil/store';
+import { activeId, chatList } from '../../recoil/store';
 
 import { chatting } from '../../interface/chatting';
+import { ReactElement, JSXElementConstructor, ReactFragment } from 'react';
 
 const ChatList = (userId: any) => {
   const active = useRecoilValue(activeId);
+  const chatting = useRecoilValue(chatList);
 
   return (
     <Container>
-      {chatRoom.chatRoom12.map((chat) => (
+      {chatting.map((chat: { talkerId: any; text: any }) => (
         <>
           {active == chat.talkerId ? (
             <BubbleBox>
@@ -27,7 +29,7 @@ const ChatList = (userId: any) => {
             </BubbleBox>
           )}
 
-          <ChatBubble key={chat.chatId} chat={chat} />
+          {/* <ChatBubble key={chat.chatId} chat={chat} /> */}
         </>
       ))}
     </Container>

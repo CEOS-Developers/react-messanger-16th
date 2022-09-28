@@ -1,18 +1,40 @@
-import React, { useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { activeId } from '../recoil/store';
+import { useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { activeId, chatList } from '../recoil/store';
 import styled from 'styled-components';
 
 const ChatInput = (userId: any) => {
   const [value, setValue] = useState('');
-  const [active, setActive] = useRecoilState(activeId);
+  const active = useRecoilValue(activeId);
+  const [chat, setChat] = useRecoilState(chatList);
+
+  const plusList = (value: any) => {
+    if (value.trim()) {
+      const lastId = chat.length();
+      let newChat;
+      if (active === 1) {
+        newChat = {
+          chatId: lastId + 1,
+          talkerId: 1,
+          listenerId: 2,
+          text: value,
+        };
+      } else {
+        newChat = {
+          chatId: lastId + 1,
+          talkerId: 2,
+          listenerId: 1,
+          text: value,
+        };
+      }
+      setChat(chat.concat(newChat));
+    }
+  };
 
   const onSubmit = (e: any) => {
     e.preventDefault();
-
-    if (value.trim()) {
-      setValue('');
-    }
+    plusList(value);
+    setValue('');
   };
 
   return (
