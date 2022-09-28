@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { activeId } from '../recoil/store';
 import styled from 'styled-components';
 
 const ChatInput = (userId: any) => {
   const [value, setValue] = useState('');
+  const [active, setActive] = useRecoilState(activeId);
 
   const onSubmit = (e: any) => {
     e.preventDefault();

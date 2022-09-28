@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import ChatBubble from './chatBubble';
 import chatRoom from '../../assets/chatRoom';
 import { useRecoilValue } from 'recoil';
-import { activeId } from '../../index';
+import { activeId } from '../../recoil/store';
 
 import { chatting } from '../../interface/chatting';
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
-import { activeId } from '../../index';
+import { activeId } from '../../recoil/store';
 import { User } from '../../interface/user';
 
 const Profile = ({ userId, userName, userImage, userActive }: User) => {
