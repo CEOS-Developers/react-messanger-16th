@@ -10,7 +10,7 @@ const ChatInput = (userId: any) => {
 
   const plusList = (value: any) => {
     if (value.trim()) {
-      const lastId = chat.length();
+      const lastId = chat.length;
       let newChat;
       if (active === 1) {
         newChat = {
@@ -28,13 +28,13 @@ const ChatInput = (userId: any) => {
         };
       }
       setChat(chat.concat(newChat));
+      setValue('');
     }
   };
 
   const onSubmit = (e: any) => {
     e.preventDefault();
     plusList(value);
-    setValue('');
   };
 
   return (
@@ -76,6 +76,7 @@ const Button = styled.button`
   background-color: #96c894;
   border: none;
   border-radius: 0.5rem;
+  cursor: pointer;
   &: disabled {
     background-color: #e8e8e8;
   }
