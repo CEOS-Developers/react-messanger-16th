@@ -1,15 +1,16 @@
 export interface Chat {
   userid: number;
+  chatid: string;
   chat: string;
 }
 
 export interface ChatMessage {
-  roodId: number;
+  roomid: number;
   users: number;
-  chat: Chat[];
+  chats: Chat[];
 }
 
 export interface UserInformation {
-    userid: number;
-    name: string;
+  userid: number;
+  name: string;
 }

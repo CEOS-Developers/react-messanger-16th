@@ -1,10 +1,28 @@
 import styled from "styled-components";
+import useInput from "../hooks/useInput";
+import { Chat } from "../interfaces/interface";
 
 const MessageInput = () => {
+  const message = useInput("");
+
+  const newMessage: Chat = {
+    userid: 0,
+    chatid: "Aa",
+    chat: message.value,
+  };
+
+  const handleInputButtonClick = () => {
+    if (newMessage.chat.trim()) {
+      console.log(newMessage.chat);
+      // ChatData store로 보내기
+      message.setValue("");
+    }
+  };
+
   return (
-    <InputForm>
-      <InputText />
-      <InputButton>전송</InputButton>
+    <InputForm onSubmit={(e) => e.preventDefault()}>
+      <InputText {...message} />
+      <InputButton onClick={handleInputButtonClick}>전송</InputButton>
     </InputForm>
   );
 };
@@ -16,6 +34,8 @@ const InputForm = styled.form`
   padding-bottom: 1rem;
   height: 2rem;
 `;
+
+// 시간 되면 textarea로 바꾸기...
 
 const InputText = styled.input`
   width: 85%;
