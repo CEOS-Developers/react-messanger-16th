@@ -1,29 +1,32 @@
 import { atom } from "recoil";
-import { ChatMessage, UserInformation } from "../interfaces/interface";
+import { ChatRoom, UserInformation } from "../interfaces/interface";
 import messageData from "../assets/chatMessage.json";
 import userInformation from "../assets/userInformation.json";
 
-export const chatStore = atom<ChatMessage[]>({
+export const chatState = atom<ChatRoom[]>({
   key: "chatMessage",
   default: messageData.chatrooms,
 });
 
-export const userInformationStore = atom<UserInformation[]>({
+export const userInformationState = atom<UserInformation[]>({
   key: "userInformation",
   default: userInformation.users,
 });
 
-export const nowRoomStore = atom<number>({
+// 현재 채팅방의 id
+export const nowRoomState = atom<number>({
   key: "nowRoomId",
   default: 0,
 });
 
-export const chatUserStore = atom<number>({
+// 현재 채팅 중인 유저의 id
+export const chatUserState = atom<number>({
   key: "nowChatUser",
   default: 1,
 });
 
-export const nowUserStore = atom<boolean>({
-  key: "nowUser",
+//
+export const accountState = atom<boolean>({
+  key: "account",
   default: true,
 });

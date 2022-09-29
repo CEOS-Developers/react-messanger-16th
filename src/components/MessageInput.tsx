@@ -2,56 +2,44 @@ import { FormEvent } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";
-import { Chat, ChatMessage } from "../interfaces/interface";
-import {
-  chatStore,
-  nowRoomStore,
-  nowUserStore,
-  chatUserStore,
-} from "../store/atom";
+import { Chat, ChatRoom } from "../interfaces/interface";
+import { chatState, accountState } from "../store/atom";
 
 const MessageInput = () => {
   const message = useInput("");
-  const [chatRoom, setChatRoom] = useRecoilState(chatStore);
-  const [chatUser, setChatUser] = useRecoilState(chatUserStore);
-  const [nowUser, setNowUser] = useRecoilState(nowUserStore);
+
+  const [chat, setChat] = useRecoilState(chatState);
+  const [account, setAccount] = useRecoilState(accountState);
 
   const newMessage: Chat = {
     userid: 0,
     chatid: Date.now(),
-    myAccount: nowUser ? true : false,
+    myAccount: account ? true : false,
     chat: message.value,
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setChatRoom((rooms: any) => {
-      console.log("rooms", rooms);
-      const remainList = rooms.filter((item: ChatMessage) => item.roomid !== 0);
-      const targetItem = rooms.find((item: ChatMessage) => item.roomid === 0);
-      const toggledItem = [
-        {
-          ...targetItem,
-          chats: [...targetItem.chats, newMessage],
-        },
-      ];
-      message.setValue("");
-      return [...remainList, ...toggledItem];
-    });
-  };
-
-  const handleInputButtonClick = () => {
     if (newMessage.chat.trim()) {
-      console.log(newMessage.chat);
-      // ChatData store로 보내기
-      // message.setValue("");
+      setChat((rooms: any) => {
+        const remainList = rooms.filter((item: ChatRoom) => item.roomid !== 0);
+        const targetItem = rooms.find((item: ChatRoom) => item.roomid === 0);
+        const toggledItem = [
+          {
+            ...targetItem,
+            chats: [...targetItem.chats, newMessage],
+          },
+        ];
+        return [...remainList, ...toggledItem];
+      });
+      message.setValue("");
     }
   };
 
   return (
     <InputForm onSubmit={onSubmit}>
       <InputText {...message} />
-      <InputButton onClick={handleInputButtonClick}>전송</InputButton>
+      <InputButton>전송</InputButton>
     </InputForm>
   );
 };

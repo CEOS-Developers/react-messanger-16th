@@ -5,7 +5,7 @@ export interface Chat {
   chat: string;
 }
 
-export interface ChatMessage {
+export interface ChatRoom {
   roomid: number;
   users: number;
   chats: Chat[];

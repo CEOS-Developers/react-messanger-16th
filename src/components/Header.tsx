@@ -1,10 +1,6 @@
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import {
-  chatUserStore,
-  nowUserStore,
-  userInformationStore,
-} from "../store/atom";
+import { chatUserState, accountState } from "../store/atom";
 
 export type HeaderPropsType = {
   leftChild: string;
@@ -12,16 +8,13 @@ export type HeaderPropsType = {
 };
 
 const Header = ({ leftChild, rightChild }: HeaderPropsType) => {
-  const [nowUser, setNowUser] = useRecoilState(nowUserStore);
-  const [nowChatUser, setNowChatUser] = useRecoilState(chatUserStore);
-  const [userInformation, setUserInformation] =
-    useRecoilState(userInformationStore);
+  const [account, setAccount] = useRecoilState(accountState);
+  const [nowChatUser, setNowChatUser] = useRecoilState(chatUserState);
 
-  const headText = nowUser ? "kongnayeon" : "NewJeans 👖";
+  const headText = account ? "NewJeans 👖" : "NaYeon 💭";
   const handleHeadTextClick = () => {
-    setNowUser(!nowUser);
-    console.log("nowUser", nowUser);
-    setNowChatUser(nowUser ? 0 : nowChatUser);
+    setAccount(!account);
+    setNowChatUser(account ? 0 : nowChatUser);
   };
 
   return (
@@ -33,8 +26,6 @@ const Header = ({ leftChild, rightChild }: HeaderPropsType) => {
   );
 };
 
-// css가 뭔가 안 되는데... 나중에 하자!
-
 const HeaderButton = styled.button`
   width: 10%;
   background: #fff;
@@ -43,6 +34,8 @@ const HeaderButton = styled.button`
   font-size: 25px;
   cursor: pointer;
 `;
+
+// 프로필 사진
 
 const HeadText = styled.span`
   width: 80%;

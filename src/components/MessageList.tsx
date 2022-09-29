@@ -1,16 +1,14 @@
 import { useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { nowRoomStore, chatStore, nowUserStore } from "../store/atom";
+import { nowRoomState, chatState, accountState } from "../store/atom";
 
 const MessageList = () => {
-  // const roomData = messageData.chatrooms.filter((v) => v.roomid === 1);
-  const [chatRoom, setChatRoom] = useRecoilState(chatStore);
-  const [nowRoomId, setNowRoomId] = useRecoilState(nowRoomStore);
-  const [nowUser, setnowUser] = useRecoilState(nowUserStore);
+  const [chatRoom, setChatRoom] = useRecoilState(chatState);
+  const [nowRoomId, setNowRoomId] = useRecoilState(nowRoomState);
+  const [account, setAccount] = useRecoilState(accountState);
 
   const nowRoomData = chatRoom.filter((v) => v.roomid === nowRoomId);
-  console.log("aasa", nowRoomData);
 
   const messageListRef = useRef<HTMLUListElement>(null);
 
@@ -24,22 +22,11 @@ const MessageList = () => {
     scrollToBottom();
   }, [chatRoom]);
 
-  console.log("recoil chatRoom", chatRoom);
   return (
     <ChatWrapper ref={messageListRef}>
       {nowRoomData[0].chats.map((v) => (
-        <BubbleWrapper
-          key={v.chatid}
-          userid={v.userid}
-          myAccount={v.myAccount}
-          nowUser={nowUser}
-        >
-          <Bubble
-            key={v.chatid}
-            userid={v.userid}
-            myAccount={v.myAccount}
-            nowUser={nowUser}
-          >
+        <BubbleWrapper key={v.chatid} myAccount={v.myAccount} account={account}>
+          <Bubble key={v.chatid} myAccount={v.myAccount} account={account}>
             {v.chat}
           </Bubble>
         </BubbleWrapper>
@@ -56,28 +43,26 @@ const ChatWrapper = styled.section`
 `;
 
 const BubbleWrapper = styled.div<{
-  userid: number;
   myAccount: boolean;
-  nowUser: boolean;
+  account: boolean;
 }>`
   display: flex;
   flex-direction: ${(props) =>
-    props.myAccount === props.nowUser ? "row-reverse" : "row"};
+    props.myAccount === props.account ? "row-reverse" : "row"};
 `;
 
 // 프로필 사진...
 
 const Bubble = styled.div<{
-  userid: number;
   myAccount: boolean;
-  nowUser: boolean;
+  account: boolean;
 }>`
   background: ${(props) =>
-    props.myAccount === props.nowUser
+    props.myAccount === props.account
       ? "linear-gradient(180deg, #ffffff 0%, #aed1fc 100%)"
       : "linear-gradient(180deg, #ffffff 0%, #9de74f 100%)"};
   border-radius: ${(props) =>
-    props.myAccount === props.nowUser
+    props.myAccount === props.account
       ? " 25px 0px 25px 25px"
       : "0px 25px 25px 25px"};
   border: 1px solid #000000;
