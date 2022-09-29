@@ -28,7 +28,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 25rem;
-  height: 25rem;
+  height: 29.5rem;
   background-color: #8bc097;
 
   overflow-y: auto;

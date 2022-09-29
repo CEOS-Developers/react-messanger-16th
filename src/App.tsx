@@ -29,7 +29,7 @@ const Container = styled.div`
   justify-items: center;
   align-items: center;
   width: 25rem;
-  height: 40rem;
+  height: 44rem;
   border: 1px solid #e8e8e8;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e8e8e8;
   border-radius: 1rem;

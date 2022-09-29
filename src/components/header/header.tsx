@@ -23,7 +23,7 @@ const Container = styled.div`
   justify-items: center;
   align-items: center;
   width: 25rem;
-  height: 7rem;
+  height: 6.5rem;
 `;
 
 const ProfileBox = styled.div`
