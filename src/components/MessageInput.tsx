@@ -1,26 +1,47 @@
+import { FormEvent } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";
-import { Chat } from "../interfaces/interface";
+import { Chat, ChatMessage } from "../interfaces/interface";
+import { chatStore } from "../store/atom";
 
 const MessageInput = () => {
   const message = useInput("");
+  const [chatRoom, setChatRoom] = useRecoilState(chatStore);
+  // const [chatId, setChatId] =
 
   const newMessage: Chat = {
     userid: 0,
-    chatid: "Aa",
+    chatid: "dddd",
     chat: message.value,
+  };
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setChatRoom((rooms: any) => {
+      const remainList = rooms.filter((item: any) => item.roomid !== 0);
+      const targetItem = rooms.find((item: any) => item.roomid === 0);
+      const toggledItem = [
+        {
+          ...targetItem,
+          chats: [...targetItem.chats, newMessage],
+        },
+      ];
+      message.setValue("");
+      return [...remainList, ...toggledItem];
+    });
   };
 
   const handleInputButtonClick = () => {
     if (newMessage.chat.trim()) {
       console.log(newMessage.chat);
       // ChatData store로 보내기
-      message.setValue("");
+      //message.setValue("");
     }
   };
 
   return (
-    <InputForm onSubmit={(e) => e.preventDefault()}>
+    <InputForm onSubmit={onSubmit}>
       <InputText {...message} />
       <InputButton onClick={handleInputButtonClick}>전송</InputButton>
     </InputForm>

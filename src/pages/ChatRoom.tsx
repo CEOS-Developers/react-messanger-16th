@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import MessageInput from "../components/MessageInput";
 import MessageList from "../components/MessageList";
 
-
 const ChatRoom = () => {
   return (
     <ChatRoomContainer>

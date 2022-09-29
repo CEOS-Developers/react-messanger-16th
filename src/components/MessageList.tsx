@@ -1,12 +1,14 @@
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import messageData from "../assets/chatMessage.json";
 import { Chat, ChatMessage } from "../interfaces/interface";
+import { chatStore } from "../store/atom";
 
 const MessageList = () => {
-  console.log("dd", messageData.chatrooms);
-  const roomData = messageData.chatrooms.filter((v) => v.roomid === 1);
-  console.log("roomData", roomData);
+  //const roomData = messageData.chatrooms.filter((v) => v.roomid === 1);
+  const [chatRoom, setChatRoom] = useRecoilState(chatStore);
+  const roomData = chatRoom.filter((v) => v.roomid === 0);
 
+  console.log("recoil chatRoom", chatRoom);
   return (
     <ChatWrapper>
       {roomData[0].chats.map((v) => (
