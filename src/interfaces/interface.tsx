@@ -1,6 +1,7 @@
 export interface Chat {
   userid: number;
-  chatid: string;
+  chatid: number;
+  myAccount: boolean;
   chat: string;
 }
 

@@ -1,16 +1,27 @@
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { nowUserStore, userInformationStore } from "../store/atom";
 
 export type HeaderPropsType = {
-  headText?: string;
   leftChild: string;
   rightChild: string;
 };
 
-const Header = ({ headText, leftChild, rightChild }: HeaderPropsType) => {
+const Header = ({ leftChild, rightChild }: HeaderPropsType) => {
+  const [nowUser, setNowUser] = useRecoilState(nowUserStore);
+  const [userInformation, setUserInformation] =
+    useRecoilState(userInformationStore);
+
+  // const headText = userInformation.map((user) => (nowUser ? "" : user.name));
+
+  const handleHeadTextClick = () => {
+    setNowUser(!nowUser);
+  };
+
   return (
     <header>
       <HeaderButton>{leftChild}</HeaderButton>
-      <HeadText>{headText}</HeadText>
+      <HeadText onClick={handleHeadTextClick}>NewJeans 👖</HeadText>
       <HeaderButton>{rightChild}</HeaderButton>
     </header>
   );

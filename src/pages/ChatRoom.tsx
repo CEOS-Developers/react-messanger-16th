@@ -6,7 +6,7 @@ import MessageList from "../components/MessageList";
 const ChatRoom = () => {
   return (
     <ChatRoomContainer>
-      <Header headText="NewJeans 👖" leftChild="<" rightChild="⋮" />
+      <Header leftChild="<" rightChild="⋮" />
       <MessageList />
       <MessageInput />
     </ChatRoomContainer>

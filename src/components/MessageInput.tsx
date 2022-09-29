@@ -3,24 +3,26 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";
 import { Chat, ChatMessage } from "../interfaces/interface";
-import { chatStore } from "../store/atom";
+import { chatStore, chatUserStore } from "../store/atom";
 
 const MessageInput = () => {
   const message = useInput("");
   const [chatRoom, setChatRoom] = useRecoilState(chatStore);
-  // const [chatId, setChatId] =
+  const [chatUser, setChatUser] = useRecoilState(chatUserStore);
 
   const newMessage: Chat = {
-    userid: 0,
-    chatid: "dddd",
+    userid: chatUser,
+    chatid: Date.now(),
+    myAccount: true,
     chat: message.value,
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setChatRoom((rooms: any) => {
-      const remainList = rooms.filter((item: any) => item.roomid !== 0);
-      const targetItem = rooms.find((item: any) => item.roomid === 0);
+      console.log("rooms", rooms);
+      const remainList = rooms.filter((item: ChatMessage) => item.roomid !== 0);
+      const targetItem = rooms.find((item: ChatMessage) => item.roomid === 0);
       const toggledItem = [
         {
           ...targetItem,
@@ -36,7 +38,7 @@ const MessageInput = () => {
     if (newMessage.chat.trim()) {
       console.log(newMessage.chat);
       // ChatData store로 보내기
-      //message.setValue("");
+      // message.setValue("");
     }
   };
 

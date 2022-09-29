@@ -6,12 +6,14 @@
       "chats": [
         {
           "userid": 1,
-          "chatid": "0",
+          "chatid": 1664469417344,
+          "myAccount": false,
           "chat": "내가 만든 쿠키 🍪"
         },
         {
           "userid": 0,
-          "chatid": "1",
+          "chatid": 1664469417345,
+          "myAccount": true,
           "chat": "너를 위해 구웠지 😽"
         }
       ]
@@ -22,12 +24,14 @@
       "chats": [
         {
           "userid": 2,
-          "chatid": "3",
+          "chatid": 1664469417346,
+          "myAccount": false,
           "chat": "느린 한마디보다 조용함이 더 좋아"
         },
         {
           "userid": 0,
-          "chatid": "4",
+          "chatid": 1664469417347,
+          "myAccount": true,
           "chat": "기다리고 있지만 매일 이런 건 아냐"
         }
       ]
