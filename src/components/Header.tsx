@@ -1,6 +1,6 @@
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { chatUserState, accountState } from "../store/atom";
+import { accountState, userSelector } from "../store/atom";
 
 export type HeaderPropsType = {
   leftChild: string;
@@ -8,13 +8,13 @@ export type HeaderPropsType = {
 };
 
 const Header = ({ leftChild, rightChild }: HeaderPropsType) => {
-  const [account, setAccount] = useRecoilState(accountState);
-  const [nowChatUser, setNowChatUser] = useRecoilState(chatUserState);
+  const [userAccount, setUserAccount] = useRecoilState(accountState);
+  const filteredUser = useRecoilValue(userSelector);
 
-  const headText = account ? "NewJeans 👖" : "NaYeon 💭";
+  const headText = userAccount ? filteredUser!.name : "NaYeon 💭";
+
   const handleHeadTextClick = () => {
-    setAccount(!account);
-    setNowChatUser(account ? 0 : nowChatUser);
+    setUserAccount(!userAccount);
   };
 
   return (

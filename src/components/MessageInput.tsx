@@ -1,33 +1,39 @@
 import { FormEvent } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";
 import { Chat, ChatRoom } from "../interfaces/interface";
-import { chatState, accountState } from "../store/atom";
+import { chatState, accountState, chatRoomSelector } from "../store/atom";
 
 const MessageInput = () => {
   const message = useInput("");
 
-  const [chat, setChat] = useRecoilState(chatState);
-  const [account, setAccount] = useRecoilState(accountState);
+  const setChat = useSetRecoilState(chatState);
+  const userAccount = useRecoilValue(accountState);
+  const filteredChatRoom = useRecoilValue(chatRoomSelector);
 
   const newMessage: Chat = {
     userid: 0,
     chatid: Date.now(),
-    myAccount: account ? true : false,
+    myAccount: userAccount ? true : false,
     chat: message.value,
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newMessage.chat.trim()) {
-      setChat((rooms: any) => {
-        const remainList = rooms.filter((item: ChatRoom) => item.roomid !== 0);
-        const targetItem = rooms.find((item: ChatRoom) => item.roomid === 0);
+      setChat((chatRooms: any) => {
+        // any 없애야 하는데...
+        const remainList = chatRooms.filter(
+          (item: ChatRoom) => item.roomid !== filteredChatRoom!.roomid
+        );
+        const targetItem = chatRooms.find(
+          (item: ChatRoom) => item.roomid === filteredChatRoom!.roomid
+        );
         const toggledItem = [
           {
             ...targetItem,
-            chats: [...targetItem.chats, newMessage],
+            chats: [...targetItem!.chats, newMessage],
           },
         ];
         return [...remainList, ...toggledItem];

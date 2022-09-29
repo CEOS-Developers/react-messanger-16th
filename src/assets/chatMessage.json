@@ -2,7 +2,7 @@
   "chatrooms": [
     {
       "roomid": 0,
-      "users": 0,
+      "user": 1,
       "chats": [
         {
           "userid": 1,
@@ -20,7 +20,7 @@
     },
     {
       "roomid": 1,
-      "users": 1,
+      "user": 2,
       "chats": [
         {
           "userid": 2,

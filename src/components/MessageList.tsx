@@ -1,14 +1,11 @@
 import { useEffect, useRef } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { nowRoomState, chatState, accountState } from "../store/atom";
+import { accountState, chatRoomSelector } from "../store/atom";
 
 const MessageList = () => {
-  const [chatRoom, setChatRoom] = useRecoilState(chatState);
-  const [nowRoomId, setNowRoomId] = useRecoilState(nowRoomState);
-  const [account, setAccount] = useRecoilState(accountState);
-
-  const nowRoomData = chatRoom.filter((v) => v.roomid === nowRoomId);
+  const filteredChatRoom = useRecoilValue(chatRoomSelector);
+  const userAccount = useRecoilValue(accountState);
 
   const messageListRef = useRef<HTMLUListElement>(null);
 
@@ -20,13 +17,21 @@ const MessageList = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [chatRoom]);
+  }, [filteredChatRoom]);
 
   return (
     <ChatWrapper ref={messageListRef}>
-      {nowRoomData[0].chats.map((v) => (
-        <BubbleWrapper key={v.chatid} myAccount={v.myAccount} account={account}>
-          <Bubble key={v.chatid} myAccount={v.myAccount} account={account}>
+      {filteredChatRoom!.chats.map((v) => (
+        <BubbleWrapper
+          key={v.chatid}
+          myAccount={v.myAccount}
+          userAccount={userAccount}
+        >
+          <Bubble
+            key={v.chatid}
+            myAccount={v.myAccount}
+            userAccount={userAccount}
+          >
             {v.chat}
           </Bubble>
         </BubbleWrapper>
@@ -44,25 +49,25 @@ const ChatWrapper = styled.section`
 
 const BubbleWrapper = styled.div<{
   myAccount: boolean;
-  account: boolean;
+  userAccount: boolean;
 }>`
   display: flex;
   flex-direction: ${(props) =>
-    props.myAccount === props.account ? "row-reverse" : "row"};
+    props.myAccount === props.userAccount ? "row-reverse" : "row"};
 `;
 
 // 프로필 사진...
 
 const Bubble = styled.div<{
   myAccount: boolean;
-  account: boolean;
+  userAccount: boolean;
 }>`
   background: ${(props) =>
-    props.myAccount === props.account
+    props.myAccount === props.userAccount
       ? "linear-gradient(180deg, #ffffff 0%, #aed1fc 100%)"
       : "linear-gradient(180deg, #ffffff 0%, #9de74f 100%)"};
   border-radius: ${(props) =>
-    props.myAccount === props.account
+    props.myAccount === props.userAccount
       ? " 25px 0px 25px 25px"
       : "0px 25px 25px 25px"};
   border: 1px solid #000000;

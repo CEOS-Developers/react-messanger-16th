@@ -7,7 +7,7 @@ export interface Chat {
 
 export interface ChatRoom {
   roomid: number;
-  users: number;
+  user: number;
   chats: Chat[];
 }
 
