@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Talk from './talk/talk';
 
 const ContentBox = styled.section`
   width: 100%;
@@ -7,7 +8,11 @@ const ContentBox = styled.section`
 `;
 
 const Content = () => {
-  return <ContentBox />;
+  return (
+    <ContentBox>
+      <Talk />
+    </ContentBox>
+  );
 };
 
 export default Content;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import User from './talk/user';
 
 const Head = styled.header`
   background-color: white;
@@ -7,10 +8,16 @@ const Head = styled.header`
   height: 17%;
   border: 10px black;
   border-radius: 7% 7% 0% 0%;
+  display: flex;
 `;
 
 const Header = () => {
-  return <Head />;
+  return (
+    <Head>
+      <User />
+      <User />
+    </Head>
+  );
 };
 
 export default Header;
