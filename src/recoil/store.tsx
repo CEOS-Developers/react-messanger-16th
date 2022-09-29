@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import chatRoom from '../assets/chatRoom';
+import chatInfo from '../assets/chatInfo';
 
 export const activeId = atom<any>({
   key: 'activeId',
@@ -8,5 +8,5 @@ export const activeId = atom<any>({
 
 export const chatList = atom<any>({
   key: 'chatList',
-  default: chatRoom,
+  default: chatInfo,
 });

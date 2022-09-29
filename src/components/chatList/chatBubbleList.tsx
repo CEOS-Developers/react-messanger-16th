@@ -4,18 +4,13 @@ import { useRecoilValue } from 'recoil';
 import { chatList } from '../../recoil/store';
 import ChatBubble from './chatBubble';
 
-const ChatList = (userId: any) => {
+const ChatBubbleList = (userId: any) => {
   const chatting = useRecoilValue(chatList);
   const containerRef = useRef<HTMLElement>(null);
-  const messageWrapperRef = useRef<HTMLElement>(null);
 
   const goToBottom = () => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-    if (messageWrapperRef.current) {
-      messageWrapperRef.current.scrollTop =
-        messageWrapperRef.current.scrollHeight;
     }
   };
 
@@ -62,4 +57,4 @@ const Container = styled.div`
   }
 `;
 
-export default ChatList;
+export default ChatBubbleList;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Header from './components/header/header';
-import ChatList from './components/chatList/chatList';
+import ChatBubbleList from './components/chatList/chatBubbleList';
 import ChatInput from './components/chatInput';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <Background>
       <Container>
         <Header />
-        <ChatList />
+        <ChatBubbleList />
         <ChatInput />
       </Container>
     </Background>
