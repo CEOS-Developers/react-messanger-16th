@@ -4,7 +4,7 @@ import { chatting } from '../interface/chatting';
 
 export const activeId = atom<any>({
   key: 'activeId',
-  default: 1,
+  default: 0,
 });
 
 export const chatList = atom<any>({

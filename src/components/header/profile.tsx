@@ -9,13 +9,13 @@ const Profile = ({ userId, userName, userImage }: User) => {
     <Container>
       {active == userId ? (
         <>
-          <ProfileImg src={`img/${userImage}.jpeg`} />
+          <ProfileImg src={`img/${userImage}.png`} />
           <Name> {userName} </Name>
         </>
       ) : (
         <>
           <ProfileImg
-            src={`img/${userImage}.jpeg`}
+            src={`img/${userImage}.png`}
             style={{ opacity: 0.5 }}
             onClick={() => setActive(userId)}
           />

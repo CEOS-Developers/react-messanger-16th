@@ -12,18 +12,18 @@ const ChatInput = (userId: any) => {
     if (value.trim()) {
       const lastId = chat.length;
       let newChat;
-      if (active === 1) {
+      if (active === 0) {
         newChat = {
           chatId: lastId + 1,
-          talkerId: 1,
-          listenerId: 2,
+          talkerId: 0,
+          listenerId: 1,
           text: value,
         };
       } else {
         newChat = {
           chatId: lastId + 1,
-          talkerId: 2,
-          listenerId: 1,
+          talkerId: 1,
+          listenerId: 0,
           text: value,
         };
       }
@@ -73,8 +73,9 @@ const Button = styled.button`
 
   height: 6rem;
   width: 6rem;
-  background-color: #96c894;
-  border: none;
+  background-color: #9bbbd4;
+  opacity: 0.5;
+  border-color: #9bbbd4;
   border-radius: 0.5rem;
   cursor: pointer;
   &: disabled {

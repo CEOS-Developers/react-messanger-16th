@@ -19,9 +19,9 @@ const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
       ) : (
         // 왼쪽 정렬
         <BubbleBox>
-          <ProfileImg src={`img/${userInfo[listenerId].userImage}.jpeg`} />
+          <ProfileImg src={`img/${userInfo[talkerId].userImage}.png`} />
           <ColumnBox>
-            <NameText> {userInfo[listenerId].userName} </NameText>
+            <NameText> {userInfo[talkerId].userName} </NameText>
             <Bubble>
               <ChatText> {text} </ChatText>
             </Bubble>
@@ -35,7 +35,7 @@ const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
 const BubbleBox = styled.div`
   display: flex;
   width: 25rem;
-  height: 2rem;
+  height: 3.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 `;
