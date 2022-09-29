@@ -1,16 +1,27 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
-import { activeId, chatList } from '../../recoil/store';
+import { chatList } from '../../recoil/store';
 import ChatBubble from './chatBubble';
 
 const ChatList = (userId: any) => {
-  const active = useRecoilValue(activeId);
   const chatting = useRecoilValue(chatList);
+  const containerRef = useRef<HTMLElement>(null);
+  const messageWrapperRef = useRef<HTMLElement>(null);
 
-  const scrollRef = useRef();
+  const goToBottom = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+    if (messageWrapperRef.current) {
+      messageWrapperRef.current.scrollTop =
+        messageWrapperRef.current.scrollHeight;
+    }
+  };
 
-  useEffect(() => {}, [chatting]);
+  useEffect(() => {
+    goToBottom();
+  }, [chatting]);
 
   return (
     <Container>
