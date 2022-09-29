@@ -1,17 +1,18 @@
 import { useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { chatStore, nowUserStore } from "../store/atom";
+import { nowRoomStore, chatStore, nowUserStore } from "../store/atom";
 
 const MessageList = () => {
-  //const roomData = messageData.chatrooms.filter((v) => v.roomid === 1);
+  // const roomData = messageData.chatrooms.filter((v) => v.roomid === 1);
   const [chatRoom, setChatRoom] = useRecoilState(chatStore);
-  const roomData = chatRoom.filter((v) => v.roomid === 0);
-  // 컴포넌트 하나 더 만들어서... id를 props로 넘겨 줘서...
+  const [nowRoomId, setNowRoomId] = useRecoilState(nowRoomStore);
+  const [nowUser, setnowUser] = useRecoilState(nowUserStore);
+
+  const nowRoomData = chatRoom.filter((v) => v.roomid === nowRoomId);
+  console.log("aasa", nowRoomData);
 
   const messageListRef = useRef<HTMLUListElement>(null);
-
-  const [nowUser, setnowUser] = useRecoilState(nowUserStore);
 
   const scrollToBottom = () => {
     if (messageListRef.current) {
@@ -26,7 +27,7 @@ const MessageList = () => {
   console.log("recoil chatRoom", chatRoom);
   return (
     <ChatWrapper ref={messageListRef}>
-      {roomData[0].chats.map((v) => (
+      {nowRoomData[0].chats.map((v) => (
         <BubbleWrapper
           key={v.chatid}
           userid={v.userid}

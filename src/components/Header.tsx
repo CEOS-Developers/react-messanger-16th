@@ -1,6 +1,10 @@
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { nowUserStore, userInformationStore } from "../store/atom";
+import {
+  chatUserStore,
+  nowUserStore,
+  userInformationStore,
+} from "../store/atom";
 
 export type HeaderPropsType = {
   leftChild: string;
@@ -9,19 +13,21 @@ export type HeaderPropsType = {
 
 const Header = ({ leftChild, rightChild }: HeaderPropsType) => {
   const [nowUser, setNowUser] = useRecoilState(nowUserStore);
+  const [nowChatUser, setNowChatUser] = useRecoilState(chatUserStore);
   const [userInformation, setUserInformation] =
     useRecoilState(userInformationStore);
 
-  // const headText = userInformation.map((user) => (nowUser ? "" : user.name));
-
+  const headText = nowUser ? "kongnayeon" : "NewJeans 👖";
   const handleHeadTextClick = () => {
     setNowUser(!nowUser);
+    console.log("nowUser", nowUser);
+    setNowChatUser(nowUser ? 0 : nowChatUser);
   };
 
   return (
     <header>
       <HeaderButton>{leftChild}</HeaderButton>
-      <HeadText onClick={handleHeadTextClick}>NewJeans 👖</HeadText>
+      <HeadText onClick={handleHeadTextClick}>{headText}</HeadText>
       <HeaderButton>{rightChild}</HeaderButton>
     </header>
   );

@@ -3,17 +3,23 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";
 import { Chat, ChatMessage } from "../interfaces/interface";
-import { chatStore, chatUserStore } from "../store/atom";
+import {
+  chatStore,
+  nowRoomStore,
+  nowUserStore,
+  chatUserStore,
+} from "../store/atom";
 
 const MessageInput = () => {
   const message = useInput("");
   const [chatRoom, setChatRoom] = useRecoilState(chatStore);
   const [chatUser, setChatUser] = useRecoilState(chatUserStore);
+  const [nowUser, setNowUser] = useRecoilState(nowUserStore);
 
   const newMessage: Chat = {
-    userid: chatUser,
+    userid: 0,
     chatid: Date.now(),
-    myAccount: true,
+    myAccount: nowUser ? true : false,
     chat: message.value,
   };
 
