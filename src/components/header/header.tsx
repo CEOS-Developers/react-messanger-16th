@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext } from 'react';
 import styled from 'styled-components';
 import Profile from './profile';
-import userInfo from '../../assets/userInfo';
+import userInfo from '../../assets/userInfo.json';
 
 const Header = () => {
   return (

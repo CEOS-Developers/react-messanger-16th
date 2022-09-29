@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import userInfo from '../../assets/userInfo';
+import userInfo from '../../assets/userInfo.json';
 import { chatting } from '../../interface/chatting';
 import { useRecoilValue } from 'recoil';
 import { activeId } from '../../recoil/store';
