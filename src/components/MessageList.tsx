@@ -21,18 +21,18 @@ const MessageList = () => {
 
   return (
     <ChatWrapper ref={messageListRef}>
-      {filteredChatRoom!.chats.map((v) => (
+      {filteredChatRoom!.chats.map((chat) => (
         <BubbleWrapper
-          key={v.chatid}
-          myAccount={v.myAccount}
+          key={chat.chatid}
+          myAccount={chat.myAccount}
           userAccount={userAccount}
         >
           <Bubble
-            key={v.chatid}
-            myAccount={v.myAccount}
+            key={chat.chatid}
+            myAccount={chat.myAccount}
             userAccount={userAccount}
           >
-            {v.chat}
+            {chat.chat}
           </Bubble>
         </BubbleWrapper>
       ))}
@@ -45,6 +45,13 @@ const ChatWrapper = styled.section`
   flex: 1;
   overflow: auto;
   flex-direction: column;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background: #ccc;
+  }
 `;
 
 const BubbleWrapper = styled.div<{
