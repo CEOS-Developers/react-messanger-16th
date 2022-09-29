@@ -18,15 +18,14 @@ type MessageProps = {
 };
 
 function MessageBox({msgList, nowUser}:MessageProps){
-    console.log(msgList);
     return(
         <StyledBlock>
             {
                 msgList.map((m) => (
                     <MessageItem
-                    msg={m.msg}
-                    key={m.id}
+                    id={m.id}
                     user={m.user}
+                    msg={m.msg}
                     nowUser={nowUser}
                     />
                 ))

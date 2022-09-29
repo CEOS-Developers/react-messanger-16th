@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from "styled-components"
 import UserBox from './UserBox';
 import MessageBox from './MessageBox';
@@ -17,24 +17,28 @@ const StyledBlock = styled.div`
 
 const Container = () => {
 
-    const id = useRef(0);
+    const id = useRef(1);
 
     const [msgList,setMsgList] = useState([{
-        id: id.current,
+        id: 0,
         user: 1,
         msg: ''
     }]);
 
     const [user,setUser] = useState<number>(1);
 
-    const onSubmitMsg = (form: {user:number, msg:string}) => {
-        console.log(form);
-        setMsgList([...msgList,{id:id.current, user:form.user, msg:form.msg}]);
-        id.current++;
-    }
+    // const user = useRef<number>(1);
 
     const onSubmitUser = (form:number) => {
         setUser(form);
+        // user.current=form;
+        console.log('onSubmit=>',form,user);
+    }
+
+
+    const onSubmitMsg = (form: {user:number, msg:string}) => {
+        setMsgList([...msgList,{id:id.current, user:Number(form.user), msg:form.msg}]);
+        id.current++;
     }
 
     return (

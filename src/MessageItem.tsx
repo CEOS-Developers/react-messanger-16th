@@ -6,6 +6,7 @@ const StyledMsg = styled.div`
     width: 200px;
     height: 40px;
     margin: 3px;
+    margin-left: auto;
 `
 
 const StyledMsg2 = styled.div`
@@ -16,21 +17,22 @@ const StyledMsg2 = styled.div`
 `
 
 type MessageItemProps = {
-    key: number;
+    id: number;
     user: number;
     msg: string;
     nowUser: number;
 };
 
-function MessageItem({key,user,msg,nowUser}:MessageItemProps){
-    console.log(user,nowUser);
+function MessageItem({id,user,msg,nowUser}:MessageItemProps){
     return(
         <>
         {
-            user === nowUser ? 
-            <StyledMsg>{msg}{user}</StyledMsg>
-            :
-            <StyledMsg2>{msg}{user}</StyledMsg2>
+            id !==0 ?  
+                user == nowUser ? 
+                <StyledMsg>{msg}{user}</StyledMsg>
+                :
+                <StyledMsg2>{msg}{user}</StyledMsg2>
+            : null
         }
         </>
     )

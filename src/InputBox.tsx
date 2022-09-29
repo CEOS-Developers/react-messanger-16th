@@ -37,6 +37,7 @@ function InputBox({onSubmit,user}:InputProps) {
 
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        console.log('input=>',user);
         onSubmit(input);
         setInput({
             user: user,
