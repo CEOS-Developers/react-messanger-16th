@@ -6,12 +6,10 @@ import ChatBubble from './chatBubble';
 
 const ChatBubbleList = (userId: any) => {
   const chatting = useRecoilValue(chatList);
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const goToBottom = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
+    containerRef.current!.scrollTop = containerRef.current!.scrollHeight;
   };
 
   useEffect(() => {
@@ -19,7 +17,7 @@ const ChatBubbleList = (userId: any) => {
   }, [chatting]);
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       {chatting.map((chat) => (
         <>
           <ChatBubble
