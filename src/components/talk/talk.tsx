@@ -8,6 +8,10 @@ import { ListInfo } from '../../interfaces/interface';
 
 const TalkBox = styled.div`
   display: flex;
+`;
+
+const TextBox = styled.div`
+  display: flex;
   flex-direction: column;
 `;
 
@@ -16,16 +20,18 @@ const Talk = () => {
   const [isUser, setIsUser] = useRecoilState(userState);
 
   return (
-    <TalkBox>
+    <TextBox>
       {list.map((li, index) => (
-        <TalkText
-          key={index}
-          IsUser={isUser}
-          addText={li.addText}
-          nowIsUser={li.IsUser}
-        />
+        <TalkBox>
+          <TalkText
+            key={index}
+            IsUser={isUser}
+            addText={li.addText}
+            nowIsUser={li.IsUser}
+          />
+        </TalkBox>
       ))}
-    </TalkBox>
+    </TextBox>
   );
 };
 

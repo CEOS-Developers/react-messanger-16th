@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Talk from './talk/talk';
 import Input from './input';
@@ -13,10 +13,24 @@ const ContentBox = styled.section`
 `;
 
 const Content = () => {
+  const boxRef = useRef<HTMLUListElement>();
+  const [box, setBox] = useState();
+  const scrollToBottom = () => {
+    if (boxRef.current) {
+      boxRef.current.scrollTop = boxRef.current.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [box]);
+
   return (
-    <ContentBox>
-      <Talk />
-    </ContentBox>
+    <div ref={boxRef}>
+      <ContentBox>
+        <Talk />
+      </ContentBox>
+    </div>
   );
 };
 
