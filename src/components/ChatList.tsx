@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Chat, User } from "../interface";
 import ChatItem from "./ChatItem";
@@ -9,8 +10,15 @@ interface ChatListProps {
 }
 
 const ChatList = ({ curUser, chats, users }: ChatListProps) => {
+  // 채팅이 업데이트될 때마다 아래로 스크롤
+  const chatListRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
+    console.log("스크롤!");
+  }, [chats]);
+
   return (
-    <Wrapper>
+    <Wrapper ref={chatListRef}>
       {chats.map((chat) => (
         <ChatItem
           key={chat.id}

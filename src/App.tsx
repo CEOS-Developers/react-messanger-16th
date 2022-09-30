@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import ChatList from "./components/ChatList";
 import InputForm from "./components/InputForm";
@@ -8,7 +8,6 @@ import user1 from "./profileAssets/dedenne.jpeg";
 import user2 from "./profileAssets/morpeco.png";
 
 function App() {
-  const tmp = new Date("2022-09-01");
   const [curUser, setCurUser] = useState(1);
   const [users, setUsers] = useState<User[]>([
     {
@@ -23,8 +22,8 @@ function App() {
     },
   ]);
   const [chats, setChats] = useState<Chat[]>([
-    { id: 1, senderId: 0, text: "안녕하세요", date: tmp },
-    { id: 2, senderId: 1, text: "반가워요", date: tmp },
+    { id: 1, senderId: 0, text: "안녕하세요", date: new Date("2022-09-01") },
+    { id: 2, senderId: 1, text: "반가워요", date: new Date("2022-09-01") },
   ]);
 
   const nextChatId = useRef(3);
