@@ -1,3 +1,5 @@
+import React, { useMemo, useState } from 'react';
+
 import styled from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 
@@ -5,20 +7,31 @@ import Header from './components/Header';
 import InputBox from './components/InputBox';
 import ChatBoxList from './components/ChatBoxList';
 
+type Chat = {
+  user_id: number;
+  chat_id: number;
+  chat_content: string;
+};
+
+export const ChatContext = React.createContext<{
+  setChats: React.Dispatch<React.SetStateAction<Chat[]>>;
+}>({
+  setChats: () => {},
+});
+
 function App() {
-  const MyChat = (chats: any) => {
-    return chats;
-  };
+  const [chats, setChats] = useState<Chat[]>([]);
+  const chatFunc = useMemo(() => ({ setChats }), [setChats]);
 
   return (
-    <>
+    <ChatContext.Provider value={chatFunc}>
       <GlobalStyle />
       <Container>
         <Header />
-        <ChatBoxList chats={MyChat} />
-        <InputBox propFunc={MyChat} />
+        <ChatBoxList />
+        <InputBox />
       </Container>
-    </>
+    </ChatContext.Provider>
   );
 }
 

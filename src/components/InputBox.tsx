@@ -1,17 +1,18 @@
-import { useState, useRef } from 'react';
+import { useContext, useState, useRef } from 'react';
+import { ChatContext } from '../App';
 
 import styled from 'styled-components';
 
-const InputBox = (props: any) => {
+const InputBox = () => {
+  const { setChats } = useContext(ChatContext);
+
   type Chat = {
     user_id: number;
     chat_id: number;
     chat_content: string;
   };
-
   const chatId = useRef<number>(0);
   const [chat, setChat] = useState<string>('');
-  const [chats, setChats] = useState<Chat[]>([]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -34,8 +35,6 @@ const InputBox = (props: any) => {
   const handleChangeInput = (e: any) => {
     setChat(e.target.value);
   };
-
-  props.propFunc(chats);
 
   return (
     <InputWrapper onSubmit={handleSubmit}>

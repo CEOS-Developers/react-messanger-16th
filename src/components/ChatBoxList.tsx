@@ -1,8 +1,6 @@
 import ChatBoxItem from './ChatBox';
 
-const ChatBox = (chats: any) => {
-  console.log(chats);
-
+const ChatBox = () => {
   return <ChatBoxItem />;
 };
 
