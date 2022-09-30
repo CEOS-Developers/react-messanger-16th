@@ -3,8 +3,13 @@ import GlobalStyle from './styles/GlobalStyle';
 import './styles/App.css';
 
 import Header from './components/Header';
+import InputBox from './components/InputBox';
 
 function App() {
+  const highFunc = (chats: any) => {
+    console.log(chats);
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -28,10 +33,7 @@ function App() {
             </div>
           </div>
         </div>
-        <form className="input-box">
-          <textarea className="input-box__input" />
-          <button className="input-box__btn--default">전송</button>
-        </form>
+        <InputBox propFunc={highFunc} />
       </Container>
     </>
   );

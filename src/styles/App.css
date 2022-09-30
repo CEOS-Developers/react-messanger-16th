@@ -46,38 +46,3 @@
   font-size: 0.5rem;
   font-weight: 500;
 }
-
-.input-box {
-  flex-grow: 1;
-
-  display: flex;
-}
-
-.input-box__input {
-  padding: 1rem;
-  flex-grow: 8;
-
-  border: none;
-  resize: none;
-
-  font-family: sans-serif;
-}
-
-.input-box__btn--default {
-  padding: 0.5rem 1rem 0.5rem;
-  margin: 0.5rem;
-  height: 2rem;
-
-  align-self: end;
-
-  border-radius: 10px;
-
-  background-color: rgb(237, 237, 237);
-  font-weight: 500;
-  color: rgb(144, 144, 144);
-}
-
-.input-box__btn--default:hover {
-  background-color: rgb(255, 234, 0);
-  color: black;
-}
