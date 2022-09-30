@@ -58,16 +58,20 @@ function App() {
 }
 
 const GlobalStyle = createGlobalStyle`
+html{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: whitesmoke;
+  font-size: 0.8rem
+}
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 350px;
-  border: solid 1px black;
+  border-radius: 20px;
 `;
 
 export default App;

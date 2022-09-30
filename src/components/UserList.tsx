@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 5px;
-  border: solid 1px black;
+  background-color: white;
 `;
 
 export default UserList;

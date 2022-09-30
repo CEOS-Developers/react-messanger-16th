@@ -14,21 +14,36 @@ const ChatItem = ({ chat, sender }: ChatItemProps) => {
     <Wrapper>
       <ProfileImage src={sender.profileImage} />
       <ContentWrapper>
-        <p>{sender.name}</p>
+        {sender.name}
         <ChatWrapper>
           <ChatBalloon>{chat.text}</ChatBalloon>
-          <p>
-            {time}:{minute}
-          </p>
+          {time}:{minute}
         </ChatWrapper>
       </ContentWrapper>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
-const ContentWrapper = styled.div``;
-const ChatWrapper = styled.div``;
-const ChatBalloon = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+`;
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+const ChatWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+`;
+const ChatBalloon = styled.div`
+  background-color: ${({ selected }: { selected?: boolean }) =>
+    selected ? "yellow" : "white"};
+  padding: 10px;
+  border-radius: 5px;
+`;
 
 export default ChatItem;
