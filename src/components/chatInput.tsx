@@ -3,12 +3,12 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { activeId, chatList } from '../recoil/store';
 import styled from 'styled-components';
 
-const ChatInput = (userId: any) => {
+const ChatInput = () => {
   const [value, setValue] = useState('');
   const active = useRecoilValue(activeId);
   const [chat, setChat] = useRecoilState(chatList);
 
-  const plusList = (value: any) => {
+  const plusList = (value: string) => {
     if (value.trim()) {
       const lastId = chat.length;
       let newChat;
@@ -32,7 +32,7 @@ const ChatInput = (userId: any) => {
     }
   };
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     plusList(value);
   };
@@ -40,7 +40,12 @@ const ChatInput = (userId: any) => {
   return (
     <Container>
       <form onSubmit={onSubmit}>
-        <Input onChange={(e: any) => setValue(e.target.value)} value={value} />
+        <Input
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setValue(e.target.value)
+          }
+          value={value}
+        />
         <Button disabled={!value} />
       </form>
     </Container>

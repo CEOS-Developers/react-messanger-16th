@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { chatList } from '../../recoil/store';
 import ChatBubble from './chatBubble';
 
-const ChatBubbleList = (userId: any) => {
+const ChatBubbleList = () => {
   const chatting = useRecoilValue(chatList);
   const containerRef = useRef<HTMLDivElement>(null);
 

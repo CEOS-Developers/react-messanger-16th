@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 import chatInfo from '../assets/chatInfo.json';
 
-export const activeId = atom<any>({
+export const activeId = atom<number>({
   key: 'activeId',
   default: 0,
 });
