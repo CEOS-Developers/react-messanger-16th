@@ -19,9 +19,11 @@ function App() {
 
   const onCLickMe = (): void => {
     toggleAccount(0);
+    alert('이한비');
   };
   const onCLickYou = (): void => {
     toggleAccount(1);
+    alert('문상훈');
   };
 
   return (
@@ -63,6 +65,13 @@ const ImgProf = styled.img`
   width: 135px;
   height: 140px;
   border-radius: 25px;
+  transition: 0.5s;
+  display: block;
+  :hover {
+    cursor: grab;
+    width: 140px;
+    height: 150px;
+  }
 `;
 
 export default App;
