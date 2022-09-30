@@ -1,19 +1,19 @@
-import { useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.form``;
-const InputField = styled.input``;
-const SendButton = styled.button``;
+interface InputFormProps {
+  onConcat: (text: string) => void;
+}
 
-const InputForm = ({ onConcat }) => {
+const InputForm = ({ onConcat }: InputFormProps) => {
   const [value, setValue] = useState("");
 
-  const onChange = useCallback((e) => {
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   }, []);
 
   const onSubmit = useCallback(
-    (e) => {
+    (e: React.FormEvent<HTMLFormElement>) => {
       onConcat(value);
       setValue("");
       e.preventDefault();
@@ -32,5 +32,9 @@ const InputForm = ({ onConcat }) => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.form``;
+const InputField = styled.input``;
+const SendButton = styled.button``;
 
 export default InputForm;

@@ -1,15 +1,16 @@
 import { useState, useRef, useCallback } from "react";
+import ChatList from "./components/ChatList";
 import InputForm from "./components/InputForm";
+import { Chat } from "./interface";
 
 function App() {
-  const [chats, setChats] = useState([
-    { id: 1, senderId: 1, text: "반갑다" },
-    { id: 2, senderId: 2, text: "안녕하세요" },
+  const [chats, setChats] = useState<Chat[]>([
+    { id: 1, senderId: 1, text: "안녕하세요" },
   ]);
 
   const nextId = useRef(3);
   const onConcat = useCallback(
-    (text) => {
+    (text: string) => {
       const chat = {
         id: nextId.current,
         senderId: 1,
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <>
+      <ChatList chats={chats} />
       <InputForm onConcat={onConcat} />
     </>
   );
