@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import UserItem from './UserItem';
 
 const StyledBlock = styled.div`
+    display: flex;
+    justify-content: flex-start;
     background: white;
-    width: 300px;
+    width: 340px;
     height: 90px;
-    border-bottom-style: dashed;
 `
 type UserProps = {
     onSubmit: (form:number) => void;
@@ -13,15 +15,32 @@ type UserProps = {
 
 function UserBox({onSubmit}:UserProps){
 
-    const handleClick = (e:any) => {
-        const {value} = e.target;
-        onSubmit(value);
-    }
+    const UserInfo = [
+        {
+            id:1,
+            name:"개",
+            src:"img/c.jfif"
+        },
+        {
+            id:2,
+            name:"고양이",
+            src:"img/b.jfif"
+        }
+    ]
+
 
     return(
         <StyledBlock>
-            <button onClick={handleClick} value="1">1</button>
-            <button onClick={handleClick} value="2">2</button>
+            {
+                UserInfo.map((user)=>(
+                        <UserItem
+                        onSubmit={onSubmit}
+                        id={user.id}
+                        name={user.name}
+                        src={user.src}
+                        />
+                ))
+            }
         </StyledBlock>
     );
 }

@@ -12,7 +12,8 @@ const StyledBlock = styled.div`
     justify-content: center;
     align-items: center;
     background-color: white;
-    box-shadow: 5px 5px 5px 5px gray;
+    box-shadow: 3px 3px 3px 3px gray;
+    border-radius: 15px;
 `
 
 const Container = () => {
@@ -27,14 +28,10 @@ const Container = () => {
 
     const [user,setUser] = useState<number>(1);
 
-    // const user = useRef<number>(1);
-
     const onSubmitUser = (form:number) => {
         setUser(form);
-        // user.current=form;
         console.log('onSubmit=>',form,user);
     }
-
 
     const onSubmitMsg = (form: {user:number, msg:string}) => {
         setMsgList([...msgList,{id:id.current, user:Number(form.user), msg:form.msg}]);

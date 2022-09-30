@@ -5,10 +5,9 @@ import MessageItem from './MessageItem';
 const StyledBlock = styled.div`
     display: flex;
     flex-direction: column;
-    background: white;
-    width: 300px;
+    background: #ACE7FF;
+    width: 340px;
     height: 400px;
-    border-bottom-style: dashed;
     overflow-y: scroll;
 `
 

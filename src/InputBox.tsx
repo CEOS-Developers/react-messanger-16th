@@ -3,15 +3,22 @@ import styled from 'styled-components';
 
 const StyledBlock = styled.div`
     background: white;
-    width: 300px;
+    width: 340px;
     height: 90px;
-    border-bottom-style: dashed;
+    margin-top: 5px;
 `
 
 const StyledInput = styled.input`
-    width: 250px;
-    height: 40px;
+    width: 240px;
+    height: 90px;
+    border: none;
+`
+
+const StyledButton = styled.button`
+    width: 92px;
+    height: 90px;
     align-items: center;
+    border: none;
 `
 
 type InputProps = {
@@ -20,6 +27,7 @@ type InputProps = {
 };
 
 function InputBox({onSubmit,user}:InputProps) {
+    console.log('Input-user->',user);
     const [input, setInput] = useState({
         user: user,
         msg: ''
@@ -48,8 +56,8 @@ function InputBox({onSubmit,user}:InputProps) {
     return (
         <StyledBlock>
             <form onSubmit={handleSubmit}>
-                <input name="msg" value={msg} onChange={onChange}/>
-                <button type="submit">+</button>
+                <StyledInput name="msg" value={msg} onChange={onChange}/>
+                <StyledButton type="submit">전송</StyledButton>
             </form>
         </StyledBlock>
     )

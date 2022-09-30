@@ -1,19 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledMsg = styled.div`
-    background: grey;
-    width: 200px;
-    height: 40px;
-    margin: 3px;
-    margin-left: auto;
-`
+type StyledProps = {
+    background: string;
+    position?: string;
+}
 
-const StyledMsg2 = styled.div`
-    background: red;
-    width: 200px;
-    height: 40px;
+const StyledMsg = styled.div<StyledProps>`
+    background: ${(props) => props.background};
+    display:inline-block;
     margin: 3px;
+    padding: 3px;
+    border: 25px;
+    max-width: 220px;
+
+    ${(props) =>
+        props.position === "right" ?
+        `
+        margin-left: auto;
+        `
+        :
+        `
+        margin-right: auto;
+        `
+    }
 `
 
 type MessageItemProps = {
@@ -28,10 +38,10 @@ function MessageItem({id,user,msg,nowUser}:MessageItemProps){
         <>
         {
             id !==0 ?  
-                user == nowUser ? 
-                <StyledMsg>{msg}{user}</StyledMsg>
+                user === Number(nowUser) ? 
+                <StyledMsg background="#EEE33C" position="right">{msg}</StyledMsg>
                 :
-                <StyledMsg2>{msg}{user}</StyledMsg2>
+                <StyledMsg background="white">{msg}</StyledMsg>
             : null
         }
         </>
