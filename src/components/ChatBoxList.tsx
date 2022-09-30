@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import ChatBoxItem from './ChatBox';
@@ -22,8 +23,20 @@ const ChatBox = ({
   chatList: Chat[];
   userList: User[];
 }) => {
+  const chatBoxRef = useRef<HTMLDivElement>(null);
+
+  const scrollTo = () => {
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTo(0, chatBoxRef.current.scrollHeight);
+    }
+  };
+
+  useEffect(() => {
+    scrollTo();
+  }, [chatList]);
+
   return (
-    <ChatBoxWrapper>
+    <ChatBoxWrapper ref={chatBoxRef}>
       {chatList.map((it) => (
         <ChatBoxItem
           key={it.chat_id}
@@ -36,14 +49,14 @@ const ChatBox = ({
 };
 
 const ChatBoxWrapper = styled.div`
-  flex-grow: 8.5;
+  flex-grow: 8;
   padding: 1.5rem;
 
   display: flex;
   flex-direction: column;
   gap: 1rem;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 
   background-color: rgb(180, 213, 226);
 `;
