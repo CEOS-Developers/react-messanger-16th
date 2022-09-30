@@ -3,13 +3,14 @@ import UserItem from "./UserItem";
 
 interface UserListProps {
   users: User[];
+  changeUser(id: number): void;
 }
 
-const UserList = ({ users }: UserListProps) => {
+const UserList = ({ users, changeUser }: UserListProps) => {
   return (
     <>
       {users.map((user) => (
-        <UserItem user={user} />
+        <UserItem user={user} changeUser={changeUser} />
       ))}
     </>
   );

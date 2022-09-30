@@ -5,7 +5,11 @@ interface ChatItemProps {
 }
 
 const ChatItem = ({ chat }: ChatItemProps) => {
-  return <li>{chat.text}</li>;
+  return (
+    <li>
+      {chat.senderId} : {chat.text}
+    </li>
+  );
 };
 
 export default ChatItem;

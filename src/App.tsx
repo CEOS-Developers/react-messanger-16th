@@ -5,6 +5,7 @@ import UserList from "./components/UserList";
 import { Chat, User } from "./interface";
 
 function App() {
+  const [curUser, setCurUser] = useState(1);
   const [users, setUsers] = useState<User[]>([
     { id: 1, name: "데덴네", profileImage: "tmp" },
     { id: 2, name: "모르페코", profileImage: "tmp" },
@@ -18,18 +19,23 @@ function App() {
     (text: string) => {
       const chat = {
         id: nextChatId.current,
-        senderId: 1,
+        senderId: curUser,
         text,
       };
+      console.log(curUser + text);
       setChats(chats.concat(chat));
       nextChatId.current++;
     },
-    [chats]
+    [chats, curUser]
   );
+
+  const changeUser = (id: number) => {
+    setCurUser(id);
+  };
 
   return (
     <>
-      <UserList users={users} />
+      <UserList users={users} changeUser={changeUser} />
       <ChatList chats={chats} />
       <InputForm onConcat={onConcat} />
     </>
