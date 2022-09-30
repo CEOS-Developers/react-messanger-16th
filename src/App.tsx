@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from "react";
+import styled, { createGlobalStyle } from "styled-components";
 import ChatList from "./components/ChatList";
 import InputForm from "./components/InputForm";
 import UserList from "./components/UserList";
@@ -47,12 +48,26 @@ function App() {
   };
 
   return (
-    <>
+    <Wrapper>
+      <GlobalStyle />
       <UserList curUser={curUser} users={users} changeUser={changeUser} />
       <ChatList curUser={curUser} users={users} chats={chats} />
       <InputForm onConcat={onConcat} />
-    </>
+    </Wrapper>
   );
 }
+
+const GlobalStyle = createGlobalStyle`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  border: solid 1px black;
+`;
 
 export default App;

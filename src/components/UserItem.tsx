@@ -12,11 +12,19 @@ const UserItem = ({ selected, user, changeUser }: UserItemProps) => {
   return (
     <Wrapper onClick={() => changeUser(user.id)}>
       <ProfileImage selected={selected} src={user.profileImage} />
-      <p>{user.name}</p>
+      {user.name}
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 0.8rem;
+`;
 
 export default UserItem;

@@ -23,6 +23,11 @@ const UserList = ({ curUser, users, changeUser }: UserListProps) => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  border: solid 1px black;
+`;
 
 export default UserList;
