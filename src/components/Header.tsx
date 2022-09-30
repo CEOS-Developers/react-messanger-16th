@@ -40,8 +40,6 @@ const HeaderButton = styled.button`
   cursor: pointer;
 `;
 
-// 프로필 사진
-
 const HeadText = styled.span`
   width: 80%;
   font-size: 1.2rem;

@@ -24,8 +24,7 @@ const MessageInput = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newMessage.chat.trim()) {
-      setChat((chatRooms: any) => {
-        // any 없애야 하는데...
+      setChat((chatRooms: ChatRoom[]) => {
         const remainList = chatRooms.filter(
           (item: ChatRoom) => item.roomid !== filteredChatRoom!.roomid
         );
@@ -34,7 +33,7 @@ const MessageInput = () => {
         );
         const toggledItem = [
           {
-            ...targetItem,
+            ...targetItem!,
             chats: [...targetItem!.chats, newMessage],
           },
         ];

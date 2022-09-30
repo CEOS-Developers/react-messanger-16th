@@ -100,11 +100,9 @@ const Bubble = styled.span<{
   border: 1px solid #000000;
 `;
 
-// 시간...
 const Time = styled.div`
   font-size: 0.5rem;
   color: #323232;
-
   margin: 0.2rem;
   padding-top: 1.2rem;
 `;

@@ -14,6 +14,15 @@ function App() {
   );
 }
 
+// ㄱ-
+// const PhoneImage = styled.img`
+//   width: 26rem;
+//   z-index: 1;
+//   position: absolute;
+//   top: 7%;
+//   left: 37%;
+// `;
+
 const Container = styled.div`
   width: 23rem;
   height: 45rem;

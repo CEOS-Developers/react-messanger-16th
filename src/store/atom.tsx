@@ -15,7 +15,7 @@ export const chatRoomSelector = selector({
   get: ({ get }) => {
     const chatrooms = get(chatState);
     const filteredRoom = chatrooms.find(
-      (v) => v.roomid === get(nowRoomIdState)
+      (chatroom) => chatroom.roomid === get(nowRoomIdState)
     );
     return filteredRoom;
   },
@@ -33,7 +33,7 @@ export const userSelector = selector({
   get: ({ get }) => {
     const users = get(userInformationState);
     const filteredUser = users.find(
-      (v) => v.userid === get(chatRoomSelector)!.user
+      (user) => user.userid === get(chatRoomSelector)!.user
     );
     return filteredUser;
   },
