@@ -9,7 +9,6 @@ type Chat = {
 };
 
 const ChatBox = ({ chatList }: { chatList: Chat[] }) => {
-  console.log(chatList);
   return (
     <ChatBoxWrapper>
       {chatList.map((it) => (

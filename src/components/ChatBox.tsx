@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
-const ChatBox = () => {
+interface ChatProps {
+  user_id: number;
+  chat_id: number;
+  chat_content: string;
+}
+
+const ChatBox: React.FC<ChatProps> = ({ user_id, chat_id, chat_content }) => {
   return (
     <ChatBoxItem>
       <UserImgWrapper>
         <UserImg src={process.env.PUBLIC_URL + `/assets/보통이.jpeg`} />
       </UserImgWrapper>
       <ChatWrapper>
-        <ChatUserName />
+        <ChatUserName></ChatUserName>
         <Chat>
-          <ChatText />
+          <ChatText>{chat_content}</ChatText>
           <ChatTime />
         </Chat>
       </ChatWrapper>
