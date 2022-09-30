@@ -41,6 +41,7 @@ const Wrapper = styled.div`
   gap: 10px;
   justify-content: ${({ isCurUser }: { isCurUser: boolean }) =>
     isCurUser ? "flex-end" : "flex-start"};
+  width: 100%;
 `;
 const ContentWrapper = styled.div`
   display: flex;
@@ -57,6 +58,8 @@ const ChatBalloon = styled.div`
     isCurUser ? "yellow" : "white"};
   padding: 10px;
   border-radius: 5px;
+  width: 100%;
+  word-break: break-all;
 `;
 
 export default ChatItem;
