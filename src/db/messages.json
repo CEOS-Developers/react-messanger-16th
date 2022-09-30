@@ -3,26 +3,26 @@
     "id": 1,
     "user": [
       { "id": 0, "name": "이한비" },
-      { "id": 1, "name": "아무개" }
+      { "id": 1, "name": "문상훈" }
     ],
     "messages": [
       {
         "id": 1,
         "user": { "id": 0, "name": "이한비" },
         "time": "07:41",
-        "text": "hi"
+        "text": "과제가"
       },
       {
         "id": 2,
         "user": { "id": 0, "name": "이한비" },
         "time": "07:42",
-        "text": "hi there"
+        "text": "너무 어려워요.."
       },
       {
         "id": 3,
-        "user": { "id": 1, "name": "아무개" },
-        "time": "",
-        "text": "hi yo"
+        "user": { "id": 1, "name": "문상훈" },
+        "time": "07:43",
+        "text": "개쳐발렸됴"
       }
     ]
   }

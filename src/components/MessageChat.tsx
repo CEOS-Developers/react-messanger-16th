@@ -47,12 +47,14 @@ const MessageText = styled.p<{ isUser: boolean }>`
     isUser
       ? css`
           border-radius: 0.5rem 0 0.5rem 0.5rem;
-          background-color: #1986fc;
+          background-color: pink;
           color: #ffffff;
+          font-weight: bold;
         `
       : css`
           border-radius: 0 0.5rem 0.5rem 0.5rem;
           background-color: #f1f1f3;
+          font-weight: bold;
         `};
 `;
 
@@ -65,9 +67,11 @@ const MessageUser = styled.p<{ isUser: boolean }>`
       ? css`
           justify-content: flex-end;
           margin-right: 0.5rem;
+          font-weight: bold;
         `
       : css`
           margin-left: 0.5rem;
+          font-weight: bold;
         `}
 `;
 

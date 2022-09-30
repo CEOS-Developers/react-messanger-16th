@@ -18,12 +18,13 @@ const InputForm = ({ sendMsg }: IInputForm) => {
   return (
     <StyledAddList onSubmit={addInput}>
       <StyledInput placeholder="입력" value={chat} onChange={handleChange} />
-      <StyledButton>+</StyledButton>
+      <StyledButton>전송</StyledButton>
     </StyledAddList>
   );
 };
 
 const StyledAddList = styled.form`
+  display: flex;
   text-align: center;
   font-weight: bolder;
   font-family: 'Jua', sans-serif;
@@ -43,6 +44,7 @@ const StyledButton = styled.button`
   border: 1px solid lightgrey;
   border-radius: 10px;
   font-family: 'Jua', sans-serif;
+  font-size: 25px;
 `;
 
 export default InputForm;

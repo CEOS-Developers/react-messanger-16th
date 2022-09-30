@@ -1,17 +1,33 @@
 import MessageChat from './MessageChat';
 import { useEffect, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
-import { chatRoomState } from '../atom';
+import { chatRoomState, messageState } from '../atom';
 import styled from 'styled-components';
 
 const MessageChatForm = () => {
-  const messageWrapperRef = useRef<HTMLElement>(null);
+  const messageWrapperRef = useRef<HTMLUListElement>(null);
   const { message, currentUser } = useRecoilValue(chatRoomState);
+  const messageData = useRecoilValue(messageState);
+
+  const scrollToBottom = () => {
+    if (messageWrapperRef.current) {
+      messageWrapperRef.current.scrollTop =
+        messageWrapperRef.current.scrollHeight;
+    }
+  };
   useEffect(() => {
-    console.log(message);
+    scrollToBottom();
   }, [message]);
   return (
     <Wrapper ref={messageWrapperRef}>
+      {messageData[0].messages.map((msg) => (
+        <MessageChatContainer
+          key={msg.id}
+          isUser={msg.user.name === currentUser.name}
+        >
+          <MessageChat key={msg.id} message={msg} />
+        </MessageChatContainer>
+      ))}
       {message.map((msg) => (
         <MessageChatContainer
           key={msg.id}
