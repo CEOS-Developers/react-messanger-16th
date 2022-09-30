@@ -13,24 +13,22 @@ const ContentBox = styled.section`
 `;
 
 const Content = () => {
-  const boxRef = useRef<HTMLUListElement>();
-  const [box, setBox] = useState();
+  const boxRef = useRef<HTMLDivElement>(null);
+  const talk = useRecoilValue(listState);
   const scrollToBottom = () => {
     if (boxRef.current) {
-      boxRef.current.scrollTop = boxRef.current.scrollHeight;
+      boxRef.current!.scrollTop = boxRef.current!.scrollHeight;
     }
   };
 
   useEffect(() => {
     scrollToBottom();
-  }, [box]);
+  }, [talk]);
 
   return (
-    <div ref={boxRef}>
-      <ContentBox>
-        <Talk />
-      </ContentBox>
-    </div>
+    <ContentBox ref={boxRef}>
+      <Talk />
+    </ContentBox>
   );
 };
 

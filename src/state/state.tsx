@@ -20,3 +20,8 @@ export const userState = atom<boolean>({
   key: 'isUser',
   default: false,
 });
+
+export const boxState = atom<ListInfo[]>({
+  key: 'box',
+  default: [],
+});
