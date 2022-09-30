@@ -1,19 +1,33 @@
 import styled from 'styled-components';
 
+type User = {
+  user_id: number;
+  user_img: string;
+  user_name: string;
+  isSelected: boolean;
+};
+
 interface ChatProps {
   user_id: number;
   chat_id: number;
   chat_content: string;
+
+  user: User;
 }
 
-const ChatBox: React.FC<ChatProps> = ({ user_id, chat_id, chat_content }) => {
+const ChatBox: React.FC<ChatProps> = ({
+  user,
+  user_id,
+  chat_id,
+  chat_content,
+}) => {
   return (
     <ChatBoxItem>
       <UserImgWrapper>
-        <UserImg src={process.env.PUBLIC_URL + `/assets/보통이.jpeg`} />
+        <UserImg src={user.user_img} />
       </UserImgWrapper>
       <ChatWrapper>
-        <ChatUserName></ChatUserName>
+        <ChatUserName>{user.user_name}</ChatUserName>
         <Chat>
           <ChatText>{chat_content}</ChatText>
           <ChatTime />
@@ -24,8 +38,6 @@ const ChatBox: React.FC<ChatProps> = ({ user_id, chat_id, chat_content }) => {
 };
 
 const ChatBoxItem = styled.div`
-  padding: 1.5rem;
-
   display: flex;
   gap: 0.8rem;
 `;

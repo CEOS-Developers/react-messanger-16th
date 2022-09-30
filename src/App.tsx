@@ -19,6 +19,28 @@ export const ChatContext = React.createContext<{
   setChats: () => {},
 });
 
+type User = {
+  user_id: number;
+  user_img: string;
+  user_name: string;
+  isSelected: boolean;
+};
+
+const userList: Array<User> = [
+  {
+    user_id: 1,
+    user_img: process.env.PUBLIC_URL + `/assets/default.png`,
+    user_name: '이현영',
+    isSelected: true,
+  },
+  {
+    user_id: 2,
+    user_img: process.env.PUBLIC_URL + `/assets/보통이.jpeg`,
+    user_name: '보통이',
+    isSelected: false,
+  },
+];
+
 function App() {
   const [chats, setChats] = useState<Chat[]>([]);
   const chatFunc = useMemo(() => ({ setChats }), [setChats]);
@@ -27,8 +49,8 @@ function App() {
     <ChatContext.Provider value={chatFunc}>
       <GlobalStyle />
       <Container>
-        <Header />
-        <ChatBoxList chatList={chats} />
+        <Header userList={userList} />
+        <ChatBoxList chatList={chats} userList={userList} />
         <InputBox />
       </Container>
     </ChatContext.Provider>
