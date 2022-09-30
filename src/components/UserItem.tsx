@@ -24,7 +24,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  font-size: 0.8rem;
 `;
 
 export default UserItem;

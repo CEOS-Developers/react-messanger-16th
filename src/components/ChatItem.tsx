@@ -4,22 +4,34 @@ import { ProfileImage } from "../StyledComponents";
 
 interface ChatItemProps {
   chat: Chat;
+  isCurUser: boolean;
   sender: User;
 }
 
-const ChatItem = ({ chat, sender }: ChatItemProps) => {
+const ChatItem = ({ chat, isCurUser, sender }: ChatItemProps) => {
   const time = String(chat.date.getHours()).padStart(2, "0");
   const minute = String(chat.date.getMinutes()).padStart(2, "0");
   return (
-    <Wrapper>
-      <ProfileImage src={sender.profileImage} />
-      <ContentWrapper>
-        {sender.name}
-        <ChatWrapper>
-          <ChatBalloon>{chat.text}</ChatBalloon>
-          {time}:{minute}
-        </ChatWrapper>
-      </ContentWrapper>
+    <Wrapper isCurUser={isCurUser}>
+      {isCurUser ? (
+        <>
+          <ChatWrapper>
+            {time}:{minute}
+            <ChatBalloon isCurUser={true}>{chat.text}</ChatBalloon>
+          </ChatWrapper>
+        </>
+      ) : (
+        <>
+          <ProfileImage src={sender.profileImage} />
+          <ContentWrapper>
+            {sender.name}
+            <ChatWrapper>
+              <ChatBalloon isCurUser={false}>{chat.text}</ChatBalloon>
+              {time}:{minute}
+            </ChatWrapper>
+          </ContentWrapper>
+        </>
+      )}
     </Wrapper>
   );
 };
@@ -27,7 +39,8 @@ const ChatItem = ({ chat, sender }: ChatItemProps) => {
 const Wrapper = styled.div`
   display: flex;
   gap: 10px;
-  margin: 10px;
+  justify-content: ${({ isCurUser }: { isCurUser: boolean }) =>
+    isCurUser ? "flex-end" : "flex-start"};
 `;
 const ContentWrapper = styled.div`
   display: flex;
@@ -40,8 +53,8 @@ const ChatWrapper = styled.div`
   gap: 5px;
 `;
 const ChatBalloon = styled.div`
-  background-color: ${({ selected }: { selected?: boolean }) =>
-    selected ? "yellow" : "white"};
+  background-color: ${({ isCurUser }: { isCurUser: boolean }) =>
+    isCurUser ? "yellow" : "white"};
   padding: 10px;
   border-radius: 5px;
 `;
