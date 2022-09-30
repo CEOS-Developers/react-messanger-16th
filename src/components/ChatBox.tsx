@@ -2,28 +2,20 @@ import styled from 'styled-components';
 
 const ChatBox = () => {
   return (
-    <ChatBoxWrapper>
-      <ChatBoxItem>
-        <UserImgWrapper>
-          <UserImg src={process.env.PUBLIC_URL + `/assets/보통이.jpeg`} />
-        </UserImgWrapper>
-        <ChatWrapper>
-          <ChatUserName />
-          <Chat>
-            <ChatText />
-            <ChatTime />
-          </Chat>
-        </ChatWrapper>
-      </ChatBoxItem>
-    </ChatBoxWrapper>
+    <ChatBoxItem>
+      <UserImgWrapper>
+        <UserImg src={process.env.PUBLIC_URL + `/assets/보통이.jpeg`} />
+      </UserImgWrapper>
+      <ChatWrapper>
+        <ChatUserName />
+        <Chat>
+          <ChatText />
+          <ChatTime />
+        </Chat>
+      </ChatWrapper>
+    </ChatBoxItem>
   );
 };
-
-const ChatBoxWrapper = styled.div`
-  flex-grow: 8.5;
-
-  background-color: rgb(180, 213, 226);
-`;
 
 const ChatBoxItem = styled.div`
   padding: 1.5rem;

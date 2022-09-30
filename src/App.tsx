@@ -28,7 +28,7 @@ function App() {
       <GlobalStyle />
       <Container>
         <Header />
-        <ChatBoxList />
+        <ChatBoxList chatList={chats} />
         <InputBox />
       </Container>
     </ChatContext.Provider>
