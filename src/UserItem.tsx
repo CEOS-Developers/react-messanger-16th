@@ -27,9 +27,11 @@ type UserItemProps = {
 
 function UserItem({onSubmit,id,name,src}:UserItemProps){
     
+    // user 바꾸기
     const handleClick = (e:any) => {
         onSubmit(e.target.value);
     }
+
     return(
         <Container>
             <StyledImage src={src}/>

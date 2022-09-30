@@ -42,6 +42,7 @@ function InputBox({onSubmit,user}:InputProps) {
         });
     };
 
+    // msg 추가
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if(!msg.trim()){

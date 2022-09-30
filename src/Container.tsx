@@ -4,6 +4,7 @@ import UserBox from './UserBox';
 import MessageBox from './MessageBox';
 import InputBox from './InputBox';
 import MessageInfo from './MessageInfo.json';
+import { type } from '@testing-library/user-event/dist/type';
 
 const StyledBlock = styled.div`
     display: flex;
@@ -25,10 +26,12 @@ const Container = () => {
 
     const [user,setUser] = useState<number>(1);
 
+    // user 바꾸기 - useState 바로 반영이 안됨...
     const onSubmitUser = (form:number) => {
         setUser(form);
     }
 
+    // msg 추가
     const onSubmitMsg = (form: {user:number, msg:string}) => {
         setMsgList([...msgList,{id:id.current, user:Number(form.user), msg:form.msg}]);
         id.current++;
