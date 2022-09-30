@@ -53,10 +53,9 @@ const MessageList = () => {
               >
                 {chat.chat}
               </Bubble>
+              <Time>{chat.time}</Time>
             </BubbleWrapper>
           </div>
-
-          <Time>{chat.time}</Time>
         </UserWrapper>
       ))}
     </ChatWrapper>
@@ -104,6 +103,7 @@ const NameWrapper = styled.div<{
 
 const UserName = styled.div`
   font-size: 0.7rem;
+  padding: 0.5rem 0 0.5rem 0;
 `;
 
 const BubbleWrapper = styled.div<{

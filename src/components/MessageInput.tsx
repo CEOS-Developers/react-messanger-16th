@@ -76,6 +76,7 @@ const InputButton = styled.button`
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 1rem;
+  color: #323232;
   border-radius: 28px;
   border: 1px solid #000000;
   background: linear-gradient(180deg, #ffffff 0%, #97e545 100%);

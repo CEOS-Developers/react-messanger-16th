@@ -43,6 +43,7 @@ const HeaderButton = styled.button`
 const HeadText = styled.span`
   width: 80%;
   font-size: 1.2rem;
+  font-weight: bold;
   padding-left: 1rem;
 `;
 

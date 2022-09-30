@@ -4,12 +4,10 @@ import { normalize } from "styled-normalize";
 const GlobalStyle = createGlobalStyle`
  ${normalize}
 
-@font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 800;
-  font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
 
 body {
@@ -17,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Pretendard-Regular";
+  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
 }
 
