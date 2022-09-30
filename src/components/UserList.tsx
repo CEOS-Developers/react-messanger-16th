@@ -13,6 +13,7 @@ const UserList = ({ curUser, users, changeUser }: UserListProps) => {
     <Wrapper>
       {users.map((user) => (
         <UserItem
+          key={user.id}
           selected={user.id === curUser}
           user={user}
           changeUser={changeUser}

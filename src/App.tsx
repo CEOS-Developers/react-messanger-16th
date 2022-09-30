@@ -11,18 +11,19 @@ function App() {
   const [curUser, setCurUser] = useState(1);
   const [users, setUsers] = useState<User[]>([
     {
-      id: 1,
+      id: 0,
       name: "데덴네",
       profileImage: user1,
     },
     {
-      id: 2,
+      id: 1,
       name: "모르페코",
       profileImage: user2,
     },
   ]);
   const [chats, setChats] = useState<Chat[]>([
-    { id: 1, senderId: 1, text: "안녕하세요", date: tmp },
+    { id: 1, senderId: 0, text: "안녕하세요", date: tmp },
+    { id: 2, senderId: 1, text: "반가워요", date: tmp },
   ]);
 
   const nextChatId = useRef(3);
@@ -48,7 +49,7 @@ function App() {
   return (
     <>
       <UserList curUser={curUser} users={users} changeUser={changeUser} />
-      <ChatList chats={chats} />
+      <ChatList curUser={curUser} users={users} chats={chats} />
       <InputForm onConcat={onConcat} />
     </>
   );

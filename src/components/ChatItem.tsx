@@ -1,19 +1,20 @@
 import styled from "styled-components";
-import { Chat } from "../interface";
+import { Chat, User } from "../interface";
 import { ProfileImage } from "../StyledComponents";
 
 interface ChatItemProps {
   chat: Chat;
+  sender: User;
 }
 
-const ChatItem = ({ chat }: ChatItemProps) => {
+const ChatItem = ({ chat, sender }: ChatItemProps) => {
   const time = String(chat.date.getHours()).padStart(2, "0");
   const minute = String(chat.date.getMinutes()).padStart(2, "0");
   return (
     <Wrapper>
-      <ProfileImage />
+      <ProfileImage src={sender.profileImage} />
       <ContentWrapper>
-        <p>name</p>
+        <p>{sender.name}</p>
         <ChatWrapper>
           <ChatBalloon>{chat.text}</ChatBalloon>
           <p>

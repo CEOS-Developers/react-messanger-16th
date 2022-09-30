@@ -1,15 +1,17 @@
-import { Chat } from "../interface";
+import { Chat, User } from "../interface";
 import ChatItem from "./ChatItem";
 
 interface ChatListProps {
+  curUser: number;
   chats: Chat[];
+  users: User[];
 }
 
-const ChatList = ({ chats }: ChatListProps) => {
+const ChatList = ({ curUser, chats, users }: ChatListProps) => {
   return (
     <>
       {chats.map((chat) => (
-        <ChatItem chat={chat} />
+        <ChatItem key={chat.id} chat={chat} sender={users[chat.senderId]} />
       ))}
     </>
   );
