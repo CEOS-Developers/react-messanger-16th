@@ -3,12 +3,22 @@ import ChatList from "./components/ChatList";
 import InputForm from "./components/InputForm";
 import UserList from "./components/UserList";
 import { Chat, User } from "./interface";
+import user1 from "./profileAssets/dedenne.jpeg";
+import user2 from "./profileAssets/morpeco.png";
 
 function App() {
   const [curUser, setCurUser] = useState(1);
   const [users, setUsers] = useState<User[]>([
-    { id: 1, name: "데덴네", profileImage: "tmp" },
-    { id: 2, name: "모르페코", profileImage: "tmp" },
+    {
+      id: 1,
+      name: "데덴네",
+      profileImage: user1,
+    },
+    {
+      id: 2,
+      name: "모르페코",
+      profileImage: user2,
+    },
   ]);
   const [chats, setChats] = useState<Chat[]>([
     { id: 1, senderId: 1, text: "안녕하세요" },
@@ -22,7 +32,6 @@ function App() {
         senderId: curUser,
         text,
       };
-      console.log(curUser + text);
       setChats(chats.concat(chat));
       nextChatId.current++;
     },
@@ -35,7 +44,7 @@ function App() {
 
   return (
     <>
-      <UserList users={users} changeUser={changeUser} />
+      <UserList curUser={curUser} users={users} changeUser={changeUser} />
       <ChatList chats={chats} />
       <InputForm onConcat={onConcat} />
     </>
