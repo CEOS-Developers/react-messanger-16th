@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { accountState, chatRoomSelector } from "../store/atom";
+import { accountState, chatRoomSelector, userSelector } from "../store/atom";
 
 const MessageList = () => {
   const filteredChatRoom = useRecoilValue(chatRoomSelector);
+  const filteredUser = useRecoilValue(userSelector);
   const userAccount = useRecoilValue(accountState);
 
   const messageListRef = useRef<HTMLUListElement>(null);
@@ -30,15 +31,31 @@ const MessageList = () => {
           <ProfileImage
             src={`${process.env.PUBLIC_URL}/images/${chat.userid}.jpg`}
           />
-          <BubbleWrapper>
-            <Bubble
+          <div>
+            <NameWrapper
               key={chat.chatid}
               myAccount={chat.myAccount}
               userAccount={userAccount}
             >
-              {chat.chat}
-            </Bubble>
-          </BubbleWrapper>
+              <UserName>
+                {chat.myAccount ? "NaYeon 💭" : filteredUser!.name}
+              </UserName>
+            </NameWrapper>
+            <BubbleWrapper
+              key={chat.chatid}
+              myAccount={chat.myAccount}
+              userAccount={userAccount}
+            >
+              <Bubble
+                key={chat.chatid}
+                myAccount={chat.myAccount}
+                userAccount={userAccount}
+              >
+                {chat.chat}
+              </Bubble>
+            </BubbleWrapper>
+          </div>
+
           <Time>{chat.time}</Time>
         </UserWrapper>
       ))}
@@ -76,10 +93,26 @@ const ProfileImage = styled.img`
   border-radius: 25px;
   padding: 0.5rem;
 `;
-
-const BubbleWrapper = styled.div`
+const NameWrapper = styled.div<{
+  myAccount: boolean;
+  userAccount: boolean;
+}>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) =>
+    props.myAccount === props.userAccount ? "row-reverse" : "row"};
+`;
+
+const UserName = styled.div`
+  font-size: 0.7rem;
+`;
+
+const BubbleWrapper = styled.div<{
+  myAccount: boolean;
+  userAccount: boolean;
+}>`
+  display: flex;
+  flex-direction: ${(props) =>
+    props.myAccount === props.userAccount ? "row-reverse" : "row"};
 `;
 
 const Bubble = styled.span<{
