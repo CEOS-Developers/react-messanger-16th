@@ -23,8 +23,7 @@ function MessageBox({msgList, nowUser}:MessageProps){
     const scrollRef = useRef<any>();
 
     const scrollToBottom = () => {
-        // scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-        scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end'});
+        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
 
     useEffect(()=>{
@@ -32,9 +31,7 @@ function MessageBox({msgList, nowUser}:MessageProps){
     },[msgList]);
 
     return(
-        
-        <StyledBlock>
-            <div ref={scrollRef}>
+        <StyledBlock ref={scrollRef}>
             {
                 msgList.map((m) => (
                     <MessageItem
@@ -45,7 +42,6 @@ function MessageBox({msgList, nowUser}:MessageProps){
                     />
                 ))
             }
-            </div>
         </StyledBlock>
     );
 }

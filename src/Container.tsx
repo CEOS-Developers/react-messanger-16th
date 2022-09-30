@@ -3,6 +3,7 @@ import styled from "styled-components"
 import UserBox from './UserBox';
 import MessageBox from './MessageBox';
 import InputBox from './InputBox';
+import MessageInfo from './MessageInfo.json';
 
 const StyledBlock = styled.div`
     display: flex;
@@ -18,13 +19,9 @@ const StyledBlock = styled.div`
 
 const Container = () => {
 
-    const id = useRef(1);
+    const id = useRef(2);
 
-    const [msgList,setMsgList] = useState([{
-        id: 0,
-        user: 1,
-        msg: ''
-    }]);
+    const [msgList,setMsgList] = useState(MessageInfo);
 
     const [user,setUser] = useState<number>(1);
 
