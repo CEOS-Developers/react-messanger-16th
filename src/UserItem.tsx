@@ -27,14 +27,13 @@ type UserItemProps = {
 
 function UserItem({onSubmit,id,name,src}:UserItemProps){
     
-    const handleClicktest = (e:any) => {
-        console.log(e.target.value);
+    const handleClick = (e:any) => {
         onSubmit(e.target.value);
     }
     return(
         <Container>
             <StyledImage src={src}/>
-            <StyledButton onClick={handleClicktest} value={id}>
+            <StyledButton onClick={handleClick} value={id}>
                 {name}
             </StyledButton>
         </Container>

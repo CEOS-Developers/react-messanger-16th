@@ -1,4 +1,5 @@
-import React from 'react';
+import { AnyAaaaRecord } from 'dns';
+import React,{useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import MessageItem from './MessageItem';
 
@@ -9,6 +10,7 @@ const StyledBlock = styled.div`
     width: 340px;
     height: 400px;
     overflow-y: scroll;
+    position: relative;
 `
 
 type MessageProps = {
@@ -17,8 +19,22 @@ type MessageProps = {
 };
 
 function MessageBox({msgList, nowUser}:MessageProps){
+
+    const scrollRef = useRef<any>();
+
+    const scrollToBottom = () => {
+        // scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'end'});
+    }
+
+    useEffect(()=>{
+        scrollToBottom();
+    },[msgList]);
+
     return(
+        
         <StyledBlock>
+            <div ref={scrollRef}>
             {
                 msgList.map((m) => (
                     <MessageItem
@@ -29,6 +45,7 @@ function MessageBox({msgList, nowUser}:MessageProps){
                     />
                 ))
             }
+            </div>
         </StyledBlock>
     );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import UserItem from './UserItem';
+import UserInfo from './UserInfo.json';
 
 const StyledBlock = styled.div`
     display: flex;
@@ -14,20 +15,6 @@ type UserProps = {
 };
 
 function UserBox({onSubmit}:UserProps){
-
-    const UserInfo = [
-        {
-            id:1,
-            name:"개",
-            src:"img/c.jfif"
-        },
-        {
-            id:2,
-            name:"고양이",
-            src:"img/b.jfif"
-        }
-    ]
-
 
     return(
         <StyledBlock>

@@ -30,7 +30,6 @@ const Container = () => {
 
     const onSubmitUser = (form:number) => {
         setUser(form);
-        console.log('onSubmit=>',form,user);
     }
 
     const onSubmitMsg = (form: {user:number, msg:string}) => {

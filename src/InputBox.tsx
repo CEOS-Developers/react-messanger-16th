@@ -27,7 +27,6 @@ type InputProps = {
 };
 
 function InputBox({onSubmit,user}:InputProps) {
-    console.log('Input-user->',user);
     const [input, setInput] = useState({
         user: user,
         msg: ''
@@ -45,7 +44,9 @@ function InputBox({onSubmit,user}:InputProps) {
 
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('input=>',user);
+        if(!msg.trim()){
+            return;
+        }
         onSubmit(input);
         setInput({
             user: user,

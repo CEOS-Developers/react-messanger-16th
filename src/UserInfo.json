@@ -1,0 +1,12 @@
+[
+    {
+        "id":1,
+        "name":"개",
+        "src":"img/c.jfif"
+    },
+    {
+        "id":2,
+        "name":"고양이",
+        "src":"img/b.jfif"
+    }
+]
