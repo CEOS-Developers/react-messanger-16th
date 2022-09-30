@@ -1,0 +1,6 @@
+{
+  "ChattingList": [
+    { "IsUser": false, "addText": "하이 유선생" },
+    { "IsUser": true, "addText": "하이 올선생" }
+  ]
+}
