@@ -13,10 +13,12 @@ type Chat = {
   chat_content: string;
 };
 
-export const ChatContext = React.createContext<{
+export const Context = React.createContext<{
   setChats: React.Dispatch<React.SetStateAction<Chat[]>>;
+  setUsers: React.Dispatch<React.SetStateAction<User[]>>;
 }>({
   setChats: () => {},
+  setUsers: () => {},
 });
 
 type User = {
@@ -43,17 +45,19 @@ const userList: Array<User> = [
 
 function App() {
   const [chats, setChats] = useState<Chat[]>([]);
-  const chatFunc = useMemo(() => ({ setChats }), [setChats]);
+  const [users, setUsers] = useState<User[]>(userList);
+
+  const func = useMemo(() => ({ setChats, setUsers }), [setChats, setUsers]);
 
   return (
-    <ChatContext.Provider value={chatFunc}>
+    <Context.Provider value={func}>
       <GlobalStyle />
       <Container>
-        <Header userList={userList} />
-        <ChatBoxList chatList={chats} userList={userList} />
+        <Header userList={users} />
+        <ChatBoxList chatList={chats} userList={users} />
         <InputBox />
       </Container>
-    </ChatContext.Provider>
+    </Context.Provider>
   );
 }
 

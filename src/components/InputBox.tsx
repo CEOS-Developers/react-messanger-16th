@@ -1,10 +1,10 @@
 import { useContext, useState, useRef } from 'react';
-import { ChatContext } from '../App';
+import { Context } from '../App';
 
 import styled from 'styled-components';
 
 const InputBox = () => {
-  const { setChats } = useContext(ChatContext);
+  const { setChats } = useContext(Context);
 
   type Chat = {
     user_id: number;
@@ -32,12 +32,18 @@ const InputBox = () => {
     setChat('');
   };
 
+  const handleEnter = (e: any) => {
+    if (e.keyCode === 13) {
+      if (!e.shiftKey) handleSubmit(e);
+    }
+  };
+
   const handleChangeInput = (e: any) => {
     setChat(e.target.value);
   };
 
   return (
-    <InputWrapper onSubmit={handleSubmit}>
+    <InputWrapper onSubmit={handleSubmit} onKeyDown={handleEnter}>
       <Input value={chat} onChange={handleChangeInput} />
       <Button>전송</Button>
     </InputWrapper>
