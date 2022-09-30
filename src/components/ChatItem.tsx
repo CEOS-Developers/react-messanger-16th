@@ -7,19 +7,27 @@ interface ChatItemProps {
 }
 
 const ChatItem = ({ chat }: ChatItemProps) => {
+  const time = String(chat.date.getHours()).padStart(2, "0");
+  const minute = String(chat.date.getMinutes()).padStart(2, "0");
   return (
     <Wrapper>
       <ProfileImage />
-      <TextWrapper>
+      <ContentWrapper>
         <p>name</p>
-        <p>text</p>
-      </TextWrapper>
+        <ChatWrapper>
+          <ChatBalloon>{chat.text}</ChatBalloon>
+          <p>
+            {time}:{minute}
+          </p>
+        </ChatWrapper>
+      </ContentWrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div``;
+const ContentWrapper = styled.div``;
+const ChatWrapper = styled.div``;
 const ChatBalloon = styled.div``;
-const TextWrapper = styled.div``;
 
 export default ChatItem;

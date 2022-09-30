@@ -7,6 +7,7 @@ import user1 from "./profileAssets/dedenne.jpeg";
 import user2 from "./profileAssets/morpeco.png";
 
 function App() {
+  const tmp = new Date("2022-09-01");
   const [curUser, setCurUser] = useState(1);
   const [users, setUsers] = useState<User[]>([
     {
@@ -21,16 +22,18 @@ function App() {
     },
   ]);
   const [chats, setChats] = useState<Chat[]>([
-    { id: 1, senderId: 1, text: "안녕하세요" },
+    { id: 1, senderId: 1, text: "안녕하세요", date: tmp },
   ]);
 
   const nextChatId = useRef(3);
   const onConcat = useCallback(
     (text: string) => {
+      const now = new Date();
       const chat = {
         id: nextChatId.current,
         senderId: curUser,
         text,
+        date: now,
       };
       setChats(chats.concat(chat));
       nextChatId.current++;
