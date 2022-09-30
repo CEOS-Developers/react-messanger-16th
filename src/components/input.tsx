@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { ListInfo } from '../interfaces/interface';
-import { listState, textState } from '../state/state';
+import { listState, textState, userState } from '../state/state';
 
 const InputBox = styled.form`
   background-color: white;
@@ -35,6 +35,7 @@ const InputBtn = styled.button`
 const Input = () => {
   const [text, setText] = useState<string>('');
   const [list, setList] = useRecoilState<ListInfo[]>(listState);
+  const [isUser, setIsUser] = useRecoilState(userState);
 
   const writeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
@@ -42,12 +43,14 @@ const Input = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const addText = {
-      userId: 1,
-      addText: text,
-    };
-    setList([...list, { userId: addText.userId, addText: addText.addText }]);
-    setText('');
+    if (text.trim()) {
+      const addText = {
+        IsUser: isUser,
+        addText: text,
+      };
+      setList([...list, { IsUser: addText.IsUser, addText: addText.addText }]);
+      setText('');
+    }
   };
 
   return (

@@ -3,6 +3,10 @@ export interface TextInfo {
 }
 
 export interface ListInfo {
-  userId: number;
+  IsUser: boolean;
   addText: string;
+}
+
+export interface TalkBoxInfo {
+  IsUser: boolean;
 }

@@ -15,3 +15,8 @@ export const talkState = atom<string>({
   key: 'Talk',
   default: '',
 });
+
+export const userState = atom<boolean>({
+  key: 'isUser',
+  default: false,
+});

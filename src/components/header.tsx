@@ -1,5 +1,7 @@
 import React from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { userState } from '../state/state';
 import User from './talk/user';
 
 const Head = styled.header`
@@ -14,7 +16,6 @@ const Head = styled.header`
 const Header = () => {
   return (
     <Head>
-      <User />
       <User />
     </Head>
   );

@@ -9,6 +9,7 @@ import TalkText from './talk/talkText';
 const ContentBox = styled.section`
   width: 100%;
   height: 75%;
+  overflow: auto;
 `;
 
 const Content = () => {
