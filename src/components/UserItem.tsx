@@ -1,5 +1,6 @@
 import { User } from "../interface";
 import styled from "styled-components";
+import { ProfileImage } from "../StyledComponents";
 
 interface UserItemProps {
   selected: boolean;
@@ -17,14 +18,5 @@ const UserItem = ({ selected, user, changeUser }: UserItemProps) => {
 };
 
 const Wrapper = styled.div``;
-const ProfileImage = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 20px;
-  object-fit: cover;
-  background-color: black;
-  opacity: ${({ selected }: { selected: boolean }) =>
-    selected ? "50%" : "100%"};
-`;
 
 export default UserItem;
