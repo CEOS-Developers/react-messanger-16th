@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding: 15px;
   gap: 20px;
-  height: 450px;
+  height: 65%;
   overflow: auto;
   background-color: skyblue;
 `;

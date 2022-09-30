@@ -33,7 +33,10 @@ const InputForm = ({ onConcat }: InputFormProps) => {
   );
 };
 
-const Wrapper = styled.form``;
+const Wrapper = styled.form`
+  display: flex;
+  height: 15%;
+`;
 const InputField = styled.input``;
 const SendButton = styled.button``;
 

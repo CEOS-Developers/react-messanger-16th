@@ -28,6 +28,8 @@ const Wrapper = styled.div`
   flex-direction: row;
   padding: 5px;
   background-color: white;
+  height: 15%;
+  box-sizing: border-box;
 `;
 
 export default UserList;

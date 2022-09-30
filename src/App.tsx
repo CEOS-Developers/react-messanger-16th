@@ -63,7 +63,7 @@ html{
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
-  font-size: 0.8rem
+  font-size: 0.8rem;
 }
 `;
 
@@ -72,6 +72,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 350px;
   border-radius: 20px;
+  height: 95vh;
 `;
 
 export default App;
