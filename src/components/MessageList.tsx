@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { accountState, chatRoomSelector, userSelector } from "../store/atom";
+import { accountState, chatRoomSelector } from "../store/atom";
 
 const MessageList = () => {
   const filteredChatRoom = useRecoilValue(chatRoomSelector);
@@ -39,6 +39,7 @@ const MessageList = () => {
               {chat.chat}
             </Bubble>
           </BubbleWrapper>
+          <Time>{chat.time}</Time>
         </UserWrapper>
       ))}
     </ChatWrapper>
@@ -85,6 +86,9 @@ const Bubble = styled.span<{
   myAccount: boolean;
   userAccount: boolean;
 }>`
+  font-size: 0.8rem;
+  padding: 0.5rem;
+
   background: ${(props) =>
     props.myAccount === props.userAccount
       ? "linear-gradient(180deg, #ffffff 0%, #aed1fc 100%)"
@@ -94,12 +98,15 @@ const Bubble = styled.span<{
       ? " 25px 0px 25px 25px"
       : "0px 25px 25px 25px"};
   border: 1px solid #000000;
-
-  padding: 0.5rem;
-  font-size: 0.8rem;
 `;
 
 // 시간...
-const Time = styled.div``;
+const Time = styled.div`
+  font-size: 0.5rem;
+  color: #323232;
+
+  margin: 0.2rem;
+  padding-top: 1.2rem;
+`;
 
 export default MessageList;

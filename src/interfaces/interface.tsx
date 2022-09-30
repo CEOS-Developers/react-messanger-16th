@@ -3,6 +3,7 @@ export interface Chat {
   chatid: number;
   myAccount: boolean;
   chat: string;
+  time: string;
 }
 
 export interface ChatRoom {

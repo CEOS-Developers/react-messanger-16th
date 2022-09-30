@@ -1,3 +1,4 @@
+import moment from "moment";
 import { FormEvent } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
@@ -17,6 +18,7 @@ const MessageInput = () => {
     chatid: Date.now(),
     myAccount: userAccount ? true : false,
     chat: message.value,
+    time: moment(new Date()).format("HH:mm"),
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
