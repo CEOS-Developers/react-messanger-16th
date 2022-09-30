@@ -9,4 +9,5 @@ export interface ListInfo {
 
 export interface TalkBoxInfo {
   IsUser: boolean;
+  nowIsUser: boolean;
 }

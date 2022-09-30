@@ -14,18 +14,26 @@ const Text = styled.div<TalkBoxInfo>`
   border-radius: 13px;
   background-color: yellow;
   display: flex;
-  background-color: ${({ IsUser }) => (IsUser === true ? 'yellow' : 'grey')};
-  margin-left: ${({ IsUser }) => (IsUser === true ? 'auto' : '0')};
+  background-color: ${({ IsUser, nowIsUser }) =>
+    IsUser === nowIsUser ? 'yellow' : 'grey'};
+  margin-left: ${({ IsUser, nowIsUser }) =>
+    IsUser === nowIsUser ? 'auto' : '0'};
 `;
 
 const TalkText = ({
   IsUser,
   addText,
+  nowIsUser,
 }: {
   IsUser: boolean;
   addText: string;
+  nowIsUser: boolean;
 }) => {
-  return <Text IsUser={IsUser}>{addText}</Text>;
+  return (
+    <Text IsUser={IsUser} nowIsUser={nowIsUser}>
+      {addText}
+    </Text>
+  );
 };
 
 export default TalkText;
