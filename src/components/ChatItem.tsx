@@ -58,7 +58,6 @@ const ChatBalloon = styled.div`
     isCurUser ? "yellow" : "white"};
   padding: 10px;
   border-radius: 5px;
-  width: 100%;
   word-break: break-all;
 `;
 

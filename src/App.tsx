@@ -71,8 +71,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 350px;
-  border-radius: 20px;
   height: 95vh;
+  border: 1px solid lightgray;
+  border-radius: 20px;
 `;
 
 export default App;

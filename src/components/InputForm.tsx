@@ -8,7 +8,7 @@ interface InputFormProps {
 const InputForm = ({ onConcat }: InputFormProps) => {
   const [value, setValue] = useState("");
 
-  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
   }, []);
 
@@ -24,6 +24,7 @@ const InputForm = ({ onConcat }: InputFormProps) => {
   return (
     <Wrapper onSubmit={onSubmit}>
       <InputField
+        required
         value={value}
         onChange={onChange}
         placeholder="메세지를 입력하세요"
@@ -36,8 +37,22 @@ const InputForm = ({ onConcat }: InputFormProps) => {
 const Wrapper = styled.form`
   display: flex;
   height: 15%;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: white;
 `;
-const InputField = styled.input``;
-const SendButton = styled.button``;
+const InputField = styled.textarea`
+  flex: 1;
+  border: none;
+  padding: 10px;
+  word-break: break-all;
+`;
+const SendButton = styled.button`
+  width: 80px;
+  background-color: yellow;
+  border: none;
+  border-radius: 5px;
+`;
 
 export default InputForm;
