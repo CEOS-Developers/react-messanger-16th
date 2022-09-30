@@ -28,7 +28,7 @@ const ChatBox = ({
         <ChatBoxItem
           key={it.chat_id}
           {...it}
-          user={userList.find((user) => user.isSelected === true)!}
+          user={userList.find((user) => user.user_id === it.user_id)!}
         />
       ))}
     </ChatBoxWrapper>

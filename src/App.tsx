@@ -55,7 +55,7 @@ function App() {
       <Container>
         <Header userList={users} />
         <ChatBoxList chatList={chats} userList={users} />
-        <InputBox />
+        <InputBox userList={users} />
       </Container>
     </Context.Provider>
   );

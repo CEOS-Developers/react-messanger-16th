@@ -3,7 +3,14 @@ import { Context } from '../App';
 
 import styled from 'styled-components';
 
-const InputBox = () => {
+type User = {
+  user_id: number;
+  user_img: string;
+  user_name: string;
+  isSelected: boolean;
+};
+
+const InputBox = ({ userList }: { userList: User[] }) => {
   const { setChats } = useContext(Context);
 
   type Chat = {
@@ -18,8 +25,10 @@ const InputBox = () => {
     e.preventDefault();
 
     if (chat.trim()) {
+      const curUser = userList.find((user) => user.isSelected === true)!;
+
       const newChat: Chat = {
-        user_id: 1,
+        user_id: curUser.user_id,
         chat_id: chatId.current,
         chat_content: chat,
       };

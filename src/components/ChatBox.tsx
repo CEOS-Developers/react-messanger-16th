@@ -15,12 +15,7 @@ interface ChatProps {
   user: User;
 }
 
-const ChatBox: React.FC<ChatProps> = ({
-  user,
-  user_id,
-  chat_id,
-  chat_content,
-}) => {
+const ChatBox: React.FC<ChatProps> = ({ user, chat_id, chat_content }) => {
   return (
     <ChatBoxItem>
       <UserImgWrapper>
