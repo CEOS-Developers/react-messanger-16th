@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { ListInfo } from '../interfaces/interface';
+import { listState, textState } from '../state/state';
 
 const InputBox = styled.form`
   background-color: white;
   width: 100%;
-  height: 20%;
+  height: 10%;
   border: 10px black;
   border-radius: 0% 0% 7% 7%;
   display: flex;
 `;
 
-const InputForm = styled.textarea`
+const InputForm = styled.input`
   height: 100%;
   width: 90%;
   box-sizing: border-box;
@@ -27,11 +30,29 @@ const InputBtn = styled.button`
     cursor: grab;
   }
 `;
+//인풋 창에따라서 전송 색 다르게
 
 const Input = () => {
+  const [text, setText] = useState<string>('');
+  const [list, setList] = useRecoilState<ListInfo[]>(listState);
+
+  const writeText = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const addText = {
+      userId: 1,
+      addText: text,
+    };
+    setList([...list, { userId: addText.userId, addText: addText.addText }]);
+    setText('');
+  };
+
   return (
-    <InputBox>
-      <InputForm />
+    <InputBox onSubmit={onSubmit}>
+      <InputForm onChange={writeText} value={text} />
       <InputBtn>전송</InputBtn>
     </InputBox>
   );

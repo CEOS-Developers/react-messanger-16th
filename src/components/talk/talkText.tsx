@@ -1,19 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useRecoilState } from 'recoil';
+import { talkState } from '../../state/state';
 const Text = styled.div`
-  position: relative;
-  display: inline-block;
-  max-width: calc(100% - 100px);
   padding: 10px;
   margin-top: 7px;
   font-size: 15px;
   border-radius: 13px;
   background-color: yellow;
+  display: flex;
 `;
 
-const TalkText = () => {
-  return <Text>안녕하세요 저는 유선호 입니다 ㅎㅎ 방가방가 방가루</Text>;
+const TalkText = ({ userId, addText }: { userId: number; addText: string }) => {
+  return <Text>{addText}</Text>;
 };
 
 export default TalkText;

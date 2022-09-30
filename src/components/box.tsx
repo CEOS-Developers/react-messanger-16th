@@ -14,8 +14,8 @@ const ChatBox = styled.main`
   bottom: 0;
   left: 0;
   right: 0;
-  width: 400px;
-  height: 600px;
+  width: 350px;
+  height: 450px;
   border: 10px black;
   border-radius: 7%;
   background-color: powderblue;
