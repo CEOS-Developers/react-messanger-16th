@@ -12,14 +12,21 @@ const InputForm = ({ onConcat }: InputFormProps) => {
     setValue(e.target.value);
   }, []);
 
-  const onSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      onConcat(value);
-      setValue("");
+  // 엔터로 전송, shift+엔터로 줄바꿈
+  const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      onSubmit();
       e.preventDefault();
-    },
-    [onConcat, value]
-  );
+    }
+  };
+
+  const onSubmit = () => {
+    if (value.length == 0) {
+      return;
+    }
+    onConcat(value);
+    setValue("");
+  };
 
   return (
     <Wrapper onSubmit={onSubmit}>
@@ -27,6 +34,7 @@ const InputForm = ({ onConcat }: InputFormProps) => {
         required
         value={value}
         onChange={onChange}
+        onKeyDown={handleEnter}
         placeholder="메세지를 입력하세요"
       />
       <SendButton>전송</SendButton>
