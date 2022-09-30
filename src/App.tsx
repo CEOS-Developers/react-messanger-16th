@@ -1,40 +1,26 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import ChatList from "./components/ChatList";
 import InputForm from "./components/InputForm";
 import UserList from "./components/UserList";
 import { Chat, User } from "./interface";
-import user1 from "./profileAssets/dedenne.jpeg";
-import user2 from "./profileAssets/morpeco.png";
+
+import userData from "./data/userData.json";
+import chatData from "./data/chatData.json";
 
 function App() {
   const [curUser, setCurUser] = useState(1);
-  const [users, setUsers] = useState<User[]>([
-    {
-      id: 0,
-      name: "데덴네",
-      profileImage: user1,
-    },
-    {
-      id: 1,
-      name: "모르페코",
-      profileImage: user2,
-    },
-  ]);
-  const [chats, setChats] = useState<Chat[]>([
-    { id: 1, senderId: 0, text: "안녕하세요", date: new Date("2022-09-01") },
-    { id: 2, senderId: 1, text: "반가워요", date: new Date("2022-09-01") },
-  ]);
+  const [users, setUsers] = useState<User[]>(userData.users);
+  const [chats, setChats] = useState<Chat[]>(chatData.chats);
 
-  const nextChatId = useRef(3);
+  const nextChatId = useRef(chatData.chats.length + 1);
   const onConcat = useCallback(
     (text: string) => {
-      const now = new Date();
       const chat = {
         id: nextChatId.current,
         senderId: curUser,
         text,
-        date: now,
+        date: String(new Date()),
       };
       setChats(chats.concat(chat));
       nextChatId.current++;

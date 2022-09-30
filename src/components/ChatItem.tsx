@@ -9,8 +9,9 @@ interface ChatItemProps {
 }
 
 const ChatItem = ({ chat, isCurUser, sender }: ChatItemProps) => {
-  const time = String(chat.date.getHours()).padStart(2, "0");
-  const minute = String(chat.date.getMinutes()).padStart(2, "0");
+  const time = String(new Date(chat.date).getHours()).padStart(2, "0");
+  const minute = String(new Date(chat.date).getMinutes()).padStart(2, "0");
+
   return (
     <Wrapper isCurUser={isCurUser}>
       {isCurUser ? (
