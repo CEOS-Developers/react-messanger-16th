@@ -13,7 +13,7 @@ const MessageInput = () => {
   const filteredChatRoom = useRecoilValue(chatRoomSelector);
 
   const newMessage: Chat = {
-    userid: 0,
+    userid: userAccount ? 0 : filteredChatRoom!.user,
     chatid: Date.now(),
     myAccount: userAccount ? true : false,
     chat: message.value,

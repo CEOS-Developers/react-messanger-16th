@@ -18,13 +18,18 @@ const Header = ({ leftChild, rightChild }: HeaderPropsType) => {
   };
 
   return (
-    <header>
+    <HeaderWrapper>
       <HeaderButton>{leftChild}</HeaderButton>
       <HeadText onClick={handleHeadTextClick}>{headText}</HeadText>
       <HeaderButton>{rightChild}</HeaderButton>
-    </header>
+    </HeaderWrapper>
   );
 };
+
+const HeaderWrapper = styled.header`
+  display: flex;
+  align-items: center;
+`;
 
 const HeaderButton = styled.button`
   width: 10%;
@@ -39,7 +44,7 @@ const HeaderButton = styled.button`
 
 const HeadText = styled.span`
   width: 80%;
-  font-size: 25px;
+  font-size: 1.2rem;
   padding-left: 1rem;
 `;
 

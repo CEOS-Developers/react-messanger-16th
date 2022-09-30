@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { accountState, chatRoomSelector } from "../store/atom";
+import { accountState, chatRoomSelector, userSelector } from "../store/atom";
 
 const MessageList = () => {
   const filteredChatRoom = useRecoilValue(chatRoomSelector);
@@ -22,19 +22,24 @@ const MessageList = () => {
   return (
     <ChatWrapper ref={messageListRef}>
       {filteredChatRoom!.chats.map((chat) => (
-        <BubbleWrapper
+        <UserWrapper
           key={chat.chatid}
           myAccount={chat.myAccount}
           userAccount={userAccount}
         >
-          <Bubble
-            key={chat.chatid}
-            myAccount={chat.myAccount}
-            userAccount={userAccount}
-          >
-            {chat.chat}
-          </Bubble>
-        </BubbleWrapper>
+          <ProfileImage
+            src={`${process.env.PUBLIC_URL}/images/${chat.userid}.jpg`}
+          />
+          <BubbleWrapper>
+            <Bubble
+              key={chat.chatid}
+              myAccount={chat.myAccount}
+              userAccount={userAccount}
+            >
+              {chat.chat}
+            </Bubble>
+          </BubbleWrapper>
+        </UserWrapper>
       ))}
     </ChatWrapper>
   );
@@ -54,18 +59,29 @@ const ChatWrapper = styled.section`
   }
 `;
 
-const BubbleWrapper = styled.div<{
+const UserWrapper = styled.div<{
   myAccount: boolean;
   userAccount: boolean;
 }>`
   display: flex;
   flex-direction: ${(props) =>
     props.myAccount === props.userAccount ? "row-reverse" : "row"};
+  align-items: center;
 `;
 
-// 프로필 사진...
+const ProfileImage = styled.img`
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 25px;
+  padding: 0.5rem;
+`;
 
-const Bubble = styled.div<{
+const BubbleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Bubble = styled.span<{
   myAccount: boolean;
   userAccount: boolean;
 }>`
@@ -80,7 +96,7 @@ const Bubble = styled.div<{
   border: 1px solid #000000;
 
   padding: 0.5rem;
-  margin: 0.5rem;
+  font-size: 0.8rem;
 `;
 
 // 시간...
