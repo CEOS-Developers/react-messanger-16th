@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 import App from './App';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const rootElement = document.getElementById('root') as HTMLElement;
+
+const root = ReactDOM.createRoot(rootElement);
 root.render(
   <RecoilRoot>
     <App />

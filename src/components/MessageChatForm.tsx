@@ -6,20 +6,20 @@ import styled from 'styled-components';
 
 const MessageChatForm = () => {
   const messageWrapperRef = useRef<HTMLElement>(null);
-  const temp = useRecoilValue(chatRoomState);
+  const { message, currentUser } = useRecoilValue(chatRoomState);
   useEffect(() => {
-    console.log(temp);
-  }, [temp]);
+    console.log(message);
+  }, [message]);
   return (
     <Wrapper ref={messageWrapperRef}>
-      {/* {message.map((msg) => (
+      {message.map((msg) => (
         <MessageChatContainer
           key={msg.id}
           isUser={msg.user.name === currentUser.name}
         >
           <MessageChat key={msg.id} message={msg} />
         </MessageChatContainer>
-      ))} */}
+      ))}
     </Wrapper>
   );
 };

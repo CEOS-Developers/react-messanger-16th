@@ -22,22 +22,15 @@ const useChatRoom = () => {
   };
 
   const toggleAccount = (id: number): void => {
-    let toggleId = 1;
+    let toggleId = 0;
     if (id <= 1 && chatState.currentUser.id === userList.mainUser.id) {
       toggleId = userList.users.findIndex((user) => user.id === id);
     }
     setChatState({ ...chatState, currentUser: userList.users[toggleId] });
+    console.log(id);
   };
 
-  const handleChatRoom = (id: number): void => {
-    const toggleIndx = allMessage.findIndex((msg) => msg.id === id);
-    setChatState({
-      currentUser: userList.mainUser,
-      message: allMessage[toggleIndx].messages,
-    });
-  };
-
-  return { addMsg, toggleAccount, handleChatRoom };
+  return { addMsg, toggleAccount };
 };
 
 export default useChatRoom;

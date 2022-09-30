@@ -16,11 +16,33 @@ const InputForm = ({ sendMsg }: IInputForm) => {
   };
 
   return (
-    <form onSubmit={addInput}>
-      <input placeholder="입력" value={chat} onChange={handleChange} />
-      <button>+</button>
-    </form>
+    <StyledAddList onSubmit={addInput}>
+      <StyledInput placeholder="입력" value={chat} onChange={handleChange} />
+      <StyledButton>+</StyledButton>
+    </StyledAddList>
   );
 };
+
+const StyledAddList = styled.form`
+  text-align: center;
+  font-weight: bolder;
+  font-family: 'Jua', sans-serif;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+`;
+
+const StyledInput = styled.input`
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  font-family: 'Jua', sans-serif;
+  padding: 15px;
+  width: 230px;
+  margin-left: 15px;
+`;
+const StyledButton = styled.button`
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  font-family: 'Jua', sans-serif;
+`;
 
 export default InputForm;
