@@ -17,14 +17,22 @@ interface ChatProps {
 
 const ChatBox: React.FC<ChatProps> = ({ user, chat_id, chat_content }) => {
   return (
-    <ChatBoxItem>
-      <UserImgWrapper>
-        <UserImg src={user.user_img} />
-      </UserImgWrapper>
+    <ChatBoxItem isSelected={user.isSelected}>
+      {user.isSelected ? (
+        <></>
+      ) : (
+        <UserImgWrapper>
+          <UserImg src={user.user_img} />
+        </UserImgWrapper>
+      )}
       <ChatWrapper>
-        <ChatUserName>{user.user_name}</ChatUserName>
+        {user.isSelected ? (
+          <></>
+        ) : (
+          <ChatUserName>{user.user_name}</ChatUserName>
+        )}
         <Chat>
-          <ChatText>{chat_content}</ChatText>
+          <ChatText isSelected={user.isSelected}>{chat_content}</ChatText>
           <ChatTime />
         </Chat>
       </ChatWrapper>
@@ -32,9 +40,11 @@ const ChatBox: React.FC<ChatProps> = ({ user, chat_id, chat_content }) => {
   );
 };
 
-const ChatBoxItem = styled.div`
+const ChatBoxItem = styled.div<{ isSelected: boolean }>`
   display: flex;
   gap: 0.8rem;
+
+  justify-content: ${(props) => (props.isSelected ? 'right' : 'left')};
 `;
 
 const UserImgWrapper = styled.div`
@@ -63,7 +73,7 @@ const Chat = styled.div`
   gap: 0.5rem;
 `;
 
-const ChatText = styled.div`
+const ChatText = styled.div<{ isSelected: boolean }>`
   padding: 0.6rem 0.8rem 0.5rem;
 
   border-radius: 5px;
@@ -71,7 +81,8 @@ const ChatText = styled.div`
   font-size: 0.9rem;
   font-weight: 500;
 
-  background-color: white;
+  background-color: ${(props) =>
+    props.isSelected ? 'rgb(255, 234, 0)' : 'white'};
 `;
 
 const ChatTime = styled.div`

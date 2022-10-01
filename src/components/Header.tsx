@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import styled from 'styled-components';
 
@@ -20,7 +20,6 @@ const Header = ({ userList }: { userList: User[] }) => {
       it.user_id === user ? (it.isSelected = true) : (it.isSelected = false)
     );
     setUsers(userList);
-    // console.log(userList.map((user) => user.isSelected));
   };
 
   return (
