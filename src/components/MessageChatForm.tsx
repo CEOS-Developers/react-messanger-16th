@@ -55,6 +55,7 @@ const Wrapper = styled.section`
     background-clip: padding-box;
     border: 0.3rem solid transparent;
   }
+  background-color: #fafa5c;
 `;
 
 const MessageChatContainer = styled.section<{ isUser: boolean }>`

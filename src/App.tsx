@@ -28,8 +28,6 @@ function App() {
 
   return (
     <AllTemplate>
-      <MessageChatForm />
-      <InputForm sendMsg={addMsg} />
       <ImgProfAll>
         <ImgProf
           onClick={onCLickMe}
@@ -40,6 +38,8 @@ function App() {
           src="https://blog.kakaocdn.net/dn/dowIkh/btrdtJZG3Eh/74NuD1tiFw7QzhqxOZ2Po0/img.png"
         ></ImgProf>
       </ImgProfAll>
+      <MessageChatForm />
+      <InputForm sendMsg={addMsg} />
     </AllTemplate>
   );
 }

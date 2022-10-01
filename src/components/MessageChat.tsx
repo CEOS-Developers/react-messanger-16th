@@ -10,13 +10,37 @@ const MessageChat = ({ message }: { message: IMessageType }) => {
   return (
     <MessageBox isUser={isUser}>
       <section>
-        <MessageUser isUser={isUser}>{message.user.name}</MessageUser>
+        <MessageProfAll>
+          <MessageUser isUser={isUser}>{message.user.name}</MessageUser>
+          <Messageimg isUser={isUser}></Messageimg>
+        </MessageProfAll>
         <MessageText isUser={isUser}>{message.text}</MessageText>
       </section>
       <MessageTime isUser={isUser}>{message.time}</MessageTime>
     </MessageBox>
   );
 };
+
+const MessageProfAll = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Messageimg = styled.img<{ isUser: boolean }>`
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+
+  ${({ isUser }) =>
+    isUser
+      ? css`
+          margin-left: 0.5rem;
+        `
+      : css`
+          background-size: cover;
+          background-image: url(https://blog.kakaocdn.net/dn/dowIkh/btrdtJZG3Eh/74NuD1tiFw7QzhqxOZ2Po0/img.png);
+        `}
+`;
 
 const MessageTime = styled.p<{ isUser: boolean }>`
   font-size: 0.5rem;
