@@ -1,13 +1,9 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { HeaderProps } from "../interfaces/interface";
 import { accountState, userSelector } from "../store/atom";
 
-export type HeaderPropsType = {
-  leftChild: string;
-  rightChild: string;
-};
-
-const Header = ({ leftChild, rightChild }: HeaderPropsType) => {
+const Header = ({ leftChild, rightChild }: HeaderProps) => {
   const [userAccount, setUserAccount] = useRecoilState(accountState);
   const filteredUser = useRecoilValue(userSelector);
 
