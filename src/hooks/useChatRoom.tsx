@@ -23,7 +23,8 @@ const useChatRoom = () => {
 
   const toggleAccount = (id: number): void => {
     let toggleId = 0;
-    if (id <= 1 && chatState.currentUser.id === userList.mainUser.id) {
+    if (id <= 1) {
+      //&& chatState.currentUser.id === userList.mainUser.id 나는 아직 두개밖에 없어서 이걸 추가해버리면 오류뜬다
       toggleId = userList.users.findIndex((user) => user.id === id);
     }
     setChatState({ ...chatState, currentUser: userList.users[toggleId] });
