@@ -121,6 +121,7 @@ const Bubble = styled.span<{
 }>`
   font-size: 0.8rem;
   padding: 0.5rem;
+  word-break: break-all;
 
   background: ${(props) =>
     props.myAccount === props.userAccount

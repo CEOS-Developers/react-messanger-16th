@@ -1,3 +1,8 @@
+export interface HeaderProps {
+  leftChild: string;
+  rightChild: string;
+}
+
 export interface Chat {
   userid: number;
   chatid: number;
