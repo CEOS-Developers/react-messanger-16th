@@ -6,16 +6,18 @@ import styled, { css } from 'styled-components';
 const MessageChat = ({ message }: { message: IMessageType }) => {
   const { currentUser } = useRecoilValue(chatRoomState);
   const isUser = message.user.id === currentUser.id;
-
+  console.log(isUser);
+  console.log(currentUser.id);
+  console.log(message.user.id);
   return (
     <MessageBox isUser={isUser}>
       <section>
         <MessageProfAll>
           <MessageUser isUser={isUser}>{message.user.name}</MessageUser>
-          <Messageimg isUser={isUser}></Messageimg>
+          <Messageimg isUser={isUser} _id={message.user.id}></Messageimg>
         </MessageProfAll>
-        <MessageText isUser={isUser}>{message.text}</MessageText>
       </section>
+      <MessageText isUser={isUser}>{message.text}</MessageText>
       <MessageTime isUser={isUser}>{message.time}</MessageTime>
     </MessageBox>
   );
@@ -26,15 +28,15 @@ const MessageProfAll = styled.section`
   flex-direction: column;
 `;
 
-const Messageimg = styled.img<{ isUser: boolean }>`
+const Messageimg = styled.img<{ isUser: boolean; _id: number }>`
   width: 38px;
   height: 38px;
   border-radius: 50%;
-
-  ${({ isUser }) =>
-    isUser
+  ${({ _id }) =>
+    _id === 0
       ? css`
-          margin-left: 0.5rem;
+          background-size: cover;
+          background-image: url(https://hjm79.top/wp-content/uploads/2022/06/zzal1.jpeg);
         `
       : css`
           background-size: cover;
