@@ -19,15 +19,13 @@ const ChatBubbleList = () => {
   return (
     <Container ref={containerRef}>
       {chatting.map((chat) => (
-        <>
-          <ChatBubble
-            key={chat.chatId}
-            chatId={chat.chatId}
-            talkerId={chat.talkerId}
-            listenerId={chat.listenerId}
-            text={chat.text}
-          />
-        </>
+        <ChatBubble
+          key={chat.chatId}
+          chatId={chat.chatId}
+          talkerId={chat.talkerId}
+          listenerId={chat.listenerId}
+          text={chat.text}
+        />
       ))}
     </Container>
   );
