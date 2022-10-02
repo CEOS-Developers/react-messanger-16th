@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledBlock = styled.div`
@@ -33,6 +33,10 @@ function InputBox({onSubmit,user}:InputProps) {
     });
 
     const {msg} = input;
+
+    useEffect(()=>{
+        setInput({...input,user});
+    },[user]);
 
     const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const {name,value} = e.target;
