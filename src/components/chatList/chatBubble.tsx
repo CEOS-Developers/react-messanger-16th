@@ -6,18 +6,22 @@ import { activeId } from '../../recoil/store';
 
 const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
   const active = useRecoilValue(activeId);
+  const isTalker = active === talkerId;
   return (
     <>
       {active == talkerId ? (
         // 오른쪽 정렬
-        <BubbleBox style={{ justifyContent: 'flex-end' }}>
+        <BubbleBox
+          // style={{ justifyContent: 'flex-end' }}
+          isTalker={isTalker}
+        >
           <Bubble style={{ marginRight: '1rem' }}>
             <ChatText> {text} </ChatText>
           </Bubble>
         </BubbleBox>
       ) : (
         // 왼쪽 정렬
-        <BubbleBox>
+        <BubbleBox isTalker={isTalker}>
           <ProfileImg src={`img/${userInfo[talkerId].userImage}.png`} />
           <ColumnBox>
             <NameText> {userInfo[talkerId].userName} </NameText>
@@ -31,12 +35,13 @@ const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
   );
 };
 
-const BubbleBox = styled.div`
+const BubbleBox = styled.div<{ isTalker: boolean }>`
   display: flex;
   width: 25rem;
   height: 3.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  justifycontent: ${({ isTalker }) => (isTalker ? 'flex-end' : 'flex-start')};
 `;
 
 const ProfileImg = styled.img`
