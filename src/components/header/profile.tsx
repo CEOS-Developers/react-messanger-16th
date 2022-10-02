@@ -35,7 +35,7 @@ const Container = styled.div`
   margin-left: 1rem;
 `;
 
-const ProfileImg = styled.img<{ isSelected }>`
+const ProfileImg = styled.img<{ isSelected: boolean }>`
   height: 3.5rem;
   width: 3.5rem;
   border-radius: 1rem;
