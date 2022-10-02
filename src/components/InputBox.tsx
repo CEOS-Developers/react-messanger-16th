@@ -21,7 +21,7 @@ const InputBox = ({ userList }: { userList: User[] }) => {
   const chatId = useRef<number>(0);
   const [chat, setChat] = useState<string>('');
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (chat.trim()) {
@@ -41,13 +41,13 @@ const InputBox = ({ userList }: { userList: User[] }) => {
     setChat('');
   };
 
-  const handleEnter = (e: any) => {
+  const handleEnter = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if (e.keyCode === 13) {
       if (!e.shiftKey) handleSubmit(e);
     }
   };
 
-  const handleChangeInput = (e: any) => {
+  const handleChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setChat(e.target.value);
   };
 
