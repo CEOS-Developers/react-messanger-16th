@@ -5,19 +5,20 @@ import { User } from '../../interface/user';
 
 const Profile = ({ userId, userName, userImage }: User) => {
   const [active, setActive] = useRecoilState(activeId);
+  const isSelected = active === userId;
   return (
     <Container>
       {active == userId ? (
         <>
-          <ProfileImg src={`img/${userImage}.png`} />
+          <ProfileImg src={`img/${userImage}.png`} isSelected={isSelected} />
           <Name> {userName} </Name>
         </>
       ) : (
         <>
           <ProfileImg
             src={`img/${userImage}.png`}
-            style={{ opacity: 0.5 }}
             onClick={() => setActive(userId)}
+            isSelected={isSelected}
           />
           <Name> {userName} </Name>
         </>
@@ -34,11 +35,12 @@ const Container = styled.div`
   margin-left: 1rem;
 `;
 
-const ProfileImg = styled.img`
+const ProfileImg = styled.img<{ isSelected }>`
   height: 3.5rem;
   width: 3.5rem;
   border-radius: 1rem;
   cursor: pointer;
+  opacity: ${({ isSelected }) => (isSelected ? 1 : 0.5)};
 `;
 
 const Name = styled.div`
