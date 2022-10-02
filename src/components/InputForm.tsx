@@ -8,9 +8,12 @@ interface InputFormProps {
 const InputForm = ({ onConcat }: InputFormProps) => {
   const [value, setValue] = useState("");
 
-  const onChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(e.target.value);
-  }, []);
+  const onChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setValue(e.target.value);
+    },
+    [value]
+  );
 
   // 엔터로 전송, shift+엔터로 줄바꿈
   const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -35,7 +38,7 @@ const InputForm = ({ onConcat }: InputFormProps) => {
         required
         value={value}
         onChange={onChange}
-        onKeyDown={handleEnter}
+        onKeyPress={handleEnter}
         placeholder="메세지를 입력하세요"
       />
       <SendButton>전송</SendButton>
