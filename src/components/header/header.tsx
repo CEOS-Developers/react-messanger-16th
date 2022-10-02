@@ -8,6 +8,7 @@ const Header = () => {
     <Container>
       {userInfo.map((user) => (
         <Profile
+          key={user.userId}
           userId={user.userId}
           userImage={user.userImage}
           userName={user.userName}
