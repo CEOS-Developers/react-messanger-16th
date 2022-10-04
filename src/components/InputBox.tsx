@@ -1,23 +1,12 @@
 import { useContext, useState, useRef } from 'react';
 import { Context } from '../App';
+import { User, Chat } from '../interfaces/interfaces';
 
 import styled from 'styled-components';
-
-type User = {
-  user_id: number;
-  user_img: string;
-  user_name: string;
-  isSelected: boolean;
-};
 
 const InputBox = ({ userList }: { userList: User[] }) => {
   const { setChats } = useContext(Context);
 
-  type Chat = {
-    user_id: number;
-    chat_id: number;
-    chat_content: string;
-  };
   const chatId = useRef<number>(0);
   const [chat, setChat] = useState<string>('');
 

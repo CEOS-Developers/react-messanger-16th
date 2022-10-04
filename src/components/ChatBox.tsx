@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
-type User = {
-  user_id: number;
-  user_img: string;
-  user_name: string;
-  isSelected: boolean;
-};
+import { User } from '../interfaces/interfaces';
 
 interface ChatProps {
   user_id: number;

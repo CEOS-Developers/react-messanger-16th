@@ -1,20 +1,8 @@
 import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
+import { User, Chat } from '../interfaces/interfaces';
 import ChatBoxItem from './ChatBox';
-
-type Chat = {
-  user_id: number;
-  chat_id: number;
-  chat_content: string;
-};
-
-type User = {
-  user_id: number;
-  user_img: string;
-  user_name: string;
-  isSelected: boolean;
-};
 
 const ChatBox = ({
   chatList,

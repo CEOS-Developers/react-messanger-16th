@@ -3,15 +3,11 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 
+import { Chat, User } from './interfaces/interfaces';
+
 import Header from './components/Header';
 import InputBox from './components/InputBox';
 import ChatBoxList from './components/ChatBoxList';
-
-type Chat = {
-  user_id: number;
-  chat_id: number;
-  chat_content: string;
-};
 
 export const Context = React.createContext<{
   setChats: React.Dispatch<React.SetStateAction<Chat[]>>;
@@ -20,13 +16,6 @@ export const Context = React.createContext<{
   setChats: () => {},
   setUsers: () => {},
 });
-
-type User = {
-  user_id: number;
-  user_img: string;
-  user_name: string;
-  isSelected: boolean;
-};
 
 const userList: Array<User> = [
   {

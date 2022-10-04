@@ -1,16 +1,10 @@
 import { useContext, useEffect } from 'react';
 
-import styled from 'styled-components';
-
 import { Context } from '../App';
+import { User } from '../interfaces/interfaces';
 import HeaderItem from './HeaderItem';
 
-type User = {
-  user_id: number;
-  user_img: string;
-  user_name: string;
-  isSelected: boolean;
-};
+import styled from 'styled-components';
 
 const Header = ({ userList }: { userList: User[] }) => {
   const { setUsers } = useContext(Context);
