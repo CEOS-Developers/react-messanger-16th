@@ -16,7 +16,11 @@ const HeaderItem: React.FC<Props> = ({
   isSelected,
 }) => {
   return (
-    <UserItemWrapper onClick={() => onClick(user_id)}>
+    <UserItemWrapper
+      onClick={() => {
+        onClick(user_id);
+      }}
+    >
       <UserImgWrapper>
         <UserImg src={user_img} isSelected={isSelected} />
       </UserImgWrapper>

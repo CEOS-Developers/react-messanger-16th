@@ -2,15 +2,13 @@ import styled from 'styled-components';
 
 import { User } from '../interfaces/interfaces';
 
-interface ChatProps {
-  user_id: number;
-  chat_id: number;
-  chat_content: string;
-
+const ChatBox = ({
+  user,
+  chat_content,
+}: {
   user: User;
-}
-
-const ChatBox: React.FC<ChatProps> = ({ user, chat_id, chat_content }) => {
+  chat_content: string;
+}) => {
   return (
     <ChatBoxItem isSelected={user.isSelected}>
       {user.isSelected ? (
@@ -26,10 +24,10 @@ const ChatBox: React.FC<ChatProps> = ({ user, chat_id, chat_content }) => {
         ) : (
           <ChatUserName>{user.user_name}</ChatUserName>
         )}
-        <Chat>
+        <ChatItem>
           <ChatText isSelected={user.isSelected}>{chat_content}</ChatText>
           <ChatTime />
-        </Chat>
+        </ChatItem>
       </ChatWrapper>
     </ChatBoxItem>
   );
@@ -63,7 +61,7 @@ const ChatUserName = styled.div`
   font-size: 0.75rem;
 `;
 
-const Chat = styled.div`
+const ChatItem = styled.div`
   display: flex;
   gap: 0.5rem;
 `;

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 import { Context } from '../App';
 import { User } from '../interfaces/interfaces';
