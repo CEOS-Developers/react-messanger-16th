@@ -24,6 +24,10 @@ header {
   padding: 1rem;
   justify-content: start;
 }
+
+ul{
+  list-style:none;
+}
 `;
 
 export default GlobalStyle;

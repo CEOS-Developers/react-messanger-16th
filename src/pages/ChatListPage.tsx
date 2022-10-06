@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import Header from "../components/Header";
+import Navigation from "../components/Navigation";
 import { chatState, nowRoomIdState } from "../store/atom";
 
 const ChatListPage = () => {
@@ -17,6 +18,7 @@ const ChatListPage = () => {
         </Link>
       ))}
       <p>채팅 목록 페이지 </p>
+      <Navigation />
     </ChatListContainer>
   );
 };
@@ -28,6 +30,7 @@ const ChatListContainer = styled.div`
   background: linear-gradient(yellow, white 30%, white 90%, yellow);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
 
 export default ChatListPage;
