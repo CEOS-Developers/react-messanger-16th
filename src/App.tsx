@@ -1,16 +1,27 @@
 import styled from "styled-components";
 import ChatRoom from "./pages/ChatRoom";
+import ChatListPage from "./pages/ChatListPage";
 import GlobalStyle from "./styles/GlobalStyle";
 import { RecoilRoot } from "recoil";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FriendsPage from "./pages/FriendsPage";
+import SettingPage from "./pages/SettingPage";
 
 function App() {
   return (
-    <RecoilRoot>
-      <GlobalStyle />
-      <Container>
-        <ChatRoom />
-      </Container>
-    </RecoilRoot>
+    <BrowserRouter>
+      <RecoilRoot>
+        <GlobalStyle />
+        <Container>
+          <Routes>
+            <Route path="/" element={<FriendsPage />} />
+            <Route path="/chats" element={<ChatListPage />} />
+            <Route path="/room/:roomid" element={<ChatRoom />} />
+            <Route path="/settings" element={<SettingPage />} />
+          </Routes>
+        </Container>
+      </RecoilRoot>
+    </BrowserRouter>
   );
 }
 
