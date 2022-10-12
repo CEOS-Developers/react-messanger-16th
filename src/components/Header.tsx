@@ -2,8 +2,10 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { HeaderProps } from "../interfaces/interface";
 import { accountState, userSelector } from "../store/atom";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ leftChild, rightChild }: HeaderProps) => {
+  const navigate = useNavigate();
   const [userAccount, setUserAccount] = useRecoilState(accountState);
   const filteredUser = useRecoilValue(userSelector);
 
@@ -15,7 +17,7 @@ const Header = ({ leftChild, rightChild }: HeaderProps) => {
 
   return (
     <HeaderWrapper>
-      <HeaderButton>{leftChild}</HeaderButton>
+      <HeaderButton onClick={() => navigate(-1)}>{leftChild}</HeaderButton>
       <HeadText onClick={handleHeadTextClick}>{headText}</HeadText>
       <HeaderButton>{rightChild}</HeaderButton>
     </HeaderWrapper>
@@ -41,6 +43,7 @@ const HeadText = styled.span`
   font-size: 1.2rem;
   font-weight: bold;
   padding-left: 1rem;
+  cursor: pointer;
 `;
 
 export default Header;

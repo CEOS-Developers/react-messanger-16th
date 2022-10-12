@@ -39,6 +39,86 @@
           "time": "14:12"
         }
       ]
+    },
+    {
+      "roomid": 2,
+      "user": 3,
+      "chats": [
+        {
+          "userid": 3,
+          "chatid": 1664469417348,
+          "myAccount": false,
+          "chat": "코코팜하니",
+          "time": "12:12"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417349,
+          "myAccount": true,
+          "chat": "동글동글하니",
+          "time": "14:12"
+        }
+      ]
+    },
+    {
+      "roomid": 3,
+      "user": 4,
+      "chats": [
+        {
+          "userid": 4,
+          "chatid": 1664469417350,
+          "myAccount": false,
+          "chat": "다니엘",
+          "time": "13:01"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417351,
+          "myAccount": true,
+          "chat": "다니엘...",
+          "time": "13:05"
+        }
+      ]
+    },
+    {
+      "roomid": 4,
+      "user": 5,
+      "chats": [
+        {
+          "userid": 5,
+          "chatid": 1664469417354,
+          "myAccount": false,
+          "chat": "민지",
+          "time": "12:13"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417360,
+          "myAccount": true,
+          "chat": "민지민지",
+          "time": "14:12"
+        }
+      ]
+    },
+    {
+      "roomid": 5,
+      "user": 6,
+      "chats": [
+        {
+          "userid": 6,
+          "chatid": 1664469417370,
+          "myAccount": false,
+          "chat": "안뇽 혜인",
+          "time": "12:20"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417371,
+          "myAccount": true,
+          "chat": "안냥",
+          "time": "14:50"
+        }
+      ]
     }
   ]
 }

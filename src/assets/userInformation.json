@@ -6,11 +6,27 @@
     },
     {
       "userid": 1,
-      "name": "NewJeans  👖"
+      "name": "NewJeans 👖"
     },
     {
       "userid": 2,
       "name": "HaeRin 😽"
+    },
+    {
+      "userid": 3,
+      "name": "HANNI 🐰"
+    },
+    {
+      "userid": 4,
+      "name": "Danielle 🍀"
+    },
+    {
+      "userid": 5,
+      "name": "MINJI 🍒"
+    },
+    {
+      "userid": 6,
+      "name": "HYEIN 🍼"
     }
   ]
 }

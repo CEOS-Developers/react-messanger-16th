@@ -5,7 +5,7 @@ import Navigation from "../components/Navigation";
 const FriendsPage = () => {
   return (
     <FriendsPageContainer>
-      <Header leftChild="<" rightChild="⋮" />
+      <Header leftChild="<" rightChild="🔍" />
       <p>친구 목록 페이지 </p>
       <Navigation />
     </FriendsPageContainer>
