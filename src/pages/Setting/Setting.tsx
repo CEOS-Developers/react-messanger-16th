@@ -7,14 +7,16 @@ const StyledBlock = styled.div`
     flex-direction: row;
     border-radius: 30px;
     box-shadow: 5px 5px 10px #000;
+    height: 700px;
 `
 const StyledContent = styled.div`
-    height: 700px;
+    height: 650px;
     width: 280px;
     justify-content: center;
     align-items: center;
     background-color: white;
-    border-radius:0px 30px 30px 0px
+    border-radius:0px 30px 30px 0px;
+    margin: 20px;
 `
 const Setting = () => {
     return (

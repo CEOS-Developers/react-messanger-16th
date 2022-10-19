@@ -1,0 +1,32 @@
+[
+    {
+        "id":0,
+        "name":"게스트",
+        "src":"img/f.jfif"
+    },
+    {
+        "id":1,
+        "name":"userA",
+        "src":"img/a.jfif"
+    },
+    {
+        "id":2,
+        "name":"userB",
+        "src":"img/b.jfif"
+    },
+    {
+        "id":3,
+        "name":"userC",
+        "src":"img/c.jfif"
+    },
+    {
+        "id":4,
+        "name":"userD",
+        "src":"img/d.jfif"
+    },
+    {
+        "id":5,
+        "name":"userE",
+        "src":"img/e.jfif"
+    }
+]

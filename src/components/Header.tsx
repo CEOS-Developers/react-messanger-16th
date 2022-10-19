@@ -15,18 +15,16 @@ const StyledBlock = styled.div`
 const StyledList = styled.ul`
     display: flex;
     font-size: 30px;
-    // background: black;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    width: 0px;
 `
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    // background: white;
     text-align: center;
-    width: 100%;
+    width: 80px;
 `;
 
 const Header = () => {

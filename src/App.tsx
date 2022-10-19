@@ -7,13 +7,13 @@ import styled, {createGlobalStyle} from "styled-components";
 // 전역 스타일 지정
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'HBIOS-SYS';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
   * {
-    font-family: 'HBIOS-SYS';
+    font-family: 'InfinitySans-RegularA1';
   }
   body {
     display: flex;

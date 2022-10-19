@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import UserInfo from "../assets/UserInfo.json";
 
 export interface IUser {
   id: string;
@@ -6,13 +7,9 @@ export interface IUser {
   name: string;
 }
 
-export const user = atom<IUser>({
+export const user = atom<Object[]>({
   key: "user",
-  default: {
-    id: "admin",
-    pwd: "admin",
-    name: "관리자"
-  }
+  default: UserInfo
 });
 
 export const textState = atom({
