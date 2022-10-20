@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect, useRef, useState} from 'react';
 import styled from "styled-components"
 import { msgState, contentState, contentSelector } from '../../recoil/atom';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -8,8 +8,18 @@ const MsgBox = () => {
     const [msg, setMsg] = useRecoilState(msgState);
     const contentList = useRecoilValue(contentSelector);
 
+    const scrollRef = useRef<any>();
+
+    const scrollToBottom = () => {
+        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+
+    useEffect(()=>{
+        scrollToBottom();
+    },[contentList]);
+
     return (
-        <StyledBox>
+        <StyledBox ref={scrollRef}>
             {
                 contentList.map((c)=>(
                     <MsgItem
@@ -32,6 +42,8 @@ const StyledBox = styled.div`
     background: #EEEEEE;
     width: 360px;
     height: 450px;
+    padding: 2px;
+    overflow: auto;
 `
 
 export default MsgBox;
