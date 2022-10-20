@@ -21,8 +21,10 @@ function FriendItem({id,name,src,number}:FriendItemProps){
                 <>
                     <br/>
                     <StyledItem to='/'>
-                        <StyledImage width={"50px"} height={"50px"} src={src}/>
-                        {name}
+                        <StyledBox>
+                            <StyledImage width={"50px"} height={"50px"} src={src}/>&nbsp;
+                            {name}
+                        </StyledBox>
                     </StyledItem>
                     <hr/>
                     <StyledFont>
@@ -32,8 +34,10 @@ function FriendItem({id,name,src,number}:FriendItemProps){
                 </>
                 :
                 <StyledItem to={chatLink}>
-                    <StyledImage width={"45px"} height={"45px"} src={src}/>
-                    {name}
+                    <StyledBox>
+                        <StyledImage width={"45px"} height={"45px"} src={src}/>&nbsp;
+                        {name}
+                    </StyledBox>
                 </StyledItem>
             }
         </div>
@@ -45,6 +49,21 @@ type StyledProps = {
     height: string;
 }
 
+const StyledFont = styled.div`
+    font-size: small;
+    color: gray;
+`
+const StyledBox = styled.div`
+    display: flex;  
+    margin: 2px;
+    heigth: 16px;
+    width: 280px;
+    align-items: center;
+    &:hover{  
+        background-color : #EEEEEE;
+    }
+`
+
 const StyledImage = styled.img<StyledProps>`
     margin: 5px;
     border-radius: 15px;
@@ -52,15 +71,10 @@ const StyledImage = styled.img<StyledProps>`
     width: ${(props) => props.width}
 `;
 
-const StyledFont = styled.div`
-    font-size: small;
-    color: gray;
-`
 const StyledItem = styled(Link)`
-    margin: 2px;
+    text-decoration: none;
     height: auto;
     width: 280px;
-    // background: yellow;
 `
 
 export default FriendItem;
