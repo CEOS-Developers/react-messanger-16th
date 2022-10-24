@@ -36,6 +36,11 @@ const InputBox = () => {
         if(!message.trim()){
             return;
         }
+        let today = new Date(); 
+        let hours = today.getHours(); // 시
+        let minutes = today.getMinutes();  // 분
+
+        let time = hours + ':' + minutes;
         setContent([
             ...content,
             {
@@ -43,7 +48,7 @@ const InputBox = () => {
                 from:msg.from,
                 to:msg.to,
                 content:message,
-                date:"00"
+                date:time
             }
         ])
         setInput({
@@ -64,7 +69,6 @@ const InputBox = () => {
 };
 
 const StyledBox = styled.div`
-    background: #B2B2B2;
     width: 360px;
     height: 130px;
 `

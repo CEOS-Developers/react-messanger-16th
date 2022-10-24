@@ -12,8 +12,6 @@ const Room = () => {
 
     let { id } : any= useParams();
 
-    console.log('Room msg:',msg);
-    
     useEffect(()=>{
         setMsg({
             from: 0,

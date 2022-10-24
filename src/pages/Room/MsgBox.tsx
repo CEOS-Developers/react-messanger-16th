@@ -39,7 +39,7 @@ const MsgBox = () => {
 const StyledBox = styled.div`
     display: flex;
     flex-direction: column;
-    background: #EEEEEE;
+    background: #B2B2B2;
     width: 360px;
     height: 450px;
     padding: 2px;

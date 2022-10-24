@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useRecoilState,useRecoilValue,} from 'recoil';
-import { IUser,userState } from '../../recoil/atom';
+import { userState } from '../../recoil/atom';
 import Header from '../../components/Header';
 import FriendItem from './FriendItem';
 import styled from "styled-components"

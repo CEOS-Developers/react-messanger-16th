@@ -17,6 +17,9 @@ function MsgItem({user,key,to,from,date,content}:MsgItemProps){
                 user === from ?
                 <StyledParent>
                     <StyledPosition position="right">
+                        <StyledText>
+                            {date}
+                        </StyledText>
                         <StyledMsg background="#EEE33C">
                             {content} 
                         </StyledMsg>
@@ -27,6 +30,9 @@ function MsgItem({user,key,to,from,date,content}:MsgItemProps){
                     <StyledMsg background="white">
                         {content} 
                     </StyledMsg>
+                    <StyledText>
+                        {date}
+                    </StyledText>
                 </StyledPosition>
             }
             

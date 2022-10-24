@@ -20,23 +20,36 @@ const UserBox = () => {
     return (
         <StyledBox>
             <StyledButton onClick={handleClick}>
-                {Object.values(fromUser)[0]}
+                <StyledImage src={'/'+Object.values(fromUser)[2]}/>
+                {Object.values(fromUser)[1]}
             </StyledButton>
             <StyledButton onClick={handleClick}>
-                {Object.values(toUser)[0]}
+                <StyledImage src={'/'+Object.values(toUser)[2]}/>
+                {Object.values(toUser)[1]}
             </StyledButton>
         </StyledBox>
     );
 };
 
 const StyledBox = styled.div`
-    background: #B2B2B2;
+    display: flex;
     width: 360px;
     height: 100px;
+    flex-direction: row-reverse;
 `
 
-const StyledButton = styled.button`
+const StyledImage = styled.img`
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+`;
 
+const StyledButton = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items : center;
+    padding: 5px;
 `
 
 export default UserBox;
