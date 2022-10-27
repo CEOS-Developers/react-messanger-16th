@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { ListInfo } from '../interfaces/interface';
-import { listState, textState, userState } from '../state/state';
+import { ListInfo } from '../../interfaces/interface';
+import { listState, textState, userState } from '../../state/state';
 
 const InputBox = styled.form`
   background-color: white;
   width: 100%;
   height: 10%;
   border: 10px black;
-  border-radius: 0% 0% 7% 7%;
+  border-radius: 0% 0% 10px 10px;
   display: flex;
 `;
 
@@ -18,7 +18,7 @@ const InputForm = styled.input`
   width: 90%;
   box-sizing: border-box;
   border-width: 0.5px;
-  border-radius: 0% 0% 0% 7%;
+  border-radius: 0% 0% 0% 10px;
 `;
 const InputBtn = styled.button`
   width: 15%;

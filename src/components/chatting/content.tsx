@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Talk from './talk/talk';
-import Input from './input';
+import Talk from '../talk/talk';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { listState } from '../state/state';
-import TalkText from './talk/talkText';
+import { listState } from '../../state/state';
 
 const ContentBox = styled.section`
   width: 100%;
