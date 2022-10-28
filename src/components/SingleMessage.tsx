@@ -46,6 +46,7 @@ const ProfileImage = styled.img`
   border-radius: 25px;
   padding: 0.5rem;
 `;
+
 const NameWrapper = styled.div<{
   myAccount: boolean;
   userAccount: boolean;

@@ -1,6 +1,7 @@
 export interface HeaderProps {
   leftChild: string;
   rightChild: string;
+  textChild?: string;
 }
 
 export interface Chat {
@@ -20,4 +21,5 @@ export interface ChatRoom {
 export interface UserInformation {
   userid: number;
   name: string;
+  statusMessage: string;
 }

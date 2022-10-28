@@ -4,12 +4,16 @@ import { HeaderProps } from "../interfaces/interface";
 import { accountState, userSelector } from "../store/atom";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ leftChild, rightChild }: HeaderProps) => {
+const Header = ({ leftChild, rightChild, textChild }: HeaderProps) => {
   const navigate = useNavigate();
   const [userAccount, setUserAccount] = useRecoilState(accountState);
   const filteredUser = useRecoilValue(userSelector);
 
-  const headText = userAccount ? filteredUser!.name : "NaYeon 💭";
+  const headText = textChild
+    ? textChild
+    : userAccount
+    ? filteredUser!.name
+    : "NaYeon 💭";
 
   const handleHeadTextClick = () => {
     setUserAccount(!userAccount);
