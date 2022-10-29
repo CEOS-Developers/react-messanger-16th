@@ -14,14 +14,14 @@ const ChatBox = styled.main`
   width: 380px;
   height: 600px;
   border: 10px black;
-  border-radius: 7%;
+  border-radius: 10px;
   background-color: powderblue;
   line-height: 1;
   margin: auto;
 `;
 
 type BoxProps = {
-  children: React.ReactNode | React.ReactNode;
+  children: React.ReactNode | React.ReactNode[];
 };
 
 const Box: React.FC<BoxProps> = ({ children }: BoxProps) => {

@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import Header from '../components/chatting/header';
 import Content from '../components/chatting/content';
 import Input from '../components/chatting/input';
