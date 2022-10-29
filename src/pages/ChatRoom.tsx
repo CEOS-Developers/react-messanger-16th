@@ -1,15 +1,9 @@
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import Header from "../components/Header";
 import MessageInput from "../components/MessageInput";
 import MessageList from "../components/MessageList";
-import { chatState } from "../store/atom";
 
 const ChatRoom = () => {
-  const roomData = useRecoilState(chatState);
-
-  console.log("roomData", roomData);
-
   return (
     <ChatRoomContainer>
       <Header leftChild="<" rightChild="⋮" />

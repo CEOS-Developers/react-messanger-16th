@@ -1,23 +1,17 @@
-import { Link } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
-import { chatState, nowRoomIdState } from "../store/atom";
+import UserList from "../components/UserList";
+import { FriendPageState } from "../store/atom";
 
 const ChatListPage = () => {
-  const roomData = useRecoilState(chatState);
-  const setNowRoomId = useSetRecoilState(nowRoomIdState);
-  console.log(roomData);
+  const setIsFriendPage = useSetRecoilState(FriendPageState);
+  setIsFriendPage(false);
   return (
     <ChatListContainer>
-      <Header leftChild="<" rightChild="⋮" />
-      {roomData[0].map((room) => (
-        <Link to={`/room/${room.roomid}`} key={room.roomid}>
-          <div onClick={() => setNowRoomId(room.roomid)}>{room.roomid}</div>
-        </Link>
-      ))}
-      <p>채팅 목록 페이지 </p>
+      <Header leftChild="<" textChild="Chats" rightChild="⋮" />
+      <UserList />
       <Navigation />
     </ChatListContainer>
   );

@@ -6,11 +6,17 @@ import SingleUser from "./SingleUser";
 
 const UserList = () => {
   const userData = useRecoilState(userInformationState);
+
   return (
     <ItemWrapper>
-      {userData[0].map((user: UserInformation) => (
-        <SingleUser key={user.userid} {...user} />
-      ))}
+      {userData[0].map((user: UserInformation, index: number) =>
+        index > 0 ? (
+          <SingleUser key={user.userid} {...user} />
+        ) : (
+          <div key={user.userid}></div>
+          /* me, 본인, friends */
+        )
+      )}
     </ItemWrapper>
   );
 };

@@ -50,3 +50,9 @@ export const accountState = atom<boolean>({
   key: "userAccount",
   default: true,
 });
+
+// 현재 페이지가 친구 목록 페이지인지
+export const FriendPageState = atom<boolean>({
+  key: "FriendPage",
+  default: true,
+});
