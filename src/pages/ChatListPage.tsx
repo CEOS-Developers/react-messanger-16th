@@ -10,7 +10,7 @@ const ChatListPage = () => {
   setIsFriendPage(false);
   return (
     <ChatListContainer>
-      <Header leftChild="<" textChild="Chats" rightChild="⋮" />
+      <Header leftChild="<" textChild="My Chats" rightChild="⋮" />
       <UserList />
       <Navigation />
     </ChatListContainer>

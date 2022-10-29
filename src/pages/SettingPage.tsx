@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
+import SettingButtons from "../components/SettingButtons";
 
 const SettingPage = () => {
   return (
     <SettingPageContainer>
-      <Header leftChild="<" rightChild="⋮" />
-      <p>환경 설정 페이지 </p>
+      <Header leftChild="<" textChild="Settings" rightChild="⋮" />
+      <SettingButtons />
       <Navigation />
     </SettingPageContainer>
   );
