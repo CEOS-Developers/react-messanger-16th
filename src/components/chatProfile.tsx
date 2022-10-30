@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import userInfo from '../assets/userInfo.json';
 
-const ChatProfile = ({img, name, message}) => {
+const ChatProfile = ({img, name, message}:any) => {
   return (
     <Container>
       <ProfileImg src={`img/${img}.jpeg`}/>

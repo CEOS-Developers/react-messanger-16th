@@ -3,13 +3,13 @@ import Header from '../components/header/header';
 import ChatBubbleList from '../components/chatList/chatBubbleList';
 import ChatInput from '../components/chatInput';
 
-const ChatRoom = () => {
+const ChatRoom = ({roomId, talkerId}) => {
   return (
     <Background>
       <Container>
         <ColumnContainer> 
           <Header />
-          <ChatBubbleList />
+          <ChatBubbleList roomId={roomId} talkerId={talkerId}/>
           <ChatInput />
         </ColumnContainer>
       </Container>

@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { chatList } from '../../recoil/store';
 import ChatBubble from './chatBubble';
 
-const ChatBubbleList = () => {
+const ChatBubbleList = (roomId, talkerId) => {
   const chatting = useRecoilValue(chatList);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -20,11 +20,8 @@ const ChatBubbleList = () => {
     <Container ref={containerRef}>
       {chatting.map((chat) => (
         <ChatBubble
-          key={chat.chatId}
-          chatId={chat.chatId}
-          talkerId={chat.talkerId}
-          listenerId={chat.listenerId}
-          text={chat.text}
+        roomId={roomId}
+        talkerId={talkerId}
         />
       ))}
     </Container>

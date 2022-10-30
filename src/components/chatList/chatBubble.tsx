@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import userInfo from '../../assets/userInfo.json';
-import { chatting } from '../../interface/chatting';
+// import { chatting } from '../../interface/chatting';
+import chatInfo from '../../assets/chatInfo.json';
 import { useRecoilValue } from 'recoil';
 import { activeId } from '../../recoil/store';
 
-const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
+const ChatBubble = ({ roomId , talkerId }) => {
   const active = useRecoilValue(activeId);
   return (
     <>
@@ -12,7 +13,7 @@ const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
         // 오른쪽 정렬
         <BubbleBox style={{ justifyContent: 'flex-end' }}>
           <Bubble style={{ marginRight: '1rem', marginLeft: '1rem' }}>
-            <ChatText> {text} </ChatText>
+            <ChatText> {chatInfo[roomId].chat[0].chat} </ChatText>
           </Bubble>
         </BubbleBox>
       ) : (
@@ -22,7 +23,7 @@ const ChatBubble = ({ chatId, talkerId, listenerId, text }: chatting) => {
           <ColumnBox>
             <NameText> {userInfo[talkerId].userName} </NameText>
             <Bubble style={{ marginRight: '1rem' }}>
-              <ChatText> {text} </ChatText>
+              <ChatText> {chatInfo[roomId].chat[0].chat} </ChatText>
             </Bubble>
           </ColumnBox>
         </BubbleBox>

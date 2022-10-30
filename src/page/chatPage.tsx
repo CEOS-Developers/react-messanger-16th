@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Navigator from '../components/navigator';
 import userInfo from '../assets/userInfo.json';
+import chatInfo from '../assets/chatInfo.json';
 import ChatProfile from '../components/chatProfile';
 
 const ChatPage = () => {
@@ -15,7 +16,8 @@ const ChatPage = () => {
               key={idx}
               img={user.userImage}
               name={user.userName}
-              message={user.status}/>
+              message={chatInfo[idx].chat[0].chat}
+              />
           ))}
        </ColumnContainer>
       </Container>

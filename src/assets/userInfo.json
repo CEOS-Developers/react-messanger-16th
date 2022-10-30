@@ -1,8 +1,7 @@
 [
-  { "userId": 0, "userName": "죠르디", "userImage": "jordy", "status": "나는 죠르디" },
-  { "userId": 1, "userName": "어피치", "userImage": "apeach", "status": "나는 어피치" },
-  { "userId": 2, "userName": "콘", "userImage": "con", "status": "나는 콘" },
-  { "userId": 3, "userName": "무지", "userImage": "mozi", "status": "나는 무지" },
-  { "userId": 4, "userName": "네오", "userImage": "neo", "status": "나는 네오" },
-  { "userId": 5, "userName": "라이언", "userImage": "lion", "status": "나는 라이언" }
+  { "userId": 0, "userName": "죠르디", "userImage": "jordy", "status": "숨 참고 love dive" },
+  { "userId": 1, "userName": "어피치", "userImage": "apeach", "status": "Looking for attention" },
+  { "userId": 2, "userName": "콘", "userImage": "con", "status": "어지럽던 푸른빛은 화려해져" },
+  { "userId": 3, "userName": "무지", "userImage": "mozi", "status": "한입에 삼켜 널 Delicious" },
+  { "userId": 4, "userName": "네오", "userImage": "neo", "status": "내가 퍽이나 웃게" }
 ]
