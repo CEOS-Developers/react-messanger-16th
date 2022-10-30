@@ -1,26 +1,24 @@
 import styled from 'styled-components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from '../components/header/header';
+import ChatBubbleList from '../components/chatList/chatBubbleList';
+import ChatInput from '../components/chatInput';
+import Navigator from '../components/navigator';
 
-import MainPage from './page/mainPage';
-import SettingPage from './page/settingPage';
-import ChatPage from './page/chatPage';
-
-function App() {
+const ChatRoom = () => {
   return (
     <Background>
       <Container>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainPage/>}/>
-            <Route path="/chatting" element={<ChatPage/>}/>
-            <Route path="/setting" element={<SettingPage/>}/>
-          </Routes>
-          
-        </BrowserRouter>
+        <ColumnContainer> 
+          <Header />
+          <ChatBubbleList />
+          <ChatInput />
+        </ColumnContainer>
       </Container>
     </Background>
   );
 }
+
+export default ChatRoom;
 
 const Background = styled.div`
   display: relative;
@@ -46,5 +44,3 @@ const ColumnContainer = styled.div`
   display: flex;
   flex-direction : column;
 `;
-
-export default App;

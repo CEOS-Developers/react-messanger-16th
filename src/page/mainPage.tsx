@@ -1,26 +1,18 @@
 import styled from 'styled-components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navigator from '../components/navigator';
 
-import MainPage from './page/mainPage';
-import SettingPage from './page/settingPage';
-import ChatPage from './page/chatPage';
-
-function App() {
+const MainPage = () => {
   return (
     <Background>
       <Container>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainPage/>}/>
-            <Route path="/chatting" element={<ChatPage/>}/>
-            <Route path="/setting" element={<SettingPage/>}/>
-          </Routes>
-          
-        </BrowserRouter>
+        <Navigator/>
+        <div> 메인 페이지 입니다. </div>
       </Container>
     </Background>
   );
 }
+
+export default MainPage;
 
 const Background = styled.div`
   display: relative;
@@ -46,5 +38,3 @@ const ColumnContainer = styled.div`
   display: flex;
   flex-direction : column;
 `;
-
-export default App;
