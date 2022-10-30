@@ -1,18 +1,36 @@
+import {useState} from 'react';
 import styled from 'styled-components';
 import Navigator from '../components/navigator';
 import userInfo from '../assets/userInfo.json';
 import ChatProfile from '../components/chatProfile';
+import search from '../assets/search.png'
 
 const MainPage = () => {
+  const [value, setValue] = useState('');
+
+  const [isSearch, setSearch] = useState(false);
   return (
     <Background>
       <Container>
         <Navigator/>
         <ColumnContainer> 
-          <Title> Friends </Title>
+          <div style={{display: "flex", flexDirection:"row"}}>
+            <Title> Friends </Title>
+            <Search src={search} onClick={() => setSearch(!isSearch)}/>
+          </div>
+          
+          {isSearch? 
+            <SearchInput
+            placeholder='이름을 입력하세요'
+            value={value}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setValue(e.target.value)
+            }/>
+            : <></>}
+
           {userInfo.map((user, idx) => (
             <>
-            {idx!=5?
+            {idx!=5 && (!isSearch || ( isSearch && user.userName.includes(value)))?
               <ChatProfile
               key={idx}
               img={user.userImage}
@@ -57,6 +75,20 @@ const Title = styled.div`
   margin-top: 1.5rem;
   margin-left: 1.5rem;
   margin-bottom: 0.5rem;
+`
+
+const Search = styled.img`
+  margin-top: 1.9rem;
+  margin-left: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+`
+
+const SearchInput = styled.input`
+  height: 1.5rem;
+  width: 20rem;
+  border: 0.5px solid grey;
+  background-color: #f3f3f3;
 `
 
 const ColumnContainer = styled.div`
