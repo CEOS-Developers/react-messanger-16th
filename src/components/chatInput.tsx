@@ -3,31 +3,58 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { activeId, chatList } from '../recoil/store';
 import styled from 'styled-components';
 
-const ChatInput = () => {
-  const [value, setValue] = useState('');
+const ChatInput = ({roomId}) => {
   const active = useRecoilValue(activeId);
-  const [chat, setChat] = useRecoilState(chatList);
+  const [chats, setChats] = useRecoilState(chatList);
+  const [newChatList, setChat] = useState(chats[roomId].chat);
 
-  const plusList = (value: string) => {
+  let newChatInfo = [
+    {"roomId":0, "chat": []},
+    {"roomId":1, "chat": []},
+    {"roomId":2, "chat": []},
+    {"roomId":3, "chat": []},
+    {"roomId":4, "chat": []},
+  ]
+
+  const [value, setValue] = useState('');
+  let talker, listener;
+
+  if(active===roomId){
+    talker=roomId;
+    listener=5;
+  } else {
+    talker=5;
+    listener=roomId;
+  }
+
+  const plusList = (value: any) => {
     if (value.trim()) {
-      const lastId = chat.length;
       let newChat;
+
       if (active === 0) {
         newChat = {
-          chatId: lastId + 1,
-          talkerId: 0,
-          listenerId: 1,
-          text: value,
+          talker: talker,
+          listener: listener,
+          chat: value,
         };
       } else {
         newChat = {
-          chatId: lastId + 1,
-          talkerId: 1,
-          listenerId: 0,
-          text: value,
+          talker: talker,
+          listener: listener,
+          chat: value,
         };
       }
-      setChat(chat.concat(newChat));
+
+      setChat(newChatList.concat(newChat));
+
+      for(let i=0 ; i<5 ; i++){
+        if(i!=roomId){
+          newChatInfo[i].chat=chats[i].chat;
+        } else {
+          newChatInfo[i].chat = newChatList.concat(newChat);
+        }
+      }
+      setChats(newChatInfo);
       setValue('');
     }
   };

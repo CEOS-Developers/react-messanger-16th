@@ -20,6 +20,7 @@ const ChatBubbleList = ({roomId}) => {
     <Container ref={containerRef}>
       {chatting[roomId].chat.map((chat, idx) => (
         <ChatBubble
+          key={idx}
           roomId={roomId}
           chatId={idx}
         />

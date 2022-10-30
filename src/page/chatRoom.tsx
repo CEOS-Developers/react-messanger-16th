@@ -7,13 +7,14 @@ import { useLocation } from 'react-router-dom';
 const ChatRoom = () => {
   const location = useLocation();
   const roomId = Number(location.state.roomId);
+
   return (
     <Background>
       <Container>
         <ColumnContainer> 
-           <Header id={roomId}/>
-           <ChatBubbleList roomId={roomId}/>
-         {/* <ChatInput />  */}
+            <Header id={roomId}/>
+            <ChatBubbleList roomId={roomId}/>
+            <ChatInput roomId={roomId}/> 
         </ColumnContainer>
       </Container>
     </Background>
