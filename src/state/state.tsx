@@ -1,6 +1,7 @@
 import { atom } from 'recoil';
-import { ListInfo } from '../interfaces/interface';
+import { ListInfo, UserListInfo } from '../interfaces/interface';
 import Chatting from '../json/default.json';
+import UserList from '../json/user.json';
 
 export const listState = atom<ListInfo[]>({
   key: 'List',
@@ -25,4 +26,9 @@ export const userState = atom<boolean>({
 export const boxState = atom<ListInfo[]>({
   key: 'box',
   default: [],
+});
+
+export const userListState = atom<UserListInfo[]>({
+  key: 'userId',
+  default: UserList.UserList,
 });

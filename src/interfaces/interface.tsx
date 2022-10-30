@@ -11,3 +11,9 @@ export interface TalkBoxInfo {
   IsUser: boolean;
   nowIsUser: boolean;
 }
+
+export interface UserListInfo {
+  userId: number;
+  userName: string;
+  stateMsg: string;
+}

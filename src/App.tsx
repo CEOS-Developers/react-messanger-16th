@@ -13,12 +13,11 @@ function App() {
       <RecoilRoot>
         <GlobalStyle />
         <Routes>
-          <Route path="/" element={<Main />} />
           <Route path="/chatlist" element={<ChatList />} />
           <Route path="/chat/*" element={<Chatting />} />
           <Route path="/setting" element={<Setting />} />
+          <Route path="/" element={<Main />} />
         </Routes>
-        <Main />
       </RecoilRoot>
     </BrowserRouter>
   );

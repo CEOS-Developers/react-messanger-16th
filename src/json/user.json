@@ -1,0 +1,8 @@
+{
+  "UserList": [
+    { "userId": 1, "userName": "유선호", "stateMsg": "삥빵뿡" },
+    { "userId": 2, "userName": "유선후", "stateMsg": "낑깽꽁" },
+    { "userId": 3, "userName": "유선희", "stateMsg": "빵삥뽕" },
+    { "userId": 4, "userName": "유선화", "stateMsg": "" }
+  ]
+}
