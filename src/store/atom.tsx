@@ -53,6 +53,16 @@ export const accountState = atom<boolean>({
 
 // 현재 페이지가 친구 목록 페이지인지
 export const FriendPageState = atom<boolean>({
-  key: "FriendPage",
+  key: "friendPage",
   default: true,
+});
+
+// 본인 계정 정보
+export const myInfoSelector = selector({
+  key: "myInfo",
+  get: ({ get }) => {
+    const users = get(userInformationState);
+    const myInfo = users.find((user) => user.userid === 0);
+    return myInfo;
+  },
 });

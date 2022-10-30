@@ -28,6 +28,15 @@ header {
 ul{
   list-style:none;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+h2{
+  margin: 0px 0px 0px 20px;
+}
 `;
 
 export default GlobalStyle;
