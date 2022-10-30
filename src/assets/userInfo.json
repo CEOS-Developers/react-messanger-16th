@@ -1,8 +1,8 @@
 [
-  { "userId": 0, "userName": "찌부된커비", "userImage": "circleKurby" },
-  { "userId": 1, "userName": "아이스커비", "userImage": "iceKurby" },
-  { "userId": 2, "userName": "격투기커비", "userImage": "fighterKurby" },
-  { "userId": 3, "userName": "불커비", "userImage": "fireKurby" },
-  { "userId": 4, "userName": "가수커비", "userImage": "singerKurby" },
-  { "userId": 4, "userName": "우산커비", "userImage": "flyKurby" }
+  { "userId": 0, "userName": "죠르디", "userImage": "jordy", "status": "나는 죠르디" },
+  { "userId": 1, "userName": "어피치", "userImage": "apeach", "status": "나는 어피치" },
+  { "userId": 2, "userName": "콘", "userImage": "con", "status": "나는 콘" },
+  { "userId": 3, "userName": "무지", "userImage": "mozi", "status": "나는 무지" },
+  { "userId": 4, "userName": "네오", "userImage": "neo", "status": "나는 네오" },
+  { "userId": 5, "userName": "라이언", "userImage": "lion", "status": "나는 라이언" }
 ]

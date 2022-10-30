@@ -1,12 +1,22 @@
 import styled from 'styled-components';
 import Navigator from '../components/navigator';
+import jerry from '../assets/jerry.gif';
 
 const SettingPage = () => {
   return (
     <Background>
       <Container>
         <Navigator/>
-        <div> 세팅 페이지 입니다. </div>
+        <ColumnContainer>
+          <Title> Setting </Title>
+          <a href="https://github.com/0909oje/react-messanger-16th" style={{ textDecoration: "none", color: "black" }}> 
+            <Text> github </Text>
+          </a>
+          <a href="https://55wldms.tistory.com/19" style={{ textDecoration: "none", color: "black" }}> 
+            <Text> tistory </Text>
+          </a>
+          <GIF src={jerry}/>
+        </ColumnContainer>
       </Container>
     </Background>
   );
@@ -37,4 +47,26 @@ const Container = styled.div`
 const ColumnContainer = styled.div`
   display: flex;
   flex-direction : column;
+  height: 100%;
+  width: 100%;
+`;
+
+const Title = styled.div`
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+`
+
+const Text = styled.div`
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+`;
+
+const GIF = styled.img`
+  margin-top: 5rem;
+  width: 20rem;
+  margin-left: 0.3rem;
 `;

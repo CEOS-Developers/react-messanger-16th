@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './page/mainPage';
 import SettingPage from './page/settingPage';
 import ChatPage from './page/chatPage';
+import ChatRoom from './page/chatRoom';
 
 function App() {
   return (

@@ -1,12 +1,23 @@
 import styled from 'styled-components';
 import Navigator from '../components/navigator';
+import userInfo from '../assets/userInfo.json';
+import ChatProfile from '../components/chatProfile';
 
 const MainPage = () => {
   return (
     <Background>
       <Container>
         <Navigator/>
-        <div> 메인 페이지 입니다. </div>
+        <ColumnContainer> 
+          <Title> Friends </Title>
+          {userInfo.map((user, idx) => (
+            <ChatProfile
+              key={idx}
+              img={user.userImage}
+              name={user.userName}
+              message={user.status}/>
+          ))}
+       </ColumnContainer>
       </Container>
     </Background>
   );
@@ -34,7 +45,16 @@ const Container = styled.div`
   border-radius: 1rem;
 `;
 
+const Title = styled.div`
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+`
+
 const ColumnContainer = styled.div`
   display: flex;
   flex-direction : column;
+  height: 100%;
+  width: 100%;
 `;

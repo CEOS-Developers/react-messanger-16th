@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Header from '../components/header/header';
 import ChatBubbleList from '../components/chatList/chatBubbleList';
 import ChatInput from '../components/chatInput';
-import Navigator from '../components/navigator';
 
 const ChatRoom = () => {
   return (
