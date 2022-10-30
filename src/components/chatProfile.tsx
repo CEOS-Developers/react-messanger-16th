@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 
-const ChatProfile = ({img, name, message, id}:any) => {
+const ChatProfile = ({img, name, message, id}) => {
   const navigate = useNavigate();
   const move = (id:number) => {
     navigate('/chatRoom', {

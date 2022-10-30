@@ -1,5 +1,6 @@
-import { chatting } from './chatting';
+import {chat} from './chat';
 
 export interface chatRoom {
-  room: chatting;
+  roomId : number,
+  chat: chat[]
 }

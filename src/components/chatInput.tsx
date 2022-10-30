@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { activeId, chatList } from '../recoil/store';
 import styled from 'styled-components';
+import {chat} from '../interface/chat';
+import {chatRoom} from '../interface/chatRoom';
 
 const ChatInput = ({roomId}) => {
   const active = useRecoilValue(activeId);
@@ -14,7 +16,7 @@ const ChatInput = ({roomId}) => {
     {"roomId":2, "chat": []},
     {"roomId":3, "chat": []},
     {"roomId":4, "chat": []},
-  ]
+  ] as chatRoom[];
 
   const [value, setValue] = useState('');
   let talker, listener;
@@ -27,9 +29,9 @@ const ChatInput = ({roomId}) => {
     listener=roomId;
   }
 
-  const plusList = (value: any) => {
+  const plusList = (value: string) => {
     if (value.trim()) {
-      let newChat;
+      let newChat: chat;
 
       if (active === 0) {
         newChat = {
@@ -54,6 +56,7 @@ const ChatInput = ({roomId}) => {
           newChatInfo[i].chat = newChatList.concat(newChat);
         }
       }
+
       setChats(newChatInfo);
       setValue('');
     }

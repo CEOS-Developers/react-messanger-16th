@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Profile from './profile';
 import userInfo from '../../assets/userInfo.json';
 
-const Header = ({id} : any) => {
+const Header = ({id}) => {
   return (
     <Container>
       <Profile
