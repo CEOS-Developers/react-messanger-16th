@@ -32,20 +32,12 @@ const ChatInput = ({roomId}) => {
   const plusList = (value: string) => {
     if (value.trim()) {
       let newChat: chat;
-
-      if (active === 0) {
-        newChat = {
-          talker: talker,
-          listener: listener,
-          chat: value,
-        };
-      } else {
-        newChat = {
-          talker: talker,
-          listener: listener,
-          chat: value,
-        };
-      }
+      
+      newChat = {
+        talker: talker,
+        listener: listener,
+        chat: value,
+      };
 
       setChat(newChatList.concat(newChat));
 
