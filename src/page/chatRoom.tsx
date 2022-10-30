@@ -2,15 +2,18 @@ import styled from 'styled-components';
 import Header from '../components/header/header';
 import ChatBubbleList from '../components/chatList/chatBubbleList';
 import ChatInput from '../components/chatInput';
+import { useLocation } from 'react-router-dom';
 
-const ChatRoom = ({roomId, talkerId}) => {
+const ChatRoom = () => {
+  const location = useLocation();
+  const roomId = Number(location.state.roomId);
   return (
     <Background>
       <Container>
         <ColumnContainer> 
-          <Header />
-          <ChatBubbleList roomId={roomId} talkerId={talkerId}/>
-          <ChatInput />
+           <Header id={roomId}/>
+           <ChatBubbleList roomId={roomId}/>
+         {/* <ChatInput />  */}
         </ColumnContainer>
       </Container>
     </Background>

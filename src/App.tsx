@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MainPage from './page/mainPage';
 import SettingPage from './page/settingPage';
-import ChatPage from './page/chatPage';
+import ListPage from './page/listPage';
 import ChatRoom from './page/chatRoom';
 
 function App() {
@@ -13,8 +13,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage/>}/>
-            <Route path="/chatting" element={<ChatPage/>}/>
+            <Route path="/chatting" element={<ListPage/>}/>
             <Route path="/setting" element={<SettingPage/>}/>
+            <Route path="/chatRoom" element={<ChatRoom/>}/>
           </Routes>
           
         </BrowserRouter>

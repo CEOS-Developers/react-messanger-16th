@@ -11,11 +11,18 @@ const MainPage = () => {
         <ColumnContainer> 
           <Title> Friends </Title>
           {userInfo.map((user, idx) => (
-            <ChatProfile
+            <>
+            {idx!=5?
+              <ChatProfile
               key={idx}
               img={user.userImage}
               name={user.userName}
-              message={user.status}/>
+              message={user.status}
+              id={idx}/>
+              :
+              <></>
+            }
+          </>
           ))}
        </ColumnContainer>
       </Container>

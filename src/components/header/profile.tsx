@@ -10,13 +10,13 @@ const Profile = ({ userId, userName, userImage }: User) => {
     <Container>
       {active == userId ? (
         <>
-          <ProfileImg src={`img/${userImage}.png`} isSelected={isSelected} />
+          <ProfileImg src={`img/${userImage}.jpeg`} isSelected={isSelected} />
           <Name> {userName} </Name>
         </>
       ) : (
         <>
           <ProfileImg
-            src={`img/${userImage}.png`}
+            src={`img/${userImage}.jpeg`}
             onClick={() => setActive(userId)}
             isSelected={isSelected}
           />

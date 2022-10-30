@@ -3,8 +3,12 @@ import Navigator from '../components/navigator';
 import userInfo from '../assets/userInfo.json';
 import chatInfo from '../assets/chatInfo.json';
 import ChatProfile from '../components/chatProfile';
+import { useRecoilState } from 'recoil';
+import { activeId } from '../recoil/store';
 
-const ChatPage = () => {
+const ListPage = () => {
+  const [id, setId] = useRecoilState(activeId);
+  setId(5);
   return (
     <Background>
       <Container>
@@ -12,12 +16,19 @@ const ChatPage = () => {
         <ColumnContainer> 
           <Title> Messages </Title>
           {userInfo.map((user, idx) => (
-            <ChatProfile
-              key={idx}
-              img={user.userImage}
-              name={user.userName}
-              message={chatInfo[idx].chat[0].chat}
-              />
+            <>
+              {idx!=5?
+                <ChatProfile
+                key={idx}
+                img={user.userImage}
+                name={user.userName}
+                message={chatInfo[idx].chat[0].chat}
+                id={idx}
+                />
+                :
+                <></>
+              }
+            </>
           ))}
        </ColumnContainer>
       </Container>
@@ -25,7 +36,7 @@ const ChatPage = () => {
   );
 }
 
-export default ChatPage;
+export default ListPage;
 
 const Background = styled.div`
   display: relative;

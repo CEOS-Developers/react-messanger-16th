@@ -1,8 +1,17 @@
 import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
 
-const ChatProfile = ({img, name, message}:any) => {
+const ChatProfile = ({img, name, message, id}:any) => {
+  const navigate = useNavigate();
+  const move = (id:number) => {
+    navigate('/chatRoom', {
+      state: {
+        roomId: id,
+      }
+    });
+  };
   return (
-    <Container>
+    <Container  onClick={() => {move(id)}}>
       <ProfileImg src={`img/${img}.jpeg`}/>
       <ColumnContainer>
         <Name> {name} </Name>
@@ -19,6 +28,7 @@ const Container = styled.div`
   width: 25rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+  cursor : pointer;
 `;
 
 const ProfileImg = styled.img`

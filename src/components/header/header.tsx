@@ -3,17 +3,19 @@ import styled from 'styled-components';
 import Profile from './profile';
 import userInfo from '../../assets/userInfo.json';
 
-const Header = () => {
+const Header = ({id} : any) => {
   return (
     <Container>
-      {userInfo.map((user) => (
-        <Profile
-          key={user.userId}
-          userId={user.userId}
-          userImage={user.userImage}
-          userName={user.userName}
+      <Profile
+          userId={userInfo[5].userId}
+          userImage={userInfo[5].userImage}
+          userName={userInfo[5].userName}
         />
-      ))}
+        <Profile
+          userId={userInfo[id].userId}
+          userImage={userInfo[id].userImage}
+          userName={userInfo[id].userName}
+        />
     </Container>
   );
 };

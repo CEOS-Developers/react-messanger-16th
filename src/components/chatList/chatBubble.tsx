@@ -1,29 +1,29 @@
 import styled from 'styled-components';
-import userInfo from '../../assets/userInfo.json';
-// import { chatting } from '../../interface/chatting';
-import chatInfo from '../../assets/chatInfo.json';
 import { useRecoilValue } from 'recoil';
+import { chatList } from '../../recoil/store';
 import { activeId } from '../../recoil/store';
+import userInfo from '../../assets/userInfo.json';
 
-const ChatBubble = ({ roomId , talkerId }) => {
+const ChatBubble = ({ roomId , chatId }) => {
+  const chatting = useRecoilValue(chatList);
   const active = useRecoilValue(activeId);
   return (
     <>
-      {active == talkerId ? (
+      {active == chatting[roomId].chat[chatId].talker ? (
         // 오른쪽 정렬
         <BubbleBox style={{ justifyContent: 'flex-end' }}>
           <Bubble style={{ marginRight: '1rem', marginLeft: '1rem' }}>
-            <ChatText> {chatInfo[roomId].chat[0].chat} </ChatText>
+            <ChatText> {chatting[roomId].chat[chatId].chat} </ChatText>
           </Bubble>
         </BubbleBox>
       ) : (
         // 왼쪽 정렬
         <BubbleBox>
-          <ProfileImg src={`img/${userInfo[talkerId].userImage}.png`} />
+          <ProfileImg src={`img/${userInfo[chatting[roomId].chat[chatId].talker].userImage}.jpeg`} />
           <ColumnBox>
-            <NameText> {userInfo[talkerId].userName} </NameText>
+            <NameText> {userInfo[chatting[roomId].chat[chatId].talker].userName} </NameText>
             <Bubble style={{ marginRight: '1rem' }}>
-              <ChatText> {chatInfo[roomId].chat[0].chat} </ChatText>
+              <ChatText> {chatting[roomId].chat[chatId].chat} </ChatText>
             </Bubble>
           </ColumnBox>
         </BubbleBox>
