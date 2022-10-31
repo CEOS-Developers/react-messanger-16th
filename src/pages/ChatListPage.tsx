@@ -1,17 +1,13 @@
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
+import ChatList from "../components/ChatList";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
-import UserList from "../components/UserList";
-import { FriendPageState } from "../store/atom";
 
 const ChatListPage = () => {
-  const setIsFriendPage = useSetRecoilState(FriendPageState);
-  setIsFriendPage(false);
   return (
     <ChatListContainer>
       <Header leftChild="<" textChild="My Chats" rightChild="⋮" />
-      <UserList />
+      <ChatList />
       <Navigation />
     </ChatListContainer>
   );

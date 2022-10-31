@@ -1,30 +1,22 @@
-import { Chat, UserInformation } from "../interfaces/interface";
+import { UserInformation } from "../interfaces/interface";
 import styled from "styled-components";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { chatState, FriendPageState, nowRoomIdState } from "../store/atom";
+import { useSetRecoilState } from "recoil";
+import { nowRoomIdState } from "../store/atom";
 
-const SingleUser = (user: UserInformation) => {
+const SingleUser = ({
+  user,
+  isFriendPage,
+  lastChat,
+  lastTime,
+}: {
+  isFriendPage: boolean;
+  user: UserInformation;
+  lastChat?: string;
+  lastTime?: string;
+}) => {
   const setNowRoomId = useSetRecoilState(nowRoomIdState);
-  const isFriendPage = useRecoilValue(FriendPageState);
-  const chatInformation = useRecoilValue(chatState);
-
-  const filteredChatRoom = chatInformation.find(
-    (chatroom) => chatroom.roomid === user.userid - 1
-  );
-
-  const emptyChat: Chat = {
-    userid: 0,
-    chatid: 0,
-    myAccount: true,
-    chat: "",
-    time: "00:00",
-  };
-
-  const filteredChat =
-    user.userid === 0 ? [emptyChat] : filteredChatRoom!.chats;
-
-  const lastChat = filteredChat![filteredChat.length - 1].chat;
-  const lastTime = filteredChat![filteredChat.length - 1].time;
+  const detailMessage = isFriendPage ? user.statusMessage : lastChat;
+  const sendTime = isFriendPage ? "" : lastTime;
 
   return (
     <>
@@ -34,17 +26,12 @@ const SingleUser = (user: UserInformation) => {
         />
         <div>
           <UserName>{user.name}</UserName>
-          {isFriendPage ? (
-            <DetailMessage>{user.statusMessage}</DetailMessage>
-          ) : (
-            <ChatWrapper>
-              <DetailMessage>{lastChat}</DetailMessage>
-              <Time>{lastTime}</Time>
-            </ChatWrapper>
-          )}
+          <ChatWrapper>
+            <DetailMessage>{detailMessage}</DetailMessage>
+            <Time>{sendTime}</Time>
+          </ChatWrapper>
         </div>
       </UserWrapper>
-      {isFriendPage ? <></> : <Line />}
     </>
   );
 };
@@ -81,11 +68,4 @@ const Time = styled.div`
 
 const ChatWrapper = styled.div`
   display: flex;
-`;
-
-const Line = styled.hr`
-  border: none;
-  border-top: 1px solid #8c8c8c;
-  color: #000;
-  width: 80%;
 `;
