@@ -1,24 +1,43 @@
-import { IMessageType } from '../interface';
-import { useRecoilValue } from 'recoil';
-import { chatRoomState } from '../atom';
+import { IMessageType, IChatRoomItem } from '../interface';
+import { useRecoilValue, selector, useRecoilState } from 'recoil';
+import { chatRoomState, messageState } from '../atom';
 import styled, { css } from 'styled-components';
+import { useParams } from 'react-router-dom';
 
-const MessageChat = ({ message }: { message: IMessageType }) => {
-  const { currentUser } = useRecoilValue(chatRoomState);
-  const isUser = message.user.id === currentUser.id;
+const MessageChat = ({ messages }: { messages: IMessageType }) => {
+  const { id, currentUser } = useRecoilValue(chatRoomState);
+
+  const isUser = messages.user.id === currentUser.id;
   console.log(isUser);
   console.log(currentUser.id);
-  console.log(message.user.id);
+  console.log(messages.user.id);
+  console.log(messages.text);
+
+  let params = useParams();
+  let num = params.id;
+  console.log(num);
+  const realNum = Number(num);
+
+  //realNum이랑 id값을 같게 만들어 주면 될듯?selector이용해서?그래서 id값으로 각 채팅방 구분해보자! 내일!
+
+  //currentRoomId를 가진 user정보를 불러와야하는듯?
+  //selector이용해서 텍스트 값 가져오기?
+
   return (
     <MessageBox isUser={isUser}>
       <section>
+        <MessageUser isUser={isUser}>{messages.user.name}</MessageUser>
         <MessageProfAll>
-          <MessageUser isUser={isUser}>{message.user.name}</MessageUser>
-          <Messageimg isUser={isUser} _id={message.user.id}></Messageimg>
+          <Messageimg
+            isUser={isUser}
+            _id={messages.user.id}
+            _currentUserId={currentUser.id}
+          ></Messageimg>
+          <MessageText isUser={isUser}>{messages.text}</MessageText>
         </MessageProfAll>
       </section>
-      <MessageText isUser={isUser}>{message.text}</MessageText>
-      <MessageTime isUser={isUser}>{message.time}</MessageTime>
+
+      <MessageTime isUser={isUser}>{messages.time}</MessageTime>
     </MessageBox>
   );
 };
@@ -28,20 +47,29 @@ const MessageProfAll = styled.section`
   flex-direction: column;
 `;
 
-const Messageimg = styled.img<{ isUser: boolean; _id: number }>`
+//확장성할 때 고칠 부분
+const Messageimg = styled.img<{
+  isUser: boolean;
+  _id: number;
+  _currentUserId: number;
+}>`
   width: 38px;
   height: 38px;
   border-radius: 50%;
+  background-size: cover;
   ${({ _id }) =>
     _id === 0
       ? css`
-          background-size: cover;
           background-image: url(https://hjm79.top/wp-content/uploads/2022/06/zzal1.jpeg);
         `
       : css`
-          background-size: cover;
           background-image: url(https://blog.kakaocdn.net/dn/dowIkh/btrdtJZG3Eh/74NuD1tiFw7QzhqxOZ2Po0/img.png);
         `}
+  ${({ _id, _currentUserId }) =>
+    _id === _currentUserId &&
+    css`
+      align-self: flex-end;
+    `}
 `;
 
 const MessageTime = styled.p<{ isUser: boolean }>`
@@ -72,12 +100,14 @@ const MessageText = styled.p<{ isUser: boolean }>`
   ${({ isUser }) =>
     isUser
       ? css`
+          box-shadow: 1px 1px 30px grey;
           border-radius: 0.5rem 0 0.5rem 0.5rem;
           background-color: pink;
           color: #ffffff;
           font-weight: bold;
         `
       : css`
+          box-shadow: 1px 1px 30px grey;
           border-radius: 0 0.5rem 0.5rem 0.5rem;
           background-color: #f1f1f3;
           font-weight: bold;

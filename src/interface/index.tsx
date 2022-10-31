@@ -1,6 +1,11 @@
 import { IUserState, IUserInfo } from './user';
 import { IInputForm, IMessageType } from './message';
-import { IChatRoomItem, IChatRoomState } from './chatRoom';
+import {
+  IChatRoomItem,
+  IChatRoomState,
+  IChatRoomId,
+  IChatRooms,
+} from './chatRoom';
 
 export type {
   IUserState,
@@ -9,4 +14,6 @@ export type {
   IMessageType,
   IChatRoomItem,
   IChatRoomState,
+  IChatRoomId,
+  IChatRooms,
 };

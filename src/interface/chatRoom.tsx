@@ -10,4 +10,15 @@ export interface IChatRoomItem {
 export interface IChatRoomState {
   message: IMessageType[];
   currentUser: IUserInfo;
+  id: number;
+}
+
+export interface IChatRoomId {
+  id: number;
+}
+
+export interface IChatRooms {
+  message: IMessageType[];
+  currentUser: IUserInfo;
+  id: number;
 }

@@ -1,34 +1,52 @@
 import React, { useState } from 'react';
-import InputForm from './components/InputMessage';
+import InputForm from '../components/InputMessage';
 import styled from 'styled-components';
 
-import MessageChatForm from './components/MessageChatForm';
+import MessageChatForm from '../components/MessageChatForm';
 
 import { useRecoilState, useRecoilValue, RecoilRoot } from 'recoil';
 
-import useChatRoom from './hooks/useChatRoom';
+import useChatRoom from '../hooks/useChatRoom';
 import { useEffect } from 'react';
-import { chatRoomState } from './atom';
-import { Link, useNavigate } from 'react-router-dom';
+import { chatRoomState, messageState, userState } from '../atom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
-function App() {
+function Room() {
   const navigate = useNavigate();
   const { addMsg, toggleAccount } = useChatRoom();
-  const chatRoom = useRecoilValue(chatRoomState);
+  const ChatRoom = useRecoilValue(chatRoomState);
+
+  const UserList = useRecoilValue(userState);
+  const [id, setId] = useRecoilState(chatRoomState);
+
+  let params = useParams();
+  console.log(params);
+  let num = params.id;
+  console.log(num);
+  const realNum = Number(num);
+
   useEffect(() => {
-    console.log(chatRoom);
-  }, [chatRoom]);
+    setId((prevId) => {
+      const variable = { ...prevId };
+      variable.id = realNum;
+
+      return { ...variable };
+    });
+
+    console.log(ChatRoom);
+  }, []);
 
   const onCLickMe = (): void => {
     toggleAccount(0);
   };
   const onCLickYou = (): void => {
-    toggleAccount(1);
+    toggleAccount(realNum);
   };
   const goToMain = () => {
     navigate('/list');
   };
 
+  //여기다가 room여러개 해야되는건가..?
   return (
     <AllTemplate>
       <ImgProfAll>
@@ -37,14 +55,12 @@ function App() {
             onClick={onCLickMe}
             src="https://hjm79.top/wp-content/uploads/2022/06/zzal1.jpeg"
           ></ImgProf>
-          <h4>이한비</h4>
         </div>
         <div>
           <ImgProf
             onClick={onCLickYou}
             src="https://blog.kakaocdn.net/dn/dowIkh/btrdtJZG3Eh/74NuD1tiFw7QzhqxOZ2Po0/img.png"
           ></ImgProf>
-          <h4>문상훈</h4>
         </div>
         <div>
           <button className="quitBut" onClick={goToMain}>
@@ -57,7 +73,6 @@ function App() {
     </AllTemplate>
   );
 }
-
 const AllTemplate = styled.div`
   width: 350px;
   height: 660px;
@@ -88,4 +103,4 @@ const ImgProf = styled.img`
   }
 `;
 
-export default App;
+export default Room;

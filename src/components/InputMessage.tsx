@@ -46,6 +46,8 @@ const StyledButton = styled.button`
   border-radius: 10px;
   font-family: 'Jua', sans-serif;
   font-size: 25px;
+  color: white;
+  background-color: pink;
 `;
 
 export default InputForm;
