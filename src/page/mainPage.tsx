@@ -4,10 +4,14 @@ import Navigator from '../components/navigator';
 import userInfo from '../assets/userInfo.json';
 import ChatProfile from '../components/chatProfile';
 import search from '../assets/search.png'
+import { useRecoilState } from 'recoil';
+import { activeId } from '../recoil/store';
 
 const MainPage = () => {
+  const [id, setId] = useRecoilState(activeId);
+  setId(5);
+  
   const [value, setValue] = useState('');
-
   const [isSearch, setSearch] = useState(false);
   return (
     <Background>
