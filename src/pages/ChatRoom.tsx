@@ -17,7 +17,7 @@ const ChatRoomContainer = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background: linear-gradient(yellow, white 30%, white 90%, yellow);
+  background: linear-gradient(#fffe8d, white 30%, white 90%, #fffe8d);
   display: flex;
   flex-direction: column;
 `;

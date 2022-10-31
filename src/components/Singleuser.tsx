@@ -24,13 +24,14 @@ const SingleUser = ({
         <ProfileImage
           src={`${process.env.PUBLIC_URL}/images/${user.userid}.jpg`}
         />
-        <div>
-          <UserName>{user.name}</UserName>
-          <ChatWrapper>
-            <DetailMessage>{detailMessage}</DetailMessage>
+        <ChatWrapper>
+          <MessageWrapper>
+            <UserName>{user.name}</UserName>
             <Time>{sendTime}</Time>
-          </ChatWrapper>
-        </div>
+          </MessageWrapper>
+
+          <DetailMessage>{detailMessage}</DetailMessage>
+        </ChatWrapper>
       </UserWrapper>
     </>
   );
@@ -40,32 +41,46 @@ export default SingleUser;
 
 const UserWrapper = styled.div`
   display: flex;
-  flex- direction: "row";
-
-`;
-
-const UserName = styled.div`
-  font-size: 0.8rem;
-  padding-bottom: 0.5rem;
-`;
-
-const DetailMessage = styled.div`
-  font-size: 0.8rem;
+  flex-direction: "row";
+  align-items: center;
+  width: 100%;
 `;
 
 const ProfileImage = styled.img`
-  width: 2.2rem;
-  height: 2.2rem;
-  margin: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  margin: 0.2rem 0.5rem 0.5rem 0.8rem;
   border-radius: 100%;
-  border: double pink red;
-`;
-
-const Time = styled.div`
-  font-size: 0.5rem;
-  color: #323232;
+  border: 1px solid #323232;
+  background: #fff;
+  padding: 0.3rem;
 `;
 
 const ChatWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 70%;
+`;
+
+const UserName = styled.div`
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding-bottom: 0.3rem;
+`;
+
+const MessageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const DetailMessage = styled.div`
+  font-size: 0.8rem;
+  color: #323232;
+`;
+
+const Time = styled.div`
+  font-size: 0.7rem;
+  color: #323232;
+  padding: 0.3rem;
 `;

@@ -53,7 +53,7 @@ const Line = styled.hr`
   border: none;
   border-top: 1px solid #8c8c8c;
   color: #000;
-  width: 80%;
+  width: 90%;
 `;
 
 export default ChatList;

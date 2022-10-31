@@ -35,7 +35,9 @@ a{
 }
 
 h2{
-  margin: 0px 0px 0px 20px;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 5px 0px 0px 20px;
 }
 `;
 
