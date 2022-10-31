@@ -47,6 +47,13 @@ const ItemWrapper = styled.section`
   flex: 1;
   overflow: auto;
   flex-direction: column;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background: #ccc;
+  }
 `;
 
 const Line = styled.hr`
