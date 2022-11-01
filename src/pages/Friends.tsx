@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
 import ListHeader from '../components/list/ListHeader';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { useState } from 'react';
 import SearchBox from '../components/list/SearchBox';
-import { friendsState } from '../states/atoms/friends';
-import { userState } from '../states/atoms/user';
+import { friendsState, userState } from '../states/atoms/user';
 import Squircle from '../components/common/Squircle';
 import { useNavigate } from 'react-router-dom';
 import ListItem from '../components/list/ListItem';

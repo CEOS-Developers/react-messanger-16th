@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Squircle from '../common/Squircle';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentState } from '../../states/atoms/current';
-import useUser from '../../hooks/useUser';
+import { usersStateByUserIdList } from '../../states/atoms/user';
 
 const RoomHeader = ({ userIdList }: { userIdList: number[] }) => {
   const navigate = useNavigate();
   const [current, setCurrent] = useRecoilState(currentState);
-  const { getUsersByUserIdList } = useUser();
-  const users = getUsersByUserIdList(userIdList);
+  const users = useRecoilValue(usersStateByUserIdList(userIdList));
 
   return (
     <Wrapper>

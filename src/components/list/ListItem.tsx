@@ -3,7 +3,8 @@ import React from 'react';
 import { IChatting, IUser } from '../../states/interface';
 import Squircle from '../common/Squircle';
 import { timeForToday } from '../room/getTimeForToday';
-import useUser from '../../hooks/useUser';
+import { useRecoilValue } from 'recoil';
+import { friendsState } from '../../states/atoms/user';
 
 interface ListItemProps {
   data: IUser | IChatting;
@@ -17,8 +18,10 @@ const isChattingType = (data: any): data is IChatting => {
 
 const ListItem = ({ data, handleClickListItem }: ListItemProps) => {
   const isChatting = isChattingType(data);
-  const { getUserById } = useUser();
-  const user = isChatting ? getUserById(data.userIdList[1]) : data;
+  const friends = useRecoilValue(friendsState);
+  const user = isChatting
+    ? friends.filter((friend) => friend.userId === data.userIdList[1])[0]
+    : data;
 
   return (
     <Item isChatting={isChatting} onClick={handleClickListItem}>

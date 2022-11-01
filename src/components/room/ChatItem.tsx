@@ -1,9 +1,8 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import styled, { css } from 'styled-components';
-import useUser from '../../hooks/useUser';
 import { currentState } from '../../states/atoms/current';
-import { friendByUserId } from '../../states/atoms/friends';
+import { userStateByUserId } from '../../states/atoms/user';
 import { IChat } from '../../states/interface';
 import Squircle from '../common/Squircle';
 import { timeForToday } from './getTimeForToday';
@@ -14,7 +13,7 @@ interface ChatItemProps {
 }
 
 const ChatItem = ({ chat, isContinual }: ChatItemProps) => {
-  const user = useRecoilValue(friendByUserId(chat.userId));
+  const user = useRecoilValue(userStateByUserId(chat.userId));
   const current = useRecoilValue(currentState);
   const isMyChat = user.userId === current;
 
