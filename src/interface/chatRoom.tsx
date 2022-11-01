@@ -5,6 +5,7 @@ export interface IChatRoomItem {
   id: number;
   user: IUserInfo[];
   messages: IMessageType[];
+  message: IMessageType[];
 }
 
 export interface IChatRoomState {

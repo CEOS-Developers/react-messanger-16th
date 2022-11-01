@@ -33,10 +33,11 @@ const useChatRoom = () => {
       time: curTime,
       text: text,
     };
-    setChatId({
+    setNewD({
       ...chatId,
-      messages: [...chatId.messages, messageOb],
+      message: [...chatId.message, messageOb],
     });
+    setChatId([...chatId, newD]);
     /*
         setRealChat({
       

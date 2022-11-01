@@ -13,6 +13,7 @@ const MessageChatForm = () => {
   const testRoom = useRecoilValue(chatRoomState);
   //currentRoomId를 사용해서 room번호를 구분시켜줘야함. 이 id값은 버튼 누를때마다 바뀌어야 함!그래서 그 바뀐번호로 렌더링해줘야함
   const messageData = useRecoilValue(messageState); //내가이름을 잘못 선정함 그냥 메세지 포함해서 채팅방 번호까지 포함
+
   //room 번호대로 라우팅 페이지 만들어서 그거대로 messageData에 접근!
   const scrollToBottom = () => {
     if (messageWrapperRef.current) {
@@ -32,10 +33,23 @@ const MessageChatForm = () => {
   const num = params.id;
   const realNum = Number(num) - 1;
   console.log(realNum);
+  const newData = messageData.filter((txt) => txt.id === Number(num));
 
   return (
     <Wrapper ref={messageWrapperRef}>
       {realMessage.messages.map(
+        (
+          msg: IMessageType //여기 부분을 filter함수 써서 id=param인것을 골라주면 될ㄷ듯??
+        ) => (
+          <MessageChatContainer
+            key={msg.id}
+            isUser={msg.user.name === currentUser.name}
+          >
+            <MessageChat key={msg.id} messages={msg} />
+          </MessageChatContainer>
+        )
+      )}
+      {newData[0].message.map(
         (
           msg: IMessageType //여기 부분을 filter함수 써서 id=param인것을 골라주면 될ㄷ듯??
         ) => (
