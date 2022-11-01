@@ -42,9 +42,7 @@ const Friends = () => {
       ) : (
         <>
           <MyProfile>
-            <MyProfileIcon>
-              <Squircle imageUrl={me.profileImage} selected={false} size={55} />
-            </MyProfileIcon>
+            <Squircle imageUrl={me.profileImage} selected={false} size={55} />
             <div>{me.userName}</div>
           </MyProfile>
           <Divider />
@@ -67,17 +65,19 @@ const Friends = () => {
 
 export default Friends;
 
-const FriendListHeadless = (props: {
+interface FriendListHeadlessProps {
   friend: IUser;
   children: (args: any) => JSX.Element;
-}) => {
+}
+
+const FriendListHeadless = ({ friend, children }: FriendListHeadlessProps) => {
   const navigate = useNavigate();
   const chattingId = useRecoilValue(
-    chattingStateByUserId(props.friend.userId),
+    chattingStateByUserId(friend.userId),
   ).chattingId;
 
-  return props.children({
-    friend: props.friend,
+  return children({
+    friend: friend,
     handleClickListItem: () => navigate(`/room/${chattingId}`),
   });
 };
@@ -91,12 +91,9 @@ const MyProfile = styled.div`
   align-items: center;
   padding: 18px;
   font-size: 15px;
-`;
-
-const MyProfileIcon = styled.div`
-  // width: 55px;
-  // height: 55px;
-  margin-right: 12px;
+  & > div:first-child {
+    margin-right: 12px;
+  }
 `;
 
 const Divider = styled.div`

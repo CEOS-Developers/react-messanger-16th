@@ -28,15 +28,20 @@ const Chattings = () => {
 
 export default Chattings;
 
-const ChattingListHeadless = (props: {
+interface ChattingListHeadlessProps {
   chatting: IChatting;
   children: (args: any) => JSX.Element;
-}) => {
+}
+
+const ChattingListHeadless = ({
+  chatting,
+  children,
+}: ChattingListHeadlessProps) => {
   const navigate = useNavigate();
 
-  return props.children({
-    chatting: props.chatting,
-    handleClickListItem: () => navigate(`/room/${props.chatting.chattingId}`),
+  return children({
+    chatting: chatting,
+    handleClickListItem: () => navigate(`/room/${chatting.chattingId}`),
   });
 };
 
