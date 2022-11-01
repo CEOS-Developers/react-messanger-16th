@@ -13,7 +13,7 @@ const Room = () => {
     <Wrapper>
       <RoomHeader userIdList={room.userIdList} />
       <RoomBody chatList={room.chatList} />
-      <RoomFooter userId={room.userIdList[0]} chattingId={room.chattingId} />
+      <RoomFooter chattingId={room.chattingId} />
     </Wrapper>
   );
 };

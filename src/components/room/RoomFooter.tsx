@@ -5,15 +5,11 @@ import useInput from '../../hooks/useInput';
 import { IChat } from '../../states/interface';
 import { v4 as uuidv4 } from 'uuid';
 import { chattingStateByChattingId } from '../../states/atoms/chattings';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { currentState } from '../../states/atoms/current';
 
-const RoomFooter = ({
-  userId,
-  chattingId,
-}: {
-  userId: number;
-  chattingId: number;
-}) => {
+const RoomFooter = ({ chattingId }: { chattingId: number }) => {
+  const currentId = useRecoilValue(currentState);
   const [chatting, setChatting] = useRecoilState(
     chattingStateByChattingId(chattingId),
   );
@@ -29,7 +25,7 @@ const RoomFooter = ({
   const sendMessage = () => {
     if (value.length !== 0 && value.replace(/ /g, '').length !== 0) {
       const newChat: IChat = {
-        userId: userId,
+        userId: currentId,
         content: value,
         date: dayjs().format(),
         like: false,
@@ -52,13 +48,13 @@ const RoomFooter = ({
 
   const onEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      // 우왕 : https://velog.io/@corinthionia/JS-keydown에서-한글-입력-시-마지막-음절이-중복-입력되는-경우-함수가-두-번-실행되는-경우
       if (e.nativeEvent.isComposing === false) {
         sendMessage();
         e.preventDefault();
       }
     }
   };
+
   return (
     <Wrapper>
       <div>

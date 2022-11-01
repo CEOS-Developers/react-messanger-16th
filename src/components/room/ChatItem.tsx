@@ -75,10 +75,14 @@ const getBubbleTailStyle = (isMyChat: boolean, isContinual: boolean) => {
 
 const Container = styled.div`
   display: flex;
-  margin-top: 8px;
+  margin-top: 10px;
 
   & > div:first-child {
     min-width: 40px;
+  }
+
+  &:last-child {
+    margin-bottom: 10px;
   }
 `;
 
@@ -98,7 +102,7 @@ const Wrapper = styled.div<{ isMyChat: boolean; isContinual: boolean }>`
   }
 
   .bubble {
-    padding: 8px 10px;
+    padding: 10px 12px;
     white-space: pre-wrap;
     border-radius: 5px;
     position: relative;
@@ -110,13 +114,13 @@ const Wrapper = styled.div<{ isMyChat: boolean; isContinual: boolean }>`
   }
 
   .date {
-    font-size: 8px;
+    font-size: 10px;
     color: #333;
     display: flex;
     align-items: flex-end;
     min-width: 50px;
     order: ${({ isMyChat }) => isMyChat && 1};
     justify-content: ${({ isMyChat }) => (isMyChat ? 'end' : 'start')};
-    padding: 0 8px;
+    padding: 0 4px;
   }
 `;
