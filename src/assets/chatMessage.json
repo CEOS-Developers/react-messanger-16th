@@ -45,17 +45,17 @@
       "user": 3,
       "chats": [
         {
-          "userid": 3,
-          "chatid": 1664469417348,
-          "myAccount": false,
-          "chat": "코코팜하니",
-          "time": "12:12"
-        },
-        {
           "userid": 0,
           "chatid": 1664469417349,
           "myAccount": true,
-          "chat": "동글동글하니",
+          "chat": "에이 티 티 이 엔 티 아이 온~",
+          "time": "12:12"
+        },
+        {
+          "userid": 3,
+          "chatid": 1664469417348,
+          "myAccount": false,
+          "chat": "Attention is what I want~",
           "time": "14:12"
         }
       ]
@@ -68,15 +68,22 @@
           "userid": 4,
           "chatid": 1664469417350,
           "myAccount": false,
-          "chat": "다니엘",
+          "chat": "내 지난 날들은 눈 뜨면 잊는 꿈",
           "time": "13:01"
         },
         {
           "userid": 0,
           "chatid": 1664469417351,
           "myAccount": true,
-          "chat": "다니엘...",
+          "chat": "Hype boy 너만 원해~",
           "time": "13:05"
+        },
+        {
+          "userid": 4,
+          "chatid": 1664469417352,
+          "myAccount": false,
+          "chat": "Hype boy 내가 전해~",
+          "time": "13:06"
         }
       ]
     },
@@ -85,18 +92,18 @@
       "user": 5,
       "chats": [
         {
-          "userid": 5,
-          "chatid": 1664469417354,
-          "myAccount": false,
-          "chat": "민지",
-          "time": "12:13"
-        },
-        {
           "userid": 0,
           "chatid": 1664469417360,
           "myAccount": true,
-          "chat": "민지 민지",
-          "time": "14:12"
+          "chat": "아니 얘네 왜 노래가 4곡밖에 없냐 ㄱ-",
+          "time": "13:12"
+        },
+        {
+          "userid": 5,
+          "chatid": 1664469417354,
+          "myAccount": false,
+          "chat": "ㅜ.ㅜ",
+          "time": "15:13"
         }
       ]
     },
@@ -108,14 +115,14 @@
           "userid": 6,
           "chatid": 1664469417370,
           "myAccount": false,
-          "chat": "안뇽 혜인",
+          "chat": "뉴진스 컴백",
           "time": "12:20"
         },
         {
           "userid": 0,
           "chatid": 1664469417371,
           "myAccount": true,
-          "chat": "안냥",
+          "chat": "언제야~~?",
           "time": "14:50"
         }
       ]

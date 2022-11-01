@@ -24,7 +24,10 @@ const ChatList = () => {
     <ItemWrapper>
       {userData[0].map((user: UserInformation, index: number) =>
         index > 0 ? (
-          <Link to={`/room/${getRoomId(user.userid)}`}>
+          <Link
+            to={`/room/${getRoomId(user.userid)}`}
+            key={getLastChat(user.userid).chatid}
+          >
             <SingleUser
               key={getLastChat(user.userid).chatid}
               user={user}

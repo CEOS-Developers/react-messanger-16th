@@ -19,17 +19,22 @@ const SettingButtons = () => {
 
 const ButtonWrapper = styled.ul`
   display: flex;
+  width: 100%;
   align-items: center;
   flex-direction: column;
+  padding: 0;
 `;
 
 const Button = styled.button`
   display: flex;
   border-radius: 25px;
+  border: 1px solid #000;
 
   font-size: 1.5rem;
   height: 3rem;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 0rem 2rem 0rem 2rem;
   margin: 2rem;
   cursor: pointer;

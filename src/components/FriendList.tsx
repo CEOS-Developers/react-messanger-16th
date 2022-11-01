@@ -10,8 +10,8 @@ const FriendList = () => {
 
   return (
     <ItemWrapper>
-      {userData[0].map((user: UserInformation, userId: number) =>
-        userId === 0 ? (
+      {userData[0].map((user: UserInformation) =>
+        user.userid === 0 ? (
           <>
             <h2>me</h2>
             <Line />
@@ -40,6 +40,7 @@ const ItemWrapper = styled.section`
     background: #ccc;
   }
 `;
+
 const Line = styled.hr`
   border: none;
   border-top: 1px solid #8c8c8c;
