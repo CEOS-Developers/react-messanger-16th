@@ -1,7 +1,7 @@
 {
-  "rooms": [
+  "chattings": [
     {
-      "roomId": 0,
+      "chattingId": 0,
       "userIdList": [0, 10],
       "chatList": [
         {
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "roomId": 1,
+      "chattingId": 1,
       "userIdList": [0, 11],
       "chatList": [
         {
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "roomId": 2,
+      "chattingId": 2,
       "userIdList": [0, 12],
       "chatList": [
         {
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "roomId": 3,
+      "chattingId": 3,
       "userIdList": [0, 13],
       "chatList": [
         {
@@ -123,7 +123,7 @@
       ]
     },
     {
-      "roomId": 4,
+      "chattingId": 4,
       "userIdList": [0, 14],
       "chatList": [
         {

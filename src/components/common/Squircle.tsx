@@ -1,5 +1,12 @@
 import styled, { css } from 'styled-components';
-const Squircle = ({ imageUrl, size, selected }: { imageUrl: string; size: number; selected?: boolean }) => {
+
+interface SquircleProps {
+  imageUrl: string;
+  size: number;
+  selected?: boolean;
+}
+
+const Squircle = ({ imageUrl, size, selected }: SquircleProps) => {
   return (
     <UserImage size={size} selected={selected}>
       <svg className="svg-profile" viewBox="0 0 88 88">

@@ -5,8 +5,8 @@ export interface IChat {
   like: boolean;
   chatId: string;
 }
-export interface IRoom {
-  roomId: number;
+export interface IChatting {
+  chattingId: number;
   userIdList: number[];
   chatList: IChat[];
 }

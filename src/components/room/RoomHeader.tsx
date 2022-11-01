@@ -17,7 +17,11 @@ const RoomHeader = ({ userIdList }: { userIdList: number[] }) => {
       <CurrentSelecter>
         {users.map((user) => (
           <UserIcon onClick={() => setCurrent(user.userId)} key={user.userId}>
-            <Squircle imageUrl={user.profileImage} size={50} selected={current === user.userId} />
+            <Squircle
+              imageUrl={user.profileImage}
+              size={50}
+              selected={current === user.userId}
+            />
             {current === user.userId && <div className="selected">선택 중</div>}
             <div>{user.userName}</div>
           </UserIcon>

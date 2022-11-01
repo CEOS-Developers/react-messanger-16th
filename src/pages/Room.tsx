@@ -4,15 +4,15 @@ import styled from 'styled-components';
 import RoomBody from '../components/room/RoomBody';
 import RoomFooter from '../components/room/RoomFooter';
 import RoomHeader from '../components/room/RoomHeader';
-import { roomSelecter } from '../states/atoms/chattings';
+import { chattingStateByChattingId } from '../states/atoms/chattings';
 
 const Room = () => {
   const { roomId } = useParams();
-  const room = useRecoilValue(roomSelecter(parseInt(roomId!)));
+  const room = useRecoilValue(chattingStateByChattingId(parseInt(roomId!)));
   return (
     <Wrapper>
       <RoomHeader userIdList={room.userIdList} />
-      <RoomBody />
+      <RoomBody chatList={room.chatList} />
       <RoomFooter />
     </Wrapper>
   );

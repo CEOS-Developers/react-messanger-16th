@@ -14,17 +14,29 @@ const Navigator = () => {
       <ul>
         <li>
           <Link to="/" replace>
-            <FriendIcon fill={getColor(pathname === '/')} width={30} height={30} />
+            <FriendIcon
+              fill={getColor(pathname === '/')}
+              width={30}
+              height={30}
+            />
           </Link>
         </li>
         <li>
           <Link to="/chattings" replace>
-            <ChatIcon fill={getColor(pathname === '/chattings')} width={23} height={23} />
+            <ChatIcon
+              fill={getColor(pathname === '/chattings')}
+              width={23}
+              height={23}
+            />
           </Link>
         </li>
         <li>
           <Link to="/setting" replace>
-            <ThreeDot fill={getColor(pathname === '/setting')} width={23} height={23} />
+            <ThreeDot
+              fill={getColor(pathname === '/setting')}
+              width={23}
+              height={23}
+            />
           </Link>
         </li>
       </ul>

@@ -1,16 +1,24 @@
 import { atom, selectorFamily } from 'recoil';
-import { IRoom } from '../interface';
+import { IChatting } from '../interface';
 import chattingsData from '../mocks/chattingsData.json';
 
-export const chattingsState = atom<IRoom[]>({
+export const chattingsState = atom<IChatting[]>({
   key: 'chattings',
-  default: chattingsData.rooms,
+  default: chattingsData.chattings,
 });
 
-export const roomSelecter = selectorFamily<IRoom, number>({
+export const chattingStateByChattingId = selectorFamily<IChatting, number>({
   key: 'room',
   get:
-    (roomId: number) =>
+    (chattingId: number) =>
     ({ get }) =>
-      get(chattingsState).filter((room) => room.roomId === roomId)[0],
+      get(chattingsState).filter((chatting) => chatting.chattingId === chattingId)[0],
+});
+
+export const chattingStateByUserId = selectorFamily<IChatting, number>({
+  key: 'room',
+  get:
+    (userId: number) =>
+    ({ get }) =>
+      get(chattingsState).filter((chatting) => chatting.userIdList[1] === userId)[0],
 });
