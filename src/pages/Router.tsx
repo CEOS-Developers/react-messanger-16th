@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useParams } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Navigator from '../components/common/Navigator';
 import Chattings from './Chattings';
 import Friends from './Friends';

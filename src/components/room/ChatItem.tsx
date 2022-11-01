@@ -1,7 +1,9 @@
+import React from 'react';
 import { useRecoilValue } from 'recoil';
 import styled, { css } from 'styled-components';
 import useUser from '../../hooks/useUser';
 import { currentState } from '../../states/atoms/current';
+import { friendByUserId } from '../../states/atoms/friends';
 import { IChat } from '../../states/interface';
 import Squircle from '../common/Squircle';
 import { timeForToday } from './getTimeForToday';
@@ -12,8 +14,7 @@ interface ChatItemProps {
 }
 
 const ChatItem = ({ chat, isContinual }: ChatItemProps) => {
-  const { getUserById } = useUser();
-  const user = getUserById(chat.userId);
+  const user = useRecoilValue(friendByUserId(chat.userId));
   const current = useRecoilValue(currentState);
   const isMyChat = user.userId === current;
 
@@ -34,7 +35,7 @@ const ChatItem = ({ chat, isContinual }: ChatItemProps) => {
   );
 };
 
-export default ChatItem;
+export default React.memo(ChatItem);
 
 const getBubbleTailStyle = (isMyChat: boolean, isContinual: boolean) => {
   if (!isContinual) {
@@ -98,7 +99,7 @@ const Wrapper = styled.div<{ isMyChat: boolean; isContinual: boolean }>`
   }
 
   .bubble {
-    padding: 10px;
+    padding: 8px 10px;
     white-space: pre-wrap;
     border-radius: 5px;
     position: relative;
