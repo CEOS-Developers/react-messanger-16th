@@ -1,10 +1,11 @@
 import MessageChat from './MessageChat';
 import { useEffect, useRef } from 'react';
 import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
-import { chatRoomState, messageState, userState } from '../atom';
+import { chatRoomState, idFilterState, messageState, userState } from '../atom';
 import styled from 'styled-components';
 import Room from '../pages/Room';
 import { useParams } from 'react-router-dom';
+import { IMessageType } from '../interface';
 
 const MessageChatForm = () => {
   const messageWrapperRef = useRef<HTMLUListElement>(null);
@@ -19,11 +20,12 @@ const MessageChatForm = () => {
         messageWrapperRef.current.scrollHeight;
     }
   };
+  const realMessage = useRecoilValue(idFilterState);
 
   const UserList = useRecoilValue(userState);
   useEffect(() => {
     scrollToBottom();
-  }, [message]);
+  }, [realMessage]);
 
   let params = useParams();
   const RoomData = useRecoilValue(chatRoomState);
@@ -33,17 +35,9 @@ const MessageChatForm = () => {
 
   return (
     <Wrapper ref={messageWrapperRef}>
-      {messageData[realNum].messages.map((msg) => (
-        <MessageChatContainer
-          key={msg.id}
-          isUser={msg.user.name === currentUser.name}
-        >
-          <MessageChat key={msg.id} messages={msg} />
-        </MessageChatContainer>
-      ))}
-      {message.map(
+      {realMessage.messages.map(
         (
-          msg //여기 부분을 filter함수 써서 id=param인것을 골라주면 될ㄷ듯??
+          msg: IMessageType //여기 부분을 filter함수 써서 id=param인것을 골라주면 될ㄷ듯??
         ) => (
           <MessageChatContainer
             key={msg.id}

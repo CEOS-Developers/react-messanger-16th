@@ -1,17 +1,19 @@
 import { IMessageType, IChatRoomItem } from '../interface';
 import { useRecoilValue, selector, useRecoilState } from 'recoil';
-import { chatRoomState, messageState } from '../atom';
+import { chatRoomState, idFilterState, messageState } from '../atom';
 import styled, { css } from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 const MessageChat = ({ messages }: { messages: IMessageType }) => {
-  const { id, currentUser } = useRecoilValue(chatRoomState);
+  const { currentUser } = useRecoilValue(chatRoomState);
+  const currentData = useRecoilValue(idFilterState);
 
+  console.log(currentData);
   const isUser = messages.user.id === currentUser.id;
   console.log(isUser);
   console.log(currentUser.id);
   console.log(messages.user.id);
-  console.log(messages.text);
+  console.log(currentData.messages[2]);
 
   let params = useParams();
   let num = params.id;

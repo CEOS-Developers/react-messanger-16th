@@ -8,13 +8,15 @@ import { useRecoilState, useRecoilValue, RecoilRoot } from 'recoil';
 
 import useChatRoom from '../hooks/useChatRoom';
 import { useEffect } from 'react';
-import { chatRoomState, messageState, userState } from '../atom';
+import { chatRoomState, idFilterState, messageState, userState } from '../atom';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { idText } from 'typescript';
 
 function Room() {
   const navigate = useNavigate();
   const { addMsg, toggleAccount } = useChatRoom();
   const ChatRoom = useRecoilValue(chatRoomState);
+  const RealChatRoom = useRecoilValue(idFilterState);
 
   const UserList = useRecoilValue(userState);
   const [id, setId] = useRecoilState(chatRoomState);
@@ -32,8 +34,6 @@ function Room() {
 
       return { ...variable };
     });
-
-    console.log(ChatRoom);
   }, []);
 
   const onCLickMe = (): void => {

@@ -1,16 +1,25 @@
-import { chatRoomState, messageState, userState } from '../atom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { chatRoomState, messageState, userState, idFilterState } from '../atom';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 const useChatRoom = () => {
   const userList = useRecoilValue(userState);
   const [chatState, setChatState] = useRecoilState(chatRoomState);
-
+  const allData = useRecoilValue(messageState);
+  console.log(allData);
   let params = useParams();
   console.log(params);
   let num = params.id;
   console.log(num);
   const realNum = Number(num) - 1;
+  //const newData = allData.filter((txt) => txt.id === Number(num));
+  //console.log(newData);
+  //
+  const [newD, setNewD] = useRecoilState(messageState);
+  //
+  const [chatId, setChatId] = useRecoilState(idFilterState);
+  console.log(chatId);
 
   //메세지 추가
   const addMsg = (text: string): void => {
@@ -24,11 +33,21 @@ const useChatRoom = () => {
       time: curTime,
       text: text,
     };
+    setChatId({
+      ...chatId,
+      messages: [...chatId.messages, messageOb],
+    });
+    /*
+        setRealChat({
+      
+    });
     setChatState({
       ...chatState,
-      message: [messageOb],
+      ...newData,
+      message: [...chatState.message, messageOb],
     });
     console.log(chatState.message);
+    */
   };
 
   console.log(chatState);

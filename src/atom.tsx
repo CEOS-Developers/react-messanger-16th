@@ -15,6 +15,18 @@ export const messageState = atom<IChatRoomItem[]>({
   default: messages,
 });
 
+export const idFilterState = selector({
+  key: 'rooms',
+  get: ({ get }) => {
+    const filter = get(chatRoomState);
+    const ids = get(messageState);
+    return ids.filter((va) => filter.id === va.id)[0];
+  },
+  set: ({ set }, newValue: any) => {
+    set(messageState, newValue);
+  },
+});
+
 export const userState = atom<IUserState>({
   key: 'user',
   default: {
