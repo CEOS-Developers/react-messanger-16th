@@ -3,17 +3,31 @@ import {useRecoilState,useRecoilValue,} from 'recoil';
 import { userState } from '../../recoil/atom';
 import Header from '../../components/Header';
 import FriendItem from './FriendItem';
+import Search from './Search';
 import styled from "styled-components"
 
 const Friends = () => {
     const [user, setUser] = useRecoilState<Object[]>(userState);
+    const [search, setSearch] = useState(0);
+
+    const onClick = () => {
+        if(search === 0){
+            setSearch(1);
+        }else{
+            setSearch(0);
+        }
+    }
 
     return (
         <StyledBlock>
             <Header/>
             <StyledContent>
                 친구
+                <StyledButton onClick={onClick}>🔍</StyledButton>
                 {
+                    search === 0 ?
+                    <Search/>
+                    :
                     user.map((u)=>(
                         <FriendItem
                             key={Object.values(u)[0]}
@@ -28,6 +42,14 @@ const Friends = () => {
         </StyledBlock>
     );
 };
+
+const StyledButton = styled.button`
+    float: right;
+    border: none;
+    outline:none;
+    background: white;
+    font-size: medium;
+`
 
 const StyledBlock = styled.div`
     display: flex;

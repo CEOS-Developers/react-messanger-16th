@@ -28,7 +28,7 @@ function FriendItem({id,name,src,number}:FriendItemProps){
                     </StyledItem>
                     <hr/>
                     <StyledFont>
-                        친구 {number} 
+                        친구 {number-1} 
                     </StyledFont>
                     <br/>
                 </>
