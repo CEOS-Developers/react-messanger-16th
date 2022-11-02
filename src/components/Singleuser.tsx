@@ -1,7 +1,6 @@
 import { UserInformation } from "../interfaces/interface";
 import styled from "styled-components";
-import { useSetRecoilState } from "recoil";
-import { nowRoomIdState } from "../store/atom";
+import React from "react";
 
 const SingleUser = ({
   user,
@@ -14,13 +13,12 @@ const SingleUser = ({
   lastChat?: string;
   lastTime?: string;
 }) => {
-  const setNowRoomId = useSetRecoilState(nowRoomIdState);
   const detailMessage = isFriendPage ? user.statusMessage : lastChat;
   const sendTime = isFriendPage ? "" : lastTime;
 
   return (
     <>
-      <UserWrapper onClick={() => setNowRoomId(user.userid - 1)}>
+      <UserWrapper>
         <ProfileImage
           src={`${process.env.PUBLIC_URL}/images/${user.userid}.jpg`}
         />
@@ -37,7 +35,7 @@ const SingleUser = ({
   );
 };
 
-export default SingleUser;
+export default React.memo(SingleUser);
 
 const UserWrapper = styled.div`
   display: flex;

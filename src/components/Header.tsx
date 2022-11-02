@@ -1,13 +1,19 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { HeaderProps } from "../interfaces/interface";
-import { accountState, userSelector } from "../store/atom";
+import { accountState, SearchState, userSelector } from "../store/atom";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ leftChild, rightChild, textChild }: HeaderProps) => {
+const Header = ({
+  leftChild,
+  rightChild,
+  textChild,
+  isFriendsPage,
+}: HeaderProps) => {
   const navigate = useNavigate();
   const [userAccount, setUserAccount] = useRecoilState(accountState);
   const filteredUser = useRecoilValue(userSelector);
+  const [isSearching, setIsSearching] = useRecoilState(SearchState);
 
   const headText = textChild
     ? textChild
@@ -19,11 +25,16 @@ const Header = ({ leftChild, rightChild, textChild }: HeaderProps) => {
     setUserAccount(!userAccount);
   };
 
+  const handleRightChildClick = () => {
+    const toggledSearch = !isSearching;
+    isFriendsPage ? setIsSearching(toggledSearch) : setIsSearching(false);
+  };
+
   return (
     <HeaderWrapper>
       <HeaderButton onClick={() => navigate(-1)}>{leftChild}</HeaderButton>
       <HeadText onClick={handleHeadTextClick}>{headText}</HeadText>
-      <HeaderButton>{rightChild}</HeaderButton>
+      <HeaderButton onClick={handleRightChildClick}>{rightChild}</HeaderButton>
     </HeaderWrapper>
   );
 };

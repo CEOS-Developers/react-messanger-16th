@@ -27,6 +27,12 @@ export const userInformationState = atom<UserInformation[]>({
   default: userInformation.users,
 });
 
+// 유저 검색 결과
+export const userSearchState = atom<UserInformation[]>({
+  key: "userSearch",
+  default: userInformation.users,
+});
+
 // 현재 채팅룸의 대화 상대 정보
 export const userSelector = selector({
   key: "filteredUser",
@@ -65,4 +71,10 @@ export const myInfoSelector = selector({
     const myInfo = users.find((user) => user.userid === 0);
     return myInfo;
   },
+});
+
+// 검색중인지
+export const SearchState = atom<boolean>({
+  key: "isSearching",
+  default: false,
 });

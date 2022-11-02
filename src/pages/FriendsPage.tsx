@@ -1,13 +1,23 @@
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import FriendList from "../components/FriendList";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
+import SearchList from "../components/SearchList";
+import { SearchState } from "../store/atom";
 
 const FriendsPage = () => {
+  const isSearching = useRecoilValue(SearchState);
+
   return (
     <FriendsPageContainer>
-      <Header leftChild="<" textChild="Profiles" rightChild="🔍" />
-      <FriendList />
+      <Header
+        leftChild="<"
+        textChild="Profiles"
+        rightChild="🔍"
+        isFriendsPage={true}
+      />
+      {isSearching ? <SearchList /> : <FriendList />}
       <Navigation />
     </FriendsPageContainer>
   );

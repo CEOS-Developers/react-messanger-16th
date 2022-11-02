@@ -2,6 +2,7 @@ export interface HeaderProps {
   leftChild: string;
   rightChild: string;
   textChild?: string;
+  isFriendsPage?: boolean;
 }
 
 export interface Chat {

@@ -1,5 +1,5 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { chatState, userInformationState } from "../store/atom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { chatState, nowRoomIdState, userInformationState } from "../store/atom";
 import styled from "styled-components";
 import { UserInformation } from "../interfaces/interface";
 import SingleUser from "./SingleUser";
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const ChatList = () => {
   const userData = useRecoilState(userInformationState);
   const chatData = useRecoilValue(chatState);
+  const setNowRoomId = useSetRecoilState(nowRoomIdState);
 
   const getLastChat = (userId: number) => {
     const filteredChat = chatData.find(
@@ -26,6 +27,7 @@ const ChatList = () => {
         index > 0 ? (
           <Link
             to={`/room/${getRoomId(user.userid)}`}
+            onClick={() => setNowRoomId(getRoomId(user.userid))}
             key={getLastChat(user.userid).chatid}
           >
             <SingleUser
