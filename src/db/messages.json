@@ -31,13 +31,17 @@
         "text": "개쳐발렸됴"
       }
     ],
-    "message": []
+    "message": [],
+    "currentUser": {
+      "id": 0,
+      "name": "이한비"
+    }
   },
   {
     "id": 2,
     "user": [
       { "id": 0, "name": "이한비" },
-      { "id": 2, "name": "yellow" }
+      { "id": 2, "name": "문쌤" }
     ],
     "messages": [
       {
@@ -54,11 +58,53 @@
       },
       {
         "id": 6,
-        "user": { "id": 2, "name": "yellow" },
+        "user": { "id": 2, "name": "문쌤" },
         "time": "08:43",
         "text": "ll"
       }
     ],
-    "message": []
+    "message": [],
+    "currentUser": {
+      "id": 0,
+      "name": "이한비"
+    }
+  },
+  {
+    "id": 3,
+    "user": [
+      {
+        "id": 0,
+        "name": "이한비"
+      },
+      {
+        "id": 2,
+        "name": "문쌤"
+      }
+    ],
+    "messages": [
+      {
+        "id": 7,
+        "user": { "id": 0, "name": "이한비" },
+        "time": "09:45",
+        "text": "과제가"
+      },
+      {
+        "id": 8,
+        "user": { "id": 0, "name": "이한비" },
+        "time": "09:46",
+        "text": "너무 어려워요.."
+      },
+      {
+        "id": 9,
+        "user": { "id": 3, "name": "문쌤" },
+        "time": "09:47",
+        "text": "개쳐발렸됴"
+      }
+    ],
+    "message": [],
+    "currentUser": {
+      "id": 0,
+      "name": "이한비"
+    }
   }
 ]

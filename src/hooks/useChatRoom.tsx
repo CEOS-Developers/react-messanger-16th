@@ -1,7 +1,7 @@
 import { chatRoomState, messageState, userState, idFilterState } from '../atom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 const useChatRoom = () => {
   const userList = useRecoilValue(userState);
@@ -13,15 +13,18 @@ const useChatRoom = () => {
   let num = params.id;
   console.log(num);
   const realNum = Number(num) - 1;
-  //const newData = allData.filter((txt) => txt.id === Number(num));
+  //const newData = allData.filter((txt) => txt.id === Number(num))[0];
   //console.log(newData);
   //
   const [newD, setNewD] = useRecoilState(messageState);
+  const [newC, setNewC] = useRecoilState(chatRoomState);
   //
   const [chatId, setChatId] = useRecoilState(idFilterState);
   console.log(chatId);
-
+  //console.log(newD);
+  const ResetData = useResetRecoilState(chatRoomState);
   //메세지 추가
+
   const addMsg = (text: string): void => {
     const curTime =
       String(new Date().getHours()).padStart(2, '0') +
@@ -29,15 +32,44 @@ const useChatRoom = () => {
       String(new Date().getMinutes()).padStart(2, '0');
     const messageOb = {
       id: new Date().valueOf(),
-      user: chatState.currentUser,
+      user: newC.currentUser, //여기가 문제네 또 입력하면 유저가 없는데 어캐 user을 쓰냐..이게 문제였네
       time: curTime,
       text: text,
     };
-    setNewD({
+    console.log(chatState);
+    //refresh..?prefetching??
+    setNewC({
       ...chatId,
-      message: [...chatId.message, messageOb],
+      currentUser: newC.currentUser,
+      message: [...newC.message, messageOb],
     });
-    setChatId([...chatId, newD]);
+
+    console.log(newC.messages);
+    //newC or chatId인데 newC를 하면...currentUser newCcureentUser이랑 chatId의 user값이 같으면 넣어주기 아니면 x이런식으로 해보기!값을 구분해줘야됨 비어있을때도 생각해줘야함
+
+    if (newC.messages.length !== 0) {
+      setChatId(allData.map((data) => (data.id === newC.id ? newC : data)));
+    }
+
+    //setNewD는 전체 []를 바꾸는 것이므로 하나만 바꿔서 다시 전체에 넣어줘야함..chatroomState를 가져와서 바꾸는걸 해볼까?
+    /*
+    setChatId(
+      allData.map((data) =>
+        data.id === newC.id &&
+        newC.messages.length !== 0 &&
+        newC.message[0].id >= 1000
+          ? newC
+          : data
+      )
+    );
+    */
+    /*
+     */
+
+    //이렇게하면,....messageState값이 그냥 바뀌어 버림..
+    console.log(newC);
+
+    //변경해서 넣어줘야하는데..
     /*
         setRealChat({
       
@@ -50,8 +82,6 @@ const useChatRoom = () => {
     console.log(chatState.message);
     */
   };
-
-  console.log(chatState);
 
   const toggleAccount = (id: number): void => {
     let toggleId = 0;

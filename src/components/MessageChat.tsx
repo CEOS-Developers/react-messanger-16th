@@ -8,12 +8,13 @@ const MessageChat = ({ messages }: { messages: IMessageType }) => {
   const { currentUser } = useRecoilValue(chatRoomState);
   const currentData = useRecoilValue(idFilterState);
 
-  console.log(currentData);
+  //console.log(currentData);
   const isUser = messages.user.id === currentUser.id;
+
   console.log(isUser);
   console.log(currentUser.id);
   console.log(messages.user.id);
-  console.log(currentData.messages[2]);
+  //console.log(currentData.messages[2]);
 
   let params = useParams();
   let num = params.id;
@@ -34,7 +35,8 @@ const MessageChat = ({ messages }: { messages: IMessageType }) => {
             isUser={isUser}
             _id={messages.user.id}
             _currentUserId={currentUser.id}
-          ></Messageimg>
+            src={`/img/${messages.user.id}.png`}
+          />
           <MessageText isUser={isUser}>{messages.text}</MessageText>
         </MessageProfAll>
       </section>
@@ -59,14 +61,17 @@ const Messageimg = styled.img<{
   height: 38px;
   border-radius: 50%;
   background-size: cover;
-  ${({ _id }) =>
+  /*
+  ${({ _id, _currentUserId }) =>
     _id === 0
       ? css`
-          background-image: url(https://hjm79.top/wp-content/uploads/2022/06/zzal1.jpeg);
+          background-image: url('/../img/0');
         `
       : css`
-          background-image: url(https://blog.kakaocdn.net/dn/dowIkh/btrdtJZG3Eh/74NuD1tiFw7QzhqxOZ2Po0/img.png);
+          //background-image: url(..img/1.png);
+          background-image: url('/../img/${_id}');
         `}
+*/
   ${({ _id, _currentUserId }) =>
     _id === _currentUserId &&
     css`

@@ -15,9 +15,11 @@ function App() {
   const navigate = useNavigate();
   const { addMsg, toggleAccount } = useChatRoom();
   const chatRoom = useRecoilValue(chatRoomState);
+  /*
   useEffect(() => {
     console.log(chatRoom);
   }, [chatRoom]);
+  */
 
   const onCLickMe = (): void => {
     toggleAccount(0);

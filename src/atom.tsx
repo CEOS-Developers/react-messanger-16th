@@ -20,9 +20,19 @@ export const idFilterState = selector({
   get: ({ get }) => {
     const filter = get(chatRoomState);
     const ids = get(messageState);
-    return ids.filter((va) => filter.id === va.id)[0];
+    const valueOb = ids.filter((va) => filter.id === va.id)[0];
+    /*if (valueOb.message.length !== 0) {
+      return valueOb;
+    } else {
+      return console.log('error');
+    }
+    */
+    return valueOb;
   },
-  set: ({ set }, newValue: any) => {
+  set: ({ set, get }, newValue: any) => {
+    const realData = get(messageState);
+    const filter = get(chatRoomState);
+    const realMess = realData.filter((v) => v.id === newValue.id);
     set(messageState, newValue);
   },
 });
@@ -39,6 +49,7 @@ export const chatRoomState = atom<IChatRoomState>({
   key: 'chatRoom',
   default: {
     id: 1,
+    messages: [],
     message: [],
     currentUser: {
       id: 0,
