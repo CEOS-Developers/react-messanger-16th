@@ -64,9 +64,11 @@ function Room() {
           ></ImgProf>
         </div>
         <div>
-          <MoveButton className="quitBut" onClick={goToMain}>
-            x
-          </MoveButton>
+          <MoveButton
+            className="quitBut"
+            onClick={goToMain}
+            src={`/img/out.png`}
+          ></MoveButton>
         </div>
       </ImgProfAll>
       <MessageChatForm />
@@ -75,7 +77,11 @@ function Room() {
   );
 }
 
-const MoveButton = styled.div``;
+const MoveButton = styled.img`
+  width: 30px;
+  height: 30px;
+  margin-left: 200px;
+`;
 const AllTemplate = styled.div`
   width: 350px;
   height: 660px;
@@ -94,15 +100,15 @@ const ImgProfAll = styled.section`
   flex-direction: row;
 `;
 const ImgProf = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 53px;
+  height: 53px;
   border-radius: 25px;
   transition: 0.5s;
   display: block;
   :hover {
     cursor: grab;
-    width: 105px;
-    height: 105px;
+    width: 60px;
+    height: 60px;
   }
 `;
 

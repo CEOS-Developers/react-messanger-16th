@@ -31,37 +31,61 @@ function List() {
   //recoil로 전체 가져오기!! [chatRoom,setChatROom]useRecoilState, 이한비 값은 안받는걸로 해주기
   const TempList = ({ userList, realId }: any) => {
     const [chatRoom, setChatRoom] = useRecoilState(messageState);
+    const testRoom = useRecoilValue(chatRoomState);
 
-    const newData = chatRoom.filter(
-      (txt) => txt.id === Number(userList.id) + 1
+    const newData = chatRoom.filter((txt) => txt.id === Number(userList.id))[0];
+    const newData2 = chatRoom.filter(
+      (txt) => txt.id === Number(userList.id)
     )[0];
+
     console.log(newData);
     const realNum = newData.messages.length - 1;
+    const realNum2 = newData.message.length - 1;
+    console.log(userList.id);
 
-    return (
-      <div>
-        <Link to={`/room/${userList.id}`} onClick={onClickMe}>
+    if (newData.message.length === 0) {
+      return (
+        <AllTemp>
           <ShowImg src={`/img/${userList.id}.png`}></ShowImg>
-          {userList.name}
-        </Link>
-        <CurrentText>{newData.messages[realNum].text}</CurrentText>
+          <ChatLink to={`/room/${userList.id}`} onClick={onClickMe}>
+            {userList.name}
+            <CurrentText>{newData.messages[realNum].text}</CurrentText>
+          </ChatLink>
 
-        <ul></ul>
-      </div>
-    );
+          <ul></ul>
+        </AllTemp>
+      );
+    } else {
+      return (
+        <AllTemp>
+          <ShowImg src={`/img/${userList.id}.png`}></ShowImg>
+          <ChatLink to={`/room/${userList.id}`} onClick={onClickMe}>
+            {userList.name}
+            <CurrentText>{newData.message[realNum2].text}</CurrentText>
+          </ChatLink>
+
+          <ul></ul>
+        </AllTemp>
+      );
+    }
   };
+  const newUserList = UserList.users.slice(1, 4);
 
   return (
     <div>
       <RealAll>
         <SideTemplate>
-          <Link to="/">메인페이지</Link>
-          <ul></ul>
-          <Link to="/list">리스트</Link>
+          <Link to="/">
+            <MainImg src={`/img/user2.png`} />
+          </Link>
+
+          <Link to="/list">
+            <MainImg src={`/img/chat2.png`} />
+          </Link>
         </SideTemplate>
         <BodyTemplate>
           <h4>채팅</h4>
-          {UserList.users.map((userList) => (
+          {newUserList.map((userList) => (
             <TempList userList={userList} key={userList.id} />
           ))}
         </BodyTemplate>
@@ -69,6 +93,31 @@ function List() {
     </div>
   );
 }
+const AllTemp = styled.div`
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid grey;
+`;
+const ChatLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  padding: 30px 3px;
+  align-items: left;
+
+  text-decoration: none;
+
+  color: black;
+`;
+
+const MainImg = styled.img`
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 15px;
+  margin-top: 15px;
+`;
+
 const CurrentText = styled.div`
   color: grey;
   font-size: small;
@@ -77,6 +126,7 @@ const BodyTemplate = styled.div`
   box-sizing: border-box;
   padding: 0 3px;
 `;
+
 const RealAll = styled.div`
   width: 350px;
   height: 680px;
@@ -95,8 +145,9 @@ const SideTemplate = styled.div`
   display: block;
 `;
 const ShowImg = styled.img`
-  width: 38px;
-  height: 38px;
+  width: 58px;
+  height: 58px;
+  padding: 30px 25px;
   border-radius: 50%;
   background-size: cover;
 `;

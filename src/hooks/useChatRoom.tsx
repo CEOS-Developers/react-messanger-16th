@@ -38,18 +38,21 @@ const useChatRoom = () => {
     };
     console.log(chatState);
     //refresh..?prefetching??
-    setNewC({
+    const newOb = {
       ...chatId,
       currentUser: newC.currentUser,
       message: [...newC.message, messageOb],
-    });
+    };
+    setNewC(newOb);
 
     console.log(newC.messages);
     //newC or chatId인데 newC를 하면...currentUser newCcureentUser이랑 chatId의 user값이 같으면 넣어주기 아니면 x이런식으로 해보기!값을 구분해줘야됨 비어있을때도 생각해줘야함
 
-    if (newC.messages.length !== 0) {
-      setChatId(allData.map((data) => (data.id === newC.id ? newC : data)));
-    }
+    setChatId([
+      ...allData.map((data) => (data.id === newOb.id ? newOb : data)),
+      newOb,
+    ]);
+    //객체를 그냥 선언해줘서 그걸 사용하면 오류!!해결!!
 
     //setNewD는 전체 []를 바꾸는 것이므로 하나만 바꿔서 다시 전체에 넣어줘야함..chatroomState를 가져와서 바꾸는걸 해볼까?
     /*

@@ -80,7 +80,7 @@ const Wrapper = styled.section`
     background-clip: padding-box;
     border: 0.3rem solid transparent;
   }
-  background-color: #3bb4e8;
+  background: rgba(93, 0, 255, 0.25);
 `;
 
 const MessageChatContainer = styled.section<{ isUser: boolean }>`

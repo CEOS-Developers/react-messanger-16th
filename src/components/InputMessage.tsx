@@ -29,7 +29,6 @@ const StyledAddList = styled.form`
   font-weight: bolder;
   font-family: 'Jua', sans-serif;
   padding-bottom: 10px;
-  border-bottom: 1px solid lightgrey;
 `;
 
 const StyledInput = styled.input`
@@ -38,8 +37,9 @@ const StyledInput = styled.input`
   font-family: 'Jua', sans-serif;
   padding: 15px;
   width: 235px;
-  height: 30px;
-  margin-left: 15px;
+  height: 70px;
+  margin-left: 5px;
+  margin-top: 3px;
 `;
 const StyledButton = styled.button`
   border: 1px solid lightgrey;
@@ -48,6 +48,8 @@ const StyledButton = styled.button`
   font-size: 25px;
   color: white;
   background-color: pink;
+  margin-left: 5px;
+  margin-top: 3px;
 `;
 
 export default InputForm;

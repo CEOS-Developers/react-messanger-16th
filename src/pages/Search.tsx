@@ -4,36 +4,18 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { userState } from '../atom';
 
-function MainPage() {
+function Search() {
   const navigate = useNavigate();
   const UserList = useRecoilValue(userState);
 
-  const goToList = () => {
-    navigate('/Search');
+  const [search, setSearch] = useState('');
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
   };
-  //css공통된 요소 많은것 props로 넘기는걸로 바꾸기!
-  const TempList = ({ userList, realId }: any) => {
-    if (userList.id !== 0) {
-      return (
-        <div>
-          <OneId to={`/room/${userList.id}`}>
-            <ShowImg src={`/img/${userList.id}.png`}></ShowImg>
-            {userList.name}
-          </OneId>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <MainId to={`/room/${userList.id}`}>
-            <ShowImg2 src={`/img/${userList.id}.png`}></ShowImg2>
-            {userList.name}
-          </MainId>
-          <h6>친구{UserList.users.length - 1}</h6>
-        </div>
-      );
-    }
-  };
+  const filterName = UserList.users.filter((p) => {
+    return p.name.replace(' ', '').includes(search);
+  });
+
   return (
     <div>
       <RealAll>
@@ -49,25 +31,36 @@ function MainPage() {
         <BodyTemplate>
           <HeaderTemplate>
             <h4>친구</h4>
-
-            <FindButton src={`/img/find.png`} onClick={goToList}></FindButton>
+            <FindButton src={`/img/find.png`}></FindButton>
           </HeaderTemplate>
-
-          {UserList.users.map((userList) => (
-            <TempList userList={userList} key={userList.id} />
+          <InputName
+            type="text"
+            value={search}
+            onChange={onChange}
+            placeholder={'이름을 검색하시오'}
+          />
+          {filterName.map((m) => (
+            <div>
+              <MainId to={`/room/${m.id}`}>
+                <ShowImg src={`/img/${m.id}.png`}></ShowImg>
+                {m.name}
+              </MainId>
+            </div>
           ))}
         </BodyTemplate>
       </RealAll>
     </div>
   );
 }
-const ShowImg2 = styled.img`
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background-size: cover;
-  margin: 0 15px;
-  border-radius: 3px;
+
+const InputName = styled.input`
+  background-color: rgb(230, 230, 230);
+  border: 1px solid rgb(240, 240, 240);
+  font-size: 12px;
+  padding: 3px 10px;
+  box-sizing: border-box;
+  width: calc(100% - 36px);
+  margin: 9px 18px;
 `;
 const HeaderTemplate = styled.div`
   display: flex;
@@ -137,21 +130,7 @@ const RealAll = styled.div`
 const SideTemplate = styled.div`
   background-color: rgb(230, 230, 230);
   border-right: 1px solid rgb(223, 223, 223);
-  border-radius: 25px 0px 0px 25px;
   display: block;
 `;
 
-const AllTemplate = styled.div`
-  width: 350px;
-  height: 660px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 1px 1px 30px grey;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  margin-left: 38%;
-  justify-content: center;
-  align-items: center;
-`;
-
-export default MainPage;
+export default Search;

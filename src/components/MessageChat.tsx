@@ -122,8 +122,8 @@ const MessageText = styled.p<{ isUser: boolean }>`
 `;
 
 const MessageUser = styled.p<{ isUser: boolean }>`
-  font-size: 0.75rem;
-  margin: 0;
+  font-size: 0.5rem;
+  margin: 0px;
   display: flex;
   ${({ isUser }) =>
     isUser
