@@ -14,6 +14,7 @@ const ChatList = () => {
   const userData = useRecoilState(userInformationState);
   const chatData = useRecoilValue(chatState);
   const setNowRoomId = useSetRecoilState(nowRoomIdState);
+  const setUserAccount = useSetRecoilState(accountState);
 
   const getLastChat = (userId: number) => {
     const filteredChat = chatData.find(
@@ -27,12 +28,17 @@ const ChatList = () => {
     return filteredUser!;
   };
 
+  const handleChatroomClick = (roomId: number) => {
+    setNowRoomId(roomId);
+    setUserAccount(true);
+  };
+
   return (
     <ItemWrapper>
       {chatData.map((chatroom: ChatRoom, index: number) => (
         <Link
           to={`/room/${chatroom.roomid}`}
-          onClick={() => setNowRoomId(chatroom.roomid)}
+          onClick={() => handleChatroomClick(chatroom.roomid)}
           key={getLastChat(chatroom.user).chatid}
         >
           <SingleUser
