@@ -14,7 +14,6 @@ const Search = () => {
 
     const filterUser= user.filter((p) => {
         let result = Object.values(p)[1].replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
-        console.log(Object.values(p)[1],result);
         return result;
     })
 
