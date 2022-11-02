@@ -47,5 +47,12 @@
         "to":3,
         "content":"test6",
         "date":"02:20"
+    },
+    {
+        "id":7,
+        "from":0,
+        "to":4,
+        "content":"test7",
+        "date":"02:21"
     }
 ]

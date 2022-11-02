@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { contentState} from '../../recoil/atom';
+import {useRecoilState,useRecoilValue,} from 'recoil';
 
 type ChatItemProps = {
     id: number;
@@ -11,11 +13,24 @@ type ChatItemProps = {
 
 function ChatItem({id,name,src,number}:ChatItemProps){
     const chatLink = '/room/' + id;
+
+    const [content, setContent] = useRecoilState(contentState);
+    const result = content.filter(c=>(c.to === id || c.from === id));
+    const lastContent = result[result.length-1];
+
     return (
         <StyledItem to={chatLink}>
             <StyledBox>
                 <StyledImage width={"45px"} height={"45px"} src={src}/>&nbsp;
-                {name}
+                <StyledFontBox>
+                    {name}
+                    <StyledFont>
+                        {lastContent.content}
+                    </StyledFont>
+                </StyledFontBox>
+                <StyledDate>
+                    {lastContent.date}
+                </StyledDate>
             </StyledBox>
         </StyledItem>
     );
@@ -26,6 +41,18 @@ type StyledProps = {
     height: string;
 }
 
+const StyledDate = styled.div`
+    float: right;
+    object-align: top;
+    color: gray;
+    font-size: small;
+`
+
+const StyledFontBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width:200px;
+`
 const StyledFont = styled.div`
     font-size: small;
     color: gray;

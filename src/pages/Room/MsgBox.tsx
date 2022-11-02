@@ -24,11 +24,11 @@ const MsgBox = () => {
                 contentList.map((c)=>(
                     <MsgItem
                         user = {msg.from}
+                        key = {c.id}
                         to = {c.to}
                         from = {c.from}
                         date = {c.date}
                         content = {c.content}
-                        key = {c.id}
                     />
                 ))
             }

@@ -23,7 +23,7 @@ const Setting = () => {
         <StyledBlock>
             <Header/>
             <StyledContent>
-                설정    
+                더보기    
             </StyledContent>
         </StyledBlock>
     );
