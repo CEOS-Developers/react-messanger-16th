@@ -1,30 +1,13 @@
 import styled from 'styled-components';
+import { User } from '../interfaces/interfaces';
 
-interface Props {
-  user_id: number;
-  user_img: string;
-  user_name: string;
-  onClick: any;
-  isSelected: boolean;
-}
-
-const HeaderItem: React.FC<Props> = ({
-  user_id,
-  user_img,
-  user_name,
-  onClick,
-  isSelected,
-}) => {
+const HeaderItem = (user: User) => {
   return (
-    <UserItemWrapper
-      onClick={() => {
-        onClick(user_id);
-      }}
-    >
+    <UserItemWrapper>
       <UserImgWrapper>
-        <UserImg src={user_img} isSelected={isSelected} />
+        <UserImg src={user.user_img} isSelected={user.isSelected} />
       </UserImgWrapper>
-      <UserName>{user_name}</UserName>
+      <UserName>{user.user_name}</UserName>
     </UserItemWrapper>
   );
 };

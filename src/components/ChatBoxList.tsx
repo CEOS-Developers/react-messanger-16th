@@ -1,16 +1,14 @@
 import { useRef, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
-import { User, Chat } from '../interfaces/interfaces';
+import { userState, chatState } from '../recoil/recoil';
 import ChatBoxItem from './ChatBox';
 
-const ChatBox = ({
-  chatList,
-  userList,
-}: {
-  chatList: Chat[];
-  userList: User[];
-}) => {
+const ChatBox = () => {
+  const chatList = useRecoilValue(chatState);
+  const userList = useRecoilValue(userState);
+
   const chatBoxRef = useRef<HTMLDivElement>(null);
 
   const scrollTo = () => {

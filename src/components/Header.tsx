@@ -1,25 +1,18 @@
-import { useContext } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
-import { Context } from '../App';
-import { User } from '../interfaces/interfaces';
 import HeaderItem from './HeaderItem';
-
+import { userState } from '../recoil/recoil';
 import styled from 'styled-components';
 
-const Header = ({ userList }: { userList: User[] }) => {
-  const { setUsers } = useContext(Context);
+const Header = () => {
+  const [users, setUsers] = useRecoilState(userState);
 
-  const handleClickChangeUser = (user: number) => {
-    userList.map((it) =>
-      it.user_id === user ? (it.isSelected = true) : (it.isSelected = false)
-    );
-    setUsers(userList);
-  };
+  const handleClickChangeUser = (user: number) => {};
 
   return (
     <HeaderWrapper>
-      {userList.map((it) => (
-        <HeaderItem key={it.user_id} {...it} onClick={handleClickChangeUser} />
+      {users.map((it) => (
+        <HeaderItem key={it.user_id} {...it} />
       ))}
     </HeaderWrapper>
   );

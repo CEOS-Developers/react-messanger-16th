@@ -1,11 +1,14 @@
-import { useContext, useState, useRef } from 'react';
-import { Context } from '../App';
-import { User, Chat } from '../interfaces/interfaces';
+import { useState, useRef } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { Chat } from '../interfaces/interfaces';
+
+import { chatState, userState } from '../recoil/recoil';
 
 import styled from 'styled-components';
 
-const InputBox = ({ userList }: { userList: User[] }) => {
-  const { setChats } = useContext(Context);
+const InputBox = () => {
+  const userList = useRecoilValue(userState);
+  const setChats = useSetRecoilState(chatState);
 
   const chatId = useRef<number>(0);
   const [chat, setChat] = useState<string>('');
