@@ -1,6 +1,6 @@
 import React,{useEffect, useRef, useState} from 'react';
 import styled from "styled-components"
-import { msgState, contentState, contentSelector } from '../../recoil/atom';
+import { msgState, userState, contentSelector } from '../../recoil/atom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import MsgItem from './MsgItem';
 
@@ -24,7 +24,6 @@ const MsgBox = () => {
                 contentList.map((c)=>(
                     <MsgItem
                         user = {msg.from}
-                        key = {c.id}
                         to = {c.to}
                         from = {c.from}
                         date = {c.date}

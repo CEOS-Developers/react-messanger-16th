@@ -73,6 +73,7 @@ const StyledImage = styled.img<StyledProps>`
 
 const StyledItem = styled(Link)`
     text-decoration: none;
+    color: black;
     height: auto;
     width: 280px;
 `

@@ -52,6 +52,7 @@ const StyledFontBox = styled.div`
     display: flex;
     flex-direction: column;
     width:200px;
+    color: black;
 `
 const StyledFont = styled.div`
     font-size: small;

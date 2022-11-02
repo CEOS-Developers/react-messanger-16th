@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { msgState, userState, contentSelector } from '../../recoil/atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 type MsgItemProps = {
     user:number,
-    key:number,
     to:number,
     from:number,
     date:string,
     content:string,
 }
 
-function MsgItem({user,key,to,from,date,content}:MsgItemProps){
+function MsgItem({user,to,from,date,content}:MsgItemProps){
+    const [userInfo, setUserInfo] = useRecoilState(userState);
+
+    const fromUser = userInfo[from];
+
     return (
         <div>
             {
@@ -23,10 +28,12 @@ function MsgItem({user,key,to,from,date,content}:MsgItemProps){
                         <StyledMsg background="#EEE33C">
                             {content} 
                         </StyledMsg>
+                        <StyledImage src={'/'+Object.values(fromUser)[2]}/>
                     </StyledPosition>
                 </StyledParent>
                 :
                 <StyledPosition>
+                    <StyledImage src={'/'+Object.values(fromUser)[2]}/>
                     <StyledMsg background="white">
                         {content} 
                     </StyledMsg>

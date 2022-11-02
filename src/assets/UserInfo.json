@@ -1,32 +1,32 @@
 [
     {
         "id":0,
-        "name":"게스트",
-        "src":"img/g.jfif"
+        "name":"짱구",
+        "src":"img/짱구.png"
     },
     {
         "id":1,
-        "name":"userA",
+        "name":"숀",
         "src":"img/a.jfif"
     },
     {
         "id":2,
-        "name":"userB",
+        "name":"그로밋",
         "src":"img/b.jfif"
     },
     {
         "id":3,
-        "name":"userC",
+        "name":"스폰지밥",
         "src":"img/c.jfif"
     },
     {
         "id":4,
-        "name":"userD",
+        "name":"뚱이",
         "src":"img/d.jfif"
     },
     {
         "id":5,
-        "name":"userE",
+        "name":"징징이",
         "src":"img/e.jfif"
     }
 ]
