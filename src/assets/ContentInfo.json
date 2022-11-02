@@ -3,56 +3,56 @@
         "id":0,
         "from":0,
         "to":3,
-        "content":"test0",
+        "content":"가나다",
         "date":"02:11"
     },
     {
         "id":1,
         "from":3,
         "to":0,
-        "content":"test1",
+        "content":"라마바",
         "date":"02:12"
     },
     {
         "id":2,
         "from":0,
         "to":1,
-        "content":"test2",
+        "content":"아자차",
         "date":"02:14"
     },
     {
         "id":3,
         "from":0,
         "to":2,
-        "content":"test3",
+        "content":"카타파",
         "date":"02:16"
     },
     {
         "id":4,
         "from":0,
         "to":5,
-        "content":"test4",
+        "content":"하가나",
         "date":"02:17"
     },
     {
         "id":5,
         "from":3,
         "to":0,
-        "content":"test5",
+        "content":"다라마",
         "date":"02:19"
     },
     {
         "id":6,
         "from":0,
         "to":3,
-        "content":"test6",
+        "content":"바사아",
         "date":"02:20"
     },
     {
         "id":7,
         "from":0,
         "to":4,
-        "content":"test7",
+        "content":"자차카",
         "date":"02:21"
     }
 ]
