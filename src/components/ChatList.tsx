@@ -1,7 +1,12 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { chatState, nowRoomIdState, userInformationState } from "../store/atom";
+import {
+  accountState,
+  chatState,
+  nowRoomIdState,
+  userInformationState,
+} from "../store/atom";
 import styled from "styled-components";
-import { UserInformation } from "../interfaces/interface";
+import { ChatRoom } from "../interfaces/interface";
 import SingleUser from "./SingleUser";
 import { Link } from "react-router-dom";
 
@@ -17,32 +22,29 @@ const ChatList = () => {
     return filteredChat![filteredChat.length - 1];
   };
 
-  const getRoomId = (userId: number) => {
-    return chatData.find((chatroom) => chatroom.user === userId)!.roomid;
+  const getUserData = (userId: number) => {
+    const filteredUser = userData[0].find((user) => user.userid === userId);
+    return filteredUser!;
   };
 
   return (
     <ItemWrapper>
-      {userData[0].map((user: UserInformation, index: number) =>
-        index > 0 ? (
-          <Link
-            to={`/room/${getRoomId(user.userid)}`}
-            onClick={() => setNowRoomId(getRoomId(user.userid))}
-            key={getLastChat(user.userid).chatid}
-          >
-            <SingleUser
-              key={getLastChat(user.userid).chatid}
-              user={user}
-              isFriendPage={false}
-              lastChat={getLastChat(user.userid).chat}
-              lastTime={getLastChat(user.userid).time}
-            />
-            <Line />
-          </Link>
-        ) : (
-          <div key={12443}></div>
-        )
-      )}
+      {chatData.map((chatroom: ChatRoom, index: number) => (
+        <Link
+          to={`/room/${chatroom.roomid}`}
+          onClick={() => setNowRoomId(chatroom.roomid)}
+          key={getLastChat(chatroom.user).chatid}
+        >
+          <SingleUser
+            key={getLastChat(chatroom.user).chatid}
+            user={getUserData(chatroom.user)}
+            isFriendPage={false}
+            lastChat={getLastChat(chatroom.user).chat}
+            lastTime={getLastChat(chatroom.user).time}
+          />
+          <Line />
+        </Link>
+      ))}
     </ItemWrapper>
   );
 };

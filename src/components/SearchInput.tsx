@@ -1,4 +1,4 @@
-import { FormEvent, useEffect } from "react";
+import { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";

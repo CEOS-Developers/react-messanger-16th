@@ -9,6 +9,8 @@ const SearchList = () => {
   return (
     <ItemWrapper>
       <SearchInput />
+      <h2>Searching...</h2>
+      <Line />
       {searchData[0].map((user: UserInformation) => (
         <SingleUser key={user.userid} user={user} isFriendPage={true} />
       ))}
@@ -28,6 +30,13 @@ const ItemWrapper = styled.section`
     border-radius: 25px;
     background: #ccc;
   }
+`;
+
+const Line = styled.hr`
+  border: none;
+  border-top: 1px solid #8c8c8c;
+  color: #000;
+  width: 90%;
 `;
 
 export default SearchList;

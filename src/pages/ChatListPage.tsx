@@ -2,11 +2,13 @@ import styled from "styled-components";
 import ChatList from "../components/ChatList";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
+import ToggleSwitch from "../components/ToggleSwitch";
 
 const ChatListPage = () => {
   return (
     <ChatListContainer>
       <Header leftChild="<" textChild="My Chats" rightChild="⋮" />
+      <ToggleSwitch />
       <ChatList />
       <Navigation />
     </ChatListContainer>
