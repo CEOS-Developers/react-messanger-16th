@@ -1,20 +1,12 @@
-import dayjs from 'dayjs';
 import { KeyboardEvent, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import useChat from '../../hooks/useChat';
 import useInput from '../../hooks/useInput';
-import { IChat } from '../../states/interface';
-import { v4 as uuidv4 } from 'uuid';
-import { chattingStateByChattingId } from '../../states/atoms/chattings';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { currentState } from '../../states/atoms/current';
 
 const RoomFooter = ({ chattingId }: { chattingId: number }) => {
-  const currentId = useRecoilValue(currentState);
-  const [chatting, setChatting] = useRecoilState(
-    chattingStateByChattingId(chattingId),
-  );
-  const { value, onChange, resetValue } = useInput('');
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const { value, onChange, resetValue } = useInput('');
+  const { sendChat } = useChat(chattingId);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -22,34 +14,17 @@ const RoomFooter = ({ chattingId }: { chattingId: number }) => {
     }
   }, []);
 
-  const sendMessage = () => {
-    if (value.length !== 0 && value.replace(/ /g, '').length !== 0) {
-      const newChat: IChat = {
-        userId: currentId,
-        content: value,
-        date: dayjs().format(),
-        like: false,
-        chatId: uuidv4(),
-      };
-
-      setChatting({ ...chatting, chatList: [...chatting.chatList, newChat] });
-      resetValue();
-
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
-    }
-  };
-
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    sendMessage();
+    sendChat(value);
+    resetValue();
   };
 
   const onEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       if (e.nativeEvent.isComposing === false) {
-        sendMessage();
+        sendChat(value);
+        resetValue();
         e.preventDefault();
       }
     }

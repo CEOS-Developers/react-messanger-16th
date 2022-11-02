@@ -5,7 +5,6 @@ import ChatItem from './ChatItem';
 
 const RoomBody = ({ chatList }: { chatList: IChat[] }) => {
   const { bodyRef } = useScrollDown(chatList);
-
   return (
     <Wrapper ref={bodyRef}>
       {chatList.map((chat, index) => (

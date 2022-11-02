@@ -13,14 +13,14 @@ import { chattingStateByUserId } from '../states/atoms/chattings';
 const Friends = () => {
   const friends = useRecoilValue(friendsState);
   const me = useRecoilValue(userState);
-  const [search, setSearch] = useState(false);
+  const [isSearchOpened, setSearchOpen] = useState<boolean>(false);
   const [searchResult, setSearchResult] = useState(friends);
 
   return (
     <Wrapper>
-      <ListHeader title={'친구'} setSearch={setSearch} />
+      <ListHeader title={'친구'} setSearch={setSearchOpen} />
 
-      {search ? (
+      {isSearchOpened ? (
         <>
           <SearchBox
             searchResult={searchResult}

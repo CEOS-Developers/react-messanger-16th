@@ -5,13 +5,11 @@ const useInput = (initialState: string) => {
 
   const onChange = (
     e: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>,
-  ): void => {
-    /* const targetValue = e.target.value;
-        setValue(targetValue.replaceAll(/(\n|\r\n)/g, '<br>')); */
+  ) => {
     setValue(e.target.value);
   };
 
-  const resetValue = (): void => {
+  const resetValue = () => {
     setValue('');
   };
 
