@@ -8,7 +8,7 @@ import styled from "styled-components"
 
 const Friends = () => {
     const [user, setUser] = useRecoilState<Object[]>(userState);
-    const [search, setSearch] = useState(0);
+    const [search, setSearch] = useState(1);
 
     const onClick = () => {
         if(search === 0){
