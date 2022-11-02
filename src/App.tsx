@@ -1,32 +1,23 @@
-import styled from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
-import Header from './components/Header';
-import InputBox from './components/InputBox';
-import ChatBoxList from './components/ChatBoxList';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import FriendList from './pages/FriendList';
+import ChatList from './pages/ChatList';
+import ChatRoom from './pages/ChatRoom';
+import Setting from './pages/Setting';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <Container>
-        <Header />
-        <ChatBoxList />
-        <InputBox />
-      </Container>
-    </>
+      <Routes>
+        <Route path="/" element={<FriendList />} />
+        <Route path="/chatList" element={<ChatList />} />
+        <Route path="/Setting" element={<Setting />} />
+        <Route path="/chatRoom" element={<ChatRoom />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-const Container = styled.div`
-  width: 25rem;
-  height: 40rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  border-radius: 20px;
-  box-shadow: 1px 1px 10px lightgray;
-`;
 
 export default App;

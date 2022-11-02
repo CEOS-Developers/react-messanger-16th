@@ -11,6 +11,12 @@
       "user_img": "assets/보통이.jpeg",
       "user_name": "보통이",
       "isSelected": false
+    },
+    {
+      "user_id": 3,
+      "user_img": "",
+      "user_name": "안녕",
+      "isSelected": false
     }
   ]
 }
