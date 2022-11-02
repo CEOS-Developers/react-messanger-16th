@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";
@@ -9,17 +9,15 @@ const SearchInput = () => {
   const userData = useRecoilState(userInformationState);
   const setSearchData = useSetRecoilState(userSearchState);
 
-  const onChange = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  useEffect(() => {
     const filteredResult = userData[0].filter((user) => {
       return user.name.toLowerCase().includes(message.value.toLowerCase());
     });
     setSearchData(filteredResult);
-  };
+  }, [message.value]);
 
   return (
-    <InputForm onChange={onChange}>
+    <InputForm>
       <InputText {...message} />
       <InputButton>검색</InputButton>
     </InputForm>
