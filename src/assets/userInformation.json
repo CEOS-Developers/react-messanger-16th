@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "userid": 0,
+      "name": "NaYeon 💭",
+      "statusMessage": "\"Hell\"O World!..."
+    },
+    {
+      "userid": 1,
+      "name": "NewJeans 👖",
+      "statusMessage": "🍉🥭🥥🥑🍓"
+    },
+    {
+      "userid": 2,
+      "name": "HaeRin 😽",
+      "statusMessage": "😎👖"
+    },
+    {
+      "userid": 3,
+      "name": "HANNI 🐰",
+      "statusMessage": "🦭 hi hi~~~~"
+    },
+    {
+      "userid": 4,
+      "name": "Danielle 🍀",
+      "statusMessage": "Hi 🌻 Hi!🌻"
+    },
+    {
+      "userid": 5,
+      "name": "MINJI 🍒",
+      "statusMessage": "🧡"
+    },
+    {
+      "userid": 6,
+      "name": "HYEIN 🍼",
+      "statusMessage": "let..s be friennnnnnnd👽👽👽👽"
+    }
+  ]
+}

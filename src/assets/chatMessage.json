@@ -1,0 +1,131 @@
+{
+  "chatrooms": [
+    {
+      "roomid": 0,
+      "user": 1,
+      "chats": [
+        {
+          "userid": 1,
+          "chatid": 1664469417344,
+          "myAccount": false,
+          "chat": "내가 만든 쿠키 🍪",
+          "time": "10월 3일"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417345,
+          "myAccount": true,
+          "chat": "너를 위해 구웠지 😽",
+          "time": "10월 3일"
+        }
+      ]
+    },
+    {
+      "roomid": 1,
+      "user": 2,
+      "chats": [
+        {
+          "userid": 2,
+          "chatid": 1664469417346,
+          "myAccount": false,
+          "chat": "느린 한마디보다 조용함이 더 좋아",
+          "time": "10월 4일"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417347,
+          "myAccount": true,
+          "chat": "기다리고 있지만 매일 이런 건 아냐",
+          "time": "10월 4일"
+        }
+      ]
+    },
+    {
+      "roomid": 2,
+      "user": 3,
+      "chats": [
+        {
+          "userid": 0,
+          "chatid": 1664469417349,
+          "myAccount": true,
+          "chat": "에이 티 티 이 엔 티 아이 온~",
+          "time": "10월 28일"
+        },
+        {
+          "userid": 3,
+          "chatid": 1664469417348,
+          "myAccount": false,
+          "chat": "Attention is what I want~",
+          "time": "10월 28일"
+        }
+      ]
+    },
+    {
+      "roomid": 3,
+      "user": 4,
+      "chats": [
+        {
+          "userid": 4,
+          "chatid": 1664469417350,
+          "myAccount": false,
+          "chat": "내 지난 날들은 눈 뜨면 잊는 꿈",
+          "time": "10월 29일"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417351,
+          "myAccount": true,
+          "chat": "Hype boy 너만 원해~",
+          "time": "10월 29일"
+        },
+        {
+          "userid": 4,
+          "chatid": 1664469417352,
+          "myAccount": false,
+          "chat": "Hype boy 내가 전해~",
+          "time": "10월 29일"
+        }
+      ]
+    },
+    {
+      "roomid": 4,
+      "user": 5,
+      "chats": [
+        {
+          "userid": 0,
+          "chatid": 1664469417360,
+          "myAccount": true,
+          "chat": "아니 얘네 왜 노래가 4곡밖에 없냐 ㄱ-",
+          "time": "11월 1일"
+        },
+        {
+          "userid": 5,
+          "chatid": 1664469417354,
+          "myAccount": false,
+          "chat": "ㅜ.ㅜ",
+          "time": "11월 1일"
+        }
+      ]
+    },
+    {
+      "roomid": 5,
+      "user": 6,
+      "chats": [
+        {
+          "userid": 6,
+          "chatid": 1664469417370,
+          "myAccount": false,
+          "chat": "뉴진스 컴백",
+          "time": "11월 2일"
+        },
+        {
+          "userid": 0,
+          "chatid": 1664469417371,
+          "myAccount": true,
+          "chat": "언제야~~?",
+          "time": "11월 2일"
+        }
+      ]
+    }
+  ]
+}
