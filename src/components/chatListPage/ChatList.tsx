@@ -33,8 +33,6 @@ const ChatList = () => {
     setUserAccount(true);
   };
 
-  console.log();
-
   return (
     <ItemWrapper>
       {chatData.map((chatroom: ChatRoom, index: number) => (

@@ -5,8 +5,6 @@ const Navigation = () => {
   const location = useLocation();
   const nowPage = location.pathname.split("/", 2)[1];
 
-  console.log(nowPage);
-
   const getImageSrc = (isPage: boolean, page: string) => {
     return isPage
       ? `${process.env.PUBLIC_URL}/images/${page}.png`

@@ -27,7 +27,6 @@ const SingleUser = ({
             <UserName>{user.name}</UserName>
             <Time>{sendTime}</Time>
           </MessageWrapper>
-
           <DetailMessage>{detailMessage}</DetailMessage>
         </ChatWrapper>
       </UserWrapper>
