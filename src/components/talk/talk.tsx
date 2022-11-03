@@ -17,6 +17,7 @@ const TextBox = styled.div`
 const Talk = () => {
   const [list, setList] = useRecoilState<ListInfo[]>(listState);
   const nowChat = useRecoilValue(chatSelector);
+  const isUser = useRecoilValue(userState);
 
   useEffect(() => {
     setList(nowChat);
@@ -26,7 +27,7 @@ const Talk = () => {
     <TextBox>
       {list.map((li, index) => (
         <TalkBox key={index}>
-          <TalkText IsUser={true} addText={li.addText} nowIsUser={li.IsUser} />
+          <TalkText IsUser={li.IsUser} addText={li.addText} />
         </TalkBox>
       ))}
     </TextBox>

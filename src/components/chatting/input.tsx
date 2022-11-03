@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { Params } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { ListInfo } from '../../interfaces/interface';
-import { listState, userState } from '../../state/state';
+import {
+  listState,
+  userState,
+  chatSelector,
+  userSelector,
+  nowListState,
+} from '../../state/state';
 
 const InputBox = styled.form`
   background-color: white;

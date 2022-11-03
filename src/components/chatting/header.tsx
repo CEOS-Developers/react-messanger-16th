@@ -1,9 +1,6 @@
-import React from 'react';
-import { Params } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { userState } from '../../state/state';
 import User from './../talk/user';
+import { useNavigate } from 'react-router-dom';
 
 const Head = styled.header`
   background-color: white;
@@ -12,11 +9,25 @@ const Head = styled.header`
   border: 10px black;
   border-radius: 10px 10px 0% 0%;
   display: flex;
+
+  .back {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    margin-right: 0;
+    border: none;
+    border-radius: 10px;
+  }
 `;
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <Head>
+      <button className="back " onClick={() => navigate(-1)}>
+        🔙
+      </button>
       <User />
     </Head>
   );

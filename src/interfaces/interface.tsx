@@ -14,7 +14,6 @@ export interface ListInfoWrap {
 
 export interface TalkBoxInfo {
   IsUser: boolean;
-  nowIsUser: boolean;
 }
 
 export interface UserListInfo {
@@ -29,8 +28,8 @@ export interface UserListInfo {
 //   IsUser?: boolean;
 // }
 
-// export interface ChatInfo {
-//   userId: number;
-//   userName: string;
-//   chat: ListInfo[];
-// }
+export interface ChatInfo {
+  userId: number;
+  userName: string;
+  chat: ListInfo[];
+}

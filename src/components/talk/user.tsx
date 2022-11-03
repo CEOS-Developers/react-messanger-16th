@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { userState } from '../../state/state';
 import { userSelector, chatSelector } from '../../state/state';
+import { listState } from '../../state/state';
+import { ListInfo } from '../../interfaces/interface';
 
 const Icon = styled.button`
   position: relative;
@@ -13,7 +15,7 @@ const Icon = styled.button`
   background-color: #eee;
   margin-top: 18px;
   border: none;
-  margin-left: auto;
+  margin-left: 130px;
   margin-right: auto;
   :hover {
     cursor: grab;

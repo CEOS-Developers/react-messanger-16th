@@ -42,22 +42,6 @@ const Main = () => {
     }
   };
 
-  // const SearchUser = ({
-  //   userList,
-  //   IsSearch,
-  // }: {
-  //   userList: UserListInfo[];
-  //   IsSearch: boolean;
-  // }) => {
-  //   return userList.filter((user) => {
-  //     if (IsSearch) {
-  //       return user.userName.toLowerCase().includes(searchName.toLowerCase());
-  //     } else {
-  //       return user;
-  //     }
-  //   });
-  // };
-
   return (
     <MainBox>
       <Container>

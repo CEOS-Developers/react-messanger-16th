@@ -1,12 +1,13 @@
 import MainBox from '../components/box/mainbox';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { UserListInfo } from '../interfaces/interface';
-import { userListState } from '../state/state';
+import { ChatInfo, UserListInfo } from '../interfaces/interface';
+import { ChatBoxState, userListState } from '../state/state';
 import styled from 'styled-components';
-import UserBox from '../components/users/userbox';
+import ChatBox from '../components/users/chatbox';
 
 const ChatList = () => {
   const [userList, setUserList] = useRecoilState<UserListInfo[]>(userListState);
+  const chatList = useRecoilValue<ChatInfo[]>(ChatBoxState);
 
   const Container = styled.div`
     .friends {
@@ -18,8 +19,8 @@ const ChatList = () => {
     <MainBox>
       <Container>
         <div className="friends">
-          {userList.map((user, index) =>
-            index ? <UserBox user={user} key={index} /> : ''
+          {chatList.map((ch, index) =>
+            index ? <ChatBox chat={ch} key={index} /> : ''
           )}
         </div>
       </Container>
