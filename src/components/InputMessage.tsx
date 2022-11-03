@@ -47,7 +47,7 @@ const StyledButton = styled.button`
   font-family: 'Jua', sans-serif;
   font-size: 25px;
   color: white;
-  background-color: pink;
+  background-color: #337de4;
   margin-left: 5px;
   margin-top: 3px;
 `;

@@ -45,12 +45,7 @@ function Room() {
   const goToMain = () => {
     navigate('/list');
   };
-  //
 
-  //newC or chatId인데 newC를 하면...currentUser newCcureentUser이랑 chatId의 user값이 같으면 넣어주기 아니면 x이런식으로 해보기!값을 구분해줘야됨 비어있을때도 생각해줘야함
-
-  //여기다가 room여러개 해야되는건가..?
-  //x할때 message에 있던것을 messages에 옮겨주기!! (아직 시도 안함)
   return (
     <AllTemplate>
       <ImgProfAll>
@@ -105,11 +100,6 @@ const ImgProf = styled.img`
   border-radius: 25px;
   transition: 0.5s;
   display: block;
-  :hover {
-    cursor: grab;
-    width: 60px;
-    height: 60px;
-  }
 `;
 
 export default Room;

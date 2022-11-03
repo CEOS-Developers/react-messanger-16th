@@ -1,30 +1,21 @@
-import { IMessageType, IChatRoomItem } from '../interface';
-import { useRecoilValue, selector, useRecoilState } from 'recoil';
-import { chatRoomState, idFilterState, messageState } from '../atom';
+import { IMessageType } from '../interface';
+import { useRecoilValue } from 'recoil';
+import { chatRoomState } from '../atom';
 import styled, { css } from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 const MessageChat = ({ messages }: { messages: IMessageType }) => {
   const { currentUser } = useRecoilValue(chatRoomState);
-  const currentData = useRecoilValue(idFilterState);
 
-  //console.log(currentData);
   const isUser = messages.user.id === currentUser.id;
 
   console.log(isUser);
   console.log(currentUser.id);
   console.log(messages.user.id);
-  //console.log(currentData.messages[2]);
 
   let params = useParams();
   let num = params.id;
   console.log(num);
-  const realNum = Number(num);
-
-  //realNum이랑 id값을 같게 만들어 주면 될듯?selector이용해서?그래서 id값으로 각 채팅방 구분해보자! 내일!
-
-  //currentRoomId를 가진 user정보를 불러와야하는듯?
-  //selector이용해서 텍스트 값 가져오기?
 
   return (
     <MessageBox isUser={isUser}>
@@ -51,7 +42,6 @@ const MessageProfAll = styled.section`
   flex-direction: column;
 `;
 
-//확장성할 때 고칠 부분
 const Messageimg = styled.img<{
   isUser: boolean;
   _id: number;
@@ -61,17 +51,7 @@ const Messageimg = styled.img<{
   height: 38px;
   border-radius: 50%;
   background-size: cover;
-  /*
-  ${({ _id, _currentUserId }) =>
-    _id === 0
-      ? css`
-          background-image: url('/../img/0');
-        `
-      : css`
-          //background-image: url(..img/1.png);
-          background-image: url('/../img/${_id}');
-        `}
-*/
+
   ${({ _id, _currentUserId }) =>
     _id === _currentUserId &&
     css`
@@ -107,14 +87,12 @@ const MessageText = styled.p<{ isUser: boolean }>`
   ${({ isUser }) =>
     isUser
       ? css`
-          box-shadow: 1px 1px 30px grey;
           border-radius: 0.5rem 0 0.5rem 0.5rem;
-          background-color: pink;
+          background-color: #337de4;
           color: #ffffff;
           font-weight: bold;
         `
       : css`
-          box-shadow: 1px 1px 30px grey;
           border-radius: 0 0.5rem 0.5rem 0.5rem;
           background-color: #f1f1f3;
           font-weight: bold;

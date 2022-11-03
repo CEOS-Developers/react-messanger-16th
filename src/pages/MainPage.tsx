@@ -115,7 +115,7 @@ const OneId = styled(Link)`
   align-items: center;
   padding: 8px 18px;
   text-decoration: none;
-  font-size: small;
+
   color: black;
 `;
 const BodyTemplate = styled.div`
