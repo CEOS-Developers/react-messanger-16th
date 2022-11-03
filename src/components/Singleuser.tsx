@@ -42,6 +42,12 @@ const UserWrapper = styled.div`
   flex-direction: "row";
   align-items: center;
   width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #b7b7b7;
+    color: #fff;
+  }
 `;
 
 const ProfileImage = styled.img`

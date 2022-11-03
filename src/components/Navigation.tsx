@@ -1,22 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import FriendsPage from "../pages/FriendsPage";
 
 const Navigation = () => {
+  const location = useLocation();
+  const nowPage = location.pathname.split("/", 2)[1];
+
+  console.log(nowPage);
+
+  const getImageSrc = (isPage: boolean, page: string) => {
+    return isPage
+      ? `${process.env.PUBLIC_URL}/images/${page}.png`
+      : `${process.env.PUBLIC_URL}/images/${page}-clicked.png`;
+  };
+
   return (
     <NavWrapper>
       <li>
         <Link to={`/friends`} key={"friends"}>
-          <ButtonImage src={`${process.env.PUBLIC_URL}/images/calls.png`} />
+          <ButtonImage src={getImageSrc(nowPage === "friends", "calls")} />
         </Link>
       </li>
       <li>
         <Link to={`/chats`} key={"chats"}>
-          <ButtonImage src={`${process.env.PUBLIC_URL}/images/messages.png`} />
+          <ButtonImage src={getImageSrc(nowPage === "chats", "messages")} />
         </Link>
       </li>
       <li>
         <Link to={`/settings`} key={"settings"}>
-          <ButtonImage src={`${process.env.PUBLIC_URL}/images/settings.png`} />
+          <ButtonImage src={getImageSrc(nowPage === "settings", "settings")} />
         </Link>
       </li>
     </NavWrapper>

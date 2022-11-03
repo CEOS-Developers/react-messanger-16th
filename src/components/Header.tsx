@@ -45,12 +45,17 @@ const HeaderWrapper = styled.header`
 `;
 
 const HeaderButton = styled.button`
-  width: 10%;
+  width: 40px;
+  height: 40px;
   background: #fff;
   border-radius: 100%;
   border: 1px solid #000000;
-  font-size: 25px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  line-height: 15px;
+  text-align: center;
   cursor: pointer;
+  transition: 0.5s;
 `;
 
 const HeadText = styled.span`
@@ -59,6 +64,7 @@ const HeadText = styled.span`
   font-weight: bold;
   padding-left: 1rem;
   cursor: pointer;
+  transition: 0.5s;
 `;
 
 export default Header;
