@@ -1,5 +1,43 @@
 [
   {
+    "id": 0,
+    "user": [
+      {
+        "id": 22,
+        "name": "이한비",
+        "currentText": "배고파..."
+      }
+    ],
+    "messages": [
+      {
+        "id": 23,
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
+        "time": "04:41",
+        "text": "과제가"
+      },
+      {
+        "id": 24,
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
+        "time": "04:42",
+        "text": "너무 어려워요.."
+      }
+    ],
+    "message": [],
+    "currentUser": {
+      "id": 0,
+      "name": "이한비",
+      "currentText": "배고파..."
+    }
+  },
+  {
     "id": 1,
     "user": [
       {

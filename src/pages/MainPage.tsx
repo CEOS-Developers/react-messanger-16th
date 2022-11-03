@@ -16,19 +16,25 @@ function MainPage() {
     if (userList.id !== 0) {
       return (
         <div>
-          <OneId to={`/room/${userList.id}`}>
+          <AllTemp>
             <ShowImg src={`/img/${userList.id}.png`}></ShowImg>
-            {userList.name}
-          </OneId>
+            <OneId to={`/room/${userList.id}`}>
+              {userList.name}
+              <CurrentText>{userList.currentText}</CurrentText>
+            </OneId>
+          </AllTemp>
         </div>
       );
     } else {
       return (
         <div>
-          <MainId to={`/room/${userList.id}`}>
+          <AllTemp>
             <ShowImg2 src={`/img/${userList.id}.png`}></ShowImg2>
-            {userList.name}
-          </MainId>
+            <OneId to={`/`}>
+              {userList.name}
+              <CurrentText>{userList.currentText}</CurrentText>
+            </OneId>
+          </AllTemp>
           <FriendNum>친구{UserList.users.length - 1}</FriendNum>
         </div>
       );
@@ -61,16 +67,23 @@ function MainPage() {
     </div>
   );
 }
-
-const CurrentText = styled.div``;
+const AllTemp = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const CurrentText = styled.div`
+  font-size: 11px;
+  color: grey;
+  font-weight: bold;
+`;
 const FriendNum = styled.h6`
   margin-top: 10px;
   color: grey;
   margin-bottom: 20px;
 `;
 const ShowImg2 = styled.img`
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-size: cover;
   margin: 0 15px;
@@ -96,8 +109,8 @@ const MainImg = styled.img`
   margin-top: 15px;
 `;
 const ShowImg = styled.img`
-  width: 43px;
-  height: 43px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background-size: cover;
   margin: 0 15px;
@@ -121,10 +134,11 @@ const MainId = styled(Link)`
 `;
 const OneId = styled(Link)`
   display: flex;
-
+  flex-direction: column;
+  padding: 6px;
   -webkit-box-align: center;
-  align-items: center;
-  padding: 8px 18px;
+  align-items: left;
+  padding-bottom: 20px;
   text-decoration: none;
 
   color: black;

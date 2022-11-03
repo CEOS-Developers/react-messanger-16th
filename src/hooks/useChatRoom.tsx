@@ -41,7 +41,7 @@ const useChatRoom = () => {
     const newOb = {
       ...chatId,
       currentUser: newC.currentUser,
-      message: [...newC.message, messageOb],
+      message: [...chatId.message, messageOb],
     };
     setNewC(newOb);
 

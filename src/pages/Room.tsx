@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import InputForm from '../components/InputMessage';
 import styled from 'styled-components';
 import MessageChatForm from '../components/MessageChatForm';
-import { useRecoilState, useRecoilValue, RecoilRoot } from 'recoil';
+import {
+  useRecoilState,
+  useRecoilValue,
+  RecoilRoot,
+  useResetRecoilState,
+} from 'recoil';
 
 import useChatRoom from '../hooks/useChatRoom';
 import { useEffect } from 'react';

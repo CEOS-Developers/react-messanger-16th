@@ -61,7 +61,7 @@ function List() {
           <ChatLink to={`/room/${userList.id}`} onClick={onClickMe}>
             {userList.name}
             <CurrentText>{newData.message[realNum2].text}</CurrentText>
-            <CurrentTime>{newData.messages[realNum].time}</CurrentTime>
+            <CurrentTime>{newData.message[realNum2].time}</CurrentTime>
           </ChatLink>
 
           <ul></ul>
@@ -95,23 +95,27 @@ function List() {
 }
 const CurrentTime = styled.div`
   font-size: 12px;
-  font-weight: lighter;
+  font-weight: light;
   margin-left: 125px;
+  color: #d8d0d0;
 `;
 const AllTemp = styled.div`
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid lightgray;
   margin-bottom: 3px;
 `;
 const ChatLink = styled(Link)`
   display: flex;
   flex-direction: column;
-  padding: 30px 3px;
+
+  padding: 28px 3px;
   align-items: left;
+
   text-decoration: none;
   font-size: 18px;
   color: black;
+  font-weight: bold;
 `;
 
 const MainImg = styled.img`
@@ -124,8 +128,9 @@ const MainImg = styled.img`
 `;
 
 const CurrentText = styled.div`
-  color: grey;
+  color: #1c191976;
   font-size: small;
+  font-weight: 650;
 `;
 const BodyTemplate = styled.div`
   box-sizing: border-box;
@@ -147,12 +152,13 @@ const RealAll = styled.div`
 const SideTemplate = styled.div`
   background-color: rgb(230, 230, 230);
   border-right: 1px solid rgb(223, 223, 223);
+  border-radius: 25px 0px 0px 25px;
   display: block;
 `;
 const ShowImg = styled.img`
   width: 58px;
   height: 58px;
-  padding: 30px 25px;
+  padding: 28px 15px;
   border-radius: 50%;
   background-size: cover;
 `;

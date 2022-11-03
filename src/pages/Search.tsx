@@ -31,6 +31,7 @@ function Search() {
         <BodyTemplate>
           <HeaderTemplate>
             <h4>친구</h4>
+
             <FindButton src={`/img/find.png`}></FindButton>
           </HeaderTemplate>
           <InputName
@@ -40,19 +41,31 @@ function Search() {
             placeholder={'이름을 검색하시오'}
           />
           {filterName.map((m) => (
-            <div>
+            <AllTemp>
+              <ShowImg src={`/img/${m.id}.png`}></ShowImg>
               <MainId to={`/room/${m.id}`}>
-                <ShowImg src={`/img/${m.id}.png`}></ShowImg>
                 {m.name}
+                <CurrentText>{m.currentText}</CurrentText>
               </MainId>
-            </div>
+            </AllTemp>
           ))}
         </BodyTemplate>
       </RealAll>
     </div>
   );
 }
-
+const AllTemp = styled.div`
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+  padding-top: 10px;
+`;
+const CurrentText = styled.div`
+  font-size: 11px;
+  color: grey;
+  font-weight: bold;
+`;
 const InputName = styled.input`
   background-color: rgb(230, 230, 230);
   border: 1px solid rgb(240, 240, 240);
@@ -65,6 +78,7 @@ const InputName = styled.input`
 const HeaderTemplate = styled.div`
   display: flex;
   flex-direction: row;
+  margin-left: 3px;
 `;
 const FindButton = styled.img`
   width: 28px;
@@ -82,38 +96,38 @@ const MainImg = styled.img`
   margin-top: 15px;
 `;
 const ShowImg = styled.img`
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background-size: cover;
-  margin: 0 15px;
+  //margin: 0 15px;
+  //margin-left: -5px;
+  //argin-right: 5px;
   border-radius: 3px;
+  padding-left: 15px;
+  padding-right: 9px;
 `;
 const MainId = styled(Link)`
   display: flex;
+  flex-direction: column;
   -webkit-box-align: center;
-  align-items: center;
-  padding: 30px 25px;
+  align-items: left;
+  //padding: 30px 25px;
+  //padding-left: 5px;
+  padding-bottom: 10px;
+  //padding-top: 15px;
   text-decoration: none;
-  border-bottom: 1px solid grey;
+
   box-sizing: border-box;
   color: black;
   border-radius: 3px;
 
   /*margin: 0px 10px;*/
 `;
-const OneId = styled(Link)`
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  padding: 8px 18px;
-  text-decoration: none;
-  font-size: small;
-  color: black;
-`;
+
 const BodyTemplate = styled.div`
   box-sizing: border-box;
-  padding: 0 3px;
+  padding: 3 2px;
 `;
 const RealAll = styled.div`
   width: 350px;
@@ -131,6 +145,7 @@ const SideTemplate = styled.div`
   background-color: rgb(230, 230, 230);
   border-right: 1px solid rgb(223, 223, 223);
   display: block;
+  border-radius: 25px 0px 0px 25px;
 `;
 
 export default Search;

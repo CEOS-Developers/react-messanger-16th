@@ -16,7 +16,7 @@ const MessageChatForm = () => {
   let params = useParams();
 
   const num = params.id;
-  const realNum = Number(num) - 1;
+  const realNum = Number(num); //나와의 채팅방하려면, -1을 없애야함
   console.log(realNum);
 
   //room 번호대로 라우팅 페이지 만들어서 그거대로 messageData에 접근!
@@ -37,7 +37,7 @@ const MessageChatForm = () => {
 
   return (
     <Wrapper ref={messageWrapperRef}>
-      {messageData[realNum].messages.map((msg: IMessageType) => (
+      {realMessage.messages.map((msg: IMessageType) => (
         <MessageChatContainer
           key={msg.id}
           isUser={msg.user.name === currentUser.name}
@@ -45,7 +45,7 @@ const MessageChatForm = () => {
           <MessageChat key={msg.id} messages={msg} />
         </MessageChatContainer>
       ))}
-      {messageData[realNum].message.map((msg: IMessageType) => (
+      {realMessage.message.map((msg: IMessageType) => (
         <MessageChatContainer
           key={msg.id}
           isUser={msg.user.name === currentUser.name}
