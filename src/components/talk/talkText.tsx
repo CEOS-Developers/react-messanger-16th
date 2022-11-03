@@ -1,8 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
-import { talkState } from '../../state/state';
 import { TalkBoxInfo } from '../../interfaces/interface';
+import { useRecoilValue } from 'recoil';
+import { chatSelector } from '../../state/state';
+
 const Text = styled.div<TalkBoxInfo>`
   position: relative;
   display: inline-block;
@@ -15,9 +15,8 @@ const Text = styled.div<TalkBoxInfo>`
   background-color: yellow;
   display: flex;
   background-color: ${({ IsUser, nowIsUser }) =>
-    IsUser === nowIsUser ? 'yellow' : 'grey'};
-  margin-left: ${({ IsUser, nowIsUser }) =>
-    IsUser === nowIsUser ? 'auto' : '0'};
+    nowIsUser ? 'yellow' : 'grey'};
+  margin-left: ${({ IsUser, nowIsUser }) => (nowIsUser ? 'auto' : '0')};
 `;
 
 const TalkText = ({

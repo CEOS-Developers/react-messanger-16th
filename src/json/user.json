@@ -1,8 +1,24 @@
 {
   "UserList": [
-    { "userId": 1, "userName": "유선호", "stateMsg": "삥빵뿡" },
-    { "userId": 2, "userName": "유선후", "stateMsg": "낑깽꽁" },
-    { "userId": 3, "userName": "유선희", "stateMsg": "빵삥뽕" },
-    { "userId": 4, "userName": "유선화", "stateMsg": "" }
+    { "userId": 0, "userName": "유선호", "stateMsg": "삥빵뿡", "IsUser": true },
+    {
+      "userId": 1,
+      "userName": "유선후",
+      "stateMsg": "낑깽꽁",
+      "IsUser": false
+    },
+    {
+      "userId": 2,
+      "userName": "유선희",
+      "stateMsg": "빵삥뽕",
+      "IsUser": false
+    },
+    { "userId": 3, "userName": "유선화", "stateMsg": "", "IsUser": false },
+    {
+      "userId": 4,
+      "userName": "올선생",
+      "stateMsg": "인생...",
+      "IsUser": false
+    }
   ]
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import MainBox from '../components/box/mainbox';
@@ -18,6 +19,9 @@ const Container = styled.div`
 
 const Main = () => {
   const [userList, setUserList] = useRecoilState<UserListInfo[]>(userListState);
+
+  const onClick = (e: React.MouseEvent<HTMLElement>) => {};
+
   return (
     <MainBox>
       <Container>
@@ -25,7 +29,7 @@ const Main = () => {
         <UserBox user={userList[0]} />
         <div className="friends">
           {userList.map((user, index) =>
-            index ? <UserBox user={user} /> : ''
+            index ? <UserBox user={user} key={index} /> : ''
           )}
         </div>
       </Container>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import { Params } from 'react-router-dom';
 
 const ChatBox = styled.main`
   position: absolute;

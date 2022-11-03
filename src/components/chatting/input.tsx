@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Params } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { ListInfo } from '../../interfaces/interface';
-import { listState, textState, userState } from '../../state/state';
+import { listState, userState } from '../../state/state';
 
 const InputBox = styled.form`
   background-color: white;

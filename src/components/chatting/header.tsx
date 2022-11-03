@@ -1,4 +1,5 @@
 import React from 'react';
+import { Params } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { userState } from '../../state/state';

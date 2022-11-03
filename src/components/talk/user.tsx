@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { userState } from '../../state/state';
+import { userSelector, chatSelector } from '../../state/state';
 
 const Icon = styled.button`
   position: relative;
@@ -10,7 +11,7 @@ const Icon = styled.button`
   height: 50px;
   border-radius: 50%;
   background-color: #eee;
-  margin-top: 8px;
+  margin-top: 18px;
   border: none;
   margin-left: auto;
   margin-right: auto;
@@ -21,25 +22,30 @@ const Icon = styled.button`
 
 const User = (props: any) => {
   const [isUser, setIsUser] = useRecoilState(userState);
-  const [name, setName] = useState('oli');
-  const onClick = () => {
+  const [name, setName] = useState('');
+  const nowChat = useRecoilValue(chatSelector);
+
+  const nowUser = useRecoilValue(userSelector);
+
+  const changeUser = () => {
     setIsUser(!isUser);
     if (isUser) {
-      setName('se0no');
+      setName('유선호');
     } else {
-      setName('oli');
+      setName(nowUser.userName);
     }
   };
 
-  useEffect(() => {
-    setIsUser(!isUser);
-    if (isUser) {
-      setName('se0no');
-    } else {
-      setName('oli');
-    }
-  }, []);
-  return <Icon onClick={onClick}>{name}</Icon>;
+  useEffect(changeUser, []);
+  return (
+    <>
+      {nowUser.userName === '유선호' ? (
+        <Icon>{name}</Icon>
+      ) : (
+        <Icon onClick={changeUser}>{name}</Icon>
+      )}
+    </>
+  );
 };
 
 export default User;

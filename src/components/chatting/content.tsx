@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Talk from '../talk/talk';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { listState } from '../../state/state';
+import { Params } from 'react-router-dom';
 
 const ContentBox = styled.section`
   width: 100%;
