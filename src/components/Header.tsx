@@ -1,29 +1,36 @@
 import styled from 'styled-components';
 
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 interface Props {
   leftChild: string;
-  rightChild: string;
+  rightChild: boolean;
 }
 
 const Header = ({ leftChild, rightChild }: Props) => {
   return (
     <Wrapper>
       <Title>{leftChild}</Title>
-      <div>{rightChild}</div>
+      {rightChild ? (
+        <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
+      ) : (
+        <></>
+      )}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   width: 100%;
+  padding: 1.5rem 1.5rem 0;
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const Title = styled.div`
-  padding: 1.5rem;
-
   font-size: 1.2rem;
   font-weight: bold;
 `;

@@ -3,9 +3,9 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { userState, chatState } from '../recoil/recoil';
-import ChatBoxItem from './ChatBox';
+import ChatBoxItem from './ChatBoxItem';
 
-const ChatBox = () => {
+const ChatBoxList = () => {
   const chatList = useRecoilValue(chatState);
   const userList = useRecoilValue(userState);
 
@@ -23,11 +23,11 @@ const ChatBox = () => {
 
   return (
     <ChatBoxWrapper ref={chatBoxRef}>
-      {chatList.map((it) => (
+      {chatList.map((chat) => (
         <ChatBoxItem
-          key={it.chat_id}
-          {...it}
-          user={userList.find((user) => user.user_id === it.user_id)!}
+          key={chat.chat_id}
+          {...chat}
+          user={userList.find((user) => user.user_id === chat.user_id)!}
         />
       ))}
     </ChatBoxWrapper>
@@ -47,4 +47,4 @@ const ChatBoxWrapper = styled.div`
   background-color: rgb(180, 213, 226);
 `;
 
-export default ChatBox;
+export default ChatBoxList;

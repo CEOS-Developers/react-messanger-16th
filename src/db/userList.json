@@ -29,12 +29,6 @@
       "user_img": "assets/default.png",
       "user_name": "다",
       "isSelected": false
-    },
-    {
-      "user_id": 6,
-      "user_img": "assets/default.png",
-      "user_name": "라",
-      "isSelected": false
     }
   ]
 }

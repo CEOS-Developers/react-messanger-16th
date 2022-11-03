@@ -6,7 +6,11 @@ import { chatState, userState } from '../recoil/recoil';
 
 import styled from 'styled-components';
 
-const InputBox = () => {
+interface Props {
+  id: number;
+}
+
+const InputBox = ({ id }: Props) => {
   const userList = useRecoilValue(userState);
   const setChats = useSetRecoilState(chatState);
 
@@ -22,6 +26,7 @@ const InputBox = () => {
       const newChat: Chat = {
         user_id: curUser.user_id,
         chat_id: chatId.current,
+        chat_room: id,
         chat_content: chat,
       };
 

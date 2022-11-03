@@ -8,5 +8,6 @@ export interface User {
 export interface Chat {
   user_id: number;
   chat_id: number;
+  chat_room: number;
   chat_content: string;
 }

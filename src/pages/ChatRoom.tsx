@@ -6,13 +6,14 @@ import InputBox from '../components/InputBox';
 import ChatBoxList from '../components/ChatBoxList';
 
 const ChatRoom = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
+  const id = 2;
 
   return (
     <Container>
       <ChatHeader />
       <ChatBoxList />
-      <InputBox />
+      <InputBox id={id} />
     </Container>
   );
 };

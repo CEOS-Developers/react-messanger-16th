@@ -1,25 +1,32 @@
+import { useRecoilValue } from 'recoil';
+
 import styled from 'styled-components';
 import { User } from '../interfaces/interfaces';
+import { chatState } from '../recoil/recoil';
 
-const Friend = (user: User) => {
+const ChatRoomItem = (user: User) => {
+  const chats = useRecoilValue(chatState);
+  const myChats = chats.filter((chat) => chat.user_id === user.user_id);
+  console.log(myChats[0]);
+
   return (
-    <UserItemWrapper isSelected={user.isSelected}>
+    <UserItemWrapper>
       <UserImgWrapper isSelected={user.isSelected}>
         <UserImg src={user.user_img} />
       </UserImgWrapper>
-      <UserName>{user.user_name}</UserName>
+      <UserInfoWrapper>
+        <UserName>{user.user_name}</UserName>
+        <Message>{myChats[0].chat_content}</Message>
+      </UserInfoWrapper>
     </UserItemWrapper>
   );
 };
 
-const UserItemWrapper = styled.div<{ isSelected: boolean }>`
-  padding: 1rem 0 1rem;
-
+const UserItemWrapper = styled.div`
   display: flex;
   align-items: center;
 
   gap: 0.7rem;
-  border-bottom: ${(props) => (props.isSelected ? '1px solid lightgray' : '')};
 `;
 
 const UserImgWrapper = styled.div<{ isSelected: boolean }>`
@@ -41,4 +48,11 @@ const UserName = styled.div`
   font-weight: 600;
 `;
 
-export default Friend;
+const UserInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Message = styled.div``;
+
+export default ChatRoomItem;

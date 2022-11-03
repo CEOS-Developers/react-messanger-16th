@@ -8,7 +8,7 @@ const Setting = () => {
     <Container>
       <Navigator />
       <Contents>
-        <Header leftChild={'더보기'} rightChild="" />
+        <Header leftChild={'더보기'} rightChild={false} />
       </Contents>
     </Container>
   );

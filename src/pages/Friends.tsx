@@ -9,7 +9,7 @@ const Friends = () => {
     <Container>
       <Navigator />
       <Contents>
-        <Header leftChild={'친구'} rightChild={''} />
+        <Header leftChild={'친구'} rightChild={true} />
         <FriendsList />
       </Contents>
     </Container>
