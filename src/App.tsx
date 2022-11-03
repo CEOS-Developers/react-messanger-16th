@@ -6,6 +6,7 @@ import { RecoilRoot } from "recoil";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FriendsPage from "./pages/FriendsPage";
 import SettingPage from "./pages/SettingPage";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <GlobalStyle />
         <Container>
           <Routes>
-            <Route path="/" element={<FriendsPage />} />
+            <Route path="/" element={<MainPage />} />
+            <Route path="/friends" element={<FriendsPage />} />
             <Route path="/chats" element={<ChatListPage />} />
             <Route path="/room/:roomid" element={<ChatRoom />} />
             <Route path="/settings" element={<SettingPage />} />

@@ -37,7 +37,7 @@ const MessageInput = () => {
             chats: [...targetItem!.chats, newMessage],
           },
         ];
-        return [...remainList, ...toggledItem];
+        return [...toggledItem, ...remainList];
       });
       message.setValue("");
     }

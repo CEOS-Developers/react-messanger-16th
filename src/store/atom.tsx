@@ -6,7 +6,7 @@ import userInformation from "../assets/userInformation.json";
 // 채팅룸 전체 정보
 export const chatState = atom<ChatRoom[]>({
   key: "chat",
-  default: messageData.chatrooms,
+  default: messageData.chatrooms.reverse(),
 });
 
 // 현재 채팅룸의 정보

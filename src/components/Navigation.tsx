@@ -5,7 +5,7 @@ const Navigation = () => {
   return (
     <NavWrapper>
       <li>
-        <Link to={`/`} key={"friends"}>
+        <Link to={`/friends`} key={"friends"}>
           <ButtonImage src={`${process.env.PUBLIC_URL}/images/calls.png`} />
         </Link>
       </li>

@@ -7,7 +7,7 @@ import { chatState } from "../store/atom";
 const ToggleSwitch = () => {
   const [isOn, setisOn] = useState(false);
   const [isNew, setIsNew] = useState("최신 메시지 순");
-  const setChat = useSetRecoilState(chatState);
+  const setChatData = useSetRecoilState(chatState);
 
   const toggleHandler = () => {
     setisOn(!isOn);
@@ -15,7 +15,7 @@ const ToggleSwitch = () => {
 
   useEffect(() => {
     isOn ? setIsNew("오래된 메시지 순") : setIsNew("최신 메시지 순");
-    setChat((chatRooms: ChatRoom[]) => {
+    setChatData((chatRooms: ChatRoom[]) => {
       const chatArray = [...chatRooms];
       const toggledItem = chatArray.reverse();
       return [...toggledItem];
