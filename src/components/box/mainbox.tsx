@@ -42,9 +42,9 @@ const SideBar = styled.div`
 
 const Children = styled.div`
   z-index: 99;
-  width: 100%;
+  width: 305px;
   height: 100%;
-  padding-left: 75px;
+  margin-left: 75px;
 `;
 
 type BoxProps = {

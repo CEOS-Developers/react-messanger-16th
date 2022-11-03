@@ -9,11 +9,6 @@ const ChatList = () => {
   const [userList, setUserList] = useRecoilState<UserListInfo[]>(userListState);
 
   const Container = styled.div`
-    .text {
-      margin-top: 25px;
-      margin-left: 25px;
-    }
-
     .friends {
       margin-top: 40px;
     }
