@@ -37,8 +37,8 @@ const StyledInput = styled.input`
   font-family: 'Jua', sans-serif;
   padding: 15px;
   width: 235px;
-  height: 70px;
-  margin-left: 5px;
+  height: 65px;
+  margin-left: 9px;
   margin-top: 3px;
 `;
 const StyledButton = styled.button`

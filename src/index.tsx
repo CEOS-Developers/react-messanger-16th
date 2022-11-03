@@ -7,6 +7,7 @@ import List from './pages/List';
 import MainPage from './pages/MainPage';
 import Room from './pages/Room';
 import Search from './pages/Search';
+import OwnChat from './pages/OwnChat';
 const rootElement = document.getElementById('root') as HTMLElement;
 
 const root = ReactDOM.createRoot(rootElement);

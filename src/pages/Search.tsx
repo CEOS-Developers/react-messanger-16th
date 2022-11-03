@@ -15,7 +15,9 @@ function Search() {
   const filterName = UserList.users.filter((p) => {
     return p.name.replace(' ', '').includes(search);
   });
-
+  const goToMain = () => {
+    navigate('/');
+  };
   return (
     <div>
       <RealAll>
@@ -32,7 +34,7 @@ function Search() {
           <HeaderTemplate>
             <h4>친구</h4>
 
-            <FindButton src={`/img/find.png`}></FindButton>
+            <FindButton src={`/img/search.png`} onClick={goToMain}></FindButton>
           </HeaderTemplate>
           <InputName
             type="text"
@@ -74,6 +76,7 @@ const InputName = styled.input`
   box-sizing: border-box;
   width: calc(100% - 36px);
   margin: 9px 18px;
+  border-radius: 20px 20px 20px 20px;
 `;
 const HeaderTemplate = styled.div`
   display: flex;
@@ -81,8 +84,8 @@ const HeaderTemplate = styled.div`
   margin-left: 3px;
 `;
 const FindButton = styled.img`
-  width: 28px;
-  height: 28px;
+  width: 18px;
+  height: 18px;
   margin-left: 200px;
   margin-top: 18px;
 `;

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { userState } from '../atom';
+import { chatRoomState, userState } from '../atom';
+import useChatRoom from '../hooks/useChatRoom';
 
 function MainPage() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ function MainPage() {
   const goToList = () => {
     navigate('/Search');
   };
+
   //css공통된 요소 많은것 props로 넘기는걸로 바꾸기!
   const TempList = ({ userList, realId }: any) => {
     if (userList.id !== 0) {
@@ -30,7 +32,7 @@ function MainPage() {
         <div>
           <AllTemp>
             <ShowImg2 src={`/img/${userList.id}.png`}></ShowImg2>
-            <OneId to={`/`}>
+            <OneId to={`/room/0`}>
               {userList.name}
               <CurrentText>{userList.currentText}</CurrentText>
             </OneId>
@@ -56,11 +58,11 @@ function MainPage() {
           <HeaderTemplate>
             <h4>친구</h4>
 
-            <FindButton src={`/img/find.png`} onClick={goToList}></FindButton>
+            <FindButton src={`/img/search.png`} onClick={goToList}></FindButton>
           </HeaderTemplate>
 
           {UserList.users.map((userList) => (
-            <TempList userList={userList} key={userList.id} />
+            <TempList userList={userList} key={userList.id}></TempList>
           ))}
         </BodyTemplate>
       </RealAll>
@@ -94,8 +96,8 @@ const HeaderTemplate = styled.div`
   flex-direction: row;
 `;
 const FindButton = styled.img`
-  width: 28px;
-  height: 28px;
+  width: 18px;
+  height: 18px;
   margin-left: 200px;
   margin-top: 18px;
 `;

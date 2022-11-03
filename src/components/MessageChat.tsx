@@ -20,7 +20,7 @@ const MessageChat = ({ messages }: { messages: IMessageType }) => {
   return (
     <MessageBox isUser={isUser}>
       <section>
-        <MessageUser isUser={isUser}>{messages.user.name}</MessageUser>
+        <MessageUser isUser={isUser}></MessageUser>
         <MessageProfAll>
           <Messageimg
             isUser={isUser}

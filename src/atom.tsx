@@ -48,7 +48,7 @@ export const userState = atom<IUserState>({
 export const chatRoomState = atom<IChatRoomState>({
   key: 'chatRoom',
   default: {
-    id: 1,
+    id: 0,
     messages: [],
     message: [],
     currentUser: {

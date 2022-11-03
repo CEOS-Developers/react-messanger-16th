@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import InputForm from '../components/InputMessage';
 import styled from 'styled-components';
 import MessageChatForm from '../components/MessageChatForm';
@@ -13,68 +12,30 @@ import useChatRoom from '../hooks/useChatRoom';
 import { useEffect } from 'react';
 import { chatRoomState, idFilterState, messageState, userState } from '../atom';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { idText } from 'typescript';
 
-function Room() {
+function OwnChat() {
   const navigate = useNavigate();
   const { addMsg, toggleAccount } = useChatRoom();
-  const ChatRoom = useRecoilValue(chatRoomState);
-  const RealChatRoom = useRecoilValue(messageState);
-
-  const UserList = useRecoilValue(userState);
-  const [id, setId] = useRecoilState(chatRoomState);
-  //const [id, setId] = useRecoilState(idFilterState);
-
-  let params = useParams();
-  console.log(params);
-  let num = params.id;
-  console.log(num);
-  const realNum = Number(num);
-
-  useEffect(() => {
-    setId((prevId) => {
-      const variable = { ...prevId };
-      variable.id = realNum;
-
-      return { ...variable };
-    });
-  }, []);
-
-  const onCLickMe = (): void => {
-    toggleAccount(0);
-  };
-  const onCLickYou = (): void => {
-    toggleAccount(realNum);
-  };
 
   const goToMain = () => {
     toggleAccount(0);
-    navigate('/list');
+    navigate('/');
   };
-
   return (
     <AllTemplate>
       <ImgProfAll>
-        <ImgProf onClick={onCLickYou} src={`/../img/${realNum}.png`}></ImgProf>
-
-        <MoveButton
-          className="quitBut"
-          onClick={goToMain}
-          src={`/img/out.png`}
-        ></MoveButton>
+        <div>
+          <ImgProf onClick={goToMain} src="/img/0.png" />
+        </div>
+        <div>
+          <MoveButton className="quitBut" src={`/img/out.png`}></MoveButton>
+        </div>
       </ImgProfAll>
-      <Text>{UserList.users[realNum].name}</Text>
-
       <MessageChatForm />
       <InputForm sendMsg={addMsg} />
     </AllTemplate>
   );
 }
-const Text = styled.div`
-  margin-top: 1px;
-  margin-left: 10px;
-  font-size: 13px;
-`;
 const MoveButton = styled.img`
   width: 30px;
   height: 30px;
@@ -103,9 +64,6 @@ const ImgProf = styled.img`
   border-radius: 25px;
   transition: 0.5s;
   display: block;
-  margin-left: 5px;
-  margin-top: 5px;
-  margin-bottom: 0.05px;
 `;
 
-export default Room;
+export default OwnChat;

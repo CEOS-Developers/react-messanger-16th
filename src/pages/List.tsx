@@ -63,13 +63,11 @@ function List() {
             <CurrentText>{newData.message[realNum2].text}</CurrentText>
             <CurrentTime>{newData.message[realNum2].time}</CurrentTime>
           </ChatLink>
-
-          <ul></ul>
         </AllTemp>
       );
     }
   };
-  const newUserList = UserList.users.slice(1, 4);
+  const newUserList = UserList.users.slice(0, 4);
 
   return (
     <div>
@@ -104,6 +102,7 @@ const AllTemp = styled.div`
   flex-direction: row;
   border-bottom: 1px solid lightgray;
   margin-bottom: 3px;
+  padding-top: 3px;
 `;
 const ChatLink = styled(Link)`
   display: flex;
@@ -116,6 +115,7 @@ const ChatLink = styled(Link)`
   font-size: 18px;
   color: black;
   font-weight: bold;
+  margin-bottom: 5px;
 `;
 
 const MainImg = styled.img`
