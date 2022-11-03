@@ -12,13 +12,13 @@ const FriendList = () => {
     <ItemWrapper>
       {userData[0].map((user: UserInformation) =>
         user.userid === 0 ? (
-          <>
+          <div key={user.userid}>
             <h2>me</h2>
             <Line />
             <SingleUser key={user.userid} user={myInfo!} isFriendPage={true} />
             <h2>friends</h2>
             <Line />
-          </>
+          </div>
         ) : (
           <SingleUser key={user.userid} user={user} isFriendPage={true} />
         )

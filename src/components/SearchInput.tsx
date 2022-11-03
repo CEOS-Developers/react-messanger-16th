@@ -14,7 +14,7 @@ const SearchInput = () => {
       return user.name.toLowerCase().includes(message.value.toLowerCase());
     });
     setSearchData(filteredResult);
-  }, [message.value]);
+  }, [message.value, setSearchData]);
 
   return (
     <InputForm>

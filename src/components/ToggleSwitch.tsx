@@ -20,13 +20,14 @@ const ToggleSwitch = () => {
       const toggledItem = chatArray.reverse();
       return [...toggledItem];
     });
-  }, [isOn]);
+  }, [isOn, setChatData]);
 
   return (
     <div>
       <ToggleContainer onClick={toggleHandler}>
         <div className={`toggle-container ${isOn ? "toggle--checked" : null}`}>
-          &nbsp;최신 메시지 순&nbsp;&nbsp;&nbsp;&nbsp;오래된 메시지 순&nbsp;
+          &nbsp;&nbsp;최신 메시지 순&nbsp;&nbsp;&nbsp;&nbsp;오래된 메시지
+          순&nbsp;
         </div>
         <div className={`toggle-circle ${isOn ? "toggle--checked" : null}`}>
           {isNew}
