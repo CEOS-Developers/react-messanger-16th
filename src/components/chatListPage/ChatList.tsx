@@ -7,7 +7,7 @@ import {
 } from "../../store/atom";
 import styled from "styled-components";
 import { ChatRoom } from "../../interfaces/interface";
-import SingleUser from "../Singleuser";
+import SingleUser from "../SingleUser";
 import { Link } from "react-router-dom";
 
 const ChatList = () => {
