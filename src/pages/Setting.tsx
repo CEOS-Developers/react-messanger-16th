@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
+import Navigator from '../components/Navigator';
+
 const Setting = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <Navigator />
+    </Container>
+  );
 };
 
 const Container = styled.div`

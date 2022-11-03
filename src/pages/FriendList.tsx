@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
+import Navigator from '../components/Navigator';
+import Header from '../components/Header';
+
 const FriendList = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <Navigator />
+      <Header leftChild={'친구'} rightChild={''} />
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -9,8 +17,6 @@ const Container = styled.div`
   height: 40rem;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   border-radius: 20px;
   box-shadow: 1px 1px 10px lightgray;
