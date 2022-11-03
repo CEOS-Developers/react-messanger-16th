@@ -24,3 +24,7 @@ export interface UserInformation {
   name: string;
   statusMessage: string;
 }
+
+export interface ModalDefaultType {
+  onClickToggleModal: () => void;
+}

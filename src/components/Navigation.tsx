@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import FriendsPage from "../pages/FriendsPage";
 
 const Navigation = () => {
   const location = useLocation();
@@ -43,9 +42,9 @@ const NavWrapper = styled.ul`
 `;
 
 const ButtonImage = styled.img`
-  width: 3rem;
-  height: 4rem;
-  padding: 0.5rem;
+  width: 3.5rem;
+  height: 4.5rem;
+  padding: 0.2rem;
 `;
 
 export default Navigation;

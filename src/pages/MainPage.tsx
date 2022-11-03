@@ -21,7 +21,7 @@ const MainPageContainer = styled.div`
   border-radius: 20px;
   background: linear-gradient(#bed7f9, white 30%, white 90%, #bed7f9);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
@@ -43,13 +43,14 @@ const Button = styled.button`
   border-radius: 50px;
   border: 1px solid #000;
 
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 3.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  margin: 1.3rem;
+  padding: 1rem 4rem 1rem 4rem;
+  margin: 1.5rem;
+  cursor: pointer;
 
   background: linear-gradient(180deg, #ffffff 0%, #aeff9c 100%);
 `;
