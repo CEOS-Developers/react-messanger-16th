@@ -1,7 +1,7 @@
 import { useRecoilValue } from 'recoil';
 
 import Friend from './FriendItem';
-import { userState } from '../recoil/recoil';
+import { userState } from '../../recoil/recoil';
 import styled from 'styled-components';
 
 const FriendsList = () => {

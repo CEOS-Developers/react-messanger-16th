@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import Navigator from '../components/Navigator';
-import Header from '../components/Header';
-import FriendsList from '../components/FriendsList';
+import Navigator from '../components/layout/Navigator';
+import Header from '../components/layout/Header';
+import FriendsList from '../components/friends/FriendsList';
 
 const Friends = () => {
   return (

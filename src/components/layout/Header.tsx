@@ -23,7 +23,7 @@ const Header = ({ leftChild, rightChild }: Props) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  padding: 1.5rem 1.5rem 0;
+  padding: 1.5rem;
 
   display: flex;
   justify-content: space-between;
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
 `;
 

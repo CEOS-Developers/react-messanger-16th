@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
-import { userState, chatState } from '../recoil/recoil';
+import { userState, chatState } from '../../recoil/recoil';
 import ChatBoxItem from './ChatBoxItem';
 
 const ChatBoxList = () => {

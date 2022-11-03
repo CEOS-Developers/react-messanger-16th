@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import Navigator from '../components/Navigator';
-import Header from '../components/Header';
+import Navigator from '../components/layout/Navigator';
+import Header from '../components/layout/Header';
 
 const Setting = () => {
   return (

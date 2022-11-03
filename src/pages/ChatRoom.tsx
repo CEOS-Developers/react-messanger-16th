@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
-import ChatHeader from '../components/ChatHeader';
+import ChatHeader from '../components/chatRoom/ChatHeader';
 import InputBox from '../components/InputBox';
-import ChatBoxList from '../components/ChatBoxList';
+import ChatBoxList from '../components/chatRoom/ChatBoxList';
 
 const ChatRoom = () => {
   // const { id } = useParams();

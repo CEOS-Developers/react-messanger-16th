@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 
 import styled from 'styled-components';
 
-import { userState } from '../recoil/recoil';
+import { userState } from '../../recoil/recoil';
 import ChatRoomItem from './ChatRoomItem';
 
 const ChatRoomList = () => {

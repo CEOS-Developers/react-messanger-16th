@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import HeaderItem from './HeaderItem';
-import { userState } from '../recoil/recoil';
+import HeaderItem from '../layout/HeaderItem';
+import { userState } from '../../recoil/recoil';
 import styled from 'styled-components';
 
 const ChatHeader = () => {

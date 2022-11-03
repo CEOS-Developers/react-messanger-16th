@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import Navigator from '../components/Navigator';
-import Header from '../components/Header';
-import ChatRoomList from '../components/ChatRoomList';
+import Navigator from '../components/layout/Navigator';
+import Header from '../components/layout/Header';
+import ChatRoomList from '../components/chatRooms/ChatRoomList';
 
 const Chatting = () => {
   return (

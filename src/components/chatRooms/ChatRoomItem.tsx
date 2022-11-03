@@ -1,8 +1,8 @@
 import { useRecoilValue } from 'recoil';
 
 import styled from 'styled-components';
-import { User } from '../interfaces/interfaces';
-import { chatState } from '../recoil/recoil';
+import { User } from '../../interfaces/interfaces';
+import { chatState } from '../../recoil/recoil';
 
 const ChatRoomItem = (user: User) => {
   const chats = useRecoilValue(chatState);
