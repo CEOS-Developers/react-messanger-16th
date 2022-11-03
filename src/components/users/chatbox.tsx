@@ -55,7 +55,6 @@ const ChatBox = ({ chat }: { chat: ChatInfo }) => {
 
   const onClick = () => {
     setNowUser(userId);
-    console.log(num);
   };
 
   const [userId, setUserId] = useState<number>(0);

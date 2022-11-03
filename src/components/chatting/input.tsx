@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { ListInfo } from '../../interfaces/interface';
+import { ListInfo, ChatInfo } from '../../interfaces/interface';
 import {
   listState,
   userState,
   chatSelector,
   userSelector,
   nowListState,
+  ChatBoxState,
+  nowUserState,
 } from '../../state/state';
 
 const InputBox = styled.form`
@@ -42,10 +44,22 @@ const Input = () => {
   const [text, setText] = useState<string>('');
   const [list, setList] = useRecoilState<ListInfo[]>(listState);
   const [isUser, setIsUser] = useRecoilState(userState);
+  const [chatList, setChatList] = useRecoilState<ChatInfo[]>(ChatBoxState); //chatting update할라고......
+  const userNum = useRecoilValue<number>(nowUserState); //userId 쓸라고....
 
   const writeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
+
+  const newChat = {
+    userId: chatList[userNum].userId,
+    userName: chatList[userNum].userName,
+    chat: [...chatList[userNum].chat, { IsUser: isUser, addText: text }],
+  };
+
+  useEffect(() => {
+    setList(chatList[userNum].chat);
+  }, [chatList]);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -54,8 +68,10 @@ const Input = () => {
         IsUser: isUser,
         addText: text,
       };
-      setList([...list, { IsUser: addText.IsUser, addText: addText.addText }]);
       setText('');
+      setChatList(
+        chatList.map((chat) => (chat.userId === userNum ? newChat : chat))
+      );
     }
   };
 

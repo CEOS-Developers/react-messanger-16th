@@ -5,15 +5,15 @@ import { ChatBoxState, userListState } from '../state/state';
 import styled from 'styled-components';
 import ChatBox from '../components/users/chatbox';
 
+const Container = styled.div`
+  .friends {
+    margin-top: 40px;
+  }
+`;
+
 const ChatList = () => {
   const [userList, setUserList] = useRecoilState<UserListInfo[]>(userListState);
   const chatList = useRecoilValue<ChatInfo[]>(ChatBoxState);
-
-  const Container = styled.div`
-    .friends {
-      margin-top: 40px;
-    }
-  `;
 
   return (
     <MainBox>
