@@ -1,7 +1,7 @@
 import GlobalStyle from './styles/GlobalStyle';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import FriendList from './pages/FriendList';
+import Friends from './pages/Friends';
 import ChatList from './pages/ChatList';
 import ChatRoom from './pages/ChatRoom';
 import Setting from './pages/Setting';
@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<FriendList />} />
+        <Route path="/" element={<Friends />} />
         <Route path="/chatList" element={<ChatList />} />
         <Route path="/Setting" element={<Setting />} />
         <Route path="/chatRoom" element={<ChatRoom />} />

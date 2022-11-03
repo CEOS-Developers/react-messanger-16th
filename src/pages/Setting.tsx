@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
 import Navigator from '../components/Navigator';
+import Header from '../components/Header';
 
 const Setting = () => {
   return (
     <Container>
       <Navigator />
+      <Contents>
+        <Header leftChild={'더보기'} rightChild="" />
+      </Contents>
     </Container>
   );
 };
@@ -15,11 +19,13 @@ const Container = styled.div`
   height: 40rem;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   border-radius: 20px;
   box-shadow: 1px 1px 10px lightgray;
+`;
+
+const Contents = styled.div`
+  width: 100%;
 `;
 
 export default Setting;

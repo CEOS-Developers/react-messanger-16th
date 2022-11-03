@@ -3,7 +3,7 @@
     {
       "user_id": 1,
       "user_img": "assets/default.png",
-      "user_name": "이현영",
+      "user_name": "게스트",
       "isSelected": true
     },
     {
@@ -14,8 +14,26 @@
     },
     {
       "user_id": 3,
-      "user_img": "",
-      "user_name": "안녕",
+      "user_img": "assets/default.png",
+      "user_name": "가",
+      "isSelected": false
+    },
+    {
+      "user_id": 4,
+      "user_img": "assets/default.png",
+      "user_name": "나",
+      "isSelected": false
+    },
+    {
+      "user_id": 5,
+      "user_img": "assets/default.png",
+      "user_name": "다",
+      "isSelected": false
+    },
+    {
+      "user_id": 6,
+      "user_img": "assets/default.png",
+      "user_name": "라",
       "isSelected": false
     }
   ]

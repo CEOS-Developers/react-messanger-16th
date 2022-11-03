@@ -5,7 +5,7 @@ const Navigator = () => {
 };
 
 const Nav = styled.div`
-  width: 18%;
+  width: 5rem;
   height: 100%;
 
   border-top-left-radius: 20px;

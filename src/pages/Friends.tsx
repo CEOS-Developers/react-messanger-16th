@@ -2,12 +2,16 @@ import styled from 'styled-components';
 
 import Navigator from '../components/Navigator';
 import Header from '../components/Header';
+import FriendsList from '../components/FriendsList';
 
-const FriendList = () => {
+const Friends = () => {
   return (
     <Container>
       <Navigator />
-      <Header leftChild={'친구'} rightChild={''} />
+      <Contents>
+        <Header leftChild={'친구'} rightChild={''} />
+        <FriendsList />
+      </Contents>
     </Container>
   );
 };
@@ -22,4 +26,8 @@ const Container = styled.div`
   box-shadow: 1px 1px 10px lightgray;
 `;
 
-export default FriendList;
+const Contents = styled.div`
+  width: 100%;
+`;
+
+export default Friends;
