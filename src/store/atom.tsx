@@ -78,3 +78,9 @@ export const SearchState = atom<boolean>({
   key: "isSearching",
   default: false,
 });
+
+// 최신 메시지 순인지
+export const SortState = atom<boolean>({
+  key: "isOn",
+  default: false,
+});

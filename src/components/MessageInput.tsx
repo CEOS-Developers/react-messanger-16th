@@ -4,7 +4,12 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import useInput from "../hooks/useInput";
 import { Chat, ChatRoom } from "../interfaces/interface";
-import { chatState, accountState, chatRoomSelector } from "../store/atom";
+import {
+  chatState,
+  accountState,
+  chatRoomSelector,
+  SortState,
+} from "../store/atom";
 
 const MessageInput = () => {
   const message = useInput("");
@@ -12,6 +17,7 @@ const MessageInput = () => {
   const setChat = useSetRecoilState(chatState);
   const userAccount = useRecoilValue(accountState);
   const filteredChatRoom = useRecoilValue(chatRoomSelector);
+  const isOn = useRecoilValue(SortState);
 
   const newMessage: Chat = {
     userid: userAccount ? 0 : filteredChatRoom!.user,
@@ -37,7 +43,9 @@ const MessageInput = () => {
             chats: [...targetItem!.chats, newMessage],
           },
         ];
-        return [...toggledItem, ...remainList];
+        return isOn
+          ? [...remainList, ...toggledItem]
+          : [...toggledItem, ...remainList];
       });
       message.setValue("");
     }

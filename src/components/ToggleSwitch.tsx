@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { ChatRoom } from "../interfaces/interface";
-import { chatState } from "../store/atom";
+import { chatState, SortState } from "../store/atom";
 
 const ToggleSwitch = () => {
-  const [isOn, setisOn] = useState(false);
+  const [isOn, setisOn] = useRecoilState(SortState);
   const [isNew, setIsNew] = useState("최신 메시지 순");
   const setChatData = useSetRecoilState(chatState);
 
