@@ -82,8 +82,10 @@ const MessageBox = styled.section<{ isUser: boolean }>`
 
 const MessageText = styled.p<{ isUser: boolean }>`
   padding: 0.65rem;
+
   font-size: 0.75rem;
   margin: 0.4rem;
+  margin-top: 0.1px;
   ${({ isUser }) =>
     isUser
       ? css`
@@ -91,27 +93,30 @@ const MessageText = styled.p<{ isUser: boolean }>`
           background-color: #337de4;
           color: #ffffff;
           font-weight: bold;
+          margin-right: 40px;
         `
       : css`
           border-radius: 0 0.5rem 0.5rem 0.5rem;
           background-color: #f1f1f3;
           font-weight: bold;
+          margin-left: 40px;
         `};
 `;
 
 const MessageUser = styled.p<{ isUser: boolean }>`
   font-size: 0.5rem;
+  color: white;
   margin: 0px;
   display: flex;
   ${({ isUser }) =>
     isUser
       ? css`
           justify-content: flex-end;
-          margin-right: 0.5rem;
+          margin-right: 0.2rem;
           font-weight: bold;
         `
       : css`
-          margin-left: 0.5rem;
+          margin-left: 0.2rem;
           font-weight: bold;
         `}
 `;

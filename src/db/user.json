@@ -1,12 +1,14 @@
 [
   {
     "id": 0,
-    "name": "이한비"
+    "name": "이한비",
+    "currentText": "배고파..."
   },
   {
     "id": 1,
-    "name": "문상훈"
+    "name": "문상훈",
+    "currentText": "오당기 많은 관심 부탁ㅎㅎ"
   },
-  { "id": 2, "name": "문쌤" },
-  { "id": 3, "name": "문이병" }
+  { "id": 2, "name": "문쌤", "currentText": "한국지리 일타강사!" },
+  { "id": 3, "name": "문이병", "currentText": "만년 일등병ㅋㅋ" }
 ]

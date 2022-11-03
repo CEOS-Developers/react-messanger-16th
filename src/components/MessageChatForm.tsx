@@ -67,7 +67,7 @@ const Wrapper = styled.section`
     width: 0.9rem;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: white;
     border-radius: 1rem;
     background-clip: padding-box;
     border: 0.3rem solid transparent;

@@ -50,9 +50,8 @@ function List() {
           <ChatLink to={`/room/${userList.id}`} onClick={onClickMe}>
             {userList.name}
             <CurrentText>{newData.messages[realNum].text}</CurrentText>
+            <CurrentTime>{newData.messages[realNum].time}</CurrentTime>
           </ChatLink>
-
-          <ul></ul>
         </AllTemp>
       );
     } else {
@@ -62,6 +61,7 @@ function List() {
           <ChatLink to={`/room/${userList.id}`} onClick={onClickMe}>
             {userList.name}
             <CurrentText>{newData.message[realNum2].text}</CurrentText>
+            <CurrentTime>{newData.messages[realNum].time}</CurrentTime>
           </ChatLink>
 
           <ul></ul>
@@ -93,19 +93,24 @@ function List() {
     </div>
   );
 }
+const CurrentTime = styled.div`
+  font-size: 12px;
+  font-weight: lighter;
+  margin-left: 125px;
+`;
 const AllTemp = styled.div`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid grey;
+  margin-bottom: 3px;
 `;
 const ChatLink = styled(Link)`
   display: flex;
   flex-direction: column;
   padding: 30px 3px;
   align-items: left;
-
   text-decoration: none;
-
+  font-size: 18px;
   color: black;
 `;
 

@@ -4,29 +4,43 @@
     "user": [
       {
         "id": 0,
-        "name": "이한비"
+        "name": "이한비",
+        "currentText": "배고파..."
       },
       {
         "id": 1,
-        "name": "문상훈"
+        "name": "문상훈",
+        "currentText": "오당기 많은 관심 부탁ㅎㅎ"
       }
     ],
     "messages": [
       {
         "id": 1,
-        "user": { "id": 0, "name": "이한비" },
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
         "time": "07:41",
         "text": "과제가"
       },
       {
         "id": 2,
-        "user": { "id": 0, "name": "이한비" },
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
         "time": "07:42",
         "text": "너무 어려워요.."
       },
       {
         "id": 3,
-        "user": { "id": 1, "name": "문상훈" },
+        "user": {
+          "id": 1,
+          "name": "문상훈",
+          "currentText": "오당기 많은 관심 부탁ㅎㅎ"
+        },
         "time": "07:43",
         "text": "개쳐발렸됴"
       }
@@ -34,31 +48,48 @@
     "message": [],
     "currentUser": {
       "id": 0,
-      "name": "이한비"
+      "name": "이한비",
+      "currentText": "배고파..."
     }
   },
   {
     "id": 2,
     "user": [
-      { "id": 0, "name": "이한비" },
-      { "id": 2, "name": "문쌤" }
+      {
+        "id": 0,
+        "name": "이한비",
+        "currentText": "배고파..."
+      },
+      { "id": 2, "name": "문쌤", "currentText": "한국지리 일타강사!" }
     ],
     "messages": [
       {
         "id": 4,
-        "user": { "id": 0, "name": "이한비" },
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
         "time": "08:41",
         "text": "선생님"
       },
       {
         "id": 5,
-        "user": { "id": 0, "name": "이한비" },
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
         "time": "08:42",
         "text": "에어드랍 확인해보세요"
       },
       {
         "id": 6,
-        "user": { "id": 2, "name": "문쌤" },
+        "user": {
+          "id": 2,
+          "name": "문쌤",
+          "currentText": "한국지리 일타강사!"
+        },
         "time": "08:43",
         "text": "내가 돼지야?"
       }
@@ -66,7 +97,8 @@
     "message": [],
     "currentUser": {
       "id": 0,
-      "name": "이한비"
+      "name": "이한비",
+      "currentText": "배고파..."
     }
   },
   {
@@ -74,29 +106,35 @@
     "user": [
       {
         "id": 0,
-        "name": "이한비"
+        "name": "이한비",
+        "currentText": "배고파..."
       },
-      {
-        "id": 2,
-        "name": "문이병"
-      }
+      { "id": 3, "name": "문이병", "currentText": "만년 일등병ㅋㅋ" }
     ],
     "messages": [
       {
         "id": 7,
-        "user": { "id": 0, "name": "이한비" },
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
         "time": "09:45",
         "text": "문이병"
       },
       {
         "id": 8,
-        "user": { "id": 0, "name": "이한비" },
+        "user": {
+          "id": 0,
+          "name": "이한비",
+          "currentText": "배고파..."
+        },
         "time": "09:46",
         "text": "일로와바"
       },
       {
         "id": 9,
-        "user": { "id": 3, "name": "문이병" },
+        "user": { "id": 3, "name": "문이병", "currentText": "만년 일등병ㅋㅋ" },
         "time": "09:47",
         "text": "저한테 왜그러십니까!!!"
       }
@@ -104,7 +142,8 @@
     "message": [],
     "currentUser": {
       "id": 0,
-      "name": "이한비"
+      "name": "이한비",
+      "currentText": "배고파..."
     }
   }
 ]

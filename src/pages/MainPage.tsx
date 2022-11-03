@@ -29,7 +29,7 @@ function MainPage() {
             <ShowImg2 src={`/img/${userList.id}.png`}></ShowImg2>
             {userList.name}
           </MainId>
-          <h6>친구{UserList.users.length - 1}</h6>
+          <FriendNum>친구{UserList.users.length - 1}</FriendNum>
         </div>
       );
     }
@@ -61,13 +61,20 @@ function MainPage() {
     </div>
   );
 }
+
+const CurrentText = styled.div``;
+const FriendNum = styled.h6`
+  margin-top: 10px;
+  color: grey;
+  margin-bottom: 20px;
+`;
 const ShowImg2 = styled.img`
   width: 58px;
   height: 58px;
   border-radius: 50%;
   background-size: cover;
   margin: 0 15px;
-  border-radius: 3px;
+  border-radius: 10px;
 `;
 const HeaderTemplate = styled.div`
   display: flex;
@@ -89,12 +96,12 @@ const MainImg = styled.img`
   margin-top: 15px;
 `;
 const ShowImg = styled.img`
-  width: 38px;
-  height: 38px;
+  width: 43px;
+  height: 43px;
   border-radius: 50%;
   background-size: cover;
   margin: 0 15px;
-  border-radius: 3px;
+  border-radius: 10px;
 `;
 const MainId = styled(Link)`
   display: flex;
@@ -103,14 +110,18 @@ const MainId = styled(Link)`
   padding: 30px 25px;
   text-decoration: none;
   border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+  padding-left: 1px;
   box-sizing: border-box;
   color: black;
   border-radius: 3px;
+  border-bottom-color: #66616190;
 
   /*margin: 0px 10px;*/
 `;
 const OneId = styled(Link)`
   display: flex;
+
   -webkit-box-align: center;
   align-items: center;
   padding: 8px 18px;

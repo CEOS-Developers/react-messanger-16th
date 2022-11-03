@@ -54,6 +54,7 @@ export const chatRoomState = atom<IChatRoomState>({
     currentUser: {
       id: 0,
       name: '이한비',
+      currentText: '배고파...',
     },
   },
 });
