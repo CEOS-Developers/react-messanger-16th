@@ -64,7 +64,7 @@ const UserBox = ({ user }: { user: UserListInfo }) => {
   return (
     <Link
       style={{ textDecoration: 'none', color: 'black' }}
-      to={`./chat/${userId}`}
+      to={`../chat/${userId}`}
     >
       <UserInfo onClick={onClick}>
         <Icon className="icon">
