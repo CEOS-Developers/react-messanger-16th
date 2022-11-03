@@ -29,7 +29,8 @@ const Button = styled.button`
   display: flex;
   border-radius: 25px;
   border: 1px solid #000;
-
+  text-decoration: none;
+  color: #000;
   font-size: 1.5rem;
   height: 3rem;
   flex-direction: column;

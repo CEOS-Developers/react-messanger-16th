@@ -51,7 +51,8 @@ const InputButton = styled.button`
   width: 15%;
   margin-left: 1rem;
   margin-right: 1rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
   color: #323232;
   border-radius: 28px;
   border: 1px solid #000000;
