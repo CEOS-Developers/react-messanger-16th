@@ -1,5 +1,5 @@
 import MainBox from '../components/box/mainbox';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { UserListInfo } from '../interfaces/interface';
 import { userListState } from '../state/state';
 import styled from 'styled-components';

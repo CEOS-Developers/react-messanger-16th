@@ -1,10 +1,5 @@
 import { atom, selector } from 'recoil';
-import {
-  ListInfo,
-  UserListInfo,
-  ChatInfo,
-  ListInfoWrap,
-} from '../interfaces/interface';
+import { ListInfo, UserListInfo, ListInfoWrap } from '../interfaces/interface';
 import Chatting from '../json/default.json';
 import UserList from '../json/user.json';
 
@@ -17,6 +12,11 @@ export const nowListState = atom<ListInfoWrap[]>({
   key: 'ListWrap',
   default: Chatting.ChattingList,
 });
+
+// export const ChatBoxState = atom<ChatInfo[]>({
+//   key: 'chatkey',
+//   default: Chatting.ChattingList,
+// });
 
 export const userState = atom<boolean>({
   key: 'isUser',

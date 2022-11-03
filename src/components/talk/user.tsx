@@ -20,10 +20,9 @@ const Icon = styled.button`
   }
 `;
 
-const User = (props: any) => {
+const User = () => {
   const [isUser, setIsUser] = useRecoilState(userState);
   const [name, setName] = useState('');
-  const nowChat = useRecoilValue(chatSelector);
 
   const nowUser = useRecoilValue(userSelector);
 
@@ -32,7 +31,7 @@ const User = (props: any) => {
     if (isUser) {
       setName('유선호');
     } else {
-      setName(nowUser.userName);
+      if (nowUser) setName(nowUser.userName);
     }
   };
 

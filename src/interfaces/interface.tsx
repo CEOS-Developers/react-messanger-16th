@@ -23,8 +23,14 @@ export interface UserListInfo {
   stateMsg: string;
 }
 
-export interface ChatInfo {
-  userId: number;
-  userName: string;
-  IsUser?: boolean;
-}
+// export interface ChatInfo {
+//   userId: number;
+//   userName: string;
+//   IsUser?: boolean;
+// }
+
+// export interface ChatInfo {
+//   userId: number;
+//   userName: string;
+//   chat: ListInfo[];
+// }
