@@ -80,7 +80,7 @@ const InputText = styled.input`
 `;
 
 const InputButton = styled.button`
-  width: 15%;
+  width: 17%;
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 0.8rem;

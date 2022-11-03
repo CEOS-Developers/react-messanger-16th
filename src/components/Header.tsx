@@ -50,6 +50,8 @@ const HeaderButton = styled.button`
   background: #fff;
   border-radius: 100%;
   border: 1px solid #000000;
+  text-decoration: none;
+  color: #000;
   font-size: 1.5rem;
   padding: 0.5rem;
   line-height: 15px;
