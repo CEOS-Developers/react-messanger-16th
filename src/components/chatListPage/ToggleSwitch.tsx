@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { ChatRoom } from "../interfaces/interface";
-import { chatState, SortState } from "../store/atom";
+import { ChatRoom } from "../../interfaces/interface";
+import { chatState, SortState } from "../../store/atom";
 
 const ToggleSwitch = () => {
   const [isOn, setisOn] = useRecoilState(SortState);

@@ -1,9 +1,9 @@
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import FriendList from "../components/FriendList";
+import FriendList from "../components/friendListPage/FriendList";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
-import SearchList from "../components/SearchList";
+import SearchList from "../components/friendListPage/SearchList";
 import { SearchState } from "../store/atom";
 
 const FriendsPage = () => {

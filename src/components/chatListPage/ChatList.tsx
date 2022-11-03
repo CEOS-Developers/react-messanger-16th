@@ -4,10 +4,10 @@ import {
   chatState,
   nowRoomIdState,
   userInformationState,
-} from "../store/atom";
+} from "../../store/atom";
 import styled from "styled-components";
-import { ChatRoom } from "../interfaces/interface";
-import SingleUser from "./SingleUser";
+import { ChatRoom } from "../../interfaces/interface";
+import SingleUser from "../SingleUser";
 import { Link } from "react-router-dom";
 
 const ChatList = () => {

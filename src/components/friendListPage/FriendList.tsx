@@ -1,10 +1,10 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { myInfoSelector, userInformationState } from "../store/atom";
+import { myInfoSelector, userInformationState } from "../../store/atom";
 import styled from "styled-components";
-import SingleUser from "./SingleUser";
-import { UserInformation } from "../interfaces/interface";
+import SingleUser from "../SingleUser";
+import { UserInformation } from "../../interfaces/interface";
 import { useCallback, useState } from "react";
-import Modal from "./Modal";
+import Modal from "../Modal";
 
 const FriendList = () => {
   const userData = useRecoilState(userInformationState);

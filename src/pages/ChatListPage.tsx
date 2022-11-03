@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import ChatList from "../components/ChatList";
+import ChatList from "../components/chatListPage/ChatList";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
-import ToggleSwitch from "../components/ToggleSwitch";
+import ToggleSwitch from "../components/chatListPage/ToggleSwitch";
 
 const ChatListPage = () => {
   return (

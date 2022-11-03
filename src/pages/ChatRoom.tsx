@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from "../components/Header";
-import MessageInput from "../components/MessageInput";
-import MessageList from "../components/MessageList";
+import MessageInput from "../components/chatRoom/MessageInput";
+import MessageList from "../components/chatRoom/MessageList";
 
 const ChatRoom = () => {
   return (

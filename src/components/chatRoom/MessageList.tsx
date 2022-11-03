@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { Chat } from "../interfaces/interface";
-import { chatRoomSelector, nowRoomIdState } from "../store/atom";
+import { Chat } from "../../interfaces/interface";
+import { chatRoomSelector, nowRoomIdState } from "../../store/atom";
 import SingleMessage from "./SingleMessage";
 
 const MessageList = () => {

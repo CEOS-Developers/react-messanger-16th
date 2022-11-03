@@ -1,9 +1,9 @@
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { UserInformation } from "../interfaces/interface";
-import { userSearchState } from "../store/atom";
+import { UserInformation } from "../../interfaces/interface";
+import { userSearchState } from "../../store/atom";
 import SearchInput from "./SearchInput";
-import SingleUser from "./SingleUser";
+import SingleUser from "../SingleUser";
 const SearchList = () => {
   const searchData = useRecoilState(userSearchState);
   return (

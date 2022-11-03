@@ -2,14 +2,14 @@ import moment from "moment";
 import { FormEvent } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import useInput from "../hooks/useInput";
-import { Chat, ChatRoom } from "../interfaces/interface";
+import useInput from "../../hooks/useInput";
+import { Chat, ChatRoom } from "../../interfaces/interface";
 import {
   chatState,
   accountState,
   chatRoomSelector,
   SortState,
-} from "../store/atom";
+} from "../../store/atom";
 
 const MessageInput = () => {
   const message = useInput("");

@@ -1,8 +1,8 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { Chat } from "../interfaces/interface";
-import { accountState, userSelector } from "../store/atom";
+import { Chat } from "../../interfaces/interface";
+import { accountState, userSelector } from "../../store/atom";
 
 const SingleMessage = (chat: Chat) => {
   const userAccount = useRecoilValue(accountState);

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import useInput from "../hooks/useInput";
-import { userInformationState, userSearchState } from "../store/atom";
+import useInput from "../../hooks/useInput";
+import { userInformationState, userSearchState } from "../../store/atom";
 
 const SearchInput = () => {
   const message = useInput("");
