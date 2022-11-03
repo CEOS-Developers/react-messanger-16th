@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import styled from 'styled-components';
@@ -9,8 +10,16 @@ const ChatRoomItem = (user: User) => {
   const myChats = chats.filter((chat) => chat.user_id === user.user_id);
   console.log(myChats[0]);
 
+  const navigate = useNavigate();
+
+  const id = user.user_id;
+
   return (
-    <UserItemWrapper>
+    <UserItemWrapper
+      onClick={() => {
+        navigate(`/chatRoom/${id}`);
+      }}
+    >
       <UserImgWrapper isSelected={user.isSelected}>
         <UserImg src={user.user_img} />
       </UserImgWrapper>
@@ -43,16 +52,20 @@ const UserImg = styled.img`
   object-fit: cover;
 `;
 
+const UserInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+`;
+
 const UserName = styled.div`
   font-size: 0.9rem;
   font-weight: 600;
 `;
 
-const UserInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+const Message = styled.div`
+  font-size: 0.85rem;
+  color: gray;
 `;
-
-const Message = styled.div``;
 
 export default ChatRoomItem;

@@ -12,7 +12,11 @@ const FriendsList = () => {
       {users.map((it) => (
         <>
           <Friend key={it.user_id} {...it} />
-          {it.isSelected ? <FriendsNum>친구 {users.length}</FriendsNum> : <></>}
+          {it.isSelected ? (
+            <FriendsNum>친구 {users.length - 1}</FriendsNum>
+          ) : (
+            <></>
+          )}
         </>
       ))}
     </Friends>
