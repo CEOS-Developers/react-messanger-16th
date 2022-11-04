@@ -1,4 +1,4 @@
-import Friend from './FriendItem';
+import FriendItem from './FriendItem';
 import { User } from '../../interfaces/interfaces';
 
 import styled from 'styled-components';
@@ -8,7 +8,7 @@ const FriendsList = ({ users }: { users: User[] }) => {
     <Friends>
       {users.map((user) => (
         <>
-          <Friend key={user.user_id} {...user} />
+          <FriendItem key={user.user_id} {...user} />
           {user.user_id === 1 ? (
             <FriendsNum>친구 {users.length - 1}</FriendsNum>
           ) : (

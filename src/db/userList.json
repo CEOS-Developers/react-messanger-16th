@@ -12,18 +12,18 @@
     },
     {
       "user_id": 3,
-      "user_img": "assets/default.png",
-      "user_name": "가"
+      "user_img": "assets/마리.jpeg",
+      "user_name": "마리"
     },
     {
       "user_id": 4,
-      "user_img": "assets/default.png",
-      "user_name": "나"
+      "user_img": "assets/뭉치.jpeg",
+      "user_name": "뭉치"
     },
     {
       "user_id": 5,
-      "user_img": "assets/default.png",
-      "user_name": "다"
+      "user_img": "assets/라떼.png",
+      "user_name": "라떼"
     }
   ]
 }
