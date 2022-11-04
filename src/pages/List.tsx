@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react';
-import { Route, Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { chatRoomState, idFilterState, messageState, userState } from '../atom';
+import { chatRoomState, messageState, userState } from '../atom';
 import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil';
-import MessageChat from '../components/MessageChat';
 import useChatRoom from '../hooks/useChatRoom';
 import userEvent from '@testing-library/user-event';
 
 function List() {
   const chatRoomList = useRecoilValue(messageState);
-  const navigate = useNavigate();
+
   const UserList = useRecoilValue(userState);
   const { toggleAccount } = useChatRoom();
-  const [id, setId] = useRecoilState(chatRoomState);
 
   /* const goToChat = ({ userList }: any) => {
     navigate(`/room/${chatRoomList.id}`);
@@ -20,9 +18,6 @@ function List() {
   */
   const ResetData = useResetRecoilState(chatRoomState);
 
-  const goToMain = () => {
-    navigate('/');
-  };
   const onClickMe = (): void => {
     toggleAccount(0);
     ResetData();
@@ -34,14 +29,9 @@ function List() {
     const testRoom = useRecoilValue(chatRoomState);
 
     const newData = chatRoom.filter((txt) => txt.id === Number(userList.id))[0];
-    const newData2 = chatRoom.filter(
-      (txt) => txt.id === Number(userList.id)
-    )[0];
 
-    console.log(newData);
     const realNum = newData.messages.length - 1;
     const realNum2 = newData.message.length - 1;
-    console.log(userList.id);
 
     if (newData.message.length === 0) {
       return (

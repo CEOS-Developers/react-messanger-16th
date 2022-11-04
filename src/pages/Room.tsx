@@ -2,33 +2,25 @@ import React, { useState } from 'react';
 import InputForm from '../components/InputMessage';
 import styled from 'styled-components';
 import MessageChatForm from '../components/MessageChatForm';
-import {
-  useRecoilState,
-  useRecoilValue,
-  RecoilRoot,
-  useResetRecoilState,
-} from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import useChatRoom from '../hooks/useChatRoom';
 import { useEffect } from 'react';
-import { chatRoomState, idFilterState, messageState, userState } from '../atom';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { chatRoomState, messageState, userState } from '../atom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { idText } from 'typescript';
 
 function Room() {
   const navigate = useNavigate();
   const { addMsg, toggleAccount } = useChatRoom();
-  const ChatRoom = useRecoilValue(chatRoomState);
-  const RealChatRoom = useRecoilValue(messageState);
 
   const UserList = useRecoilValue(userState);
   const [id, setId] = useRecoilState(chatRoomState);
-  //const [id, setId] = useRecoilState(idFilterState);
 
   let params = useParams();
-  console.log(params);
+
   let num = params.id;
-  console.log(num);
+
   const realNum = Number(num);
 
   useEffect(() => {
@@ -40,9 +32,6 @@ function Room() {
     });
   }, []);
 
-  const onCLickMe = (): void => {
-    toggleAccount(0);
-  };
   const onCLickYou = (): void => {
     toggleAccount(realNum);
   };

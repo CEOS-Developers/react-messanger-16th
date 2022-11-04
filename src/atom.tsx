@@ -5,9 +5,7 @@ import {
   IChatRoomItem,
   IChatRoomState,
   IUserState,
-  IMessageType,
   IChatRoomId,
-  IChatRooms,
 } from './interface';
 
 export const messageState = atom<IChatRoomItem[]>({

@@ -1,17 +1,10 @@
 import InputForm from '../components/InputMessage';
 import styled from 'styled-components';
 import MessageChatForm from '../components/MessageChatForm';
-import {
-  useRecoilState,
-  useRecoilValue,
-  RecoilRoot,
-  useResetRecoilState,
-} from 'recoil';
 
 import useChatRoom from '../hooks/useChatRoom';
-import { useEffect } from 'react';
-import { chatRoomState, idFilterState, messageState, userState } from '../atom';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+
+import { useNavigate } from 'react-router-dom';
 
 function OwnChat() {
   const navigate = useNavigate();

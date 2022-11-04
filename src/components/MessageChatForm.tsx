@@ -1,9 +1,9 @@
 import MessageChat from './MessageChat';
 import { useEffect, useRef } from 'react';
-import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { chatRoomState, idFilterState, messageState, userState } from '../atom';
 import styled from 'styled-components';
-import Room from '../pages/Room';
+
 import { useParams } from 'react-router-dom';
 import { IMessageType } from '../interface';
 
@@ -28,8 +28,6 @@ const MessageChatForm = () => {
   };
   const realMessage = useRecoilValue(idFilterState);
   console.log(realMessage);
-
-  const UserList = useRecoilValue(userState);
 
   useEffect(() => {
     scrollToBottom();

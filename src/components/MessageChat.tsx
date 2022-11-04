@@ -9,10 +9,6 @@ const MessageChat = ({ messages }: { messages: IMessageType }) => {
 
   const isUser = messages.user.id === currentUser.id;
 
-  console.log(isUser);
-  console.log(currentUser.id);
-  console.log(messages.user.id);
-
   let params = useParams();
   let num = params.id;
   console.log(num);
