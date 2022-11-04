@@ -13,13 +13,18 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function Chatroom() {
   const navigate = useNavigate();
+
   const { id } = useParams<string>();
   const roomId: number = parseInt(id!);
 
-  const [curUser, setCurUser] = useState(1);
-  const [users, setUsers] = useState<User[]>(userData.users);
-  const [chats, setChats] = useState<Chat[]>(chatData.rooms[roomId].chats);
+  const curRoom = chatData.rooms[roomId];
+  const [chats, setChats] = useState<Chat[]>(curRoom.chats);
 
+  const users = userData.users;
+  const roomUsers: User[] = curRoom.users.map((id) => users[id]);
+  // curRoom.users : 현재 채팅방에 존재하는 유저, userData.users : 유저 데이터들 모음, 현재 채팅방에 존재하는 유저들의 정보를 UserData에서 뽑아온다.
+
+  const [curUser, setCurUser] = useState(0);
   const nextChatId = useRef(chats.length + 1);
 
   const onConcat = useCallback(
@@ -43,7 +48,7 @@ function Chatroom() {
   return (
     <Wrapper>
       <button onClick={() => navigate(-1)} />
-      <UserList curUser={curUser} users={users} changeUser={changeUser} />
+      <UserList curUser={curUser} users={roomUsers} changeUser={changeUser} />
       <ChatList curUser={curUser} users={users} chats={chats} />
       <InputForm onConcat={onConcat} />
     </Wrapper>
