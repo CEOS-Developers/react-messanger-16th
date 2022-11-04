@@ -1,19 +1,21 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import HeaderItem from '../layout/HeaderItem';
+import HeaderItem from './HeaderItem';
 import { userState } from '../../recoil/recoil';
 import styled from 'styled-components';
 
-const ChatHeader = () => {
+const ChatHeader = ({ id }: { id: number }) => {
   const [users, setUsers] = useRecoilState(userState);
 
   const handleClickChangeUser = (user: number) => {};
 
   return (
     <HeaderWrapper>
-      {users.map((it) => (
-        <HeaderItem key={it.user_id} {...it} />
-      ))}
+      {users
+        .filter((user) => user.user_id === 1 || user.user_id === id)
+        .map((user) => (
+          <HeaderItem key={user.user_id} {...user} />
+        ))}
     </HeaderWrapper>
   );
 };

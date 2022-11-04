@@ -2,17 +2,18 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import ChatHeader from '../components/chatRoom/ChatHeader';
-import InputBox from '../components/chatRoom/ChatInput';
+import ChatInput from '../components/chatRoom/ChatInput';
 import ChatBoxList from '../components/chatRoom/ChatBoxList';
 
 const ChatRoom = () => {
   const { id } = useParams();
+  const roomId = Number(id);
 
   return (
     <Container>
-      <ChatHeader />
-      <ChatBoxList />
-      <InputBox id={2} />
+      <ChatHeader id={roomId} />
+      <ChatBoxList id={roomId} />
+      <ChatInput id={roomId} />
     </Container>
   );
 };

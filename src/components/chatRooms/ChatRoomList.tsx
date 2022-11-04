@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { useRecoilValue } from 'recoil';
-
 import styled from 'styled-components';
 
-import { userState } from '../../recoil/recoil';
+import { useRecoilValue } from 'recoil';
+
 import ChatRoomItem from './ChatRoomItem';
+
+import { userState } from '../../recoil/recoil';
 
 const ChatRoomList = () => {
   const users = useRecoilValue(userState);

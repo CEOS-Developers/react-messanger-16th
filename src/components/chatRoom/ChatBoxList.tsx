@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { userState, chatState } from '../../recoil/recoil';
 import ChatBoxItem from './ChatBoxItem';
 
-const ChatBoxList = () => {
+const ChatBoxList = ({ id }: { id: number }) => {
   const chatList = useRecoilValue(chatState);
   const userList = useRecoilValue(userState);
 
@@ -23,13 +23,15 @@ const ChatBoxList = () => {
 
   return (
     <ChatBoxWrapper ref={chatBoxRef}>
-      {chatList.map((chat) => (
-        <ChatBoxItem
-          key={chat.chat_id}
-          {...chat}
-          user={userList.find((user) => user.user_id === chat.user_id)!}
-        />
-      ))}
+      {chatList
+        .filter((chat) => chat.chat_room === id)
+        .map((chat) => (
+          <ChatBoxItem
+            key={chat.chat_id}
+            {...chat}
+            user={userList.find((user) => user.user_id === chat.user_id)!}
+          />
+        ))}
     </ChatBoxWrapper>
   );
 };

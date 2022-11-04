@@ -2,17 +2,17 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import styled from 'styled-components';
-import { User } from '../../interfaces/interfaces';
 import { chatState } from '../../recoil/recoil';
 
+import { User } from '../../interfaces/interfaces';
+
 const ChatRoomItem = (user: User) => {
+  const id = user.user_id;
+
   const chats = useRecoilValue(chatState);
-  const myChats = chats.filter((chat) => chat.user_id === user.user_id);
-  console.log(myChats[0]);
+  const myChats = chats.filter((chat) => chat.chat_room === id);
 
   const navigate = useNavigate();
-
-  const id = user.user_id;
 
   return (
     <UserItemWrapper
@@ -25,7 +25,7 @@ const ChatRoomItem = (user: User) => {
       </UserImgWrapper>
       <UserInfoWrapper>
         <UserName>{user.user_name}</UserName>
-        <Message>{myChats[0].chat_content}</Message>
+        <Message>{myChats[myChats.length - 1].chat_content}</Message>
       </UserInfoWrapper>
     </UserItemWrapper>
   );
