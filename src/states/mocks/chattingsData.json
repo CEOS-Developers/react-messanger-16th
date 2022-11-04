@@ -7,35 +7,35 @@
         {
           "userId": 10,
           "content": "인천이",
-          "date": "2022-05-05T22:51:18+09:00",
+          "date": "2022-11-04T22:51:18+09:00",
           "like": false,
           "chatId": "example1"
         },
         {
           "userId": 10,
           "content": "천안보다 좋다",
-          "date": "2022-05-05T22:51:25+09:00",
+          "date": "2022-11-04T22:51:25+09:00",
           "like": false,
           "chatId": "example2"
         },
         {
           "userId": 0,
           "content": "천안분들 어떡해",
-          "date": "2022-05-05T22:52:18+09:00",
+          "date": "2022-11-04T22:52:18+09:00",
           "like": false,
           "chatId": "example3"
         },
         {
           "userId": 0,
           "content": "천안분들 난리나게...",
-          "date": "2022-05-05T22:52:25+09:00",
+          "date": "2022-11-04T22:52:25+09:00",
           "like": false,
           "chatId": "example4"
         },
         {
           "userId": 10,
           "content": "다시 가!",
-          "date": "2022-05-05T22:52:25+09:00",
+          "date": "2022-11-04T22:52:25+09:00",
           "like": false,
           "chatId": "example5"
         }
@@ -48,21 +48,21 @@
         {
           "userId": 0,
           "content": "형 내일 동묘 가기로 했어요",
-          "date": "2022-05-04T22:11:18+09:00",
+          "date": "2022-11-03T22:11:18+09:00",
           "like": false,
           "chatId": "example6"
         },
         {
           "userId": 11,
           "content": "쓰~읍 난 좀 반댄데?",
-          "date": "2022-05-04T22:12:23+09:00",
+          "date": "2022-11-03T22:12:23+09:00",
           "like": false,
           "chatId": "example7"
         },
         {
           "userId": 0,
           "content": "왜요?",
-          "date": "2022-05-04T22:12:23+09:00",
+          "date": "2022-11-03T22:12:23+09:00",
           "like": false,
           "chatId": "example8"
         }
