@@ -1,15 +1,10 @@
 import styled from 'styled-components';
-import { useRecoilValue } from 'recoil';
-
-import { curUserState } from '../../recoil/recoil';
 import { User } from '../../interfaces/interfaces';
 
 const FriendItem = (user: User) => {
-  const curUser = useRecoilValue(curUserState);
-
   return (
     <UserItemWrapper>
-      <UserImgWrapper isSelected={user.user_id === curUser}>
+      <UserImgWrapper isSelected={user.user_id === 1}>
         <UserImg src={user.user_img} />
       </UserImgWrapper>
       <UserName>{user.user_name}</UserName>
