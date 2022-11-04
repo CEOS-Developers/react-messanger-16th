@@ -1,9 +1,10 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Chat } from '../../interfaces/interfaces';
 
-import { chatState, userState, curUserState } from '../../recoil/recoil';
+import useInput from '../../hooks/useInput';
+import { chatState, curUserState } from '../../recoil/recoil';
 
 import styled from 'styled-components';
 
@@ -11,11 +12,11 @@ const InputBox = () => {
   const { id } = useParams();
   const roomId = Number(id);
 
-  const userList = useRecoilValue(userState);
+  const [chat, handleChangeInput, reset] = useInput('');
+
   const setChats = useSetRecoilState(chatState);
 
   const chatId = useRef<number>(0);
-  const [chat, setChat] = useState<string>('');
 
   const curUser = useRecoilValue(curUserState);
 
@@ -35,17 +36,13 @@ const InputBox = () => {
       setChats((prevChats) => [...prevChats, newChat]);
     }
 
-    setChat('');
+    reset();
   };
 
   const handleEnter = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if (e.keyCode === 13) {
       if (!e.shiftKey) handleSubmit(e);
     }
-  };
-
-  const handleChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setChat(e.target.value);
   };
 
   return (
@@ -62,7 +59,7 @@ const InputWrapper = styled.form`
   display: flex;
 `;
 
-const Input = styled.textarea`
+const Input = styled.input`
   padding: 1rem;
   flex-grow: 8;
 

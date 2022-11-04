@@ -8,7 +8,7 @@ import FriendsList from './FriendsList';
 import { userState } from '../../recoil/recoil';
 
 const Search = () => {
-  const [text, handleChangeInput, reset] = useInput('');
+  const [text, handleChangeInput] = useInput('');
 
   const users = useRecoilValue(userState);
   const filterName = users.filter((user) => {
