@@ -47,7 +47,7 @@ const User = () => {
   return (
     <>
       {nowUser.userName === '유선호' ? (
-        <Icon onClick={changeUser}>{name}</Icon>
+        <Icon>{name}</Icon>
       ) : (
         <Icon onClick={changeUser}>{name}</Icon>
       )}
