@@ -1,10 +1,11 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { currentState } from '../../states/atoms/current';
 import { userStateByUserId } from '../../states/atoms/user';
 import { IChat } from '../../states/interface';
 import Squircle from '../common/Squircle';
+import getBubbleTailStyle from './getBubbleTailStyle';
 import { timeForToday } from './getTimeForToday';
 
 interface ChatItemProps {
@@ -35,43 +36,6 @@ const ChatItem = ({ chat, isContinual }: ChatItemProps) => {
 };
 
 export default React.memo(ChatItem);
-
-const getBubbleTailStyle = (isMyChat: boolean, isContinual: boolean) => {
-  if (!isContinual) {
-    if (isMyChat) {
-      return css`
-        ::before {
-          content: '';
-          width: 0px;
-          height: 0px;
-          position: absolute;
-          border-left: 5px solid #fbe64d;
-          border-right: 5px solid transparent;
-          border-top: 5px solid #fbe64d;
-          border-bottom: 5px solid transparent;
-          border-radius: 1px;
-          right: -6px;
-          top: 6px;
-        }
-      `;
-    } else {
-      return css`
-        ::before {
-          content: '';
-          width: 0px;
-          height: 0px;
-          position: absolute;
-          border-left: 5px solid transparent;
-          border-right: 5px solid #fff;
-          border-top: 5px solid #fff;
-          border-bottom: 5px solid transparent;
-          left: -6px;
-          top: 6px;
-        }
-      `;
-    }
-  }
-};
 
 const Container = styled.div`
   display: flex;

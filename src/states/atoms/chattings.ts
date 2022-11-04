@@ -1,5 +1,5 @@
 import { atom, selectorFamily } from 'recoil';
-import { IChat, IChatting } from '../interface';
+import { IChatting } from '../interface';
 import chattingsData from '../mocks/chattingsData.json';
 
 export const chattingsState = atom<IChatting[]>({

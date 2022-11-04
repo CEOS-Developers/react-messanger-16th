@@ -8,24 +8,23 @@ const RoomFooter = ({ chattingId }: { chattingId: number }) => {
   const { value, onChange, resetValue } = useInput('');
   const { sendChat } = useChat(chattingId);
 
+  const focusInput = () => inputRef.current?.focus();
+
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+    focusInput();
   }, []);
 
-  const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
+  const handleSendChat = () => {
     sendChat(value);
     resetValue();
+    focusInput();
   };
 
   const onEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       if (e.nativeEvent.isComposing === false) {
-        sendChat(value);
-        resetValue();
         e.preventDefault();
+        handleSendChat();
       }
     }
   };
@@ -40,7 +39,7 @@ const RoomFooter = ({ chattingId }: { chattingId: number }) => {
           onKeyDown={onEnter}
         />
         <SendButton
-          onClick={(e) => onSubmit(e)}
+          onClick={handleSendChat}
           disabled={value.length === 0 ? true : false}
         >
           전송

@@ -1,5 +1,5 @@
 import { throttle } from 'lodash';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const useScrollDown = (dep: any) => {
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -15,7 +15,7 @@ const useScrollDown = (dep: any) => {
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [onScroll]);
 
   useEffect(() => {
     goToBottom();
