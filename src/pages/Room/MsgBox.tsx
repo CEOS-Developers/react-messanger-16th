@@ -1,17 +1,21 @@
 import React,{useEffect, useRef, useState} from 'react';
 import styled from "styled-components"
 import { msgState, userState, contentSelector } from '../../recoil/atom';
+import { Imsg } from '../../recoil/type';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import MsgItem from './MsgItem';
 
+// 중간 채팅 부분
 const MsgBox = () => {
-    const [msg, setMsg] = useRecoilState(msgState);
+    const [msg, setMsg] = useRecoilState<Imsg>(msgState);
     const contentList = useRecoilValue(contentSelector);
 
-    const scrollRef = useRef<any>();
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
-        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        if(scrollRef.current){
+            scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        }
     }
 
     useEffect(()=>{

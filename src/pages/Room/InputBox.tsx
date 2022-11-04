@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { msgState, contentState, contentSelector } from '../../recoil/atom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
+// 아래 메세지 전송 부분
 const InputBox = () => {
     const [msg, setMsg] = useRecoilState(msgState);
     const [content, setContent] = useRecoilState(contentState);

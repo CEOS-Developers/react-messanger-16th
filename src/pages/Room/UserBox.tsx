@@ -3,6 +3,7 @@ import { msgState, userState } from '../../recoil/atom';
 import {useRecoilState} from 'recoil';
 import styled from "styled-components"
 
+// 최상단 어떤 user에서 어떤 user로 보낼건지 정하는 박스
 const UserBox = () => {
     const [msg, setMsg] = useRecoilState(msgState);
     const [user, setUser] = useRecoilState(userState);

@@ -1,12 +1,7 @@
 import { atom, selector } from "recoil";
 import UserInfo from "../assets/UserInfo.json";
 import ContentInfo from "../assets/ContentInfo.json";
-
-export interface IUser {
-  id: string;
-  pwd: string;
-  name: string;
-}
+import {Imsg} from "./type";
 
 export const userState = atom<Object[]>({
   key: "user",
@@ -18,10 +13,7 @@ export const textState = atom({
   default: '',
 });
 
-export interface Imsg {
-  from: number;
-  to: number;
-}
+// 현재 누구에서 누구로 메세지 보내는지 user의 id 저장
 export const msgState = atom<Imsg>({
   key: 'msgState',
   default: {

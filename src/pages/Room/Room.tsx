@@ -4,13 +4,14 @@ import InputBox from './InputBox';
 import UserBox from './UserBox';
 import MsgBox from './MsgBox';
 import { msgState } from '../../recoil/atom';
+import { Imsg } from '../../recoil/type';
 import {useRecoilState} from 'recoil';
 import { useParams } from "react-router-dom";
 
 const Room = () => {
-    const [msg, setMsg] = useRecoilState(msgState);
+    const [msg, setMsg] = useRecoilState<Imsg>(msgState);
 
-    let { id } : any= useParams();
+    let { id } : any = useParams();
 
     useEffect(()=>{
         setMsg({

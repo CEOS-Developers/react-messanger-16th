@@ -3,56 +3,56 @@
         "id":0,
         "from":0,
         "to":3,
-        "content":"가나다",
+        "content":"짱구짱구",
         "date":"02:11"
     },
     {
         "id":1,
         "from":3,
         "to":0,
-        "content":"라마바",
+        "content":"스폰지밥",
         "date":"02:12"
     },
     {
         "id":2,
         "from":0,
         "to":1,
-        "content":"아자차",
+        "content":"난 짱구",
         "date":"02:14"
     },
     {
         "id":3,
-        "from":0,
-        "to":2,
-        "content":"카타파",
+        "from":2,
+        "to":0,
+        "content":"난 그로밋",
         "date":"02:16"
     },
     {
         "id":4,
-        "from":0,
-        "to":5,
-        "content":"하가나",
+        "from":5,
+        "to":0,
+        "content":"난 징징이",
         "date":"02:17"
     },
     {
         "id":5,
         "from":3,
         "to":0,
-        "content":"다라마",
+        "content":"스폰지밥밥",
         "date":"02:19"
     },
     {
         "id":6,
         "from":0,
         "to":3,
-        "content":"바사아",
+        "content":"짱구",
         "date":"02:20"
     },
     {
         "id":7,
-        "from":0,
-        "to":4,
-        "content":"자차카",
+        "from":4,
+        "to":0,
+        "content":"난 뚱이",
         "date":"02:21"
     }
 ]
