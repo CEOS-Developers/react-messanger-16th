@@ -1,18 +1,15 @@
-import { useRecoilValue } from 'recoil';
-
 import Friend from './FriendItem';
-import { userState } from '../../recoil/recoil';
+import { User } from '../../interfaces/interfaces';
+
 import styled from 'styled-components';
 
-const FriendsList = () => {
-  const users = useRecoilValue(userState);
-
+const FriendsList = ({ users }: { users: User[] }) => {
   return (
     <Friends>
-      {users.map((it) => (
+      {users.map((user) => (
         <>
-          <Friend key={it.user_id} {...it} />
-          {it.isSelected ? (
+          <Friend key={user.user_id} {...user} />
+          {user.isSelected ? (
             <FriendsNum>친구 {users.length - 1}</FriendsNum>
           ) : (
             <></>

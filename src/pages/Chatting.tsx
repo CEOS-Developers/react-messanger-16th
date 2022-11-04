@@ -9,7 +9,7 @@ const Chatting = () => {
     <Container>
       <Navigator />
       <Contents>
-        <Header leftChild={'채팅'} rightChild={false} />
+        <Header title={'채팅'} />
         <ChatRoomList />
       </Contents>
     </Container>

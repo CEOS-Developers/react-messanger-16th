@@ -1,12 +1,22 @@
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import useInput from '../../hooks/useInput';
+
 import FriendsList from './FriendsList';
+
+import { userState } from '../../recoil/recoil';
 
 const Search = () => {
   const [text, handleChangeInput, reset] = useInput('');
 
-  reset();
+  const users = useRecoilValue(userState);
+  const filterName = users.filter((user) => {
+    return (
+      user.user_name !== users[0].user_name &&
+      user.user_name.toLocaleLowerCase().includes(text.toLocaleLowerCase())
+    );
+  });
 
   return (
     <>
@@ -15,7 +25,7 @@ const Search = () => {
         onChange={handleChangeInput}
         value={text}
       />
-      <FriendsList />
+      <FriendsList users={filterName} />
     </>
   );
 };
