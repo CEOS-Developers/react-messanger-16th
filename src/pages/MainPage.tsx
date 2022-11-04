@@ -53,6 +53,10 @@ function MainPage() {
           <Link to="/list">
             <MainImg src={`/img/chat.png`} />
           </Link>
+
+          <Link to="/setting">
+            <MainImg src={`/img/setting.png`} />
+          </Link>
         </SideTemplate>
         <BodyTemplate>
           <HeaderTemplate>

@@ -7,6 +7,7 @@ import List from './pages/List';
 import MainPage from './pages/MainPage';
 import Room from './pages/Room';
 import Search from './pages/Search';
+import Setting from './pages/Setting';
 import OwnChat from './pages/OwnChat';
 const rootElement = document.getElementById('root') as HTMLElement;
 
@@ -20,6 +21,7 @@ root.render(
         <Route path="/list" element={<List />} />
         <Route path="/room/:id" element={<Room />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/setting" element={<Setting />} />
       </Routes>
     </BrowserRouter>
   </RecoilRoot>

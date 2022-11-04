@@ -70,6 +70,9 @@ function List() {
           <Link to="/list">
             <MainImg src={`/img/chat2.png`} />
           </Link>
+          <Link to="/Setting">
+            <MainImg src={`/img/setting.png`} />
+          </Link>
         </SideTemplate>
         <BodyTemplate>
           <h4>채팅</h4>
