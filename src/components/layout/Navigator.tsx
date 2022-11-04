@@ -51,7 +51,7 @@ const Nav = styled.div`
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background: rgb(230, 230, 230);
+  background: rgb(235, 235, 235);
 `;
 
 const NavItem = styled.div`

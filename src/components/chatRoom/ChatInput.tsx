@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Chat } from '../interfaces/interfaces';
+import { Chat } from '../../interfaces/interfaces';
 
-import { chatState, userState } from '../recoil/recoil';
+import { chatState, userState } from '../../recoil/recoil';
 
 import styled from 'styled-components';
 

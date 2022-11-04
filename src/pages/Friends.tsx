@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Navigator from '../components/layout/Navigator';
 import Header from '../components/layout/Header';
 import FriendsList from '../components/friends/FriendsList';
+import Search from '../components/friends/Search';
 
 const Friends = () => {
   return (
@@ -10,6 +11,7 @@ const Friends = () => {
       <Navigator />
       <Contents>
         <Header leftChild={'친구'} rightChild={true} />
+        <Search />
         <FriendsList />
       </Contents>
     </Container>
@@ -28,6 +30,8 @@ const Container = styled.div`
 
 const Contents = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default Friends;

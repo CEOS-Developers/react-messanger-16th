@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import ChatHeader from '../components/chatRoom/ChatHeader';
-import InputBox from '../components/InputBox';
+import InputBox from '../components/chatRoom/ChatInput';
 import ChatBoxList from '../components/chatRoom/ChatBoxList';
 
 const ChatRoom = () => {
