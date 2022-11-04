@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "userId": 0,
+      "userName": "포포",
+      "profileImage": "user0",
+      "personalMessage": "내가 주인이다"
+    },
+    {
+      "userId": 1,
+      "userName": "곰표",
+      "profileImage": "user1",
+      "personalMessage": "부캐 김딸기"
+    },
+    {
+      "userId": 2,
+      "userName": "외국인",
+      "profileImage": "user2",
+      "personalMessage": "hello~"
+    },
+    {
+      "userId": 3,
+      "userName": "승승장구",
+      "profileImage": "user3",
+      "personalMessage": ""
+    },
+    {
+      "userId": 4,
+      "userName": "반박시.박시현",
+      "profileImage": "user4",
+      "personalMessage": "반박하지마"
+    },
+    {
+      "userId": 5,
+      "userName": "김보드라",
+      "profileImage": "user5",
+      "personalMessage": ""
+    }
+  ]
+}

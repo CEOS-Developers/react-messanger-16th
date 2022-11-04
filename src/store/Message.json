@@ -1,0 +1,125 @@
+[
+  {
+    "roomId": 1,
+    "chat": [
+      {
+        "chatId": 1,
+        "senderId": 0,
+        "receiverId": 1,
+        "text": "어디야",
+        "time": "11:24"
+      },
+      {
+        "chatId": 2,
+        "senderId": 1,
+        "receiverId": 0,
+        "text": "학문관",
+        "time": "11:24"
+      },
+      {
+        "chatId": 3,
+        "senderId": 0,
+        "receiverId": 1,
+        "text": "ㅇㅋ용~",
+        "time": "11:28"
+      }
+    ]
+  },
+  {
+    "roomId": 2,
+    "chat": [
+      {
+        "chatId": 1,
+        "senderId": 2,
+        "receiverId": 0,
+        "text": "헤이",
+        "time": "17:34"
+      },
+      {
+        "chatId": 2,
+        "senderId": 0,
+        "receiverId": 2,
+        "text": "why",
+        "time": "18:24"
+      },
+      {
+        "chatId": 1,
+        "senderId": 2,
+        "receiverId": 0,
+        "text": "그냥 불러봐써",
+        "time": "19:24"
+      }
+    ]
+  },
+  {
+    "roomId": 3,
+    "chat": [
+      {
+        "chatId": 1,
+        "senderId": 3,
+        "receiverId": 0,
+        "text": "오늘 점심 뭐 먹을래",
+        "time": "11:03"
+      },
+      {
+        "chatId": 2,
+        "senderId": 0,
+        "receiverId": 3,
+        "text": "사케동?",
+        "time": "11:30"
+      },
+      {
+        "chatId": 3,
+        "senderId": 3,
+        "receiverId": 0,
+        "text": "굿 ㄱㄱ",
+        "time": "11:43"
+      }
+    ]
+  },
+  {
+    "roomId": 4,
+    "chat": [
+      {
+        "chatId": 1,
+        "senderId": 4,
+        "receiverId": 0,
+        "text": "반박하지마",
+        "time": "11:03"
+      },
+      {
+        "chatId": 2,
+        "senderId": 0,
+        "receiverId": 4,
+        "text": "알겠어 ㅜㅜ",
+        "time": "11:30"
+      }
+    ]
+  },
+  {
+    "roomId": 5,
+    "chat": [
+      {
+        "chatId": 1,
+        "senderId": 5,
+        "receiverId": 0,
+        "text": "나 오늘 어디가게",
+        "time": "11:03"
+      },
+      {
+        "chatId": 2,
+        "senderId": 0,
+        "receiverId": 5,
+        "text": "하리보 100주년 전시회",
+        "time": "11:30"
+      },
+      {
+        "chatId": 3,
+        "senderId": 5,
+        "receiverId": 0,
+        "text": "정답!",
+        "time": "11:43"
+      }
+    ]
+  }
+]
