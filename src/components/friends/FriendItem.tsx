@@ -7,7 +7,10 @@ const FriendItem = (user: User) => {
       <UserImgWrapper isSelected={user.user_id === 1}>
         <UserImg src={user.user_img} />
       </UserImgWrapper>
-      <UserName>{user.user_name}</UserName>
+      <UserContentWrapper>
+        <UserName>{user.user_name}</UserName>
+        <UserMsg>{user.user_msg}</UserMsg>
+      </UserContentWrapper>
     </UserItemWrapper>
   );
 };
@@ -33,9 +36,22 @@ const UserImg = styled.img`
   object-fit: cover;
 `;
 
+const UserContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.4rem;
+`;
+
 const UserName = styled.div`
+  padding-top: 0.3rem;
   font-size: 0.9rem;
   font-weight: 600;
+`;
+
+const UserMsg = styled.div`
+  font-size: 0.7rem;
+  color: gray;
 `;
 
 export default FriendItem;
