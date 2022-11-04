@@ -1,9 +1,9 @@
 import { useState, useRef, useCallback } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import ChatList from "../components/ChatList";
-import InputForm from "../components/InputForm";
-import UserList from "../components/UserList";
-import { Chat, User } from "../interface";
+import ChatList from "../components/chatroom/ChatList";
+import InputForm from "../components/chatroom/InputForm";
+import UserList from "../components/chatroom/UserList";
+import { Chat, User } from "../common/interface";
 
 import userData from "../data/userData.json";
 import chatData from "../data/chatData.json";

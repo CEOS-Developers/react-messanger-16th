@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Chat, User } from "../interface";
-import { ProfileImage } from "../StyledComponents";
+import { Chat, User } from "../../common/interface";
+import { ProfileImage } from "../../common/StyledComponents";
 
 interface ChatItemProps {
   chat: Chat;

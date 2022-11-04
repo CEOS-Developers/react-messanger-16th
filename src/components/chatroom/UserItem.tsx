@@ -1,6 +1,6 @@
-import { User } from "../interface";
+import { User } from "../../common/interface";
 import styled from "styled-components";
-import { ProfileImage } from "../StyledComponents";
+import { ProfileImage } from "../../common/StyledComponents";
 
 interface UserItemProps {
   selected: boolean;

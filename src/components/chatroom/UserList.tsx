@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { User } from "../interface";
+import { User } from "../../common/interface";
 import UserItem from "./UserItem";
 
 interface UserListProps {
