@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { chatRoomState, messageState, userState } from '../atom';
@@ -7,6 +7,7 @@ import useChatRoom from '../hooks/useChatRoom';
 import userEvent from '@testing-library/user-event';
 
 function List() {
+  const messageWrapperRef = useRef<HTMLUListElement>(null);
   const chatRoomList = useRecoilValue(messageState);
 
   const UserList = useRecoilValue(userState);
@@ -16,6 +17,13 @@ function List() {
     navigate(`/room/${chatRoomList.id}`);
   };
   */
+  const scrollToBottom = () => {
+    if (messageWrapperRef.current) {
+      messageWrapperRef.current.scrollTop =
+        messageWrapperRef.current.scrollHeight;
+    }
+  };
+  useEffect(() => {}, [chatRoomList]);
   const ResetData = useResetRecoilState(chatRoomState);
 
   const onClickMe = (): void => {
@@ -57,33 +65,52 @@ function List() {
       );
     }
   };
-  const newUserList = UserList.users.slice(0, 4);
+  const newUserList = UserList.users.slice(0, 6);
 
   return (
-    <div>
-      <RealAll>
-        <SideTemplate>
-          <Link to="/">
-            <MainImg src={`/img/user2.png`} />
-          </Link>
+    <RealAll>
+      <SideTemplate>
+        <Link to="/">
+          <MainImg src={`/img/user2.png`} />
+        </Link>
 
-          <Link to="/list">
-            <MainImg src={`/img/chat2.png`} />
-          </Link>
-          <Link to="/Setting">
-            <MainImg src={`/img/setting.png`} />
-          </Link>
-        </SideTemplate>
-        <BodyTemplate>
-          <h4>채팅</h4>
+        <Link to="/list">
+          <MainImg src={`/img/chat2.png`} />
+        </Link>
+        <Link to="/Setting">
+          <MainImg src={`/img/setting.png`} />
+        </Link>
+      </SideTemplate>
+
+      <BodyTemplate>
+        <h4>채팅</h4>
+        <Wrapper ref={messageWrapperRef}>
           {newUserList.map((userList) => (
             <TempList userList={userList} key={userList.id} />
           ))}
-        </BodyTemplate>
-      </RealAll>
-    </div>
+        </Wrapper>
+      </BodyTemplate>
+    </RealAll>
   );
 }
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  height: 584px;
+
+  overflow: auto;
+  padding: 0.5rem 0.8rem 0 0.2rem;
+  ::-webkit-scrollbar {
+    width: 0.9rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 1rem;
+    background-clip: padding-box;
+    border: 0.3rem solid transparent;
+  }
+`;
+
 const CurrentTime = styled.div`
   font-size: 12px;
   font-weight: light;
@@ -94,8 +121,8 @@ const AllTemp = styled.div`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid lightgray;
-  margin-bottom: 3px;
-  padding-top: 3px;
+  margin-bottom: 1px;
+  padding-top: 0.05px;
 `;
 const ChatLink = styled(Link)`
   display: flex;
@@ -108,7 +135,7 @@ const ChatLink = styled(Link)`
   font-size: 18px;
   color: black;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 `;
 
 const MainImg = styled.img`
@@ -128,6 +155,7 @@ const CurrentText = styled.div`
 const BodyTemplate = styled.div`
   box-sizing: border-box;
   padding: 0 3px;
+  margin-top: 1px;
 `;
 
 const RealAll = styled.div`
