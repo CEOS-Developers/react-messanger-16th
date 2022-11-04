@@ -1,0 +1,45 @@
+{
+  "ChattingList": [
+    {
+      "userId": 0,
+      "userName": "유선호",
+      "chat": [
+        { "IsUser": true, "addText": "메모장" },
+        { "IsUser": true, "addText": "마늘 1개 대파 1개" }
+      ]
+    },
+    {
+      "userId": 1,
+      "userName": "유선후",
+
+      "chat": [
+        { "IsUser": false, "addText": "선호 바보" },
+        { "IsUser": true, "addText": "야이 자식아" }
+      ]
+    },
+    {
+      "userId": 2,
+      "userName": "유선희",
+      "chat": [
+        { "IsUser": false, "addText": "선호 최고" },
+        { "IsUser": true, "addText": "그래그래" }
+      ]
+    },
+    {
+      "userId": 3,
+      "userName": "유선화",
+      "chat": [
+        { "IsUser": false, "addText": "선호 짱~" },
+        { "IsUser": true, "addText": "야이 자식아ㅋㅋ" }
+      ]
+    },
+    {
+      "userId": 4,
+      "userName": "올선생",
+      "chat": [
+        { "IsUser": false, "addText": "하이 유선생" },
+        { "IsUser": true, "addText": "하이 올선생" }
+      ]
+    }
+  ]
+}
