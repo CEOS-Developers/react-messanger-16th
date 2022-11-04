@@ -1,11 +1,20 @@
+import { useRecoilState, useRecoilValue } from 'recoil';
+
 import styled from 'styled-components';
 import { User } from '../../interfaces/interfaces';
+import { curUserState } from '../../recoil/recoil';
 
 const HeaderItem = (user: User) => {
+  const [curUser, setCurUser] = useRecoilState(curUserState);
+
+  const handleClickChangeUser = (e: React.MouseEvent<HTMLDivElement>) => {
+    setCurUser(user.user_id);
+  };
+
   return (
     <UserItemWrapper>
-      <UserImgWrapper>
-        <UserImg src={user.user_img} isSelected={user.isSelected} />
+      <UserImgWrapper onClick={handleClickChangeUser}>
+        <UserImg src={user.user_img} isSelected={user.user_id === curUser} />
       </UserImgWrapper>
       <UserName>{user.user_name}</UserName>
     </UserItemWrapper>

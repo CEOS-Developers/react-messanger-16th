@@ -41,6 +41,24 @@
       "user_id": 2,
       "chat_room": 2,
       "chat_content": "알겠어"
+    },
+    {
+      "chat_id": 8,
+      "user_id": 3,
+      "chat_room": 3,
+      "chat_content": "가"
+    },
+    {
+      "chat_id": 9,
+      "user_id": 1,
+      "chat_room": 3,
+      "chat_content": "나"
+    },
+    {
+      "chat_id": 10,
+      "user_id": 4,
+      "chat_room": 4,
+      "chat_content": "다"
     }
   ]
 }

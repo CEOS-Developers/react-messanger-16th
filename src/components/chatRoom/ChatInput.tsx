@@ -1,28 +1,32 @@
 import { useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Chat } from '../../interfaces/interfaces';
 
-import { chatState, userState } from '../../recoil/recoil';
+import { chatState, userState, curUserState } from '../../recoil/recoil';
 
 import styled from 'styled-components';
 
-const InputBox = ({ id }: { id: number }) => {
+const InputBox = () => {
+  const { id } = useParams();
+  const roomId = Number(id);
+
   const userList = useRecoilValue(userState);
   const setChats = useSetRecoilState(chatState);
 
   const chatId = useRef<number>(0);
   const [chat, setChat] = useState<string>('');
 
+  const curUser = useRecoilValue(curUserState);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (chat.trim()) {
-      const curUser = userList.find((user) => user.isSelected === true)!;
-
       const newChat: Chat = {
-        user_id: curUser.user_id,
+        user_id: curUser,
         chat_id: chatId.current,
-        chat_room: id,
+        chat_room: roomId,
         chat_content: chat,
       };
 
@@ -53,7 +57,7 @@ const InputBox = ({ id }: { id: number }) => {
 };
 
 const InputWrapper = styled.form`
-  flex-grow: 1;
+  height: 8rem;
 
   display: flex;
 `;

@@ -12,3 +12,8 @@ export const chatState = atom<Chat[]>({
   key: 'chatList',
   default: chats.chats,
 });
+
+export const curUserState = atom<number>({
+  key: 'curUser',
+  default: 1,
+});

@@ -1,18 +1,20 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
+import { useParams } from 'react-router-dom';
 
 import HeaderItem from './HeaderItem';
 import { userState } from '../../recoil/recoil';
 import styled from 'styled-components';
 
-const ChatHeader = ({ id }: { id: number }) => {
-  const [users, setUsers] = useRecoilState(userState);
+const ChatHeader = () => {
+  const { id } = useParams();
+  const roomId = Number(id);
 
-  const handleClickChangeUser = (user: number) => {};
+  const users = useRecoilValue(userState);
 
   return (
     <HeaderWrapper>
       {users
-        .filter((user) => user.user_id === 1 || user.user_id === id)
+        .filter((user) => user.user_id === 1 || user.user_id === roomId)
         .map((user) => (
           <HeaderItem key={user.user_id} {...user} />
         ))}
@@ -21,8 +23,7 @@ const ChatHeader = ({ id }: { id: number }) => {
 };
 
 const HeaderWrapper = styled.div`
-  flex-grow: 0.5;
-
+  height: 6rem;
   padding-left: 1.5rem;
 
   display: flex;

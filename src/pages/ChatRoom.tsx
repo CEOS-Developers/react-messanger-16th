@@ -1,5 +1,8 @@
-import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import styled from 'styled-components';
+
+import { curUserState } from '../recoil/recoil';
 
 import ChatHeader from '../components/chatRoom/ChatHeader';
 import ChatInput from '../components/chatRoom/ChatInput';
@@ -11,9 +14,9 @@ const ChatRoom = () => {
 
   return (
     <Container>
-      <ChatHeader id={roomId} />
-      <ChatBoxList id={roomId} />
-      <ChatInput id={roomId} />
+      <ChatHeader />
+      <ChatBoxList />
+      <ChatInput />
     </Container>
   );
 };
@@ -24,7 +27,6 @@ const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   border-radius: 20px;
   box-shadow: 1px 1px 10px lightgray;

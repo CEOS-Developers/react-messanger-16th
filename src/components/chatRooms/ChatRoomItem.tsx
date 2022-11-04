@@ -20,7 +20,7 @@ const ChatRoomItem = (user: User) => {
         navigate(`/chatRoom/${id}`);
       }}
     >
-      <UserImgWrapper isSelected={user.isSelected}>
+      <UserImgWrapper guest={user.user_id === 1}>
         <UserImg src={user.user_img} />
       </UserImgWrapper>
       <UserInfoWrapper>
@@ -36,11 +36,13 @@ const UserItemWrapper = styled.div`
   align-items: center;
 
   gap: 0.7rem;
+
+  cursor: pointer;
 `;
 
-const UserImgWrapper = styled.div<{ isSelected: boolean }>`
-  width: ${(props) => (props.isSelected ? '4rem' : '3rem')};
-  height: ${(props) => (props.isSelected ? '4rem' : '3rem')};
+const UserImgWrapper = styled.div<{ guest: boolean }>`
+  width: ${(props) => (props.guest ? '4rem' : '3rem')};
+  height: ${(props) => (props.guest ? '4rem' : '3rem')};
 
   border-radius: 40%;
   overflow: hidden;
@@ -55,7 +57,7 @@ const UserImg = styled.img`
 const UserInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.4rem;
 `;
 
 const UserName = styled.div`
@@ -64,7 +66,7 @@ const UserName = styled.div`
 `;
 
 const Message = styled.div`
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   color: gray;
 `;
 

@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+
+import { curUserState } from '../../recoil/recoil';
 import { User } from '../../interfaces/interfaces';
 
 const FriendItem = (user: User) => {
+  const curUser = useRecoilValue(curUserState);
+
   return (
     <UserItemWrapper>
-      <UserImgWrapper isSelected={user.isSelected}>
+      <UserImgWrapper isSelected={user.user_id === curUser}>
         <UserImg src={user.user_img} />
       </UserImgWrapper>
       <UserName>{user.user_name}</UserName>
@@ -20,8 +25,8 @@ const UserItemWrapper = styled.div`
 `;
 
 const UserImgWrapper = styled.div<{ isSelected: boolean }>`
-  width: ${(props) => (props.isSelected ? '4rem' : '3rem')};
-  height: ${(props) => (props.isSelected ? '4rem' : '3rem')};
+  width: ${(props) => (props.isSelected ? '3.5rem' : '3rem')};
+  height: ${(props) => (props.isSelected ? '3.5rem' : '3rem')};
 
   border-radius: 40%;
   overflow: hidden;

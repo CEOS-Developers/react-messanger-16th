@@ -3,32 +3,27 @@
     {
       "user_id": 1,
       "user_img": "assets/default.png",
-      "user_name": "게스트",
-      "isSelected": true
+      "user_name": "게스트"
     },
     {
       "user_id": 2,
       "user_img": "assets/보통이.jpeg",
-      "user_name": "보통이",
-      "isSelected": false
+      "user_name": "보통이"
     },
     {
       "user_id": 3,
       "user_img": "assets/default.png",
-      "user_name": "가",
-      "isSelected": false
+      "user_name": "가"
     },
     {
       "user_id": 4,
       "user_img": "assets/default.png",
-      "user_name": "나",
-      "isSelected": false
+      "user_name": "나"
     },
     {
       "user_id": 5,
       "user_img": "assets/default.png",
-      "user_name": "다",
-      "isSelected": false
+      "user_name": "다"
     }
   ]
 }

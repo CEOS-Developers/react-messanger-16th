@@ -1,5 +1,7 @@
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { curUserState } from '../../recoil/recoil';
 import { User } from '../../interfaces/interfaces';
 
 const ChatBox = ({
@@ -9,9 +11,11 @@ const ChatBox = ({
   user: User;
   chat_content: string;
 }) => {
+  const curUser = useRecoilValue(curUserState);
+
   return (
-    <ChatBoxItem isSelected={user.isSelected}>
-      {user.isSelected ? (
+    <ChatBoxItem isSelected={user.user_id === curUser}>
+      {user.user_id === curUser ? (
         <></>
       ) : (
         <UserImgWrapper>
@@ -19,13 +23,15 @@ const ChatBox = ({
         </UserImgWrapper>
       )}
       <ChatWrapper>
-        {user.isSelected ? (
+        {user.user_id === curUser ? (
           <></>
         ) : (
           <ChatUserName>{user.user_name}</ChatUserName>
         )}
         <ChatItem>
-          <ChatText isSelected={user.isSelected}>{chat_content}</ChatText>
+          <ChatText isSelected={user.user_id === curUser}>
+            {chat_content}
+          </ChatText>
           <ChatTime />
         </ChatItem>
       </ChatWrapper>

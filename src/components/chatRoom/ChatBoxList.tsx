@@ -1,11 +1,15 @@
 import { useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { userState, chatState } from '../../recoil/recoil';
 import ChatBoxItem from './ChatBoxItem';
 
-const ChatBoxList = ({ id }: { id: number }) => {
+const ChatBoxList = () => {
+  const { id } = useParams();
+  const roomId = Number(id);
+
   const chatList = useRecoilValue(chatState);
   const userList = useRecoilValue(userState);
 
@@ -24,7 +28,7 @@ const ChatBoxList = ({ id }: { id: number }) => {
   return (
     <ChatBoxWrapper ref={chatBoxRef}>
       {chatList
-        .filter((chat) => chat.chat_room === id)
+        .filter((chat) => chat.chat_room === roomId)
         .map((chat) => (
           <ChatBoxItem
             key={chat.chat_id}
@@ -37,7 +41,7 @@ const ChatBoxList = ({ id }: { id: number }) => {
 };
 
 const ChatBoxWrapper = styled.div`
-  flex-grow: 8;
+  height: 26rem;
   padding: 1.5rem;
 
   display: flex;
