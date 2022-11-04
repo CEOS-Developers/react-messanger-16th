@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { userState } from '../../state/state';
 import { userSelector, chatSelector } from '../../state/state';
-import { listState } from '../../state/state';
-import { ListInfo } from '../../interfaces/interface';
+import { ChatBoxState, nowUserState } from '../../state/state';
+import { ChatInfo } from '../../interfaces/interface';
 
 const Icon = styled.button`
   position: relative;
@@ -25,6 +25,8 @@ const Icon = styled.button`
 const User = () => {
   const [isUser, setIsUser] = useRecoilState(userState);
   const [name, setName] = useState('');
+  const [chatList, setChatList] = useRecoilState<ChatInfo[]>(ChatBoxState); //chatting update할라고......
+  const userNum = useRecoilValue<number>(nowUserState); //userId 쓸라고....
 
   const nowUser = useRecoilValue(userSelector);
 
@@ -33,15 +35,19 @@ const User = () => {
     if (isUser) {
       setName('유선호');
     } else {
-      if (nowUser) setName(nowUser.userName);
+      setName(chatList[userNum].userName);
     }
   };
 
-  useEffect(changeUser, []);
+  useEffect(() => {
+    setName(chatList[userNum].userName);
+    setIsUser(true);
+  }, []);
+
   return (
     <>
       {nowUser.userName === '유선호' ? (
-        <Icon>{name}</Icon>
+        <Icon onClick={changeUser}>{name}</Icon>
       ) : (
         <Icon onClick={changeUser}>{name}</Icon>
       )}

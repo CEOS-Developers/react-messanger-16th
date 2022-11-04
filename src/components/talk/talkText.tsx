@@ -1,9 +1,12 @@
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { TalkBoxInfo } from '../../interfaces/interface';
-import { chatSelector } from '../../state/state';
+import { chatSelector, userState } from '../../state/state';
 
-const Text = styled.div<TalkBoxInfo>`
+const Text = styled.div<{
+  IsUser: boolean;
+  nowUser: boolean;
+}>`
   position: relative;
   display: inline-block;
   max-width: 70%;
@@ -14,18 +17,25 @@ const Text = styled.div<TalkBoxInfo>`
   border-radius: 13px;
   background-color: yellow;
   display: flex;
-  background-color: ${({ IsUser }) => (IsUser ? 'yellow' : 'grey')};
-  margin-left: ${({ IsUser }) => (IsUser ? 'auto' : '0')};
+  background-color: ${({ IsUser, nowUser }) =>
+    IsUser === nowUser ? 'yellow' : 'grey'};
+  margin-left: ${({ IsUser, nowUser }) => (IsUser === nowUser ? 'auto' : '0')};
 `;
 
 const TalkText = ({
   IsUser,
   addText,
+  nowUser,
 }: {
   IsUser: boolean;
   addText: string;
+  nowUser: boolean;
 }) => {
-  return <Text IsUser={IsUser}>{addText}</Text>;
+  return (
+    <Text IsUser={IsUser} nowUser={nowUser}>
+      {addText}
+    </Text>
+  );
 };
 
 export default TalkText;

@@ -25,7 +25,7 @@ export const ChatBoxState = atom<ChatInfo[]>({
 
 export const userState = atom<boolean>({
   key: 'isUser',
-  default: true,
+  default: Chatting.ChattingList[4].chat[1].IsUser,
 });
 
 export const userListState = atom<UserListInfo[]>({
