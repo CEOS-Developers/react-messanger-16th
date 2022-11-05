@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "user_img": "/assets/default.png",
+      "user_name": "게스트",
+      "user_msg": ""
+    },
+    {
+      "user_id": 2,
+      "user_img": "/assets/보통이.jpeg",
+      "user_name": "보통이",
+      "user_msg": "배고파"
+    },
+    {
+      "user_id": 3,
+      "user_img": "/assets/마리.jpeg",
+      "user_name": "마리",
+      "user_msg": ""
+    },
+    {
+      "user_id": 4,
+      "user_img": "/assets/뭉치.jpeg",
+      "user_name": "뭉치",
+      "user_msg": "zZzz"
+    },
+    {
+      "user_id": 5,
+      "user_img": "/assets/라떼.png",
+      "user_name": "라떼",
+      "user_msg": "🐾"
+    }
+  ]
+}
