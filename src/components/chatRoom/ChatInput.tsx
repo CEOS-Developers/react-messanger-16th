@@ -16,7 +16,7 @@ const InputBox = () => {
 
   const setChats = useSetRecoilState(chatState);
 
-  const chatId = useRef<number>(0);
+  const chatId = useRef<number>(11);
 
   const curUser = useRecoilValue(curUserState);
 
@@ -65,6 +65,7 @@ const Input = styled.input`
 
   border: none;
   resize: none;
+  word-break: break-word;
 
   font-family: sans-serif;
 `;
