@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
 
+import chatData from "../data/chatData.json";
+import userData from "../data/userData.json";
+
+import { ProfileImage } from "../common/StyledComponents";
+
 const ChatroomPage = () => {
+  const chatrooms = chatData.rooms;
+  const users = userData.users;
+
   return (
     <div>
-      <Link to="/chatrooms/0">채팅방0</Link>
-      <Link to="/chatrooms/1">채팅방1</Link>
-      <Link to="/chatrooms/2">채팅방2</Link>
+      {chatrooms.map((room) => (
+        <Link to={`/chatrooms/${room.roomId}`}>
+          <div>
+            <ProfileImage src={`${users[room.users[1]].profileImage}`} />
+            {users[room.users[1]].name}
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };
