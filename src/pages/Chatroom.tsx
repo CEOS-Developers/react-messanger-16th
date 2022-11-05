@@ -4,8 +4,8 @@ import styled from "styled-components";
 import ChatList from "../components/chatroom/ChatList";
 import InputForm from "../components/chatroom/InputForm";
 import UserList from "../components/chatroom/UserList";
-
-import { Chat, User } from "../common/interface";
+import { getRoomMembers } from "../common/customHooks";
+import { Chat } from "../common/interface";
 
 import userData from "../data/userData.json";
 import chatData from "../data/chatData.json";
@@ -19,10 +19,7 @@ function Chatroom() {
 
   const curRoom = chatData.rooms[roomId];
   const [chats, setChats] = useState<Chat[]>(curRoom.chats);
-
   const users = userData.users;
-  const roomUsers: User[] = curRoom.users.map((id) => users[id]);
-  // curRoom.users : 현재 채팅방에 존재하는 유저, userData.users : 유저 데이터들 모음, 현재 채팅방에 존재하는 유저들의 정보를 UserData에서 뽑아온다.
 
   const [curUser, setCurUser] = useState(0);
   const nextChatId = useRef(chats.length + 1);
@@ -45,10 +42,12 @@ function Chatroom() {
     setCurUser(id);
   };
 
+  const roomMembers = getRoomMembers(roomId, true);
+
   return (
     <Wrapper>
       <button onClick={() => navigate(-1)} />
-      <UserList curUser={curUser} users={roomUsers} changeUser={changeUser} />
+      <UserList curUser={curUser} users={roomMembers} changeUser={changeUser} />
       <ChatList curUser={curUser} users={users} chats={chats} />
       <InputForm onConcat={onConcat} />
     </Wrapper>
