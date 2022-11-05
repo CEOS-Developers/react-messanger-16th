@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "userId": 10,
+      "userName": "박명수",
+      "profileImage": "https://i.ibb.co/MVmZVKM/park.webp",
+      "statusMessage": "북쪽에 계신 메리메리"
+    },
+    {
+      "userId": 11,
+      "userName": "데프콘",
+      "profileImage": "https://i.ibb.co/DLFV9yz/con.webp",
+      "statusMessage": ""
+    },
+    {
+      "userId": 12,
+      "userName": "길성준",
+      "profileImage": "https://i.ibb.co/jLk9XQy/gill.webp",
+      "statusMessage": "나 이런게 무서워하네"
+    },
+    {
+      "userId": 13,
+      "userName": "정준하",
+      "profileImage": "https://i.ibb.co/N2YdRvZ/jung.webp",
+      "statusMessage": "웃지마"
+    },
+    {
+      "userId": 14,
+      "userName": "유재석",
+      "profileImage": "https://i.ibb.co/jkppnqL/you.webp",
+      "statusMessage": ""
+    }
+  ]
+}
