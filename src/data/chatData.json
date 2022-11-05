@@ -1,0 +1,73 @@
+{
+  "1": [
+    {
+      "username": "프짱",
+      "messageTime": "12월 14일",
+      "content": "프론트가"
+    },
+    {
+      "username": "프짱",
+      "messageTime": "12월 14일",
+      "content": "미래다!"
+    },
+    {
+      "username": "장영준",
+      "messageTime": "12월 14일",
+      "content": "맞지"
+    }
+  ],
+
+  "2": [
+    {
+      "username": "백짱",
+      "messageTime": "12월 14일",
+      "content": "백엔드가"
+    },
+    {
+      "username": "백짱",
+      "messageTime": "12월 14일",
+      "content": "미래다!"
+    },
+    {
+      "username": "장영준",
+      "messageTime": "12월 14일",
+      "content": "그건 좀 .."
+    }
+  ],
+
+  "3": [
+    {
+      "username": "기획짱",
+      "messageTime": "12월 14일",
+      "content": "기획이"
+    },
+    {
+      "username": "백짱",
+      "messageTime": "12월 14일",
+      "content": "미래다!"
+    },
+    {
+      "username": "장영준",
+      "messageTime": "12월 14일",
+      "content": "음 .."
+    }
+  ],
+
+  "4": [
+    {
+      "username": "디자인짱",
+      "messageTime": "12월 14일",
+      "content": "디자인이"
+    },
+    {
+      "username": "디자인짱",
+      "messageTime": "12월 14일",
+      "content": "미래다!"
+    },
+    {
+      "username": "장영준",
+      "messageTime": "12월 14일",
+      "content": "ㅋㅋ"
+    }
+  ]
+}

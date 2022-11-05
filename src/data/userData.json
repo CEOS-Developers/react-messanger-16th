@@ -1,0 +1,22 @@
+[
+  {
+    "userId": 1,
+    "username": "프짱",
+    "introMessage": "프론트가 미래다!"
+  },
+  {
+    "userId": 2,
+    "username": "백짱",
+    "introMessage": "백엔드가 미래다!"
+  },
+  {
+    "userId": 3,
+    "username": "기획짱",
+    "introMessage": "기획이 미래다!"
+  },
+  {
+    "userId": 4,
+    "username": "디자인짱",
+    "introMessage": "디자인이 미래다!"
+  }
+]
