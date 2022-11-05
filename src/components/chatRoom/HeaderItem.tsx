@@ -1,6 +1,6 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
-
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+
 import { User } from '../../interfaces/interfaces';
 import { curUserState } from '../../recoil/recoil';
 

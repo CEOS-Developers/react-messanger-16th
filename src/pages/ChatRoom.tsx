@@ -1,17 +1,10 @@
-import { useParams } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-
-import { curUserState } from '../recoil/recoil';
 
 import ChatHeader from '../components/chatRoom/ChatHeader';
 import ChatInput from '../components/chatRoom/ChatInput';
 import ChatBoxList from '../components/chatRoom/ChatBoxList';
 
 const ChatRoom = () => {
-  const { id } = useParams();
-  const roomId = Number(id);
-
   return (
     <Container>
       <ChatHeader />
