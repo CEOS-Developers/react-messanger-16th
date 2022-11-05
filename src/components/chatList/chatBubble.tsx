@@ -62,6 +62,7 @@ const Bubble = styled.div`
   width: auto;
   background-color: #ffffff;
   border-radius: 0.3rem;
+  word-break: break-all;
 `;
 
 const ChatText = styled.div`

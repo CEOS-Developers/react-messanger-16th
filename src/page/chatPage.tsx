@@ -4,7 +4,7 @@ import ChatBubbleList from '../components/chatList/chatBubbleList';
 import ChatInput from '../components/chatInput';
 import { useLocation } from 'react-router-dom';
 
-const ChatRoom = () => {
+const ChatPage = () => {
   const location = useLocation();
   const roomId = Number(location.state.roomId);
 
@@ -21,7 +21,7 @@ const ChatRoom = () => {
   );
 }
 
-export default ChatRoom;
+export default ChatPage;
 
 const Background = styled.div`
   display: relative;

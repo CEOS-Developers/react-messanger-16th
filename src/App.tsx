@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './page/mainPage';
 import SettingPage from './page/settingPage';
 import ListPage from './page/listPage';
-import ChatRoom from './page/chatRoom';
+import ChatPage from './page/chatPage';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
             <Route path="/" element={<MainPage/>}/>
             <Route path="/chatting" element={<ListPage/>}/>
             <Route path="/setting" element={<SettingPage/>}/>
-            <Route path="/chatRoom" element={<ChatRoom/>}/>
+            <Route path="/chatRoom" element={<ChatPage/>}/>
           </Routes>
           
         </BrowserRouter>
