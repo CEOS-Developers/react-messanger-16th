@@ -6,16 +6,18 @@ import styled from 'styled-components';
 const FriendsList = ({ users }: { users: User[] }) => {
   return (
     <Friends>
-      {users.map((user) => (
-        <>
-          <FriendItem key={user.user_id} {...user} />
-          {user.user_id === 1 ? (
+      {users.map((user) =>
+        user.user_id === 1 ? (
+          <FriendItemWrapper key={user.user_id}>
+            <FriendItem {...user} />
             <FriendsNum>친구 {users.length - 1}</FriendsNum>
-          ) : (
-            <></>
-          )}
-        </>
-      ))}
+          </FriendItemWrapper>
+        ) : (
+          <FriendItemWrapper key={user.user_id}>
+            <FriendItem {...user} />
+          </FriendItemWrapper>
+        )
+      )}
     </Friends>
   );
 };
@@ -24,7 +26,12 @@ const Friends = styled.div`
   padding: 1rem 1rem 0;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+`;
 
+const FriendItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 `;
 
