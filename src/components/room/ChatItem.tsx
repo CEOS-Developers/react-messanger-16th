@@ -68,6 +68,7 @@ const Wrapper = styled.div<{ isMyChat: boolean; isContinual: boolean }>`
   .bubble {
     padding: 10px 12px;
     white-space: pre-wrap;
+    word-break: break-all;
     border-radius: 5px;
     position: relative;
     order: ${({ isMyChat }) => isMyChat && 2};
