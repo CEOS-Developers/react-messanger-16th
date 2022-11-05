@@ -44,9 +44,4 @@ const Container = styled.div`
   border-radius: 1rem;
 `;
 
-const ColumnContainer = styled.div`
-  display: flex;
-  flex-direction : column;
-`;
-
 export default App;

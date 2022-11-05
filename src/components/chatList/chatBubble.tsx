@@ -69,10 +69,4 @@ const ChatText = styled.div`
   font-size: 0.9rem;
 `;
 
-const DayText = styled.div`
-  font-size: 0.5rem;
-  left: 1rem;
-  top: 0.5rem;
-`;
-
 export default ChatBubble;
