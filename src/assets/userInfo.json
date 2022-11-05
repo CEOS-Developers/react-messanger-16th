@@ -1,0 +1,8 @@
+[
+  { "userId": 0, "userName": "죠르디", "userImage": "jordy", "status": "Love dive" },
+  { "userId": 1, "userName": "어피치", "userImage": "apeach", "status": "attention" },
+  { "userId": 2, "userName": "콘", "userImage": "con", "status": "Blue Flame" },
+  { "userId": 3, "userName": "무지", "userImage": "mozi", "status": "도깨비불" },
+  { "userId": 4, "userName": "네오", "userImage": "neo", "status": "Nxde" },
+  { "userId": 5, "userName": "오지은", "userImage": "myProfile", "status": "우하하" }
+]
