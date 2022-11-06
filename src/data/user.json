@@ -1,0 +1,27 @@
+[
+  {
+    "userid": 0,
+    "name": "ch9eri",
+    "status": "정신체리!"
+  },
+  {
+    "userid": 1,
+    "name": "orange",
+    "status": "오렌지를 먹은 지 얼마나 오렌지"
+  },
+  {
+    "userid": 2,
+    "name": "banana",
+    "status": "바나나 먹으면 세오스한테 바나나"
+  },
+  {
+    "userid": 3,
+    "name": "grape",
+    "status": "놀고시포도 참아"
+  },
+  {
+    "userid": 4,
+    "name": "watermelon",
+    "status": "과제를 할 수박에"
+  }
+]

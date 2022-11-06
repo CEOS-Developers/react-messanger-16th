@@ -1,0 +1,116 @@
+[
+  {
+    "roomidchat": 0,
+    "userid": 0,
+    "name": "ch9eri",
+    "msg": [
+      {
+        "userid": 0,
+        "name": "ch9eri",
+        "msgid": 0,
+        "text": "나와의 채팅방!"
+      }
+    ]
+  },
+  {
+    "roomid": 1,
+    "userid": 1,
+    "name": "orange",
+    "msg": [
+      {
+        "userid": 0,
+        "name": "ch9eri",
+        "msgid": 1,
+        "text": "안녕 나는 채리"
+      },
+      {
+        "userid": 1,
+        "name": "orange",
+        "text": "안녕 나는 오렌지",
+        "msgid": 2
+      },
+      {
+        "userid": 1,
+        "name": "orange",
+        "text": "오렌지를 먹은 지 얼마나 오랜지?",
+        "msgid": 3
+      }
+    ]
+  },
+  {
+    "roomid": 2,
+    "userid": 2,
+    "name": "banana",
+    "msg": [
+      {
+        "userid": 0,
+        "name": "ch9eri",
+        "msgid": 4,
+        "text": "안녕 나는 채리"
+      },
+      {
+        "userid": 2,
+        "name": "banana",
+        "text": "안녕 나는 바나나",
+        "msgid": 5
+      },
+      {
+        "userid": 2,
+        "name": "banana",
+        "text": "바나나 먹으면 세오스한테 바나나?",
+        "msgid": 6
+      }
+    ]
+  },
+  {
+    "roomid": 3,
+    "userid": 3,
+    "name": "grape",
+    "msg": [
+      {
+        "userid": 1,
+        "name": "ch9eri",
+        "msgid": 7,
+        "text": "안녕 나는 채리"
+      },
+      {
+        "userid": 3,
+        "name": "grape",
+        "text": "안녕 나는 포도",
+        "msgid": 8
+      },
+      {
+        "userid": 3,
+        "name": "grape",
+        "text": "놀고시포도 참아?",
+        "msgid": 9
+      }
+    ]
+  },
+  {
+    "roomid": 4,
+    "userid": 4,
+    "name": "watermelon",
+    "msg": [
+      {
+        "userid": 1,
+        "name": "ch9eri",
+        "msgid": 10,
+        "text": "안녕 나는 채리"
+      },
+      {
+        "userid": 4,
+        "name": "watermelon",
+        "text": "안녕 나는 수박",
+        "msgid": 11
+      },
+      {
+        "userid": 4,
+        "name": "watermelon",
+        "text": "과제를 할 수박에?",
+        "msgid": 12
+      }
+    ]
+  }
+  
+]
