@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Chat, User } from "../../types/interface";
+import { Chat, User } from "../../common/interface";
 import ChatItem from "./ChatItem";
 
 interface ChatListProps {
@@ -38,7 +38,8 @@ const Wrapper = styled.div`
   gap: 20px;
   height: 65%;
   overflow: auto;
-  background-color: skyblue;
+  background-color: powderblue;
+
   /* 스크롤바 커스텀*/
   ::-webkit-scrollbar {
     width: 3px;

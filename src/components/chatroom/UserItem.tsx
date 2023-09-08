@@ -1,4 +1,4 @@
-import { User } from "../../types/interface";
+import { User } from "../../common/interface";
 import styled from "styled-components";
 import { ProfileImage } from "../Item";
 
@@ -23,7 +23,6 @@ const Wrapper = styled.div`
   gap: 10px;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 `;
 
 export default UserItem;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { User } from "../../types/interface";
+import { User } from "../../common/interface";
 import UserItem from "./UserItem";
 
 interface UserListProps {
@@ -25,10 +25,9 @@ const UserList = ({ curUser, users, changeUser }: UserListProps) => {
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  padding: 5px;
-  background-color: white;
-  height: 15%;
+  justify-content: end;
+  gap: 12px;
+  padding: 8px 20px;
   box-sizing: border-box;
 `;
 

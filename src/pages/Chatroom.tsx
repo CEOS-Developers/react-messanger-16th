@@ -4,8 +4,8 @@ import styled from "styled-components";
 import ChatList from "../components/chatroom/ChatList";
 import InputForm from "../components/chatroom/InputForm";
 import UserList from "../components/chatroom/UserList";
-import { getRoomMembers } from "../hooks/getRoomMembers";
-import { Chat } from "../types/interface";
+import { getRoomMembers } from "../common/getRoomMembers";
+import { Chat } from "../common/interface";
 
 import userData from "../data/userData.json";
 import chatData from "../data/chatData.json";
@@ -46,7 +46,7 @@ function Chatroom() {
 
   return (
     <Wrapper>
-      <button onClick={() => navigate(-1)} />
+      <div className="close" onClick={() => navigate(-1)} />
       <UserList curUser={curUser} users={roomMembers} changeUser={changeUser} />
       <ChatList curUser={curUser} users={users} chats={chats} />
       <InputForm onConcat={onConcat} />
@@ -54,6 +54,24 @@ function Chatroom() {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .close {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    color: white;
+    background-color: red;
+    margin: 8px;
+    cursor: pointer;
+  }
+`;
 
 export default Chatroom;

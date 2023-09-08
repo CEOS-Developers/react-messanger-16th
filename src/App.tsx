@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import Layout from "./pages/Layout";
+import Layout from "./components/Layout";
 import FriendPage from "./pages/FriendPage";
 import ChatroomPage from "./pages/ChatroomPage";
 import SettingPage from "./pages/SettingPage";

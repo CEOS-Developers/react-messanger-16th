@@ -1,4 +1,4 @@
-import "./style/index.css";
+import "./common/index.css";
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";

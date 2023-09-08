@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Chat, User } from "../../types/interface";
+import { Chat, User } from "../../common/interface";
 import { ProfileImage } from "../Item";
 
 interface ChatItemProps {
@@ -17,7 +17,9 @@ const ChatItem = ({ chat, isCurUser, sender }: ChatItemProps) => {
       {isCurUser ? (
         <>
           <ChatWrapper>
-            {time}:{minute}
+            <div className="time">
+              {time}:{minute}
+            </div>
             <ChatBalloon isCurUser={true}>{chat.text}</ChatBalloon>
           </ChatWrapper>
         </>
@@ -28,7 +30,9 @@ const ChatItem = ({ chat, isCurUser, sender }: ChatItemProps) => {
             {sender.name}
             <ChatWrapper>
               <ChatBalloon isCurUser={false}>{chat.text}</ChatBalloon>
-              {time}:{minute}
+              <div className="time">
+                {time}:{minute}
+              </div>
             </ChatWrapper>
           </ContentWrapper>
         </>
@@ -53,6 +57,10 @@ const ChatWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   gap: 5px;
+  .time {
+    font-size: 8px;
+    color: grey;
+  }
 `;
 const ChatBalloon = styled.div`
   background-color: ${({ isCurUser }: { isCurUser: boolean }) =>

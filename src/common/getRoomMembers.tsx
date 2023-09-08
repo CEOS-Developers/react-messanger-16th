@@ -1,4 +1,4 @@
-import { User } from "../types/interface";
+import { User } from "./interface";
 import chatData from "../data/chatData.json";
 import userData from "../data/userData.json";
 
