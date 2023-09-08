@@ -4,8 +4,8 @@ import styled from "styled-components";
 import ChatList from "../components/chatroom/ChatList";
 import InputForm from "../components/chatroom/InputForm";
 import UserList from "../components/chatroom/UserList";
-import { getRoomMembers } from "../common/customHooks";
-import { Chat } from "../common/interface";
+import { getRoomMembers } from "../hooks/getRoomMembers";
+import { Chat } from "../types/interface";
 
 import userData from "../data/userData.json";
 import chatData from "../data/chatData.json";

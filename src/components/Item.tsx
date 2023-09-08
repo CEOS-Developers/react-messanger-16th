@@ -1,5 +1,21 @@
 import styled from "styled-components";
 
+export const Item = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  gap: 8px;
+
+  :hover {
+    background-color: whitesmoke;
+  }
+
+  .content {
+    color: gray;
+    font-size: 0.8rem;
+  }
+`;
+
 export const ProfileImage = styled.img`
   width: 40px;
   height: 40px;

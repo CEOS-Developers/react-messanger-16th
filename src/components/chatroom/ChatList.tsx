@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Chat, User } from "../../common/interface";
+import { Chat, User } from "../../types/interface";
 import ChatItem from "./ChatItem";
 
 interface ChatListProps {

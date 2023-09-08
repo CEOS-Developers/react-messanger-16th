@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 import chatData from "../data/chatData.json";
-import { getRoomMembers } from "../common/customHooks";
-import { ProfileImage } from "../common/ProfileImage";
+import { getRoomMembers } from "../hooks/getRoomMembers";
+import { ProfileImage } from "../components/Item";
 
 const ChatroomPage = () => {
   const chatrooms = chatData.rooms;
