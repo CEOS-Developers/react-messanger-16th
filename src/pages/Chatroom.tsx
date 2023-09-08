@@ -54,13 +54,6 @@ function Chatroom() {
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  height: 95vh;
-  border: 1px solid lightgray;
-  border-radius: 20px;
-`;
+const Wrapper = styled.div``;
 
 export default Chatroom;

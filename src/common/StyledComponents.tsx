@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-const ProfileImage = styled.img`
+export const GlobalStyle = createGlobalStyle`
+
+`;
+
+export const ProfileImage = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 15px;
   object-fit: cover;
-  opacity: ${({ selected }: { selected?: boolean }) =>
-    selected ? "50%" : "100%"};
+  outline: ${({ selected }: { selected?: boolean }) =>
+    selected ? "1px solid black" : "none"};
 `;
-
-export { ProfileImage };

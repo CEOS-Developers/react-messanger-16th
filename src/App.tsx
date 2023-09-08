@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
 import { Route, Routes } from "react-router-dom";
 
+import { GlobalStyle } from "./common/StyledComponents";
 import Layout from "./pages/Layout";
 import FriendPage from "./pages/FriendPage";
 import ChatroomPage from "./pages/ChatroomPage";
@@ -11,7 +11,6 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<FriendPage />} />
@@ -23,15 +22,5 @@ const App = () => {
     </>
   );
 };
-
-const GlobalStyle = createGlobalStyle`
-html{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: whitesmoke;
-  font-size: 0.8rem;
-}
-`;
 
 export default App;
