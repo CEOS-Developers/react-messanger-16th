@@ -18,6 +18,10 @@ html{
     border-radius: 10px;
   }
 
+  a {
+    text-decoration: none;
+  }
+  
   @media screen and (max-width: 400px) {
     body {
       width: 100%;

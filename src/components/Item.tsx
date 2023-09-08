@@ -10,6 +10,10 @@ export const Item = styled.div`
     background-color: whitesmoke;
   }
 
+  .title {
+    color: black;
+  }
+
   .content {
     color: gray;
     font-size: 0.8rem;
