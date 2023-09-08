@@ -20,11 +20,12 @@ export const Item = styled.div`
   }
 `;
 
-export const ProfileImage = styled.img`
+export const ProfileImage = styled.img<{ noImage?: boolean }>`
   width: 40px;
   height: 40px;
   border-radius: 15px;
   object-fit: cover;
   outline: ${({ selected }: { selected?: boolean }) =>
     selected ? "1px solid black" : "none"};
+  opacity: ${(props) => (props.noImage ? 0 : 1)};
 `;

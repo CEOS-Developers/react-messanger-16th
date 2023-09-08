@@ -5,15 +5,16 @@ import { ProfileImage } from "../Item";
 interface ChatItemProps {
   chat: Chat;
   isCurUser: boolean;
+  noProfile: boolean;
   sender: User;
 }
 
-const ChatItem = ({ chat, isCurUser, sender }: ChatItemProps) => {
+const ChatItem = ({ chat, isCurUser, sender, noProfile }: ChatItemProps) => {
   const time = String(new Date(chat.date).getHours()).padStart(2, "0");
   const minute = String(new Date(chat.date).getMinutes()).padStart(2, "0");
 
   return (
-    <Wrapper isCurUser={isCurUser}>
+    <Wrapper isCurUser={isCurUser} isMargin={!noProfile}>
       {isCurUser ? (
         <>
           <ChatWrapper>
@@ -25,9 +26,13 @@ const ChatItem = ({ chat, isCurUser, sender }: ChatItemProps) => {
         </>
       ) : (
         <>
-          <ProfileImage src={sender.profileImage} />
+          {noProfile ? (
+            <ProfileImage src={sender.profileImage} noImage={true} />
+          ) : (
+            <ProfileImage src={sender.profileImage} />
+          )}
           <ContentWrapper>
-            {sender.name}
+            {!noProfile && <div className="name">{sender.name}</div>}
             <ChatWrapper>
               <ChatBalloon isCurUser={false}>{chat.text}</ChatBalloon>
               <div className="time">
@@ -47,6 +52,8 @@ const Wrapper = styled.div`
   justify-content: ${({ isCurUser }: { isCurUser: boolean }) =>
     isCurUser ? "flex-end" : "flex-start"};
   width: 100%;
+  margin-top: ${({ isMargin }: { isMargin: boolean }) =>
+    isMargin ? "20px" : "0px"};
 `;
 const ContentWrapper = styled.div`
   display: flex;

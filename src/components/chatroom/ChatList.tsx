@@ -19,9 +19,10 @@ const ChatList = ({ curUser, chats, users }: ChatListProps) => {
 
   return (
     <Wrapper ref={chatListRef}>
-      {chats.map((chat) => (
+      {chats.map((chat, idx) => (
         <ChatItem
           key={chat.id}
+          noProfile={idx !== 0 && chats[idx - 1].senderId === chat.senderId}
           isCurUser={curUser === chat.senderId}
           chat={chat}
           sender={users[chat.senderId]}
@@ -35,7 +36,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  gap: 20px;
+  gap: 10px;
   height: 65%;
   overflow: auto;
   background-color: powderblue;
