@@ -5,7 +5,7 @@ import { ICON } from "../asset/icon";
 const MENUS = [
   { text: "친구", path: "/", icon: ICON.person },
   { text: "채팅", path: "/chatrooms", icon: ICON.chat },
-  { text: "설정", path: "/setting", icon: ICON.more },
+  { text: "더보기", path: "/setting", icon: ICON.more },
 ];
 
 export default function Layout() {
@@ -19,7 +19,7 @@ export default function Layout() {
             key={menu.text}
             to={menu.path}
             style={({ isActive }) =>
-              isActive ? { opacity: 1.0 } : { opacity: 0.5 }
+              isActive ? { opacity: 1.0 } : { opacity: 0.3 }
             }>
             <img src={menu.icon} alt="" />
           </NavLink>
