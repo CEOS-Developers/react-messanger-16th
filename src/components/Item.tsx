@@ -20,7 +20,10 @@ export const Item = styled.div`
   }
 `;
 
-export const ProfileImage = styled.img<{ noImage?: boolean }>`
+export const ProfileImage = styled.img<{
+  noImage?: boolean;
+  selected?: boolean;
+}>`
   width: 40px;
   height: 40px;
   border-radius: 15px;

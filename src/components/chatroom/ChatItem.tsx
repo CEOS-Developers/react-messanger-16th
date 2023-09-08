@@ -46,7 +46,7 @@ const ChatItem = ({ chat, isCurUser, sender, noProfile }: ChatItemProps) => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isCurUser: boolean; isMargin: boolean }>`
   display: flex;
   gap: 10px;
   justify-content: ${({ isCurUser }: { isCurUser: boolean }) =>
@@ -55,6 +55,7 @@ const Wrapper = styled.div`
   margin-top: ${({ isMargin }: { isMargin: boolean }) =>
     isMargin ? "20px" : "0px"};
 `;
+
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
