@@ -24,7 +24,7 @@ const InputForm = ({ onConcat }: InputFormProps) => {
   };
 
   const onSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
-    if (value.length == 0) {
+    if (value.length === 0) {
       return;
     }
     e?.preventDefault(); // 버튼을 통한 제출이라면 새로고침 방지

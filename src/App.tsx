@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 
-import { GlobalStyle } from "./common/StyledComponents";
 import Layout from "./pages/Layout";
 import FriendPage from "./pages/FriendPage";
 import ChatroomPage from "./pages/ChatroomPage";
@@ -10,7 +9,6 @@ import Chatroom from "./pages/Chatroom";
 const App = () => {
   return (
     <>
-      <GlobalStyle />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<FriendPage />} />

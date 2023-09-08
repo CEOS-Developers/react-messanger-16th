@@ -21,7 +21,7 @@ export default function Layout() {
             style={({ isActive }) =>
               isActive ? { opacity: 1.0 } : { opacity: 0.5 }
             }>
-            <img src={menu.icon} />
+            <img src={menu.icon} alt="" />
           </NavLink>
         ))}
       </Navigation>
@@ -35,8 +35,11 @@ export default function Layout() {
 
 const Wrapper = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;
 
 const Navigation = styled.div`
@@ -51,10 +54,12 @@ const Navigation = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 20px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 
   h2 {
     margin: 0px;
-    margin-bottom: 20px;
+    padding: 20px;
   }
 `;

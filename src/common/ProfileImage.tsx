@@ -1,9 +1,4 @@
 import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
-
-export const GlobalStyle = createGlobalStyle`
-
-`;
 
 export const ProfileImage = styled.img`
   width: 40px;
